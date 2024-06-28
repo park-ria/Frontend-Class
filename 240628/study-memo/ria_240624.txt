@@ -1,0 +1,292 @@
+1. UI/UX 관련 내용 => 피그마 툴 / 단일 페이지 / UX 파트(기획 요소)
+2. html, css 등 기초 문법 => 반응형 / 선택자 실습예제
+3. 1시간 첫번째 프로젝트 준비 시간
+
+
+wireframe : 선으로 그룹의 경계를 만들어 낸다
+
+Lo-fi wireframe
+=> Low(낮은) Fidelity(*품질 / 퀄리티) 저품질
+
+Hi-fi wireframe
+=> High Fidelity 고품질
+
+375 800
+375
+
+전체너비 : 375px
+컨텐츠너비 : 327px
+좌우측 패딩 : 48px / 2 = 24px
+
+Component > 피그마 UI 작업 > 개별적인 사이즈 변경을 최소화 + 통일감 있는 일관된 UI 디자인!!!
+
+Instance > 부모 요소인 Componenet 디자인 가이드를 무조건 상속!!!
+
+Instance  독립적인 size 변경 불가!!!
+> 폰트 컬러 / 폰트 사이즈
+
+예외사항 : detach Instance : Components와의 연결고리 해제
+
+
+
+프로토타입
+오른쪽 상단의 prototype > interactions의 click 클릭 > Nabigate to > 대상 클릭 > slide in
+
+
+<Figma 핵심기능>
+1. AutoLayout
+2. LayoutGrid
+3. Component / instance
+4. Porototype
+5. Style Guide (Font / Color)
+6. Plugin (iconify / feather icons / unsplash)
+
+
+
+* html.to.design에 url 넣으면 clone 코딩의 초기세팅이 쉽다
+* lorem : resources에서 Lorem Ipsum 쓰면 의미없는 언어 써짐
+
+
+*html, css, js => class, id명 작명 센스
+1) cammel 표기법 : contentTitle
+2) sneak 표기법 : content_title
+3) 헝가리언 표기법 : ContentTitle
+
+
+
+모던 자바스크립트 Deep Dive 책 추천
+mdn 사이트 참고
+
+
+
+###### html
+
+html : hyper text markup language
+
+<!-- html5 문법을 쓰겠다라는 선언문 -->
+<!DOCTYPE html>
+<!-- 개발자의 모국어 -->
+<html lang="ko">
+  <head>
+    <!-- 다양한 국가의 언어를 웹에 출력되게 끔 협약해 놓은 코드 -->
+    <meta charset="UTF-8" />
+    <!-- viewport 사용자가 작성한 코드를 보는 디바이스 화면 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html5</title>
+  </head>
+  <body>
+    <h1>
+      <a href="https://www.naver.com" target="_blank">HTML5 : 32px</a>
+    </h1>
+  </body>
+</html>
+
+viewport => 사용자에게 보여지는 화면 영역
+
+<meta name="viewport" content="width=device-width /> 
+=> 브라우저 너비를 장치 너비에 맞춰 표시(모바일, PC 웹 고려하기 위함)
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+=> initial-scale은 초기의 배율(0~1 사이의 값), 장치의 너비(width)에 맞추고 초기 배율은 1.0으로 지정
+
+
+* single tag
+- 홑태그, 단일태그
+- a / img /br / hr 등
+
+* multi tag
+- 열고 닫는 형식
+
+
+* 프로그래밍 언어 영역 => 짝수(even) / 홀수(odd)
+
+
+1. h(n) 태그 : heading 태그
+  - h1 ~ h6 : h1 > h6
+  - h1 : 32px
+  - 기본 속성이 없는 태그
+  - 단락에서 타이틀을 정의
+
+2. p 태그 : paragraph 태그
+  - 문장을 입력하고자 할 때
+  - dummy 문장(=lorem, 의미 없는 문장)을 활용해서 임시로 문자열 입력
+      >  emmet 문법 : lorem*8 + 탭키 하면 그만큼 많이 늘어난다
+
+3. br 태그 : break 태그
+  - 줄바꿈 태그
+
+4. hr 태그 : horizontal ruler 태그
+  - 너비를 다 차지하는 가로 선
+
+5. a 태그 : anchor 태그
+  - 특정 요소를 어디론가 보내주는 태그
+  - 문서상에서 내부 이동!!!
+  - 1개의 요소 안에서 복수의 링크를 설정하고 싶을 때
+  - href속성 / "" 속성값
+  - href(hyper reference)는 url를 넣어줘야 하는 속성임
+  - 반드시 href 써야함
+  - 고유한 스타일 존재(보라색 글자, 밑줄) => 초기 reset을 활용해서 제거
+    <style>
+      a {
+        /* 언더라인 제거 */
+        text-decoration: none;
+        /* 부모로부터 상속, 부모가 없다면 보통 검정 */
+        color: inherit;
+      }
+    </style>
+  - target="_blank" 새탭이 열림
+
+
+6. img 태그 :
+  - src(source)
+  - alt(alternative) : 이미지를 시각적으로 볼 수 없는 사람들이 음성으로 안내될 때
+  - usemap : 한 이미지에 여러개 이동태그를 넣고 싶을땐 usemap 속성을 쓰고 map태그와 area 태그를 씀
+  - https://www.image-map.net/ > select image from my pc 클릭을 하면 그림판 안쓰고 좌표를 알 수 있다
+
+    <img src="./nike.jpeg" alt="nike" usemap="#eventmap" />
+    <map name="eventmap">
+      <area
+        shape="rect"
+        coords="153,208, 282, 278"
+        href="https://www.nike.com"
+        alt="nikeKorea"
+        target="_blank"
+      />
+      <area
+        shape="rect"
+        coords="314,199,402,288"
+        href="https://www.naver.com"
+        alt="naver"
+        target="_blank"
+      />
+    </map>
+shape=rect 사각형 모양
+coords 웹 좌표계(좌상단 우하단)
+=> 좌표는 웹 화면 캡쳐후 그림판에서 좌상단과 우하단에 마우스 가져다 대면 아래에 좌표가 뜸
+=> shape이 rect일 땐 coords="좌상단x,좌상단y, 우하단x, 우하단y"
+=> shape이 circle일 땐 중심점을 찾고 반지름을 쓰면 됨 =>  coords="중심점x, 중심점y, 반지름"
+**https://www.image-map.net/ > select image from my pc 클릭을 하면 그림판 안쓰고 좌표를 알 수 있다
+
+
+7. audio / video
+  - source src=""
+  - 실무에서는 그렇게까지 많이 사용할 상황이 안뜨르는 편이다
+
+  - audio 태그 
+    <audio src="./contents/music.mp4" controls="controls"></audio>
+
+    controls="controls" 속성과 속성값이 같으면 하나 생략 가능, autoplay하면 자동 플레이 됨
+    <audio src="./contents/music.mp4" controls autoplay></audio>
+  - autoplay는 지양하는게 좋음. 광고 같은 이유로 차단 당할 수 있기 때문
+
+  - 또다른 방법, 주로 실무에선 이 태그로 쓰임
+    <audio controls>
+      <source src="./contents/music.mp4" type="audio/mp4" />
+    </audio>
+
+  - video 태그
+  - video 의도와 목적성이 있으면 쓰면 좋으나 유료적인 부분으로 이유없이는 지양하는게 좋다
+    <video controls>
+      <source src="./contents/video.mp4" type="video/mp4" autoplay/>
+    </video>
+
+  - youtube
+    유튜브에서 공유하기 > 퍼가기 > iframe 복사 > 개인정보 보호 강화모드를 사용설정합니다 체크 > 복사 후 div안에 넣기
+    <style>
+      .container {
+        width: 100%;
+        height: 100vh;
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    </style>
+
+    <div class="container">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/smdmEhkIRVc?si=NIt_iahQmRhL0BBH"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    ** 영상을 올리고 싶으면 유튜브로 올리고 공유하기 퍼가기로 가져와라
+
+
+8. 목록태그
+  - ul / ol
+    > unorder list : 카우팅을 하지않기 위한 목록(90%)
+    > order list : 순차적으로 카운팅을 하기 위한 목록
+    > li 태그 함께해야지만 목록 기능을 적용
+  * 중첩목록 ul>li>ul>li
+
+
+9. 테이블태그
+  - table / tr(행) / td(열, table data)
+  - table, td만 border만 준다
+      table, th, td {
+        border: 1px solid #000;
+        border-collapse: collapse; /* 보더 겹침 */
+      }
+  - 열 가운데에서 대표격인 열 : th(table header)
+  - html5 문법 > semantic 태그(*의미없이 사용하는 div 태그 지양)
+  - table > thead / tbody / tfoot 권장, 쓰지 않는다면 모두 tbody안으로 들어감
+  - colspan => 열 병합(*본인을 포함해서 병합)
+  - rowspan = > 행 병합(*본인을 포함해서 병합)
+  - row(행)을 그룹하는 것은 어렵지 않음 => tr / thead || tfoot
+  - column(열)을 그룹하는 것은 1가지 방법
+    > colgroup & col : 열을 그룹핑하고 싶으면 colgroup을 쓴다
+    > colgroup은 col과 함께 쓰인다
+    > col : 몇개의 열을 선택
+    > col은 홑태그
+      <colgroup>
+        <col span="2" style="background: #f00" />
+        <col style="background: #00f" />
+      </colgroup>
+  - thead & tfoot가 colgroup 보다 스타일 우선 적용권을 가지고 있다
+
+
+10. mark 태그 : 텍스트 뒷 배경컬러(*형광)
+
+11. b 태그 : bold 효과, 텍스트 두껍게
+
+12. figure & figcaption :  같이 쓰임
+  - 보통 일반적으로 테이블 태그 등을 사용할 때, 해당 요소의 타이틀을 정의하고자 할 때 사용
+figure > figcaption 어떠한 요소를 설명할 때 쓰임
+    <figure>
+      <figcaption>
+        <p>국내에서 자주 사용하는 <b>모던 브라우저</b> 리스트</p>
+      </figcaption>
+    </figure>
+
+
+
+
+* form 태그
+  - action 속성 & method 속성 갖고 있음
+  - action : client(*웹브라우저)로부터 특정 값을 받아서 serever로 해당 값을 전송을 해야할 시, 전송할 위치 경로를 정의하는 속성
+  - method : 사용자에게 값을 받아서 처리하는 방식을 어떻게 할 것인지 구분하기 위한 속성
+    1) get : 사용자가 입력한 값을 서버에게 전달을 한 경우, 해당 값에 매칭되어지는 페이지를 서버가 반환하도록 하는 method 방식
+    2) post : 단순히 특정 페이지를 그냥 가져오는게 아니라 사용자가 입력한 값을 반영한 업데이트되어진 페이지를 가져오고 싶을 때 사용하는 method 방식
+         ex) 유튜브 페이지 / 댓글
+  - label : for 속성값 = input id 속성값 일치하는 경우, label 태그로 input 태그를 선택할 수 있도록 할 수 있음
+  - 입력양식태그 같이 사용해야만 form 제 기능을 할 수 있음
+  - input type="text" : 아이디 및 텍스트 값을 받고자 할 때 사용
+  - input type="password" : 패스워드 같은 비밀스러운 값을 받고자 할 때
+  - input type="radio" : 여러개 후보들 중에 1개를 선택하고자 할 때
+  - input type="checkbox" : 여러개 후보들을 동시에 선택하고자 할 때
+  - input type="file" : 서버에 어떤 데이터를 업로드 하고자 할 때
+
+
+  - 여러개의 옵션들 중에서 하나를 선택할 수 있도록 해주는 form 입력양식 태그 => select 태그
+  - select 태그의 경우, 내부적으로 option 태그와 함께 사용해야만 정상적인 기능을 구현할 수 있음
+  (*tip, option 태그 중에서 메뉴명으로는 출력이 되나, 실제 사용자가 선택하지 못하도록 설정 => selected disabled 속성)
+  - option 요소들을 그룹화 할 수 있음 : potgroup이라는 태그 사용
+
+  - form 태그 내부 요소들을 하나로 그룹핑하고, 해당 요소들의 대표타이틀을 생성
+
+  1)fiedset : 해당 form 하나로 묶어서 테두리
+  2)legend : 테두리의 타이틀

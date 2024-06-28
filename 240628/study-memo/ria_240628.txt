@@ -1,0 +1,103 @@
+css를 활용해서 background 이미지를 가져오는 속성 및 방식 상이
+* 속성을 축약해서 사용하는 문법 존재
+  - font-size / font-weight => font
+  - background-image / background-size / background-position / background-repeat => background
+
+JS로 css 스타일을 제어하려면 style.backgroundImage
+style 뒤에는 속성 값을 넣는데 속성 값에는 특수문자를 넣을 수 없다. 그래서 카멜케이스로 입력
+
+* 템플릿 리터럴 문법
+bgImg.style.backgroundImage = `radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7)), url(./img/${bgImgs[0]})`;
+  - 백틱(`) : 문자열과 변수를 한 문장안에 같이 쓰겠다.
+  - 백틱(`) 안에 변수는 ${}안에 써줘야 함!!!!!
+
+JS > slide 배열 이용
+
+* e.preventDefault(); //기본적인 속성을 방해, 저지해줘 그래서 a태그 이동하는게 막힘
+
+API : json => Javascript Object Notation => 서버와의 통신하기 위해
+
+
+<script defer type="module" src="./script.js"></script>
+- type="module" 
+
+##### fetch() 함수
+  - api 주소를 넣으면 외부에서 데이터를 찾아올 수 있다.
+
+fetch("./data.json")
+  .then((response) => response.json()) // data.json에서 데이터를 찾아와서 reponse로 명명하고 그 데이터를 json형태를 객체 형태로 바꿈
+  .then((jsonData) => console.log(jsonData));
+
+이 메서드를 호출하면, 응답(response) 객체로 부터 JSON 포맷의 응답 전문을 자바스크립트 객체로 변환하여 얻을 수 있습니다.
+
+*** json 구조 분해 할당
+fetch("./data.json")
+  .then((response) => response.json())
+  .then((jsonData) => {
+    const [firstData, ...otherData] = jsonData.data;
+    //console.log(firstData);
+    //console.log(otherData);
+
+    contentTit.innerText = firstData.title;
+    contentDesc.innerText = firstData.description;
+  });
+첫번째 값은 firstData넣고 나머지 4개는 otherData에 넣어라
+
+
+
+
+// json형태를 객체 형태로 바꿈
+fetch("./data.json")
+  .then((response) => response.json())
+  .then((jsonData) => {
+    const [firstData, ...otherData] = jsonData.data;
+    //console.log(firstData);
+    //console.log(otherData);
+
+    contentTit.innerText = firstData.title;
+    contentDesc.innerText = firstData.description;
+
+    items.forEach((item, index) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault(); //기본적인 속성을 방해, 저지해줘 그래서 a태그 이동하는게 막힘
+
+        // json title과 description 추출
+        const { title, description } = jsonData.data[index]; // title과 description 값을 title과 descrition이라는 변수에 넣어라
+        //console.log(title, description);
+
+        // 이미지 교체
+        bgImg.style.backgroundImage = `radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7)), url(./img/${bgImgs[index]})`;
+
+        // 글자 교체
+        contentTit.innerText = title;
+        contentDesc.innerText = description;
+      });
+    });
+  });
+
+
+femaleBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // 서버로 데이터 값을 보내고자하는 속성을 없앰
+  femaleBtn.querySelector("i").classList.add("filledA");
+  maleBtn.querySelector("i").classList.remove("filledB");
+});
+
+
+femaleBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // 서버로 데이터 값을 보내고자하는 속성을 없앰
+  femaleBtn.querySelector("i").classList.toggle("filledA"); // toggle add와 remove를 번갈아가면서
+  maleBtn.querySelector("i").classList.remove("filledB");
+});
+
+
+
+
+
+중앙배치
+position : absolute
+margin
+display
+grid
+block
+
+
