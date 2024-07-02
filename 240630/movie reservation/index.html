@@ -3,36 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>깊이 빠져 보다, CGV</title>
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/dfc51b96a5.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- custom css & js -->
     <link rel="stylesheet" href="./style.css" />
-    <script defer src="./script.js"></script>
+    <script defer type="module" src="./script.js"></script>
   </head>
   <body>
-    <span class="left_gnb">
-      <span id="logo">
-        <img src="./img/logoWhite.png" alt="cgv" />
-      </span>
-      <ul class="topNav">
-        <li>
-          <a href="/movie">영화</a>
-        </li>
-        <li>
-          <a href="/theater">극장</a>
-        </li>
-        <li>
-          <a href="/ticketing">예매</a>
-        </li>
-        <li>
-          <a href="/store">스토어</a>
-        </li>
-        <li>
-          <a href="/event">이벤트</a>
-        </li>
-        <li>
-          <a href="/benefit">혜택</a>
-        </li>
-      </ul>
-    </span>
+    <div id="container">
+      <nav class="navigation">
+        <div class="gnb first">
+          <span id="first_left_gnb">
+            <span id="logo">
+              <img src="./img/logoRed.png" alt="cgv" />
+            </span>
+            <span id="logo_title">deep dive space</span>
+          </span>
+          <span id="first_right_gnb">
+            <ul class="nav_icon">
+              <li>
+                <a href="/login">
+                  <img src="./img/loginPassword.png" alt="login" />
+                  <span>로그인</span>
+                </a>
+              </li>
+              <li>
+                <a href="/join">
+                  <img src="./img/loginJoin.png" alt="join" />
+                  <span>회원가입</span>
+                </a>
+              </li>
+              <li>
+                <a href="/myCgv">
+                  <img src="./img/loginMember.png" alt="my cgv" />
+                  <span>MY CGV</span>
+                </a>
+              </li>
+              <li>
+                <a href="/customerService">
+                  <img src="./img/loginCustomer.png" alt="customer service" />
+                  <span>고객센터</span>
+                </a>
+              </li>
+            </ul>
+          </span>
+        </div>
+      </nav>
+      <nav class="navigation category">
+        <div class="gnb second">
+          <ul class="topNav">
+            <li>
+              <a href="/movie">영화</a>
+            </li>
+            <li>
+              <a href="/theater">극장</a>
+            </li>
+            <li>
+              <a href="/ticketing">예매</a>
+            </li>
+            <li>
+              <a href="/store">스토어</a>
+            </li>
+            <li>
+              <a href="/event">이벤트</a>
+            </li>
+            <li>
+              <a href="/benefit">혜택</a>
+            </li>
+          </ul>
+          <span class="search_bar">
+            <input
+              type="text"
+              name="search_inp"
+              id="search_inp"
+              placeholder="북국백화점의 안내원"
+            />
+            <button id="search_btn"></button>
+          </span>
+        </div>
+      </nav>
+    </div>
   </body>
 </html>
