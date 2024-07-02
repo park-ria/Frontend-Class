@@ -1,0 +1,260 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* custom */
+/* variable */
+:root {
+  --main-gray-color: #d1d1d1;
+}
+
+/* container */
+#container {
+  width: 100%;
+  position: relative;
+}
+
+/* top_navigation */
+#top_navigation {
+  width: 1098px;
+  height: 70px;
+  display: flex;
+  /* 수직정렬 */
+  align-items: center;
+  /* 양 끝쪽으로 보냄 */
+  justify-content: space-between;
+  /* border: 1px solid #f00; */
+  margin: 0 auto;
+}
+
+/* left_gnb */
+.left_gnb {
+  display: flex;
+  /*수직 정렬*/
+  align-items: center;
+  gap: 30px;
+}
+
+.left_gnb_first {
+  display: flex;
+  /* 수평 정렬 */
+  justify-content: center;
+  /*수직 정렬*/
+  align-items: center;
+  gap: 10px;
+  width: 84px;
+}
+
+#logo img {
+  width: 24px;
+  height: 24px;
+  /* border: 1px solid #f00; */
+}
+
+.category_title {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+.topNav {
+  display: flex;
+  gap: 60px;
+  padding-bottom: 4px;
+}
+
+.topNav > li {
+  position: relative;
+}
+
+.topNav > li > a {
+  color: var(--main-gray-color);
+}
+
+.topNav .active {
+  color: #000;
+  font-weight: bold;
+}
+
+/* .topNav li:first-child a {
+  color: #000;
+  font-weight: bold;
+} */
+
+.topNav > li .lnb {
+  width: 160px;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(
+    -50%,
+    100%
+  ); /*본인의 높이값 만큼 내려왔으면 좋겠어서 100%*/
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0 8px;
+  opacity: 0; /*그 자리에 존재하지만 투명하게끔 만들어 줌, 이것만 쓰면 존재하기때문에 마우스가 지나칠 때마다 나타난다*/
+  overflow: hidden; /*공간안에 들어오지않으면 인지하지 않겠다, 스크립트에서 maxHeight도 같이 줘야함*/
+  /* border: 1px solid #f00; */
+}
+
+.topNav > li .lnb a {
+  color: #000;
+  margin: 20px 0;
+  display: inline-block; /*a태그가 인라인태그라 마진 안먹히므로 넣어야 함*/
+  &:hover {
+    color: #e70017;
+  }
+}
+
+/* right_gnb */
+.right_gnb {
+  display: flex;
+  gap: 26px;
+}
+
+.nav_icon {
+  /* display: inline-block; */
+  /* 부모가 display:flex여서 자식요소는 자동으로 block이 되어서 inline-block 안써도 됨*/
+  width: 40px;
+  height: 40px;
+}
+
+.fa-user {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  background: var(--main-gray-color);
+  color: #fff;
+  border-radius: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.list_first,
+.list_second {
+  width: inherit;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fa-square {
+  color: var(--main-gray-color);
+}
+
+/* background_img */
+#background_img {
+  width: 100%;
+  height: 774px;
+  /* background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7)),
+    url("./img/bg.png") center/cover no-repeat; */
+  /* 
+  radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7))가운데는 밝게(transparent) 가로 갈수록 어둡게
+  radial-gradient(유형, 가운데색, 끝색)
+  center/cover 이미지가 전체 차지하길 원하면  포지션이랑 크기를 같이 넣어야만 나옴
+  no-repeat 웹 사이즈와 무관하게 사진 하나만 나오도록 바꿈
+  */
+  /* background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7)),
+    url("./img/bg1.jpg"); */
+  background-position: 0 5%; /*x축으로 부터 얼마나 떨어질 것이냐, y축으로 얼마나 이동할 것이냐*/
+  background-size: cover; /*웹화면을 축소해도 공백없이 사진이 가득 차도록*/
+  background-repeat: no-repeat; /*웹화면을 축소할 때 여러개로 나오지 않도록*/
+}
+
+/* top_banner */
+#top_banner {
+  width: 100%;
+  height: 60px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  justify-content: center; /*수평정렬*/
+  align-items: center; /*수직정렬*/
+  gap: 10px;
+}
+
+#top_banner .badge {
+  text-transform: uppercase; /*텍스트 대문자로 변환효과*/
+  font-size: 16px;
+  background: #e92130;
+  padding: 10px 16px;
+  padding-top: 8px;
+  border-radius: 30px;
+}
+
+#top_banner .title {
+  font-size: 16px;
+}
+
+/* top_lnb */
+#top_lnb {
+  width: 100%;
+  color: #fff;
+}
+
+#top_lnb ul {
+  display: flex; /*한줄로*/
+  justify-content: center; /*수평정렬*/
+  align-items: center; /*수직정렬*/
+  gap: 80px;
+  margin: 30px 0;
+}
+
+#top_lnb ul li a {
+  font-size: 26px;
+}
+
+/* top_contents */
+#top_contents {
+  width: 1098px;
+  margin: 0 auto;
+  margin-top: 60px;
+  /* border: 1px solid #f00; */
+  color: #fff;
+}
+
+.top_contents_title {
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+.top_contents_desc {
+  font-size: 18px;
+  width: 600px;
+}
+
+/* card_items */
+#card_items ul {
+  width: 100%;
+  display: flex; /*한줄*/
+  justify-content: center; /*수평정렬*/
+  gap: 10px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100px);
+  /*bottom 0인 부분에서 100픽셀 만큼만 내려왔으면 좋겠다*/
+}

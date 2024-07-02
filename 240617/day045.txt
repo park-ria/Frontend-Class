@@ -1,0 +1,24 @@
+*작업한 결과물을 다른 외부사람들도 확인
+공유할 수 있도록 하는 마지막 출력작업
+
+*호스팅(hosting): server에 데이터를 업로드하는 작업
+- Filezilla & dot.home 가상의 임시 서버
+- Caf24
+-Git-hub
+
+ - Nerlify
+- Google Firebase
+- Amazon AWS
+
+*배포하기 전에는 항상 디버깅을 꼼꼼하게 체크
+bug(*벌레) / debuging(*벌레퇴치)
+
+*open graph: SNS 플랫폼 발달 & 스마트폰 대중화
+=> 공유하기 가능
+=> facbook: 어떤 내용의 컨텐츠, 디자인 미리보기 형식 공유
+
+구글 파이어베이스
+
+CLI: Command Line Interface
+Node Package Manager
+V8
