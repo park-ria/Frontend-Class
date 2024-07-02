@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a:visited {
+        color: #f00;
+      } /*방문했던 경우의 a태그*/
+
+      a:link::after {
+        content: " - " attr(href);
+      } /*link를 걸 수 있는 태그가 있는 경우*/
+    </style>
+  </head>
+  <body>
+    <h1>
+      <a>Nothing</a>
+    </h1>
+    <h1>
+      <a href="https://www.naver.com">EZEN ACADEMY</a>
+      <br />
+      <a href="https://www.google.com">Google</a>
+    </h1>
+  </body>
+</html>

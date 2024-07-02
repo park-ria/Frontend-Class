@@ -1,0 +1,124 @@
+main > section > article > div > span
+
+.skill-progress > .item:nth-of-type(1) .progress-level {
+  width: 90%;
+}
+우리와 동일한 형태부터 숫자 세
+
+
+구조 선택자 2가지 종류
+1) 일반 구조 선택자
+  - 1개의 부모 요소안에 있는 모든 형제들을 형태와 관계없이 입력된 순서대로 번호를 카운팅함
+  - nth-child(n) : 1번부터 입력
+  - first-child : 첫번째 요소
+  - last-child : 마지막 요소
+  - 홀수 혹은 짝수번재 요소들만 찾아올 수도 있음
+      ul {
+        display: flex;
+        li {
+          padding: 20px;
+          &:nth-child(2n) {
+            background-color: #f00;
+          }
+        }
+      }
+  - 짝수는 : &:nth-child(2n) / 홀수는 &:nth-child(2n+1)
+
+2) 형태 구조 선택자
+  - 1개의 부모 요소안에 동일한 형태를 가지고 있는 형제들 가운데서 순서대로 번호를 카운팅함
+  - nth-of-type(n) : 1번부터 입력
+  - first-of-type
+  - last-of-type
+
+
+emmet 문법
+문법 : (h${Header - $}*3)*2
+결과 : 
+      <h1>Header - 1</h1>
+      <h2>Header - 2</h2>
+      <h3>Header - 3</h3>
+      <h1>Header - 1</h1>
+      <h2>Header - 2</h2>
+      <h3>Header - 3</h3>
+
+
+
+
+
+* 문자 선택자
+1) 시작 문자 선택자
+  > 특정 문서안에 시작하는 첫번째 단어 혹은 문장을 선택해서 스타일을 적용하고 할 때
+     - ::first-letter => 시작하는 첫번째 문자열
+      p::first-letter {
+        font-size: 3rem;
+      }
+      최상위 폰트 사이즈(rem) * 3 = 16px*3 = 48px
+
+     - ::first-line : 시작하는 첫번째 행
+      p::first-line {
+        color: #f00;
+      }
+
+2) 전후 문자 선택자(*중요)
+  - 문서 상에 특정 요소의 앞과 뒤에 어떤 스타일링을적용하고 할 때 사용할 수 있는 선택자
+  - 2차원적인 영역만 이야기하는 것이 아님
+  - 3차원적인 측면(*이미지 혹은 아이템을 기준으로 z축으로 양수(앞으로 튀어나옴) / 음수)
+  - 스타일을 적용할 때, 반드시 content:"" 기입
+  - position 속성 : 부모 relative / 자식 absolute
+      부모요소의 전체 너비와 높이를 기준으로 자식요소의 위치를 결정!!
+  - 전.후문자 선택자의 모체가 되어지는 요소는 부모요소
+  - 전.후문자 선택자를 활용해서 탄생되는 요소는 자식요소
+
+      p {
+        counter-increment: rint; /*숫자를 증가시킴*/
+      }
+      p::before {
+        content: counter(rint) ".";
+      }
+      p::after {
+        content: " - " attr(data-page) " page";
+      }
+     <p data-page="52"></p>
+
+* 실문에서 전후문자 선택자를 프로페셔널하게 사용하는 방법!!!
+  - html을 통해서 속성정의할 때
+  - data- : 접두어 + 문자열 => 고유한 속성이 됨
+attr() : 특정한 속성을 찾아올 때 씀
+
+* data- 접두어를 활용해서 어디까지 프로그래밍 혹은 스타일!!!
+
+3) 반응 문자 선택자
+  - 사용자의 이벤트에 반응하는 문자 선택자
+  - 반응선택자 : 문자를 대상 X
+  - 반응 문자 선택자 : 문자를 대상
+  - ::selection
+
+      p::selection {
+        background-color: #000;
+        color: #f00;
+      }
+
+12) 링크선택자 :
+  1) 링크를 가지고 있는 요소들을 선택하기 위한 목적
+   > :link
+  2) 특정 링크가 클릭된 경우를 선택하기 위한 목적
+    > :visited
+
+13) 부정 선택자
+  - 선택한 해당 요소를 제외한 나머지 요소들에게 스타일을 적용하고 싶은 경우 사용
+     > not() => 해당 함수안에는 부정하고자 하는 기준값이 매개변수 포함될 수 있음
+
+
+1) jquery 다운로드(https://jquery.com/download/)
+jQuery CDN의 https://releases.jquery.com 클릭
+1.x 버전의 uncompressed 우클릭 링크 복사 => (https://code.jquery.com/jquery-1.12.4.js)
+복사한 걸 html에 <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 넣기
+
+2) jquery mobile 다운로드(https://jquerymobile.com/download/)
+css의 uncompressed ~.css 우클릭 링크 복사 후 html에 넣기
+<link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css"
+    />
+javascript의 uncompressed:~.js 우클릭 링크복사 후 html에 넣기
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
