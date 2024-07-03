@@ -169,8 +169,21 @@ a {
   position: absolute;
   bottom: 0;
   transform: translateY(100px);
-  li a img {
-    width: 170px;
-    height: 234px;
+  li {
+    position: relative;
+    &:hover {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #f00;
+        z-index: 1;
+      }
+    }
+    a img {
+      width: 170px;
+      height: 234px;
+    }
   }
 }
