@@ -1,0 +1,105 @@
+1. git => 형상기억관리 툴 / 버전관리 툴
+
+2. git => F/E || B/E 웹 개발 => 필수!!
+
+3. git 관련 책 => 방대한 지식 양
+
+4. git
+  - working directory : 현재 작업중인 로컬 컴퓨터 안에 있는 루트 디렉토리를 의미
+  - staging area : git에 커밋하기 전 단계로 커밋을 할 데이터를 보관하는 장소
+  - git directory : 실제 버전 관리를 하기 위해서 커밋을 한 데이터들이 저장되어 있는 장소
+  - git Hub : 나의 로컬 컴퓨터에 커밋된 데이터를 내가 아닌 협업 개발자들도 같이 공유해서 사용할 수 있도록 만들어진 git의 원격 저장소
+
+5. git을 사용하려면
+  1) 컴퓨터 git 설치 
+      - 로컬 컴퓨터에 gitBash 프로그램 설치 
+      - git -v : 로컬 컴퓨터에 설치된 gitBash 버전 확인 
+      - git config --list : 로컬 컴퓨터에 저장된 git 소유자의 프로필 정보를 확인
+      - 구글 git bash 검색(https://git-scm.com/downloads) > standalone installer 64비트 다운 > next로 설치
+      -
+  2) git-hub 계정 생성(https://github.com/)
+  3) 계정 name & 계정 email 알아야 함
+       - name : park-ria
+       - email : danny6217@gmail.com
+       - 깃허브 > 내계정 > settings > email에서 확인
+ 
+  4) 로컬 컴퓨터에 나의 git 정보를 세팅
+      - cmd > 관리자 권한 모드와 일반 모드 모두
+      - git config --global user.name "park-ria"
+      - git config --global user.email "danny6217@gmail.com"
+      - git config --list로 확인
+
+  5) 기존 email 혹은 name을 수정하고 할 때
+      - git config -unset --global user.name // 기존 등록 name 삭제
+      - git config -unset --global user.email // 기존 등록 email 삭제
+
+  6) 로컬 컴퓨터에서 나 말고 다른 사람의 정보가 있을 때
+      - 관리자 모드(전역) : git config --global --unset credential.helper
+      - 일반 모드(로컬) : git config --local --unset credential.helper
+      - 시스템 : git config --system --unset credential.helper
+
+  7) 로컬 git 저장소 && 원격 git-hub 저장소 연결
+      - git-hub 저장소 : repository(레파지토리 혹은 레포지토리) => 폴더 생성
+         레파지토리 클릭 > new 클릭 > 레파지토리 이름 넣기(나중에 수정 불가) > description에 부연설명 넣기(수정가능)
+         > public(공개, 그래야 잔디 생김) > Add a README file 체크 > create repository >code 클릭 > https 복사
+      - https://github.com/park-ria/Frontend-Class.git
+
+      - 로컬 컴퓨터 신규 폴더 생성 => daily commit(*오늘 날짜 폴더 생성)
+          > 바탕화면 새폴더 생성(frontend-class) > 생성한 폴더 들어가서 오늘날짜 폴더 생성
+          > 폴더에 작업했던 파일 복붙 > 폴더나가기
+      - frontend-class 폴더(최상위폴더)로 들어가서 코드로 열기 => vs code 열림
+
+  8) 로컬 컴퓨터, staging area 생성
+      - ctrl + ` => 터미널 열림
+      - powershell 왼쪽 화살표 클릭하여 Git Bash클릭
+      - git init 입력 => staging area 생성하겠다 -> 텅빈 깃 레파지토리 만들어 짐(녹색 버튼은 아직 전송안했다는 뜻) 
+          -> 루프 폴더가면 .git 폴더 생김 -> git init은 최상위 폴더에서 최조에 한 번만 함!!!
+          -> 하위 폴더 안에 .git이 있으면 충돌 생김!!! 하위 폴더에 있다면 .git 삭제 하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  9) .git & repository 연결
+      - git remote add origin 레포지토리URL
+      - git remote add origin https://github.com/park-ria/Frontend-Class.git 를 터미널에 입력
+      - git remote -v 입력 (*정상적으로 연결 확인)
+          > fetch 외부로부터 데이터를 가져온다
+          > push 외부로 데이터를 보낼 준비가 되었다는 뜻
+
+  10) 나의 data를 staging area로 input하고자 할 때!!!
+      - git add . 입력=> 나는 현재 루트 폴더에 있는 거를 staging area에 모두 넣겠다
+      - git status 입력=> 상태를 봄 => 여기에 들어온 애만 보낼 수 있음
+
+  11) commit을 하기 위한 메세지 기록!!!
+      - 내가 언제 어떤 목적으로 commit을 했는지 인지하기 위한 목적
+      - git commit -m "240628" 입력
+      - 초록색 사라짐 -> 로컬 컴퓨터 깃 저장소에는 들어 갔다 -> 원격으로 보낼 준비가 끝남
+
+   12) 원격 레포지토리로 data를 commit!!!
+      - git push origin master 입력
+      - master가 최종본을 의미, 팀원 branch
+      - Sign in with your browser 클릭
+      - 로그인 하고 다 승인해주기 > 내 깃허브에 올라감
+      - 만약 거절 당했을 때 처리 방법
+          > 제어판 > 사용자계정 > 자격 증명 관리자 > windows 자격 증명
+          > 일반 자격 증명에 githumb.com에 본인 이름이 아님 > 제거 클릭
+          > 일반 자격 증명 추가 > 인터넷 또는 네트워크 주소 : https://github.com/park-ria/Frontend-Class.git 입력
+          > 사용자 이름 : park-ria > 암호 : github password 넣고 확인
+          > 실패했던 vs code 나가고 다시 루트 폴더에서 code로 열기 > 다시 git push origin master 입력
+
+  13) 추가 수정을 한 후 commit 하는 법
+     > 최상위 폴더 가서 코드로 열기 해서
+     > git add .  
+     > git status 
+     > git commit -m "메세지" 
+     > git push origin master 입력해서 올리기
+
+ 14) 집에서 다운 받는 법!!!
+      - 처음 받는 법
+          -> 집 컴퓨터에서 frontend-class home 폴더 만들어서 코드로 열기
+          -> git-bash 터미널 열기
+          -> git init 입력
+          -> git remote add origin https://github.com/park-ria/Frontend-Class.git
+          -> git pull origin master
+
+      - 추가 수정본을 받는 법
+          -> git pull origin master
+
+

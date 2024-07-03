@@ -1,0 +1,964 @@
+/* reset.css */
+@import url("./reset.css");
+
+/* ==== desktop ==== */
+
+/* common */
+#app_container {
+  width: 100%;
+  overflow-x: hidden; /*x축 기준으로 오버하게 보게되면 없애겠다*/
+}
+
+/* navigation */
+#navigation_heading {
+  width: 100%;
+  height: 60px;
+  background: var(--bg-color-white);
+  /*스크롤 휠을 내리더라도 고정 시키겠다*/
+  position: fixed;
+  z-index: 5;
+  transition: all 0.3s;
+}
+
+#navigation_heading.active {
+  background: var(--bg-color-black);
+}
+
+#navigation {
+  width: var(--main-width);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background: var(--bg-color-white);
+  transition: all 0.3s;
+}
+
+#navigation.active {
+  background: var(--bg-color-black);
+}
+
+#logo {
+  font-family: "Bree Serif", serif;
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+#logo.active {
+  color: var(--bg-color-white);
+}
+
+.gnbDesktop {
+  display: flex;
+  gap: 40px;
+}
+
+.gnbMobile {
+  display: none;
+}
+
+.gnbDesktop.active {
+  color: var(--bg-color-white);
+}
+
+.gnbDesktop li a {
+  position: relative;
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.gnbDesktop li a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%; /*translateX(-50%)때문에 왼쪽으로 치우쳐져서 50% 뒤로 밀어서 정중앙에 오도록 함*/
+  width: 0;
+  height: 2px;
+  background: crimson;
+  border-radius: 2px;
+  transform: translateX(-50%); /*가운데에서 바가 양쪽으로 생성됨*/
+  transition: all 0.3s; /*왼쪽에서 오른쪽으로 바가 생김*/
+}
+
+.search_bar {
+  position: fixed;
+  top: 0;
+  right: -470px;
+  width: 470px;
+  height: 100vh;
+  background: var(--bg-color-white);
+  z-index: 5;
+  transition: all 0.3s;
+}
+
+.search_bar.active {
+  right: 0;
+}
+
+.search_bar .fa-xmark {
+  font-size: 26px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.search_bar_form {
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  top: 100px;
+}
+
+.search_bar_form h2 {
+  font-size: 34px;
+}
+
+.search_bar_form input {
+  width: 100%;
+  height: 60px;
+  margin: 20px 0 40px;
+  padding-left: 20px;
+  font-size: 18px;
+  border: 2px solid #000;
+}
+
+.search_bar_form .fa-magnifying-glass {
+  position: absolute;
+  top: 98px;
+  right: 38px;
+  font-size: 26px;
+}
+
+.search_favaorite {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.search_hashtag {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  font-size: 18px;
+  span {
+    background: #f3f3f3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      background: var(--bg-color-black);
+      color: var(--bg-color-white);
+    }
+  }
+}
+
+.trigger {
+  display: none;
+}
+
+/* slide */
+#slide {
+  width: 100%;
+  position: relative;
+}
+
+.slide_text {
+  /* width: var(--main-width); */
+  width: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: 2;
+  /* border: 1px solid #f00; */
+}
+
+.slide_text_inner {
+  width: 568px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.slide_title {
+  color: var(--bg-color-white);
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.slide_button {
+  width: 212px;
+  height: 52px;
+  font-size: 18px;
+  font-family: "NEXON Lv1 Gothic";
+  background-color: var(--bg-color-white);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+}
+
+.slide_container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  z-index: -1;
+}
+
+.slide_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  z-index: 0;
+}
+
+.slide_container li {
+  width: 100%;
+  height: 100%;
+}
+
+.slide_container .slide_img {
+  width: 100%;
+  height: 100%;
+  /*액자식으로 이미 넣을 때 씀
+  object-fit: cover;*/
+  background-size: cover;
+  background-position: center;
+}
+
+.slide_container_arrow {
+  width: var(--main-width);
+  height: 500px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  /*border: 1px solid #f00;*/
+}
+
+.slide_container_arrow .slide_container_btn.right {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin-top: 100px;
+  padding-top: 8px;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 1);
+  transform: translateX(-10px);
+  transition: all 0.3s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--bg-color-white);
+    border-radius: 100%;
+    transform: translateX(0); /*오른쪽으로 조금 옮겨짐(translateX랑 비교)*/
+  }
+}
+
+.slide_container_arrow .slide_container_btn.left {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin-top: 100px;
+  padding-top: 8px;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 1);
+  transform: translateX(10px);
+  transition: all 0.3s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--bg-color-white);
+    border-radius: 100%;
+    transform: translateX(0); /*왼쪽으로 조금 옮겨짐(translateX랑 비교)*/
+  }
+}
+
+.slide_container_arrow .slide_container_btn i {
+  font-size: 26px;
+}
+
+.slide_pager {
+  width: var(--main-width); /*1190*/
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  /*border: 1px solid #f00;*/
+  z-index: 4;
+}
+
+.slide_pager span {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  text-indent: -9999px;
+}
+
+.slide_pager span.active {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* main */
+#main {
+  margin: 0 auto;
+  display: flex; /*가로로 한줄 주고 싶을 때, 하나의 행이 됨*/
+  justify-content: space-between; /*양쪽 끝에*/
+  align-items: center; /*수직 정렬*/
+  width: var(--main-width);
+  height: 620px;
+  background: var(--bg-color-white);
+  /*border: 1px solid #f00;*/
+}
+
+.main_text {
+  width: 422px;
+  display: flex; /*가로로 한줄 주고 싶을 때, 하나의 행이 됨*/
+  flex-direction: column; /*수직, 세로로 정렬*/
+  gap: 18px;
+}
+
+.main_info {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.main_desc {
+  display: flex;
+  flex-direction: column;
+  line-height: 180%; /*해당 줄의 높이*/
+}
+
+.main_slide {
+  position: relative;
+}
+
+.main_slide::before {
+  content: "";
+  position: absolute; /*부모 realtive 기준으로 절대 위치를 갖게 됨*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*border: 1px solid #f00;*/
+  background: radial-gradient(circle, transparent, rgba(255, 255, 255, 1) 80%);
+  /*80% 효과는 transparent고 20%효과는 rgba(255, 255, 255, 1)다*/
+  /*원형 그라디언트 가운데는 투명 가에는 불투명*/
+  background-size: cover; /*백그라운드 영역에 가득 채우겠다*/
+  z-index: 1;
+}
+
+.main_slide ul {
+  display: flex;
+  justify-content: space-between; /*양쪽 끝으로 보내겠다*/
+  width: 680px;
+  position: relative;
+}
+
+.main_slide ul li {
+  width: 240px;
+  display: flex;
+  flex-direction: column; /*세로 정렬*/
+}
+
+.main_slide ul li.active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  z-index: 2;
+  /*z값, 공간감 앞으로 나올 수록 양수, 뒤로빠질수록 음수, 한국만 앞으로 2만큼 튀어나옴*/
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card_img {
+  width: 240px;
+  height: 240px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card_img.first {
+  background: url("https://pra9128.cafe24.com/chef/denmark.png");
+}
+
+.card_img.second {
+  background: url("https://pra9128.cafe24.com/chef/jeju.png");
+}
+
+.card_img.third {
+  background: url("https://pra9128.cafe24.com/chef/usa.png");
+}
+
+.card_info {
+  background: var(--bg-color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  width: 100%;
+  height: 160px;
+}
+
+.card_info_national {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.card_info_desc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #000;
+}
+
+.card_info_price {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.main_slide_arrow {
+  z-index: 3; /*한국 카드보다 더 앞으로 튀어나오게 하고 싶어서 더 큰수를 넣음*/
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+}
+
+.main_slide_arrow .slide_arrow.left {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  color: var(--bg-color-black);
+  /*border: 1px solid #f00;*/
+  text-align: center; /*수평정렬*/
+  padding-top: 8px;
+  transform: translateX(10px);
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 1);
+  transition: all 0.3s;
+  &:hover {
+    color: var(--bg-color-black);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 100%;
+  }
+}
+
+.main_slide_arrow .slide_arrow.right {
+  position: absolute;
+  left: 640px;
+  width: 40px;
+  height: 40px;
+  color: var(--bg-color-black);
+  /*border: 1px solid #f00;*/
+  text-align: center; /*수평정렬*/
+  padding-top: 8px;
+  transform: translateX(-10px);
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 1);
+  transition: all 0.3s;
+  &:hover {
+    color: var(--bg-color-black);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 100%;
+  }
+}
+
+.main_slide_arrow .slide_arrow i {
+  font-size: 26px;
+}
+
+.main_slide_pager {
+  display: flex; /*한 행으로 만들고 여백을 일정하게 줌*/
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  bottom: -8%;
+  transform: translate(-50%);
+  cursor: pointer;
+}
+
+.main_slide_pager span {
+  width: 50px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  text-indent: -9999px;
+  /*글자를 들여쓰기 하겠다 왼쪽으로 갈수록 음수, 찾을 수 없을 정도로 보내겠다 = 숨기겠다*/
+}
+
+.main_slide_pager span.active {
+  background: rgba(0, 0, 0, 1);
+}
+
+/* detail */
+#detail {
+  background: var(--bg-color-white);
+  width: var(--main-width);
+  height: 100%;
+  margin: 0 auto;
+  /*border: 1px solid #f00;*/
+}
+
+#detail ul {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 10px;
+}
+
+#detail ul li {
+  width: 390px;
+}
+
+#detail .detail_img {
+  width: 390px;
+  height: 320px;
+}
+
+.detail_img.first {
+  background: url("https://pra9128.cafe24.com/chef/detail_1.png");
+}
+
+.detail_img.second {
+  background: url("https://pra9128.cafe24.com/chef/detail_2.png");
+}
+
+.detail_img.third {
+  background: url("https://pra9128.cafe24.com/chef/detail_3.png");
+}
+
+.detail_info {
+  padding: 10px;
+}
+
+.detail_info_title {
+  font-size: 18px;
+  margin: 20px 0 16px;
+}
+
+.detail_info_desc {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 150%; /*텍스트의 높이를 원래 크기보다 50% 더 높이겠다*/
+}
+
+/* membership */
+#membership {
+  width: var(--main-width);
+  height: 880px;
+  margin: 0 auto; /*위아래 마진은 0, 좌우는 알아서 나눠줘*/
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*수평정렬, 가로 가운데*/
+  justify-content: center; /*수직정렬, 세로 가운데*/
+  gap: 50px;
+  background: var(--bg-color-white);
+  /*border: 1px solid #f00;*/
+}
+
+.membership_heading {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.membership_menu {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.membership_type {
+  width: 390px;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+.membership_img {
+  width: 390px;
+  height: 200px;
+}
+
+.membership_type.basic .membership_img {
+  background: url("https://pra9128.cafe24.com/chef/membership_basic.png")
+    center/cover no-repeat;
+}
+
+.membership_type.premium .membership_img {
+  background: url("https://pra9128.cafe24.com/chef/membership_premium.png")
+    center/cover no-repeat;
+}
+
+.membership_info {
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+  height: 350px;
+  background: var(--bg-color-white);
+}
+
+.membership_title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.membership_price {
+  margin: 20px 0;
+  span {
+    font-size: 50px;
+    font-weight: 700;
+    margin-left: 10px;
+  }
+}
+
+.membership_desc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 60px;
+  line-height: 160%;
+  margin-bottom: 44px;
+}
+
+.membership_btn {
+  font-size: 14px;
+  padding: 18px 50px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  background: var(--bg-color-black);
+  color: var(--bg-color-white);
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background: var(--bg-color-white);
+    color: var(--bg-color-black);
+    border: 1px solid var(--bg-color-black);
+  }
+}
+
+.membership_type_pager {
+  display: none;
+}
+
+/* footer */
+#footer {
+  width: 100%;
+  height: 330px;
+  position: relative;
+  /*border: 1px solid #f00;*/
+}
+
+.footer_text_inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*본인의 x값에서 절반 만큼 왼쪽으로, 절반만큼 위쪽으로*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  z-index: 1; /*맨앞*/
+}
+
+.footer_title {
+  color: var(--bg-color-white);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.footer_btn {
+  font-size: 24px;
+  padding: 20px 40px;
+  font-family: "NEXON Lv1 Gothic";
+  border: 1px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  background: var(--bg-color-white);
+  transition: all 0.3s;
+  &:hover {
+    background: var(--bg-color-black);
+    color: var(--bg-color-white);
+    border: 1px solid var(--bg-color-white);
+  }
+}
+
+.footer_container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("https://pra9128.cafe24.com/chef/footer.png") center/cover
+    no-repeat;
+  z-index: -1; /*필터보다 1 뒤로*/ /*맨뒤*/
+}
+
+.footer_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  /*왼쪽에서부터 오른쪽으로 선형 그라디언트를 주겠다*/
+  z-index: 0; /*중간*/
+}
+
+/* ==== mobile ==== */
+
+@media screen and (max-width: 1190px) and (min-width: 360px) {
+  #app_container {
+    width: 100%;
+  }
+
+  #navigation_heading {
+    width: 100%;
+  }
+
+  /* navigation */
+  #navigation {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .gnbDesktop {
+    display: none;
+  }
+
+  .gnbMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-end;
+    padding-top: 80px;
+    padding-right: 10px;
+    position: fixed;
+    top: 0;
+    /* right: 0; */
+    right: -190px;
+    width: 190px;
+    height: 100vh;
+    background-color: var(--bg-color-white);
+    transition: all 0.3s;
+  }
+
+  .gnbMobile.active {
+    background: var(--bg-color-black);
+    color: var(--bg-color-white);
+  }
+
+  .gnbMobile.open {
+    right: 0;
+  }
+
+  .gnbMobile li a {
+    font-size: 22px;
+  }
+
+  .search_bar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .search_hashtag {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .trigger {
+    width: 30px;
+    height: 20px;
+    /*border: 1px solid #f00;*/
+    position: relative;
+    display: block;
+  }
+
+  .trigger span {
+    display: block; /*인라인태그인 span을 마진 위드 등을 줄 수 있다*/
+    width: 100%;
+    height: 2px;
+    background: var(--bg-color-black);
+    position: absolute;
+  }
+
+  .trigger span.active {
+    background: var(--bg-color-white);
+  }
+
+  .trigger span:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+
+  .trigger span:nth-child(2) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .trigger span:nth-child(3) {
+    bottom: 0;
+    left: 0;
+  }
+
+  .trigger.active span:nth-child(1) {
+    top: 50%;
+    left: 0;
+    transform: rotate(45deg); /*시계방향은 양수, deg는 각도의 약자*/
+  }
+
+  .trigger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .trigger.active span:nth-child(3) {
+    top: 50%;
+    left: 0;
+    transform: rotate(-45deg); /*반시계방향은 음수, deg는 각도의 약자*/
+  }
+
+  /* slide */
+  .slide_text {
+    width: 100%; /*기존 부모 요소의 100%를 너비로 하겠다*/
+  }
+
+  .slide_text_inner {
+    width: 100%;
+  }
+
+  .slide_text_inner .slide_title {
+    width: 390px;
+    font-size: 26px;
+  }
+
+  .slide_container_arrow {
+    width: 100%;
+    height: auto;
+    margin-top: 250px;
+  }
+
+  /* main */
+  #main {
+    flex-direction: column;
+    width: 100%;
+    height: 660px;
+    margin: 100px auto;
+  }
+
+  .main_text {
+    align-items: center;
+  }
+
+  .main_info {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .main_desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  /* detail */
+  #detail {
+    width: 100%;
+  }
+
+  #detail ul {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .datail_info {
+    padding: 30px;
+  }
+
+  /* membership */
+  #membership {
+    width: 100%;
+    height: 840px;
+    padding-bottom: 40px;
+  }
+
+  .membership_heading {
+    font-size: 20px;
+  }
+
+  .membership_menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .membership_type {
+    width: 100%; /*현재보고있는 페이지의 width값 만큼*/
+    border: 1px solid transparent;
+  }
+
+  .membership_type.premium {
+    display: none;
+  }
+
+  .membership_type_pager {
+    display: flex; /*span태그는 인라인태그라 마진과 크기에 제약이 있어서 간격주기 힘듬 그래서 block이 아닌 flex로 줌*/
+    gap: 10px;
+    position: absolute;
+    bottom: -4%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+  }
+
+  .membership_type_pager span {
+    width: 16px;
+    height: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    text-indent: -9999px;
+  }
+
+  .membership_type_pager span.active {
+    background: rgba(0, 0, 0, 1);
+  }
+
+  /* footer */
+  .footer_title {
+    width: 390px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .footer_btn {
+    font-size: 16px;
+    padding: 10px 40px;
+  }
+}

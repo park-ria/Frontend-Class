@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #000;
+        border-collapse: collapse; /* 보더 겹침 */
+      }
+
+      th,
+      td {
+        height: 80px;
+      }
+
+      tr > th {
+        width: 200px;
+        text-align: center;
+      }
+
+      tr > td {
+        width: 150px;
+        text-align: center;
+      }
+
+      tr > td:last-child {
+        width: 300px;
+        text-align: center;
+      }
+
+      /* tr > th {
+        height: 20px;
+      }
+
+      tr > td {
+        text-align: center;
+        height: 30px;
+      } */
+
+      /* table > tbody > tr {
+        color: #f00;
+      } */
+
+      /*2번째 자식요소인 th태그*/
+      /* tr td:nth-child(2) {
+        width: 100px;
+      } */
+
+      /*짝수번째 자식요소*/
+      /* tr > th:nth-child(even) {
+        width: 300px;
+      } */
+
+      /*홀수번째 자식요소*/
+      /* tr > td:nth-child(odd) {
+        width: 150px;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <table>
+      <tr>
+        <th colspan="2">Header 1</th>
+        <th>Header 2</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td></td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td></td>
+        <td>2</td>
+      </tr>
+    </table> -->
+
+    <!-- <table>
+      <tr>
+        <th>이름</th>
+        <th></th>
+        <th>연락처</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>주소</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td>자기소개</td>
+        <td colspan="3"></td>
+      </tr>
+    </table> -->
+    <!-- 어떠한 요소의 설명 요소 -->
+    <figure>
+      <figcaption>
+        <p>
+          국내에서 자주 사용하는 <mark><b>모던 브라우저</b></mark> 리스트
+        </p>
+      </figcaption>
+      <table>
+        <tr>
+          <th>브라우저</th>
+          <th>제조업체</th>
+          <th>다운로드</th>
+        </tr>
+        <tr>
+          <th>크롬(Chrome)</th>
+          <td>Google</td>
+          <td>
+            <a href="https://www.google.com">https://www.google.com</a>
+          </td>
+        </tr>
+        <tr>
+          <th>파이어폭스(FireFox)</th>
+          <td>Mozila</td>
+          <td>
+            <a href="https://www.mozila.com">https://www.mozila.com</a>
+          </td>
+        </tr>
+        <tr>
+          <th>엣지(Edge)</th>
+          <td>MicroSoft</td>
+          <td>
+            <a href="https://www.microsoft.com">https://www.microsoft.com</a>
+          </td>
+        </tr>
+      </table>
+    </figure>
+  </body>
+</html>

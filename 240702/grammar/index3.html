@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        counter-increment: rint; /*숫자를 증가시킴*/
+      }
+      p::before {
+        content: counter(rint) ".";
+      }
+      p::after {
+        content: " - " attr(data-page) " page";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lorem Ipsum</h1>
+    <p data-page="52">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis voluptate
+      commodi, iusto nemo cumque voluptatum asperiores cupiditate ut fugiat,
+      eius numquam consequuntur optio ab dolorem aspernatur soluta adipisci
+      magnam hic! Id eligendi consequatur excepturi voluptate dolorem ad et
+      debitis! Ullam a excepturi harum unde, exercitationem deleniti minus.
+      Laudantium incidunt, ipsam dolores reiciendis vero suscipit ipsum amet
+      culpa nesciunt nemo enim?
+    </p>
+    <p data-page="273">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae
+      pariatur error et assumenda magni voluptates ipsam odio? Perferendis,
+      ratione! Consequuntur reprehenderit itaque, incidunt possimus eveniet
+      voluptatum quis dolor placeat asperiores! Aspernatur, quidem quos incidunt
+      exercitationem animi laborum dolorem dignissimos porro ipsam similique
+      eligendi deserunt autem nostrum ea illum aliquam impedit ducimus molestiae
+      consequatur non blanditiis? Quasi laboriosam blanditiis corrupti maiores.
+      Est dolore expedita eveniet facilis adipisci consequatur sed sunt
+      pariatur? Labore porro, tenetur commodi a laudantium distinctio. Sint,
+      cumque optio? Sunt sit libero voluptate, quasi voluptates ex obcaecati
+      similique blanditiis! Velit praesentium eos aut voluptatum voluptates
+      ducimus sunt fuga, dolore doloremque fugiat eius voluptas a libero omnis
+      accusantium facilis? Doloremque earum quos aspernatur nam minima,
+      molestiae fuga eveniet id culpa.
+    </p>
+  </body>
+</html>

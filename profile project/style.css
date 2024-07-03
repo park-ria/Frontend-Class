@@ -1,0 +1,132 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap");
+
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* common */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#app_container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* header */
+header {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+}
+
+#gnb {
+  width: 1098;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: #fff;
+}
+
+#gnb ul {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#gnb a {
+  color: #999999;
+}
+
+/* contents */
+.contents {
+  width: 100%;
+  height: 1080px;
+  padding: 30px;
+}
+
+.contents_title {
+  color: #393939;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 140px;
+}
+
+/* main */
+.main {
+  background: #a1bdf8;
+}
+
+#main_title {
+  width: 1098px;
+  height: 290px;
+  margin: 280.5px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main_title_flower {
+  width: 290px;
+  height: 290px;
+  background: url("./img/main-flower.png");
+}
+
+#main_title_txt {
+  font-family: "Darumadrop One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100px;
+  color: #fff;
+  width: 755px;
+}
+
+/* about */
+.about {
+  background: url("./img/check_bg.png") center/cover no-repeat;
+}
+
+.about_detail {
+  width: 900px;
+  height: 500px;
+  border: 1px solid #f00;
+  border-radius: 40px;
+  margin: 0 auto;
+  margin-top: 117px;
+}
+
+/* project */
+.project {
+  background: #ffc601;
+}
+
+/* skill */
+.skill {
+  background: linear-gradient(#ffc601 15%, #a1bdf8 40%);
+}
+
+/* goal */
+.goal {
+  background: url("./img/white-clouds-blue-sky.jpg") center/cover no-repeat;
+}

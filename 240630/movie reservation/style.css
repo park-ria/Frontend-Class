@@ -1,0 +1,176 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* container */
+#container {
+  width: 100%;
+  position: relative;
+}
+
+/* navigation */
+.navigation {
+  width: 100%;
+  background-color: #fff;
+}
+
+.navigation.category {
+  border-top: 1px solid #eee;
+  border-bottom: 2px solid #fb4357;
+}
+
+/* gnb */
+.gnb {
+  width: 1098px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* first_gnb */
+.gnb.first {
+  height: 113px;
+}
+
+#first_left_gnb {
+  display: inline-flex;
+  align-items: flex-end;
+  height: 53px;
+}
+
+#logo img {
+  width: 117px;
+  height: 53px;
+}
+
+#logo_title {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 300;
+  color: #222;
+  letter-spacing: 0.313em;
+}
+
+#first_right_gnb {
+  height: 53px;
+  .nav_icon {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    li > a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 36px;
+        height: 36px;
+      }
+      span {
+        font-size: 13px;
+        color: #666;
+      }
+    }
+  }
+}
+
+/* second gnb */
+.gnb.second {
+  padding: 5px 0;
+  .topNav {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    li {
+      padding: 20px 0;
+      a {
+        font-size: 16px;
+        color: #222;
+        font-weight: bold;
+      }
+    }
+  }
+  .search_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    #search_inp {
+      width: 180px;
+      height: auto;
+      font-size: 16px;
+      border: none;
+    }
+    #search_btn {
+      width: 26px;
+      height: 26px;
+      padding: 12px 0 14px;
+      font-weight: bold;
+      font-size: 16px;
+      background: url("https://img.cgv.co.kr/R2014/images/common/ico/search.png")
+        center center / 26px scroll no-repeat;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+/* background-img */
+#background_img {
+  width: 100%;
+  height: 700px;
+  padding: 10px;
+  background-position: 0 5%; /* x축, y축 */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* top_contents */
+#top_contents {
+  width: 1098px;
+  margin: 0 auto;
+  margin-top: 130px;
+  color: #fff;
+}
+
+.top_contents_title {
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+.top_contents_desc {
+  font-size: 18px;
+  width: 600px;
+}
+
+/* card_items */
+#card_items ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100px);
+  li a img {
+    width: 170px;
+    height: 234px;
+  }
+}
