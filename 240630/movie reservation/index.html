@@ -58,25 +58,126 @@
           <ul class="topNav">
             <li>
               <a href="/movie">영화</a>
+              <ul class="lnb">
+                <li>
+                  <a href="/moveChart">무비차트</a>
+                </li>
+                <li>
+                  <a href="/artHouse">아트하우스</a>
+                </li>
+                <li>
+                  <a href="/iceCon">ICECON</a>
+                </li>
+              </ul>
             </li>
             <li>
               <a href="/theater">극장</a>
+              <ul class="lnb">
+                <li>
+                  <a href="/cgvTheater">CGV 극장</a>
+                </li>
+                <li>
+                  <a href="/specialPlace">특별관</a>
+                </li>
+              </ul>
             </li>
             <li>
               <a href="/ticketing">예매</a>
+              <ul class="lnb">
+                <li>
+                  <a href="/fastTicketing">빠른예매</a>
+                </li>
+                <li>
+                  <a href="/schedule">상영스케줄</a>
+                </li>
+                <li>
+                  <a href="/enTicketing">English Ticketing</a>
+                </li>
+                <li>
+                  <a href="/enSchedule">English Schedule</a>
+                </li>
+              </ul>
             </li>
             <li>
               <a href="/store">스토어</a>
+              <ul class="lnb">
+                <li>
+                  <a href="/package">패키지</a>
+                </li>
+                <li>
+                  <a href="/movieTicket">영화관람권</a>
+                </li>
+                <li>
+                  <a href="/giftCard">기프트카드</a>
+                </li>
+                <li>
+                  <a href="/combo">콤보</a>
+                </li>
+                <li>
+                  <a href="/popcorn">팝콘</a>
+                </li>
+                <li>
+                  <a href="/drink">음료</a>
+                </li>
+                <li>
+                  <a href="/snack">스낵</a>
+                </li>
+                <li>
+                  <a href="/playzone">플레이존</a>
+                </li>
+                <li>
+                  <a href="/cineshop">씨네샵</a>
+                </li>
+              </ul>
             </li>
             <li>
               <a href="/event">이벤트</a>
+              <ul class="lnb">
+                <li>
+                  <a href="/specialEvent">SPECIAL</a>
+                </li>
+                <li>
+                  <a href="/movieAndTicketing">영화/예매</a>
+                </li>
+                <li>
+                  <a href="/membership">멤버십/CLUB</a>
+                </li>
+                <li>
+                  <a href="/byTheater">CGV 극장별</a>
+                </li>
+                <li>
+                  <a href="/discount">제휴할인</a>
+                </li>
+                <li>
+                  <a href="/prizewinner">당첨자 발표</a>
+                </li>
+                <li>
+                  <a href="/endedEvent">종료된 이벤트</a>
+                </li>
+              </ul>
             </li>
             <li>
               <a href="/benefit">혜택</a>
+              <ul class="lnb">
+                <li>
+                  <a href="/cgvDiscountInfo">CGV 할인정보</a>
+                </li>
+                <li>
+                  <a href="/clubService">CLUB 서비스</a>
+                </li>
+                <li>
+                  <a href="/vipLounge">VIP 라운지</a>
+                </li>
+              </ul>
             </li>
           </ul>
           <span class="search_bar">
-            <input type="text" name="search_inp" id="search_inp" />
+            <input
+              type="text"
+              name="search_inp"
+              id="search_inp"
+              placeholder="영화제목을 입력하세요"
+            />
             <button id="search_btn"></button>
           </span>
         </div>
@@ -90,31 +191,81 @@
       <section id="card_items">
         <ul>
           <li>
-            <a href="/insideout">
+            <a href="/insideout" data-id="1">
               <img src="./img/0.jpg" alt="card_insideout" />
             </a>
+            <div class="card_items_detail">
+              <p></p>
+              평점 <span class="card_items_score"></span> / 예매율
+              <span class="card_items_book"></span>
+            </div>
           </li>
           <li>
-            <a href="/escape">
+            <a href="/escape" data-id="2">
               <img src="./img/1.jpg" alt="card_escape" />
             </a>
+            <div class="card_items_detail">
+              <p></p>
+              평점 <span class="card_items_score"></span> / 예매율
+              <span class="card_items_book"></span>
+            </div>
           </li>
           <li>
-            <a href="/handsomeguys">
+            <a href="/handsomeguys" data-id="3">
               <img src="./img/2.jpg" alt="card_handsomeguys" />
             </a>
+            <div class="card_items_detail">
+              <p></p>
+              평점 <span class="card_items_score"></span> / 예매율
+              <span class="card_items_book"></span>
+            </div>
           </li>
           <li>
-            <a href="/hijacking">
+            <a href="/hijacking" data-id="4">
               <img src="./img/3.jpg" alt="card_hijacking" />
             </a>
+            <div class="card_items_detail">
+              <p></p>
+              평점 <span class="card_items_score"></span> / 예매율
+              <span class="card_items_book"></span>
+            </div>
           </li>
           <li>
-            <a href="/dune">
+            <a href="/dune" data-id="5">
               <img src="./img/4.jpg" alt="card_dune" />
             </a>
+            <div class="card_items_detail">
+              <p></p>
+              평점 <span class="card_items_score"></span> / 예매율
+              <span class="card_items_book"></span>
+            </div>
           </li>
         </ul>
+      </section>
+      <section id="event">
+        <div class="event_contents">
+          <h1>EVENT</h1>
+          <div id="event_detail">
+            <span>
+              <a href="/quietEvent"
+                ><img src="./img/event0.jpg" alt="quiet event" />
+                <span>
+                  <h3>[하이재킹]100만 돌파 이벤트</h3>
+                  <p>2024.06.26~2024.07.05</p>
+                </span>
+              </a>
+            </span>
+            <span>
+              <a href="/superbadEvent"
+                ><img src="./img/event1.jpg" alt="superbad event" />
+                <span>
+                  <h3>[슈퍼배드4]미리보기 시사회</h3>
+                  <p>2024.06.20~2024.07.04</p>
+                </span>
+              </a>
+            </span>
+          </div>
+        </div>
       </section>
     </div>
   </body>

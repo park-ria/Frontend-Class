@@ -12,13 +12,15 @@ items.forEach((item) => {
 });
 
 // background image change
-const bgImgs = ["bg0.jpg", "bg1.jpg", "bg2.jpeg", "bg3.webp", "bg4.jpg"];
+const bgImgs = ["bg0.jpg", "bg1.jpg", "bg2.jpeg", "bg3.jpg", "bg4.jpg"];
 const bgImg = document.querySelector("#background_img");
 bgImg.style.backgroundImage = `radial-gradient(circle, transparent, rgba(0,0,0,0.7)), url(./img/${bgImgs[0]})`;
 
 const topContents = document.querySelector("#top_contents");
 const contentTit = topContents.querySelector(".top_contents_title");
 const contentDesc = topContents.querySelector(".top_contents_desc");
+
+const cardItemsDetail = document.querySelectorAll(".card_items_detail");
 
 fetch("./data.json")
   .then((response) => response.json())
@@ -29,7 +31,15 @@ fetch("./data.json")
     contentDesc.innerText = firstData.description;
 
     items.forEach((item, index) => {
+      cardItemsDetail[index].querySelector("p").innerText =
+        jsonData.data[index].name;
+      cardItemsDetail[index].querySelector(".card_items_score").innerHTML =
+        jsonData.data[index].score;
+      cardItemsDetail[index].querySelector(".card_items_book").innerHTML =
+        jsonData.data[index].book;
+
       item.addEventListener("click", (e) => {
+        console.log(e);
         e.preventDefault();
 
         const { title, description } = jsonData.data[index];
@@ -39,3 +49,27 @@ fetch("./data.json")
       });
     });
   });
+
+// drop detail nav
+const gnbLi = document.querySelectorAll(".topNav > li");
+gnbLi.forEach((li) => {
+  li.addEventListener("mouseenter", () => {
+    const lnb = li.querySelector(".lnb");
+    const aTag = li.querySelector("a");
+    if (lnb) {
+      lnb.style.maxHeight = lnb.scrollHeight + "px";
+      lnb.style.opacity = "1";
+      aTag.classList.add("active");
+    }
+  });
+
+  li.addEventListener("mouseleave", () => {
+    const lnb = li.querySelector(".lnb");
+    const aTag = li.querySelector("a");
+    if (lnb) {
+      lnb.style.maxHeight = 0;
+      lnb.style.opacity = "1";
+      aTag.classList.remove("active");
+    }
+  });
+});
