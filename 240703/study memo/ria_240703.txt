@@ -1,0 +1,118 @@
+1.슬라이드
+- 배열 자료구조
+- 싱글타입 (*이미지 단일)
+- 난이도 "하"
+- 화살표 클릭, 슬라이드 교체
+
+- 무한 슬라이드 (*화살표를 클릭, 마지막 슬라이드 => 첫번째 슬라이드)
+
+- 자동슬라이드(*굳이 화살표를 클릭x, 알아서 슬라이드 교체)
+
+- 페이저 탑재 슬라이드 (*페이저를 클릭 했을 때, 슬라이드 이미지가 교체 + 슬라이드가 자동으로 페이지 교체 => 페이저도 자동으로 교체, 페이저 역시 무한으로 실행)
+
+- 멀티플타입
+
+슬라이드
+document.querySelectorAll(ul li)
+> console.log -> NodeList > [li, li, li, li, li] -> 유사배열
+> 배열자료 > 배열자료 안에 있는 모든 데이터는 각자 고유한 숫자 간직 = index 번호
+0~4이면 4번 뒤에 다시 0번으로
+
+
+
+라이브러리!!!
+라이브러리 >js > jQuery 
+animejs => https://animejs.com/
+slick slider => https://kenwheeler.github.io/slick/
+swiper => https://swiperjs.com/demos
+gsap => https://gsap.com/
+fullpage => https://alvarotrigo.com/fullPage/ko/
+featherlight => https://noelboss.github.io/featherlight/
+
+
+2. 마우스 이벤트
+- mouseover & mouseout : 함께 세트
+ > 이벤트 버블링 기능 O => 위에 있는 부모한테도 영향을 미치겠다
+
+- mouseenter & mouseleave : 함께 세트
+ > 이벤트 버블링 기능 X => 부모에게 영향을 미치지 않겠다
+
+
+
+
+
+css3 속성!!!
+CSS : Cascading Style Sheet
+
+1) 단위 : px / rem / em / % / vw / vh
+- html 문서 안에 특별한 font-size 지정하지 않은 상황이라면, 기본적인 font-size: 16px
+   / 폰트 사이즈 기본 설정값 가장 큰 속성 값 => h1태그 32px;
+- em : element 약자. 부모요소의 font-size를 기준으로 몇 배수의 크기를 가져가게 할 것인가 
+   / 부모를 바꾸면 같이 바뀌기 때문에 많이 쓴다
+- px : picxel 고정값
+- rem : root element 약자. 현재 작업중인 문서 내 최상위 요소의 태그를 의미, 혹은 그에 준하는 선택자
+- em은 부모와 자식관계가 복잡할수록 계산이 복잡해진다. -> 부모 요소를 감안해서 계산해야하는 수고로움이 있지만 rem은 가장 최상단에 폰트 사이즈를 정해놓기 때문에 보통 rem을 쓴다
+
+실무 : 작업하고자하는 제품(웹페이지)
+- default : 18px
+- * || body => font-size : 18px
+- 9px => 0.5rem / 27px => 1.5 rem
+
+-가변그리드!!!  grid layout => 모든 크기를 %를 줘서 반응형에 대응함
+- vw / vh : viewport 바라보고있는 화면의 높이만큼 width / hight
+    100%는 vw, vy와 다름 => 문서 작성된 컨텐츠 높이만큼 높이 결정
+
+
+2) display 속성 : none / block / inline / inline-block
+
+
+3) visibility 속성 : visible / hidden / collapse
+
+4) opacity 속성 
+- 1=> 100% : 불투명
+-  0=> 0% : 투명
+
+5) margin / padding 속성
+- 1개 : 상하좌우 값 동일
+- 2개 : 상하 / 좌우
+- 3개 : 상 / 좌우 / 하
+- 4개 : 상부터 시계방향(상 우 하 좌)
+
+6) box-sizing
+- border-box : border / padding => content item width & height 포함 => 주로 이걸 쓴다
+- content-box : content item에 적용한 width, height 값을 그대로 유지한채로 border / padding 적용
+
+7) background 속성
+
+8) font 속성
+- font-family:  "Nanum Pen Script", cursive;
+- font-size: 4rem;
+- font-weight: 700px;
+- font-style: italic;
+=> 폰트로 하나로 묶어서 쓸 수 있다. font-weight는 따로 쓴다
+font: italic 4rem/5 bold, "Nanum Pen Script", cursive;
+font-weight: 700;
+
+9) bord 속성
+- border-width
+- border-style : solid / dotted/ dashed
+- border-color
+=> border: 5px solid crimson;
+
+- border-radius : 테두리를 둥그렇게 생성
+=> 값 1개 : 상하좌우 모두 값을 동일
+=> 값 4개 : 좌상단 / 우상단 / 우하단 / 좌하단 => 좌상단부터 시계방향
+=> 반지름 값 이상 주면 원이 된다 width가 400이면 border-radius를 200을 주거나 50% 주면 원이 됨
+
+10) float 속성
+
+11) shadow 속성
+
+12) gradient 속성
+
+
+
+
+
+
+

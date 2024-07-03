@@ -1,0 +1,16 @@
+master를 main 브랜치로 바꾸는 법
+
+최상단 폴더(.git이 있는 폴더)에서 vs code열어서 bash터미널 열기
+1. 나의 로컬 컴퓨터 브랜치 = 원격 default 브랜치
+- 로컬 git / 원격 저장소 어떤 브랜치인지 업데이트
+    => git remote update
+- git checkout main
+- git pull origin master --allow-unrelated-histories
+- git add .
+- git commit -m "240703"
+- git push origin main
+
+
+깃허브
+왼쪽 상단 files 밑의 main 선택박스 열어서 View all branches 열기
+

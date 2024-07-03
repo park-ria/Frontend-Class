@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 구글폰트 get font해서 embed code의 @import 복붙*/
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+
+      .container {
+        display: flex;
+        gap: 10px;
+        .box {
+          width: 500px;
+          height: 500px;
+          margin: 10px;
+          padding: 10px;
+          &.item1 {
+            background-color: teal;
+            box-sizing: border-box;
+            /*
+            padding과 margin이 빠진
+            width:480px; height:480px; 
+            padding과 border에 맞춰서 전체 공간에 포함 시킬거임
+            주로 이걸 씀
+            */
+            /*border-width: 5px;
+            border-style: dotted;
+            border-color: violet;*/
+            border: 5px solid crimson;
+            /*border-radius: 20px 0 20px 0;*/
+            /*border-radius: 50%; == 250px 반지름만큼 깎음*/
+            border-radius: 250px;
+          }
+          &.item2 {
+            background-color: tomato;
+            box-sizing: content-box;
+            /*
+            width:500px; height:500px;
+            패딩과 마진이 포함 되지 않기때문에 실제 사이즈는 520px이 됨
+            */
+          }
+        }
+      }
+
+      h1 {
+        /* 
+         font-size: 4rem;
+         16*4=64px 
+         */
+
+        /* 
+        font-weight: normal;
+        font-weight: 400px => normal 
+        font-wieght: 700px => bold
+        */
+
+        /*
+        font-style: italic;
+        italic : 기울임
+        */
+        /*font-family: "Nanum Pen Script", cursive;*/
+
+        /*
+        line-height: 5;
+        폰트의 높이를 정함
+        1.5는 150% 높이를 늘린다
+        5는 500% 높이를 늘린다
+        */
+
+        font: italic 4rem/5 bold, "Nanum Pen Script", cursive;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="box item1">box1</div>
+      <div class="box item2">box2</div>
+    </main>
+    <hr />
+    <h1>나는 폰트다!</h1>
+    <!-- 기본 32px -->
+  </body>
+</html>

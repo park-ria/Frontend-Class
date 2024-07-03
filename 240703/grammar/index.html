@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-size: 30px;
+      }
+
+      div {
+        font-size: 20px;
+      }
+
+      p:nth-child(2) {
+        font-size: 2em; /*부모로부터 상속받은 사이즈에서 2배수 = 40px*/
+      }
+
+      p:nth-child(3) {
+        font-size: 50px;
+      }
+
+      p:nth-child(4) {
+        font-size: 200%; /*부모로부터 상속받은 사이즈에서 2배수 = 40px*/
+      }
+
+      p:nth-child(5) {
+        font-size: 2rem; /*가장 최상위 사이즈 30px의 두 배수 = 60px*/
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div>
+          <div></div>
+        </div>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+  </body>
+</html>
