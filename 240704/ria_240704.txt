@@ -1,0 +1,16 @@
+ modal창
+
+
+layout
+header>nav
+section>article
+aside는 측면에 쓰는 태그
+footer
+
+
+* 레이아웃 구조!!!
+1) 작은 것부터 어떻게 만들어서 구조화!
+2) A / B => Contents
+> JS 기능 구현
+> 상태 선택자 + 형태 구조 선택자 + 속성 선택자
+=> input(*사용자)
