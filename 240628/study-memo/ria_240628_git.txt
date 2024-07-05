@@ -19,14 +19,14 @@
       -
   2) git-hub 계정 생성(https://github.com/)
   3) 계정 name & 계정 email 알아야 함
-       - name : park-ria
-       - email : danny6217@gmail.com
+       - name 
+       - email 
        - 깃허브 > 내계정 > settings > email에서 확인
  
   4) 로컬 컴퓨터에 나의 git 정보를 세팅
       - cmd > 관리자 권한 모드와 일반 모드 모두
-      - git config --global user.name "park-ria"
-      - git config --global user.email "danny6217@gmail.com"
+      - git config --global user.name "이름 기재"
+      - git config --global user.email "이메일 기재"
       - git config --list로 확인
 
   5) 기존 email 혹은 name을 수정하고 할 때
