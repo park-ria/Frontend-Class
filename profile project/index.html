@@ -10,6 +10,7 @@
   </head>
   <body>
     <main id="container">
+      <div id="backFilter"></div>
       <header>
         <nav id="gnb">
           <ul>
@@ -141,8 +142,30 @@
       <div id="project_point"></div>
       <section id="project" class="contents">
         <div class="contents_title">Project</div>
+        <div id="modal">
+          <span id="modal_close_btn"></span>
+          <div id="modal_wrapper">
+            <span id="project_index"></span>
+            <div class="modal_detail">
+              <span class="modal_title">프로젝트명</span>
+              <span id="modal_nm" class="modal_desc"></span>
+            </div>
+            <div class="modal_detail">
+              <span class="modal_title">기간</span>
+              <span id="modal_prd" class="modal_desc"></span>
+            </div>
+            <div class="modal_detail">
+              <span class="modal_title">포지션</span>
+              <span id="modal_pstn" class="modal_desc"></span>
+            </div>
+            <div class="modal_detail">
+              <span class="modal_title">사용언어</span>
+              <span id="modal_skill" class="modal_desc"></span>
+            </div>
+          </div>
+        </div>
         <article class="contents_wrapper project_contents">
-          <span class="project_year">2023</span>
+          <div class="project_wrapper"></div>
         </article>
       </section>
     </main>

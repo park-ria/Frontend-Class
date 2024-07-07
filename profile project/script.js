@@ -1,10 +1,11 @@
-/* slide image 삽입*/
 const slides = document.querySelector(".about_skills .slides");
 const slidePager = document.querySelector(".about_skills .slide_pager");
+const projectWrapper = document.querySelector(".project_wrapper");
+
 fetch("./data.json")
   .then((response) => response.json())
   .then((jsonData) => {
-    for (item of jsonData.data) {
+    jsonData.data.forEach((item) => {
       const li = document.createElement("li");
       const imgDiv = document.createElement("div");
       const pager = document.createElement("span");
@@ -17,8 +18,9 @@ fetch("./data.json")
       txt.innerHTML = item.name;
       slides.appendChild(li).appendChild(txt);
       slidePager.appendChild(pager);
-    }
-    /* 슬라이드 페이저 이동함수 */
+    });
+
+    // 슬라이드 페이저 이동함수
     const pagers = slidePager.querySelectorAll("span");
 
     const movePager = (num) => {
@@ -29,7 +31,7 @@ fetch("./data.json")
     };
     movePager(0);
 
-    /* 슬라이드 복제*/
+    // 슬라이드 복제
     const btns = document.querySelectorAll(".slide_control");
     const prevBtn = document.querySelector(".slide_control.prev");
     const nextBtn = document.querySelector(".slide_control.next");
@@ -154,9 +156,93 @@ fetch("./data.json")
         autoSlide();
       });
     });
+
+    // 프로젝트 값 넣기
+    let prevYear = undefined;
+    let projectDetail = document.createElement("div");
+    projectDetail.classList.add("project_detail");
+    let projectDesc = document.createElement("div");
+
+    jsonData.project.forEach((item) => {
+      if (item.year !== prevYear) {
+        if (prevYear != undefined) {
+          projectWrapper.appendChild(projectDetail);
+        }
+        projectDetail = document.createElement("div");
+        projectDetail.classList.add("project_detail");
+
+        const projectYear = document.createElement("div");
+        projectYear.classList.add("project_year");
+        projectYear.innerHTML = item.year;
+        projectDetail.appendChild(projectYear);
+
+        projectDesc = document.createElement("div");
+        projectDesc.classList.add("project_desc");
+        projectDetail.appendChild(projectDesc);
+
+        prevYear = item.year;
+      }
+      let pTag = document.createElement("p");
+      pTag.innerText = item.period + " " + item.description;
+      projectDesc.appendChild(pTag);
+
+      if (item.id === jsonData.project.length - 1)
+        projectWrapper.appendChild(projectDetail);
+    });
+
+    // project p태그 클릭 이벤트
+    const projectPtags = document.querySelectorAll(".project_desc > p");
+    const modal = document.querySelector("#modal");
+    const projectIndex = document.querySelector("#modal #project_index");
+    const modalNm = document.querySelector("#modal #modal_nm");
+    const modalPrd = document.querySelector("#modal #modal_prd");
+    const modalPstn = document.querySelector("#modal #modal_pstn");
+    const modalSkill = document.querySelector("#modal #modal_skill");
+
+    //backFilter
+    const backFilter = document.querySelector("#backFilter");
+
+    projectPtags.forEach((item, index) => {
+      item.classList.remove("active");
+      item.addEventListener("click", () => {
+        projectPtags[index].classList.add("active");
+        projectIndex.innerHTML = index;
+        modalNm.innerHTML = jsonData.project[index].description;
+        modalPrd.innerHTML = jsonData.project[index].period;
+        modalPstn.innerHTML = jsonData.project[index].position;
+        modalSkill.innerHTML = jsonData.project[index].skills;
+        modal.style.display = "block";
+
+        //backFilter
+        backFilter.style.display = "block";
+      });
+    });
+
+    // modal 닫기
+    const closeModal = () => {
+      //backFilter
+      backFilter.style.display = "none";
+
+      projectPtags[parseInt(projectIndex.innerHTML)].classList.remove("active");
+      modal.style.display = "none";
+      modalNm.innerHTML = "";
+      modalPrd.innerHTML = "";
+      modalPstn.innerHTML = "";
+      modalSkill.innerHTML = "";
+    };
+
+    const modalXbtn = document.querySelector("#modal #modal_close_btn");
+    modalXbtn.addEventListener("click", () => {
+      closeModal();
+    });
+
+    //backFilter
+    backFilter.addEventListener("click", () => {
+      if (backFilter.style.display === "block") closeModal();
+    });
   });
 
-/* 스크롤 효과*/
+// 스크롤 효과
 const contentsTitle = document.querySelector(".contents_title");
 const about = document.querySelector("#about");
 
