@@ -14,80 +14,137 @@
         <nav id="gnb">
           <ul>
             <li>
-              <a href="/about">About</a>
+              <a href="#">Home</a>
             </li>
             <li>
-              <a href="/project">Project</a>
+              <a href="#about_point">About</a>
             </li>
             <li>
-              <a href="/skill">Skill</a>
+              <a href="#project_point">Project</a>
             </li>
             <li>
-              <a href="/goal">Goal</a>
+              <a href="#goal">Goal</a>
             </li>
           </ul>
         </nav>
       </header>
-      <section class="main">
+      <section id="main">
         <div id="main_title">
           <span id="main_title_flower"></span>
           <span id="main_title_txt">
             <span>H</span>
-            <span>E</span>
-            <span>L</span>
-            <span>L</span>
-            <span>O</span>
-            <span>,</span>
+            <span>e</span>
+            <span>l</span>
+            <span>l</span>
+            <span>o</span>
+            <span>, </span>
             <span>R</span>
             <span>i</span>
             <span>a</span>
             <span>W</span>
             <span>o</span>
+            <span>r</span>
             <span>l</span>
             <span>d</span>
             <span>!</span>
           </span>
         </div>
       </section>
-      <section class="about">
-        <article class="contents_title">About</article>
-        <article class="about_detail">
-          <span class="about_img">
-            <img src="./img/photo.png" alt="photo" />
-          </span>
-          <span class="about_desc">
-            <ul>
-              <li>
-                <span class="about_desc title">이름</span>
-                <span class="about_desc content">박리아</span>
-              </li>
-              <li>
-                <span class="about_desc title">나이</span>
-                <span class="about_desc content">1991.02</span>
-              </li>
-              <li>
-                <span class="about_desc title">거주지</span>
-                <span class="about_desc content">인천광역시</span>
-              </li>
-              <li>
-                <span class="about_desc title">전공</span>
-                <span class="about_desc content">컴퓨터공학</span>
-              </li>
-              <li>
-                <span class="about_desc title">취미</span>
-                <span class="about_desc content">보드게임</span>
-              </li>
-              <li>
-                <span class="about_desc title">MBTI</span>
-                <span class="about_desc content">ISTJ</span>
-              </li>
-            </ul>
-          </span>
+      <div id="about_point"></div>
+      <section id="about" class="contents">
+        <div class="contents_title">About</div>
+        <article class="contents_wrapper about_contents">
+          <div class="about_detail">
+            <span class="about_img"></span>
+            <span class="about_Info">
+              <div class="about_desc_row">
+                <span class="about_desc">
+                  <span class="about_desc_title">Information</span>
+                  <ul>
+                    <li>
+                      <strong>이름</strong>
+                      <span>박리아</span>
+                    </li>
+                    <li>
+                      <strong>나이</strong>
+                      <span>1991.02</span>
+                    </li>
+                    <li>
+                      <strong>전공</strong>
+                      <span>조선대 / 컴퓨터공학</span>
+                    </li>
+                    <li>
+                      <strong>취미</strong>
+                      <span>보드게임</span>
+                    </li>
+                    <li>
+                      <strong>MBTI</strong>
+                      <span>ISTJ</span>
+                    </li>
+                  </ul>
+                </span>
+                <span class="about_desc_col">
+                  <span class="about_desc">
+                    <span class="about_desc_title">Career</span>
+                    <ul>
+                      <li>
+                        <strong class="career">웹개발</strong>
+                        <span>3년 8개월</span>
+                      </li>
+                      <li>
+                        <strong class="career">서버엔지니어</strong>
+                        <span>1년</span>
+                      </li>
+                    </ul>
+                  </span>
+                  <span class="about_desc">
+                    <span class="about_desc_title">Certificate</span>
+                    <ul>
+                      <li>
+                        <span>정보처리기사</span>
+                      </li>
+                      <li>
+                        <span>OCP 10g</span>
+                      </li>
+                    </ul>
+                  </span>
+                </span>
+              </div>
+              <div class="about_desc_row">
+                <span class="about_desc">
+                  <span class="about_desc_title">Education</span>
+                  <ul>
+                    <li>
+                      <span>생성형AI 활용 프론트엔드 개발자과정 수료중</span>
+                    </li>
+                    <li>
+                      <span>지능형 빅데이터 서비스 개발자과정 수료완료</span>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </span>
+          </div>
+        </article>
+        <article class="about_skills">
+          <span class="about_desc_title">Skills</span>
+          <div class="skills_detail">
+            <span class="slide_control prev"></span>
+            <div class="slide_wrapper">
+              <ul class="slides"></ul>
+            </div>
+            <span class="slide_control next"></span>
+          </div>
+          <div class="slide_pager"></div>
         </article>
       </section>
-      <section class="project"></section>
-      <section class="skill"></section>
-      <section class="goal"></section>
+      <div id="project_point"></div>
+      <section id="project" class="contents">
+        <div class="contents_title">Project</div>
+        <article class="contents_wrapper project_contents">
+          <span class="project_year">2023</span>
+        </article>
+      </section>
     </main>
   </body>
 </html>
