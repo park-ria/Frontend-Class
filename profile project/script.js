@@ -193,11 +193,12 @@ fetch("./data.json")
     // project p태그 클릭 이벤트
     const projectPtags = document.querySelectorAll(".project_desc > p");
     const modal = document.querySelector("#modal");
-    const projectIndex = document.querySelector("#modal #project_index");
-    const modalNm = document.querySelector("#modal #modal_nm");
-    const modalPrd = document.querySelector("#modal #modal_prd");
-    const modalPstn = document.querySelector("#modal #modal_pstn");
-    const modalSkill = document.querySelector("#modal #modal_skill");
+    const projectIndex = document.querySelector("#project_index");
+    const modalNm = document.querySelector("#modal_nm");
+    const modalPrd = document.querySelector("#modal_prd");
+    const modalPstn = document.querySelector("#modal_pstn");
+    const modalSkill = document.querySelector("#modal_skill");
+    const modalSite = document.querySelector("#modal_site");
 
     //backFilter
     const backFilter = document.querySelector("#backFilter");
@@ -211,6 +212,19 @@ fetch("./data.json")
         modalPrd.innerHTML = jsonData.project[index].period;
         modalPstn.innerHTML = jsonData.project[index].position;
         modalSkill.innerHTML = jsonData.project[index].skills;
+
+        const siteLine = document.querySelector(".siteLine");
+        if (jsonData.project[index].site !== "") {
+          const siteAtag = document.createElement("a");
+          siteAtag.innerHTML = jsonData.project[index].site;
+          siteAtag.href = jsonData.project[index].site;
+          siteAtag.target = "_blank";
+          modalSite.appendChild(siteAtag);
+          siteLine.style.display = "flex";
+        } else {
+          siteLine.style.display = "none";
+        }
+
         modal.style.display = "block";
 
         //backFilter
@@ -229,9 +243,11 @@ fetch("./data.json")
       modalPrd.innerHTML = "";
       modalPstn.innerHTML = "";
       modalSkill.innerHTML = "";
+      const modalSiteAtag = document.querySelector("#modal_site > a");
+      if (modalSiteAtag) modalSiteAtag.remove();
     };
 
-    const modalXbtn = document.querySelector("#modal #modal_close_btn");
+    const modalXbtn = document.querySelector("#modal_close_btn");
     modalXbtn.addEventListener("click", () => {
       closeModal();
     });
@@ -243,16 +259,22 @@ fetch("./data.json")
   });
 
 // 스크롤 효과
-const contentsTitle = document.querySelector(".contents_title");
 const about = document.querySelector("#about");
+const project = document.querySelector("#project");
 
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
-  //console.log(value);
+  console.log(value);
 
   if (value < 450) {
     about.style.animation = "disappearAni 1s ease-out forwards";
   } else {
     about.style.animation = "appearAni 1s ease-out";
+  }
+
+  if (value < 1600) {
+    project.style.animation = "disappearAni 1s ease-out forwards";
+  } else {
+    project.style.animation = "appearAni 1s ease-out";
   }
 });

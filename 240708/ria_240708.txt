@@ -1,0 +1,155 @@
+html5
+> 태그
+> 공간분할태그
+> semantic
+
+css3
+> 선택자 13개
+> 속성 13개
+
+figma
+> autolayout
+> layout grid
+> wireframe
+> component / instance
+> porototype
+
+layout
+> desktop Lofi wireframe(240705)
+> desktop Hifi wireframe(240705)
+
+css3_v2
+> transition (*전환 / 변형)
+  => css에서 반응선택자를 사용할 때 주로
+  => 반응 전/후 => 상태변화(*즉각 / 시차)
+  => 반응이 발생되기 전단계에서 속성값을 적용
+  전단계에 transition: all 0.8s;
+        /*원칙*/
+        -webkit-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+
+1. transition-duration : 변형이 작동할 수 있는 기간 설정
+2. transition-delay : 반응선택자를 통해서 이벤트 실행 후 얼마 후에 변형 스타일을 적용할 것인지 설정
+3. transition-property : 변형 스타일을 적용할 요소를 무엇으로 설정할 것인가
+4. transition-timing-function : 가속 혹은 감속에 대한 영향을 줄 수 있는 함수 설정
+  -> linear : 가속, 감속 x
+  -> ease : 도입부분(in)은 조검 덜 완만하게 / 완료부분(out)에서는 조금 더 완만하게 / 중간영역에서 급격하게
+  -> ease-in : 도입부분(in)에서는 완만하게 시작 / 완료부분(out)에서 급격하게 종료
+  -> ease-out : 도입부분(in)에서는 급격하게 시작 / 완료부분(out)에서 완만하게 종료
+  -> ease-in-out : 도입부분(in)과 완료부분(out)에서는 완만하게 / 중간영역에서 급격하게
+  => https://cubic-bezier.com/ 참고
+
+ > animation
+1) animation-duration : 얼마의 기간동안애니메이션 실행
+2) animation-delay : 이벤튼 발생 후 얼마 후 시점부터 애니메이션 실행
+3) animation-timing-function : 애니메이션 실행 시, 가.감속 어떻게 할 것인가
+4) animation-direction : 애니메이션 실행 방향 설정(*기본: 좌 -> 우)
+5) animation-name : 해당 애니메이션 만의 고유한 이름 설정
+6) animation-iteration-count : 애니메이션을 얼만큼 반복하게 할 것인가?
+7) animation-play-state : 애니메이션 일시정지의 기능을 삽입
+
+> transfrom (*변환)
+* transition : 어떤 이미지 혹은 아이템 요소가 변환하는데 있어서 변형에 대한 속성 값을 제어
+* transform : 어떤 이미지 혹인 아이템 요소의 형태 혹은 위치(*좌표) 등 자체를 변환시키기 위한 속성 / 좌표값 / 각도회전(*웹 좌표계 중심) / 중심축(*x, y, z)으로부터 회전 / 크기
+
+rotate(angle deg) : 회전각도
+scale(x,y,z) : 크기
+scaleX()
+scaleY()
+scaleZ()
+skew(x,y,z) : 특정 중심축을 기준으로 기울기
+skewX()
+skewY()
+skewZ()
+translate(x, y,z) : 특정 크기만큼 이동
+translateX()
+translateY()
+translateZ()
+
+=> 1개의 이미지 혹은 도형 요소에 복수의 transform 효과 적용
+> 적용하는 순서에 따라서 결과값이 완전히 달라질 수 있음
+
+> 3D 공간 개념 : 부모한테 preserve-3d 
+
+    <style>
+      body {
+        width: 20px;
+        margin: 200px auto;
+        section {
+          width: 200px;
+          height: 200px;
+          position: relative;
+          transform-style: preserve-3d;
+          animation: rint 3s linear infinite;
+          div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0.3;
+            &:nth-child(1) {
+              transform: rotateY(0deg) translate3d(0, 0, 100px);
+              background: red;
+            }
+            &:nth-child(2) {
+              transform: rotateY(90deg) translate3d(0, 0, 100px);
+              background: green;
+            }
+            &:nth-child(3) {
+              transform: rotateY(180deg) translate3d(0, 0, 100px);
+              background: blue;
+            }
+            &:nth-child(4) {
+              transform: rotateY(270deg) translate3d(0, 0, 100px);
+              background: yellow;
+            }
+            &:nth-child(5) {
+              transform: rotateX(90deg) translate3d(0, 0, 100px);
+              background: brown;
+            }
+            &:nth-child(6) {
+              transform: rotateZ(270deg) translate3d(0, 0, 100px);
+              background: pink;
+            }
+          }
+        }
+      }
+
+      @keyframes rint {
+        from {
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        to {
+          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+      }
+    </style>
+
+loading spinner
+Server Side Rendering
+Client Side Rendering => React.js
+
+
+3차원 = 3D
+=> Z축에 대한 공간감
+
+* 원근감
+        -webkit-perspective: 2000;
+        perspective: 2000;
+
+* 자식요소에서의 z축으로부터의 공간감을 적용시켜주기 위해서 부모요소에서 적용!!
+        transform-style: preserve-3d;
+
+css3_v3
+> flexable / responsive(*반응형)
+> flex / grid
+> media-query => device / break-point
+
+
+
+
+축약형
+1) font : style size/line-height family
+2) background: gradient(color), image,  position/size, repeat
+3) transition: property(요소) duration(기간) timing-function delay

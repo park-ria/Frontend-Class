@@ -58,7 +58,8 @@
       "period": "2023.09~2024.02",
       "description": "한전KPS 원전 정비지원 종합상황실 시스템 유지관리",
       "position": "백엔드, 프론트엔드",
-      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn"
+      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn",
+      "site": ""
     },
     {
       "id": 1,
@@ -66,7 +67,8 @@
       "period": "2023.09~2024.02",
       "description": "한전KPS 전력정비산업 품질플랫폼 시스템 유지관리",
       "position": "백엔드, 프론트엔드",
-      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn"
+      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn",
+      "site": "https://qpc.kps.co.kr/"
     },
     {
       "id": 2,
@@ -74,7 +76,8 @@
       "period": "2023.01~2023.09",
       "description": "한전KPS 원전 정비지원 종합상황실 시스템 구축",
       "position": "백엔드, 프론트엔드",
-      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn"
+      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn",
+      "site": ""
     },
     {
       "id": 3,
@@ -82,7 +85,8 @@
       "period": "2022.09~2023.01",
       "description": "한전KPS 전력정비산업 품질플랫폼 구축",
       "position": "백엔드, 프론트엔드",
-      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn"
+      "skills": "Spring Framework, Jsp, Javascript, Oracle, Svn",
+      "site": "https://qpc.kps.co.kr/"
     },
     {
       "id": 4,
@@ -90,7 +94,8 @@
       "period": "2022.06~2022.09",
       "description": "2022년 한전KPS 대중소 상생형 스마트공장 구축",
       "position": "백엔드, 프론트엔드",
-      "skills": "Spring Framework, Jsp, Javascript, Maria DB, Svn"
+      "skills": "Spring Framework, Jsp, Javascript, Maria DB, Svn",
+      "site": ""
     },
     {
       "id": 5,
@@ -98,7 +103,8 @@
       "period": "2020.11~2021.06",
       "description": "하이텍 대중소 상생형 스마트공장 신규구축",
       "position": "백엔드, 프론트엔드",
-      "skills": "Spring Framework, Jsp, Javascript, Maria DB, Svn"
+      "skills": "Spring Framework, Jsp, Javascript, Maria DB, Svn",
+      "site": ""
     },
     {
       "id": 6,
@@ -106,7 +112,8 @@
       "period": "2020.09~2020.12",
       "description": "한국항공조명 스마트공장 고도화 사업",
       "position": "백엔드, 프론트엔드",
-      "skills": "Spring Framework, Jsp, Javascript, Maria DB, Svn"
+      "skills": "Spring Framework, Jsp, Javascript, Maria DB, Svn",
+      "site": ""
     }
   ]
 }

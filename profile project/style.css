@@ -18,6 +18,7 @@
 body {
   font-family: "Noto Sans KR", sans-serif;
   color: var(--color-black);
+  width: 100%;
 }
 
 #container {
@@ -159,14 +160,14 @@ header {
   }
 }
 
-/* @keyframes bounce {
+@keyframes bounce {
   100% {
     top: -20px;
     text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
       0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
       0 50px 25px rgba(0, 0, 0, 0.2);
   }
-} */
+}
 
 /* contents */
 .contents {
@@ -419,9 +420,9 @@ header {
     width: 320px;
     position: absolute;
     top: 400px;
-    right: 0;
+    right: 100px;
     padding: 50px 20px 30px;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
     z-index: 3;
 
@@ -448,6 +449,7 @@ header {
       .modal_detail {
         display: flex;
         gap: 15px;
+        align-items: center;
 
         .modal_title {
           background: var(--color-white);
@@ -464,6 +466,12 @@ header {
           color: var(--color-white);
           width: 240px;
           font-size: 14px;
+
+          a {
+            &:hover {
+              color: var(--color-sky);
+            }
+          }
         }
       }
     }
@@ -513,6 +521,15 @@ header {
 }
 
 /* goal */
+#goal {
+}
+
+/* footer */
+footer {
+  width: 100%;
+  height: 155px;
+  background: var(--color-sky);
+}
 
 /* ==== mobile ==== */
 @media screen and (max-width: 1098px) and (min-width: 320px) {
@@ -550,6 +567,7 @@ header {
 
       #main_title_txt span {
         font-size: 38px;
+        animation: none;
       }
     }
   }
@@ -636,21 +654,23 @@ header {
       top: 200px;
     }
 
-    .project_wrapper {
-      margin-top: 50px auto 0;
-      padding-left: 20px;
+    .project_contents {
+      width: 100%;
+      margin: 50px auto 0;
 
-      .project_detail {
-        width: 300px;
+      .project_wrapper {
+        width: 70%;
+        margin: 50px auto 0;
 
-        .project_year {
-          font-size: 22px;
-        }
+        .project_detail {
+          .project_year {
+            font-size: 22px;
+          }
 
-        .project_desc {
-          width: 300px;
-          p {
-            font-size: 14px;
+          .project_desc {
+            p {
+              font-size: 14px;
+            }
           }
         }
       }
