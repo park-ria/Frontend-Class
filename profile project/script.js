@@ -259,12 +259,19 @@ fetch("./data.json")
   });
 
 // 스크롤 효과
+const mainTit = document.querySelector("#main_title");
 const about = document.querySelector("#about");
 const project = document.querySelector("#project");
 
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
-  console.log(value);
+  //console.log(value);
+
+  if(value < 200) {
+    mainTit.style.animation = "scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both";
+  } else{
+     mainTit.style.animation ="scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
+  }
 
   if (value < 450) {
     about.style.animation = "disappearAni 1s ease-out forwards";
@@ -278,3 +285,4 @@ window.addEventListener("scroll", () => {
     project.style.animation = "appearAni 1s ease-out";
   }
 });
+
