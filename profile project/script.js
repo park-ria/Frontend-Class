@@ -268,7 +268,7 @@ window.addEventListener("scroll", () => {
   //console.log(value);
 
   if(value < 200) {
-    mainTit.style.animation = "scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both";
+    mainTit.style.animation = "scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards";
   } else{
      mainTit.style.animation ="scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
   }
