@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  #canvas {
+    width: 600px;
+    height: 200px;
+    position: relative;
+    /*원근감을 주기 위해 두개 써야함!!!*/
+    -webkit-perspective: 1500;
+    perspective: 1500;
+
+    #merry {
+      position: absolute;
+      left: 50%;
+      top: 30px;
+      transform: translateX(-50%);
+      /*웹 좌표계 기준으로 움직여서 정확한 가운데가 아니라서 옮겨준다*/
+      transform-style: preserve-3d; /*face를 3d 효과 주려면 부모한테 줘야함!!*/
+      animation: rint 15s infinite linear;
+
+      .face {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: -115px;
+        backface-visibility: hidden; /*뒷면을 보여주고 싶지 않을때*/
+        transform-style: preserve-3d;
+        /*cell도 3d 효과 주고싶어서 부모한테 줌, cell에 마우스를 오버했을때 깊이감을 느끼게 하려고!!*/
+        &:nth-child(1) {
+          transform: rotateY(0deg) translateZ(-370px);
+          /*translateZ(-370px) 깊이감을 주기 위해*/
+        }
+        &:nth-child(2) {
+          transform: rotateY(36deg) translateZ(-370px);
+        }
+        &:nth-child(3) {
+          transform: rotateY(72deg) translateZ(-370px);
+        }
+        &:nth-child(4) {
+          transform: rotateY(108deg) translateZ(-370px);
+        }
+        &:nth-child(5) {
+          transform: rotateY(144deg) translateZ(-370px);
+        }
+        &:nth-child(6) {
+          transform: rotateY(180deg) translateZ(-370px);
+        }
+        &:nth-child(7) {
+          transform: rotateY(216deg) translateZ(-370px);
+        }
+        &:nth-child(8) {
+          transform: rotateY(252deg) translateZ(-370px);
+        }
+        &:nth-child(9) {
+          transform: rotateY(288deg) translateZ(-370px);
+        }
+        &:nth-child(10) {
+          transform: rotateY(324deg) translateZ(-370px);
+        }
+        .cell {
+          width: 230px;
+          height: 150px;
+          margin-bottom: 5px;
+          background: url("http://placehold.it/260x200");
+          /*lofi wireframe에서 넣을 이미지가 없을때 이렇게 함*/
+          transition: all 0.5s;
+          &:hover {
+            transform: scale(1.2) translateZ(50px) /*깊이감을 주면 튀어나옴*/;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rint {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
