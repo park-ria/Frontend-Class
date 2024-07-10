@@ -1,4 +1,4 @@
-const year = document.querySelector("#year");
+/*const year = document.querySelector("#year");
 for (i = 2024; i >= 2015; i--) {
   const opt = document.createElement("option");
   opt.value = i;
@@ -23,7 +23,7 @@ for (i = 1; i < 32; i++) {
   const txt = document.createTextNode(i + "일");
   opt.appendChild(txt);
   day.appendChild(opt);
-}
+}*/
 
 const femaleBtn = document.getElementById("femaleBtn");
 const maleBtn = document.getElementById("maleBtn");

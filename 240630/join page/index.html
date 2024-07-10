@@ -21,18 +21,15 @@
       <section id="logon">
         <form action="https://localhost:3001" method="post">
           <article class="inner_contents title">가입하시고 즐겨보세요!</article>
-          <article class="inner_contents birthday">생년월일</article>
-          <div id="calendar">
-            <select name="year" id="year">
-              <option value="none" selected disabled>년</option>
-            </select>
-            <select name="month" id="month">
-              <option value="none" selected disabled>월</option>
-            </select>
-            <select name="day" id="day">
-              <option value="none" selected disabled>일</option>
-            </select>
-          </div>
+          <article class="inner_contents birthday">
+            <label for="calendar">생년월일</label>
+            <input
+              type="date"
+              name="calendar"
+              id="calendar"
+              value="2024-07-10"
+            />
+          </article>
           <article class="inner_contents username">
             <label for="user">사용자 이름</label>
             <input

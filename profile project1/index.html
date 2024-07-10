@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- custom css & js-->
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <main id="container">
+      <div id="backFilter"></div>
+      <header>
+        <nav id="gnb">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#about_point">About</a>
+            </li>
+            <li>
+              <a href="#project_point">Project</a>
+            </li>
+            <li>
+              <a href="#goal">Goal</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section id="main">
+        <div id="main_title">
+          <span id="main_title_flower"></span>
+          <span id="main_title_txt">
+            <span>H</span>
+            <span>e</span>
+            <span>l</span>
+            <span>l</span>
+            <span>o</span>
+            <span>, </span>
+            <span>R</span>
+            <span>i</span>
+            <span>a</span>
+            <span>W</span>
+            <span>o</span>
+            <span>r</span>
+            <span>l</span>
+            <span>d</span>
+            <span>!</span>
+          </span>
+        </div>
+      </section>
+      <div id="about_point"></div>
+      <section id="about" class="contents">
+        <div class="contents_title">About</div>
+        <article class="contents_wrapper about_contents">
+          <div class="about_detail">
+            <span class="about_img"></span>
+            <span class="about_Info">
+              <div class="about_desc_row">
+                <span class="about_desc">
+                  <span class="about_desc_title">Information</span>
+                  <ul>
+                    <li>
+                      <strong>이름</strong>
+                      <span>박리아</span>
+                    </li>
+                    <li>
+                      <strong>나이</strong>
+                      <span>1991.02</span>
+                    </li>
+                    <li>
+                      <strong>전공</strong>
+                      <span>조선대 / 컴퓨터공학</span>
+                    </li>
+                    <li>
+                      <strong>취미</strong>
+                      <span>보드게임</span>
+                    </li>
+                    <li>
+                      <strong>MBTI</strong>
+                      <span>ISTJ</span>
+                    </li>
+                  </ul>
+                </span>
+                <span class="about_desc_col">
+                  <span class="about_desc">
+                    <span class="about_desc_title">Career</span>
+                    <ul>
+                      <li>
+                        <strong class="career">웹개발</strong>
+                        <span>3년 8개월</span>
+                      </li>
+                      <li>
+                        <strong class="career">서버엔지니어</strong>
+                        <span>1년</span>
+                      </li>
+                    </ul>
+                  </span>
+                  <span class="about_desc">
+                    <span class="about_desc_title">Certificate</span>
+                    <ul>
+                      <li>
+                        <span>정보처리기사</span>
+                      </li>
+                      <li>
+                        <span>OCP 10g</span>
+                      </li>
+                    </ul>
+                  </span>
+                </span>
+              </div>
+              <div class="about_desc_row">
+                <span class="about_desc">
+                  <span class="about_desc_title">Education</span>
+                  <ul>
+                    <li>
+                      <span>생성형AI 활용 프론트엔드 개발자과정 수료중</span>
+                    </li>
+                    <li>
+                      <span>지능형 빅데이터 서비스 개발자과정 수료완료</span>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </span>
+          </div>
+        </article>
+        <article class="about_skills">
+          <span class="about_desc_title">Skills</span>
+          <div class="skills_detail">
+            <span class="slide_control prev"></span>
+            <div class="slide_wrapper">
+              <ul class="slides"></ul>
+            </div>
+            <span class="slide_control next"></span>
+          </div>
+          <div class="slide_pager"></div>
+        </article>
+      </section>
+      <div id="project_point"></div>
+      <section id="project" class="contents">
+        <div class="contents_title">Project</div>
+        <div id="modal">
+          <span id="modal_close_btn"></span>
+          <div id="modal_wrapper">
+            <span id="project_index"></span>
+            <div class="modal_detail">
+              <span class="modal_title">프로젝트명</span>
+              <span id="modal_nm" class="modal_desc"></span>
+            </div>
+            <div class="modal_detail">
+              <span class="modal_title">기간</span>
+              <span id="modal_prd" class="modal_desc"></span>
+            </div>
+            <div class="modal_detail">
+              <span class="modal_title">포지션</span>
+              <span id="modal_pstn" class="modal_desc"></span>
+            </div>
+            <div class="modal_detail">
+              <span class="modal_title">사용언어</span>
+              <span id="modal_skill" class="modal_desc"></span>
+            </div>
+            <div class="modal_detail siteLine">
+              <span class="modal_title">사이트</span>
+              <span id="modal_site" class="modal_desc"></span>
+            </div>
+          </div>
+        </div>
+        <article class="contents_wrapper project_contents">
+          <div class="project_wrapper"></div>
+        </article>
+      </section>
+      <div id="goal_point"></div>
+      <section id="goal" class="contents">
+        <div class="contents_title">Goal</div>
+        <article class="contents_wrapper goal_contents"></article>
+      </section>
+      <footer></footer>
+    </main>
+  </body>
+</html>
