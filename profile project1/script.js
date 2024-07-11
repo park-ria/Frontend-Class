@@ -127,7 +127,7 @@ fetch("./data.json")
       if (timer === undefined) {
         timer = setInterval(() => {
           moveSlide(currentIdx + 1);
-        }, 3000);
+        }, 2000);
       }
     };
 
@@ -258,19 +258,34 @@ fetch("./data.json")
     });
   });
 
+// goal toggle
+const goalImg = document.querySelectorAll(".goal_img");
+goalImg.forEach((item) => {
+  item.addEventListener("click", () => {
+    const target = document.querySelector(
+      `.${item.getAttribute("data-alt")} .goal_desc`
+    );
+    item.classList.toggle("active");
+    target.classList.toggle("active");
+  });
+});
+
 // 스크롤 효과
 const mainTit = document.querySelector("#main_title");
 const about = document.querySelector("#about");
 const project = document.querySelector("#project");
+const goal = document.querySelector("#goal");
 
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
   //console.log(value);
 
-  if(value < 200) {
-    mainTit.style.animation = "scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards";
-  } else{
-     mainTit.style.animation ="scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
+  if (value < 200) {
+    mainTit.style.animation =
+      "scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards";
+  } else {
+    mainTit.style.animation =
+      "scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
   }
 
   if (value < 450) {
@@ -284,5 +299,10 @@ window.addEventListener("scroll", () => {
   } else {
     project.style.animation = "appearAni 1s ease-out";
   }
-});
 
+  if (value < 2580) {
+    goal.style.animation = "disappearAni 1s ease-out forwards";
+  } else {
+    goal.style.animation = "appearAni 1s ease-out";
+  }
+});
