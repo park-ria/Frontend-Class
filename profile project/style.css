@@ -350,19 +350,24 @@ header {
           margin-right: none;
         }
         &:nth-child(1) {
-          background: url("./img/boardgame.jpg") center center no-repeat;
+          background: url("./img/boardgame.jpg") center/cover no-repeat;
         }
         &:nth-child(2) {
-          background: url("./img/travel.jpg") center center no-repeat;
+          background: url("./img/travel.jpg") center/cover no-repeat;
         }
         &:nth-child(3) {
-          background: url("./img/movie.jpg") center center no-repeat;
+          background: url("./img/movie.jpg") center/cover no-repeat;
         }
         &:nth-child(4) {
-          background: url("./img/pool.jpg") center center no-repeat;
+          background: url("./img/pool.jpg") center/cover no-repeat;
         }
         &:nth-child(5) {
-          background: url("./img/family.jpg") center center no-repeat;
+          background: url("./img/family.jpg") center/cover no-repeat;
+          cursor: pointer;
+          transition: all 0.5s;
+          &:active {
+            background: url("./img/family1.jpeg") center/cover no-repeat;
+          }
         }
 
         &:hover {
