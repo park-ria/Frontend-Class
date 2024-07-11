@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        header {
+          width: 100%;
+          height: 100px;
+          background: pink;
+        }
+        section {
+          display: flex;
+          justify-content: space-between;
+          height: calc(100vh - 200px);
+
+          nav {
+            flex-basis: 250px; /*깔고가는 값*/
+            background: #eee;
+          }
+          aside {
+            flex-basis: 250px; /*깔고가는 값*/
+            background: #ccc;
+          }
+        }
+        footer {
+          width: 100%;
+          height: 100px;
+          background: gray;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header>Header</header>
+      <section>
+        <nav>Nav</nav>
+        <article>Article</article>
+        <aside>Aside</aside>
+      </section>
+      <footer>Footer</footer>
+    </main>
+  </body>
+</html>

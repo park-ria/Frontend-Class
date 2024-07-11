@@ -64,24 +64,22 @@ window.addEventListener("resize", () => {
   cardFlipOnScroll.init();
 });
 
-/*const goalImg = document.querySelectorAll(".goal_img");
+const goalImg = document.querySelectorAll(".goal_img");
 goalImg.forEach((item) => {
   item.addEventListener("click", () => {
-    goalImg.forEach((sibling) => {
-      sibling.style.transform = "scale(1)";
-      sibling.nextSibling.nextSibling.style.display = "none";
-    });
-
-    item.style.transform = "scale(1.2)";
     const target = document.querySelector(
       `.${item.getAttribute("data-alt")} .goal_desc`
     );
-    target.style.display = "block";
+    item.classList.toggle("active");
+    target.classList.toggle("active");
   });
-});*/
+});
 
 // 스크롤 효과
 const mainTit = document.querySelector("#main_title");
+const about = document.querySelector(".sticky-background");
+const favorite = document.querySelector("#favorite");
+const goal = document.querySelector("#goal");
 
 window.addEventListener("scroll", () => {
   let value = window.scrollY;
@@ -89,21 +87,29 @@ window.addEventListener("scroll", () => {
 
   if (value < 200) {
     mainTit.style.animation =
-      "scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards";
+      "scale-in-center 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards";
   } else {
     mainTit.style.animation =
-      "scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
+      "scale-out-center 0.8s cubic-bezier(0.550, 0.085, 0.680, 0.530) both";
   }
 
-  /*  if (value < 450) {
-    about.style.animation = "disappearAni 1s ease-out forwards";
-  } else {
-    about.style.animation = "appearAni 1s ease-out";
-  }
+  if (matchMedia("screen and (min-width: 1098px)").matches) {
+    if (value < 1000) {
+      about.style.animation = "disappearAni 1s ease-out forwards";
+    } else {
+      about.style.animation = "appearAni 1s ease-out";
+    }
 
-  if (value < 1600) {
-    project.style.animation = "disappearAni 1s ease-out forwards";
-  } else {
-    project.style.animation = "appearAni 1s ease-out";
-  }*/
+    if (value < 5700) {
+      favorite.style.animation = "disappearAni 1s ease-out forwards";
+    } else {
+      favorite.style.animation = "appearAni 1s ease-out";
+    }
+
+    if (value < 6300) {
+      goal.style.animation = "disappearAni 1s ease-out forwards";
+    } else {
+      goal.style.animation = "appearAni 1s ease-out";
+    }
+  }
 });

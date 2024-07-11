@@ -1,0 +1,112 @@
+* 자바스크립트 연산자!!!
+
+증감연산자
+논리연산자
+비교연산자 >, <, <=, >=, ==
+
+JS => 변수 데이터 값
+타입 => 문자열 / 숫자 / 논리형 / 객체 / 함수 / 배열 등
+
+1 == "1" => 같다
+1 === "1" => 다르다
+
+== : 같다(느슨한 비교)
+=== : 같다(엄격한 비교)
+! : 반대
+
+
+* CSS3 레벨로 업그레이드
+- animation / transition / transform
+- flex / grid
+> 기존 css로는 float / margin / paddind / table => 레이아웃 정렬 => 불편함
+> 레이아웃 정렬 전용 속성
+
+1) 부모(컨테이너 박스)
+> display:flex
+> justify-contents => 중심축을 기준 정렬 : 수평정렬
+
+*단일 아이템!!!
+  - center : 아이템을 전체 너비의 정가운데
+  - flex-start : 플렉스가 시작되어지는 지점을 기준으로 정렬
+     (*웹 모든 그래픽 요소 : 좌 -> 우) => 왼쪽 정렬
+  - flex-end : 오른쪽 정렬
+
+*복수 아이템!!
+  - space-between : 왼쪽과 오른쪽을 끝으로 보내고 사이 간격을 동일하게
+  - space-around : 각각의 도형의 왼쪽과 오른쪽 여백을 같게
+  - space-evenly : 모든 요소의 간격을 동일하게
+
+> align-items => 교차축을 기준 정렬 : 수직정렬
+  - flex-start 위쪽
+  - center 가운데
+  - flex-end 아래쪽
+  - stretch: 자식요소의 높이값을 별도로 지정하지 않는 경우, 부모요소의 높이를 자동으로 상속받는 기능
+
+> flex-direction => 중심축과 교차축을 무엇으로 할 것인가?
+(* default : row)
+  1) row
+  - 중심축 가로 & 교차축 세로
+  - row : 중심축이 가로 왼쪽부터 (1, 2, 3)
+  - row-reverse : 중심축이 가로 오른쪽부터 (3, 2, 1) 
+      * flex-end와 다른점은 flex-end는 순서는 그대로인데 오른쪽에 붙지만(1,2,3), 
+         row-reverse는 순서도 바껴서(3,2,1) 오른쪽에 붙음
+
+  2) column
+  - column : 중심축 세로 & 교차축 가로
+  - column : 상단부터
+  - column-reverse : 하단부터
+      flex-end & column-reverse 둘다 아래쪽에 붙지만 순서가 다름
+
+> flex-wrap
+  - default : "no-wrap" => 자식 요소의 너비 보장 x 
+                        => 창이 줄어들면 자식의 크기가 지정되어 있더라도 같이 줄어든다
+   - wrap => 자식 요소의 너비를 보장 => 창이 줄어들면 자식의 크기가 보장되기때문에 아래로 떨어진다
+
+* flex-wrap & flex-direction 하나로 통합해서 작성 => flex-flow
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+
+
+> align-contents => 자식요소들이 여러개의 행으로 구분이 되어졌을 때 어느 방향으로 모든 자식요소들의 수직정렬을 결정 / *하나의 컨텐츠*로 식별해서 수직정렬을 주고자 할 때
+  - center : 한 뭉탱이로 세로 가운데로 감
+  - flex-start : 한 뭉탱이로 위로 붙음
+  - flex-end : 한 뭉탱이로 아래에 붙음
+  - space-between : 갈라져서 위아래로 나눠짐
+  - space-around
+  - space-evenly
+
+
+2) 자식(*플렉스 레이아웃 시스템 문법 적용)
+> flex-grow : 자식요소들의 너비의 비율을 결정
+
+
+> flex-shrink : 자식요소들의 너비가 줄어들 때의 비율을 결정 => 줄어들기 전엔 지정된 크기지만 웹 화면이 줄어들면서 shrink가 클수록 더 크게 줄어든다
+
+
+> flex-basis : 자식요소들에게 고정 너비값을 부여 / minmum 최소한의 너비값을 유지한다
+=> flex : flex-grow flex-shrink fles-basis
+  - flex 축약 : flex-grow는 필수 값! flex-shrink flex-basis는 옵션
+            flex-basis: 100px;
+            flex-grow: 1; 
+            flex-shrink: 3;
+            => flex: 1 3 100px;
+  - 보통 flex: 1 1 auto; 쓴다 = flex:1;
+
+> order : 자식 요소들의 포지션 위치순서를 결정
+
+3) 중심축 / 교차축
+- 중심축 default => 가로 row
+- 교차축 default => 세로 column
+
+
+
+
+
+
+
+* 특정 아이템 위치를 조정
+> transform > translate(x, y 좌표)
+
+* margin / paddind
+> 특정 도형 및 요소의 위치를 조정

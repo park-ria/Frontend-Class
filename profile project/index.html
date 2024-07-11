@@ -3,16 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <!-- open graph -->
+    <meta property="og:image" content="./img/og_img.png" />
+    <meta property="og:image:width" content="390" />
+    <meta property="og:image:height" content="200" />
+    <meta property="og:title" content="[Ria World] 자기소개" />
+    <meta property="og:description" content="박리아의 프로필을 확인해보세요." />
+    <!-- fontawesome-->
+    <script
+      src="https://kit.fontawesome.com/dfc51b96a5.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- custom css & js-->
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./script.js"></script>
+    <title>HelloRiaWorld</title>
   </head>
   <body>
     <main id="container">
       <div id="backFilter"></div>
       <header>
         <nav id="gnb">
+          <div id="logo">
+            <span></span>
+          </div>
           <ul>
             <li>
               <a href="#">Home</a>
@@ -51,11 +65,9 @@
           </span>
         </div>
       </section>
-      <div id="about_point"></div>
       <section id="about" class="contents">
-        <!-- <div class="contents_title">About</div> -->
         <article class="contents_wrapper about_contents">
-          <div class="main-content-1">
+          <div id="about_point" class="main-content-1">
             <div class="sticky">
               <div class="sticky-background">About</div>
               <div class="card-frame">
@@ -160,21 +172,59 @@
             <div class="goal_img_wrap first">
               <div class="goal_img" data-alt="first"></div>
               <div class="goal_desc">
-                html, css, javascript, react.js, node.js 숙련
+                <p>
+                  html, css, javascript,<br />
+                  react.js, node.js 실력향상
+                </p>
               </div>
             </div>
             <div class="goal_img_wrap second">
               <div class="goal_img" data-alt="second"></div>
-              <div class="goal_desc">성공적인 팀프로젝트 마무리</div>
+              <div class="goal_desc">
+                <p>성공적인 팀프로젝트</p>
+              </div>
             </div>
             <div class="goal_img_wrap third">
               <div class="goal_img" data-alt="third"></div>
-              <div class="goal_desc">프론트엔드 개발자 취업</div>
+              <div class="goal_desc">
+                <p>프론트엔드 개발자 취업</p>
+              </div>
             </div>
           </div>
         </article>
       </section>
-      <footer></footer>
+      <footer>
+        <div class="inner">
+          <div class="upper">
+            <span id="logo"></span>
+            <ul>
+              <li>
+                <a href="#">Policy</a>
+              </li>
+              <li>
+                <a href="#">Terms</a>
+              </li>
+              <li>
+                <a href="#">Family Site</a>
+              </li>
+              <li>
+                <a href="#">Sitemap</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sns">
+            <div class="sns_title">Contact</div>
+            <div class="sns_content">
+              <a href="#none"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#none"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#none"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <div class="lower">
+            <p>2024 Ria Park &copy; copyright all right reserved</p>
+          </div>
+        </div>
+      </footer>
     </main>
   </body>
 </html>

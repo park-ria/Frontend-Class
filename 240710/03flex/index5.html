@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        border: 5px solid #0f0;
+        display: flex;
+        div {
+          width: 200px;
+          height: 200px;
+          margin: 10px;
+          background: crimson;
+          &:nth-child(1) {
+            /*1/6만큼 비율로 가져감*/
+            /* flex-grow: 1;  */
+            /* width: 500px;
+            flex-shrink: 3; */
+            /*flex-basis: 100px;
+            flex-grow: 1; 
+            flex-shrink: 3;*/
+            flex: 1 3 100px;
+          }
+          &:nth-child(2) {
+            /*2/6만큼 비율로 가져감*/
+            /* flex-grow: 2; */
+            /* width: 500px;
+            flex-shrink: 2; */
+            /* flex-basis: 200px;
+            flex-grow: 2;
+            flex-shrink: 2; */
+            flex: 2 2 200px;
+          }
+          &:nth-child(3) {
+            /*3/6만큼 비율로 가져감*/
+            /* flex-grow: 1; */
+            /* width: 500px;
+            flex-shrink: 1; */
+            flex-basis: 300px;
+            flex-grow: 3; /*부모의 너비가 남았으면 이 비율로 차지할거야*/
+            flex-shrink: 1;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+  </body>
+</html>

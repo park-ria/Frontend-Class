@@ -1,0 +1,69 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background: #eee;
+  header {
+    background: #fff;
+    display: flex;
+    /* flex-wrap: wrap; */
+    padding: 20px;
+    /*실무에서는 height 잘 안쓴다 픽스되어있기때문에 padding을 줘서 반응형에 대응한다*/
+    .logo {
+      flex: 1; /*8분의1의 비율을 가져가겠다*/
+    }
+    .gnb {
+      flex: 6; /*8분의6의 비율을 가져가겠다*/
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+    .search {
+      flex: 1; /*8분의1의 비율을 가져가겠다*/
+      text-align: right;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  body {
+    header {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      .gnb {
+        ul {
+          gap: 10px;
+        }
+      }
+
+      .search {
+        input[type="search"] {
+          padding: 10px;
+          border: none;
+          border-bottom: 1px solid #eee;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
