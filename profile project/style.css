@@ -210,7 +210,7 @@ header {
           font-weight: bold;
           color: var(--color-black);
           position: relative;
-          top: -350px;
+          top: -30%;
         }
 
         .card-frame {
@@ -327,79 +327,82 @@ header {
 }
 
 /* favorite */
-.contents_wrapper {
-  margin-top: 70px;
+#favorite {
+  margin-bottom: 100px;
+  .contents_wrapper {
+    margin-top: 70px;
 
-  .gallery {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
+    .gallery {
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
 
-    li {
-      width: 18%;
-      height: 600px;
-      flex: 1;
-      transition: all 0.5s;
-      position: relative;
-      overflow: hidden;
-      margin-right: 10px;
-
-      &:last-child {
-        margin-right: none;
-      }
-      &:nth-child(1) {
-        background: url("./img/boardgame.jpg") center center no-repeat;
-      }
-      &:nth-child(2) {
-        background: url("./img/travel.jpg") center center no-repeat;
-      }
-      &:nth-child(3) {
-        background: url("./img/movie.jpg") center center no-repeat;
-      }
-      &:nth-child(4) {
-        background: url("./img/pool.jpg") center center no-repeat;
-      }
-      &:nth-child(5) {
-        background: url("./img/family.jpg") center center no-repeat;
-      }
-
-      &:hover {
-        flex: 10;
-      }
-
-      .gallery_cotent {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        top: 100%;
-        left: 0;
+      li {
+        width: 18%;
+        height: 600px;
+        flex: 1;
         transition: all 0.5s;
-        background: linear-gradient(to top, #000, transparent);
+        position: relative;
+        overflow: hidden;
+        margin-right: 10px;
 
-        h2 {
-          text-align: center;
-          font-size: 30px;
-          color: var(--color-white);
-          position: absolute;
-          top: 400px;
-          left: 50%;
-          transform: translateX(-50%);
+        &:last-child {
+          margin-right: none;
         }
-        p {
+        &:nth-child(1) {
+          background: url("./img/boardgame.jpg") center center no-repeat;
+        }
+        &:nth-child(2) {
+          background: url("./img/travel.jpg") center center no-repeat;
+        }
+        &:nth-child(3) {
+          background: url("./img/movie.jpg") center center no-repeat;
+        }
+        &:nth-child(4) {
+          background: url("./img/pool.jpg") center center no-repeat;
+        }
+        &:nth-child(5) {
+          background: url("./img/family.jpg") center center no-repeat;
+        }
+
+        &:hover {
+          flex: 10;
+        }
+
+        .gallery_cotent {
           width: 100%;
-          text-align: center;
-          font-size: 14px;
-          font-weight: normal;
-          color: #ddd;
-          margin-top: 10px;
-        }
-      }
+          height: 100%;
+          position: relative;
+          top: 100%;
+          left: 0;
+          transition: all 0.5s;
+          background: linear-gradient(to top, #000, transparent);
 
-      &:hover .gallery_cotent {
-        top: 0;
-      }
-      &:hover {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          h2 {
+            text-align: center;
+            font-size: 30px;
+            color: var(--color-white);
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          p {
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: normal;
+            color: #ddd;
+            margin-top: 10px;
+          }
+        }
+
+        &:hover .gallery_cotent {
+          top: 0;
+        }
+        &:hover {
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
       }
     }
   }
@@ -673,7 +676,6 @@ footer {
         .sticky {
           .sticky-background {
             font-size: 28px;
-            top: -250px;
           }
           .card-frame {
             display: grid;
@@ -711,7 +713,7 @@ footer {
   /* goal */
   #goal {
     .goal_contents {
-      margin-top: 0;
+      margin-top: 70px;
       .goal_detail {
         width: 100%;
         flex-direction: column;
@@ -796,7 +798,6 @@ footer {
         .sticky {
           .sticky-background {
             font-size: 28px;
-            top: -250px;
           }
 
           .card-frame {
@@ -837,7 +838,7 @@ footer {
   /* goal */
   #goal {
     .goal_contents {
-      margin-top: 0;
+      margin-top: 70px;
       .goal_detail {
         width: 100%;
         flex-direction: column;
