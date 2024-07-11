@@ -100,13 +100,13 @@ window.addEventListener("scroll", () => {
       about.style.animation = "appearAni 1s ease-out";
     }
 
-    if (value < 5700) {
+    if (value < 5100) {
       favorite.style.animation = "disappearAni 1s ease-out forwards";
     } else {
       favorite.style.animation = "appearAni 1s ease-out";
     }
 
-    if (value < 6300) {
+    if (value < 6150) {
       goal.style.animation = "disappearAni 1s ease-out forwards";
     } else {
       goal.style.animation = "appearAni 1s ease-out";

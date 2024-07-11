@@ -173,7 +173,7 @@ header {
     font-size: 40px;
     font-weight: bold;
     text-align: center;
-    margin-top: 100px;
+    margin: 100px 0 70px;
   }
   .contents_wrapper {
     width: var(--main-width);
@@ -406,95 +406,96 @@ header {
 }
 
 /* goal */
-.goal_contents {
-  margin-top: 100px;
-
-  .goal_detail {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    .goal_img_wrap {
-      width: 300px;
-      height: 450px;
+#goal {
+  padding-bottom: 50px;
+  .goal_contents {
+    .goal_detail {
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      transition: all 0.5s;
+      justify-content: space-between;
 
-      .goal_img {
+      .goal_img_wrap {
+        width: 300px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transition: all 0.5s;
+
+        .goal_img {
+          border-radius: 8px;
+          width: 300px;
+          height: 450px;
+          position: relative;
+          transition: all 0.5s;
+          cursor: pointer;
+          z-index: 1;
+          &.active {
+            border-radius: 8px 8px 0 0;
+          }
+          &:hover {
+            transform: translateY(-20px);
+            border-radius: 8px 8px 0 0;
+          }
+          &:hover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 450px;
+            background: linear-gradient(to top, #000, transparent);
+            border-radius: 8px 8px 0 0;
+          }
+          &:hover ~ .goal_desc {
+            transform: translateY(-20px);
+          }
+        }
+
+        &.first > .goal_img {
+          background: url("./img/learning.jpg") center/cover no-repeat;
+        }
+        &.first p {
+          bottom: 28px;
+        }
+        &.second > .goal_img {
+          background: url("./img/team.jpg") center/cover no-repeat;
+        }
+        &.second p {
+          bottom: 37px;
+        }
+        &.third > .goal_img {
+          background: url("./img/developer.jpg") center/cover no-repeat;
+        }
+        &.third p {
+          bottom: 37px;
+        }
+      }
+
+      .goal_desc {
+        display: block;
         border-radius: 8px;
         width: 300px;
         height: 450px;
-        position: relative;
-        transition: all 0.5s;
-        cursor: pointer;
-        z-index: 1;
-        &.active {
-          border-radius: 8px 8px 0 0;
-        }
-        &:hover {
-          transform: translateY(-20px);
-          border-radius: 8px 8px 0 0;
-        }
-        &:hover::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 300px;
-          height: 450px;
-          background: linear-gradient(to top, #000, transparent);
-          border-radius: 8px 8px 0 0;
-        }
-        &:hover ~ .goal_desc {
-          transform: translateY(-20px);
-        }
-      }
-
-      &.first > .goal_img {
-        background: url("./img/learning.jpg") center/cover no-repeat;
-      }
-      &.first p {
-        bottom: 28px;
-      }
-      &.second > .goal_img {
-        background: url("./img/team.jpg") center/cover no-repeat;
-      }
-      &.second p {
-        bottom: 37px;
-      }
-      &.third > .goal_img {
-        background: url("./img/developer.jpg") center/cover no-repeat;
-      }
-      &.third p {
-        bottom: 37px;
-      }
-    }
-
-    .goal_desc {
-      display: block;
-      border-radius: 8px;
-      width: 300px;
-      height: 450px;
-      background: var(--color-black);
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-      text-align: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: all 0.5s;
-      &.active {
-        height: 120%;
-      }
-
-      p {
-        width: 100%;
+        background: var(--color-black);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        text-align: center;
         position: absolute;
-        bottom: 20px;
-        color: var(--color-white);
+        top: 0;
+        left: 0;
+        transition: all 0.5s;
+        &.active {
+          height: 120%;
+        }
+
+        p {
+          width: 100%;
+          position: absolute;
+          bottom: 20px;
+          color: var(--color-white);
+        }
       }
     }
   }
@@ -656,7 +657,7 @@ footer {
 
     .contents_title {
       width: 100%;
-      margin: 40px 0 0;
+      margin: 40px 0;
       font-size: 28px;
     }
 
@@ -708,11 +709,16 @@ footer {
   }
 
   /* goal */
-  .goal_detail {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 120px;
+  #goal {
+    .goal_contents {
+      margin-top: 0;
+      .goal_detail {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 120px;
+      }
+    }
   }
 
   /* footer */
@@ -774,7 +780,7 @@ footer {
 
     .contents_title {
       width: 100%;
-      margin: 40px 0 0;
+      margin: 40px 0;
       font-size: 28px;
     }
 
@@ -829,11 +835,16 @@ footer {
   }
 
   /* goal */
-  .goal_detail {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 120px;
+  #goal {
+    .goal_contents {
+      margin-top: 0;
+      .goal_detail {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 120px;
+      }
+    }
   }
 
   /* footer */
@@ -850,6 +861,21 @@ footer {
         & > ul {
           margin: 0;
         }
+      }
+      .sns {
+        width: 100%;
+        .sns_title {
+          padding: 20px;
+          text-align: center;
+        }
+        .sns_content {
+          padding: 0;
+          text-align: center;
+        }
+      }
+      .lower {
+        padding: 20px;
+        text-align: center;
       }
     }
   }
