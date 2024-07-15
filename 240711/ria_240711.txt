@@ -72,17 +72,11 @@ Hosting URL: https://myfirst-profile.web.app
 3) 원본데이터 복사해서 빌드 폴더에 붙여넣기
 4) 수정된 데이터 호스팅 > 주소 복붙 > 재배포한 주소를 다시 넣었는데 안되면 쿠키삭제
 
-
-
-피그마 오른쪽 상단 share 눌러서 카피링크 복사
-
 슬랙을 통해서
 배포된 소스코드를 깃허브에 올리고 주소 보내기
 ooo입니다.
 1. 깃허브 주소 : 
 2.배포 주소 : 
 > 참고해야할 사항 코멘트
-3. 피그마주소 : https://www.figma.com/design/SkjMD5rud3geNEbO6a13Vk/profile-project-final?node-id=0-1&t=TYD1zMBcNFxQR5vm-1
-4. wbs 엑셀 보내기
 
 
