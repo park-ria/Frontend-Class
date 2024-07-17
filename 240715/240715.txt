@@ -16,3 +16,7 @@ scroll event library : wow.js (https://wowjs.uk/)
 피그마에서 share 눌러서 팀원 이메일 넣고 can edit 해주면 팀 프로젝트 생성됨
 action > plugins > html.to.design Run 시킴 > 긁어올 웹사이트의 url을 복붙한다음 import하면 긁어옴
 as is -> to be
+
+
+* 변수를 생성한다는 것은 => 컴퓨터 cpu 가상 메모리 공간 사용! => 변수가 많으면 메모리 공간 많이 차지
+   => 전역변수 x, 지역변수 o => 지역변수 두번 쓸거면 전역변수

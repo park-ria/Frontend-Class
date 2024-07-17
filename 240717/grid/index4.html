@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        border: 5px solid #000;
+        background: khaki;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 10px; /* 행과 열 모두 10씩 주겠다*/
+        & div {
+          background: dodgerblue;
+          border: 1px solid #fff;
+          height: 100px;
+          &.item {
+            background: crimson;
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
+            /* grid-column: 1 / 3; */
+            /* grid-column: 1 / span 2; */
+            /* grid-column: 2 / 4; */
+            /* grid-column: 2 / span 2; */
+            /* grid-row-start: 1;
+            grid-row-end: 5; */
+            /* grid-row: 1 / 5; */
+            /* grid-row: 1 / span 4; */
+            grid-column-start: 2;
+            grid-row: 1 / span 4;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div>1</div>
+      <div class="item">2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+  </body>
+</html>
