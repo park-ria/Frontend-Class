@@ -67,3 +67,9 @@ $(".myslider").slick({
     },
   ],
 });
+
+// scrollTo(https://github.com/flesler/jquery.scrollTo)
+$(".gototop, .gnb a").click(function () {
+  $.scrollTo(this.hash || 0, 800);
+  // this.hash || 0 => 경로가 있다면 경로를 향해서 가라 없으면 0인 top으로 가라 / 800 => 0.8초 동안가라
+});

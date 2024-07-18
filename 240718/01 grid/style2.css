@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  .container {
+    display: grid;
+    width: 1100px;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    border-radius: 20px;
+    .best-seller {
+      font-size: 22px;
+      padding-left: 10px;
+    }
+    .items-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 30px;
+      justify-self: center;
+      margin: 20px 0;
+      .item {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        justify-items: center;
+        align-items: center;
+        /*min-content는 이미지랑 텍스트랑 같이 넣고싶은데 각자의 너비 값을 줄여서 한 줄에 들어갈 수 있게끔해줌*/
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer;
+        &:nth-child(10),
+        &:nth-child(11),
+        &:nth-child(12) {
+          padding: 0;
+          border: none;
+        }
+        .name span {
+          display: block;
+          color: royalblue;
+          margin-top: 4px;
+        }
+        &:hover .name {
+          color: crimson;
+        }
+      }
+    }
+    .view-more {
+      justify-self: end;
+      color: crimson;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    .container {
+      width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      .items-inner {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        .item {
+          &:nth-child(10) {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  body {
+    .container {
+      .items-inner {
+        grid-template-columns: 1fr;
+        width: 100%;
+        justify-items: center;
+        .item {
+          &:nth-child(11),
+          &:nth-child(12) {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+          }
+        }
+      }
+    }
+  }
+}

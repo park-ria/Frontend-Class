@@ -1,0 +1,10 @@
+.frame {
+  padding: 20px;
+  border: 1px solid #000;
+  text-align: center;
+  @at-root .heading {
+    color: crimson;
+    font-size: 36px;
+  }
+  /* @at-root를 주는 네스팅 구조와 무관하게 순간 전역으로 쓸 수 있음 */
+}

@@ -1,0 +1,81 @@
+CSS : Cascading Style Sheet ->  cascading이 폭포를 의미, 부모에서 자녀에게 기본 문법이 상속되어짐
+------------
+SCSS : Sassy Cascading Style Sheet -> Sassy 엄청난을 의미
+css와 다르게 Nesting / if / for / 함수 / 변수 기타 등등 쓸 수 있음
+
+웹 브라우저는 html, css, js만 인식
+
+compiler
+
+-------------
+vs code에서 scss 쓰기
+확장프로그램 > sass 검색 > Live Sass Compiler(glenn marks) 설치
+vs code 하단에 watching sass 누르면 알아서 style.css와 style.css.map을 만들어 줌
+html에는 style.css를 연결 시키면 됨
+scss는 컴파일러여서 바로 틀린 문법은 바로 알려줌!!! > watching 나오면 에러 안난거임
+=> 스타일 작성은 scss에서 작성하고 html은 css밖에 인식못하므로 링크는 css로 연결 시켜줘야 함!!!
+=> scss를 쓸 때는 css 건들지 않기!!!!!!!!!!!!!!
+=> 배포할 때는 css만 해주면 됨!!!!!!!!!!
+
+css의 변수
+:root {
+--main-text-color: #000;
+}
+
+background: var(--main-text-color);
+
+scss의 변수
+$main-bg: #222;
+background: $main-bg;
+
+
+
+-------------------
+
+*SCSS
+1) Nesting : 부모 > 자식요소로 중첩되어있는 스타일 시트
+
+2) Variables : 변수를 선언하는 방법
+  - $ 변수명 : 값 => 해당 변수명 바로 사용가능!
+
+3) Comment : css 주석을 처리하는 방식과 동일하다
+
+4) @at-root : 부모요소 아래에 있는 특정 요소의 스타일을 전역요소로 사용하고 싶은 경우
+(div > h2(*스타일)) + h2
+
+.frame {
+  padding: 20px;
+  border: 1px solid #000;
+  text-align: center;
+  @at-root .heading {
+    color: crimson;
+    font-size: 36px;
+  }
+  /* @at-root를 주는 네스팅 구조와 무관하게 순간 전역으로 쓸 수 있음 */
+}
+
+
+5) @import 경로
+reset.css + style.css 
+  - css : @import url("./style.css");
+  - scss : @import
+=> scss 에서는 외부 scss파일을 가져올 때 , @import 만으로도 충분히 찾아온다!
+
+6) @mixin : 어떤 반복적으로 사용되는 스타일을 정의 해놓는 것!
+=> @include 명령어를 활용해서 @mixin으로 설정해놓은 스타일을 언제든지 가져다 사용할 수 있음!!!
+
+
+---------------------
+
+scss를 수정했는데 브라우저에서 수정이 안됐을 땐 아래 watching..  눌러서 껐다가 켜주기!!!
+
+---------------------
+scss 파일 생성 시 map파일 안 뜨게 하는 법
+ctrl + , => 설정 창
+sass 검색
+Live Sass Compile › Settings: Generate Map
+setting.json에서 편집 클릭
+마지막에
+"liveSassCompile.settings.generateMap": false 해주면 됨
+
+
