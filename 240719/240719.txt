@@ -1,0 +1,94 @@
+*포트폴리오 작업
+> 포트폴리오 홈페이지
+> 포트폴리오 작업물
+(*30개)
+
+@mixin : 공통적 및 반복적으로 사용하고자 하는 어떤 스타일 속성을 미리 정의해놓는 명령어
+@include : mixin으로 정의된 스타일 속성을 찾아와서 사용하고자 할 때 사용하는 명령어
+@extend : 사전에 정의해놓은 스타일 속성을 사용할 수 있도록 하는 것
+=> css 파일로 컴파일링이 된 이후에 결과 값
+
+* mixin과 extend 차이점
+- mixin : 각각의 선택자에 mixin으로 정의해놓았던 스타일 속성에 해당 선택자안에서 작성된 것을 확인!
+    => 공통적인 요소는 적고 개별적인 요소가 많다 싶으면 mixin을 씀
+- extend : extend를 활용해서 정의해놓은 스타일 속성에, 각각의 선택자를 불러와서 사용하는 방법!
+    => 공통적인 요소가 많고 개별적인 요소가 적으면 extend를 씀
+
+함수 = function => 기능
+선언(*어떤 기능이 필요하기 때문에, 그 기능을 구현 & 실행시켜줄 수 있는 무언가가 필요할 때 해당 기능을 다양한 알고리즘과 자료구조의 조합을 통해 문제해결을 위한 새로운 기능을 만들어 낸 것 // 호출
+> 매개변수
+
+호출 (*앞에서 선언한 함수를 가져다가 사용하는 것)
+- 함수를 선언할 때, 매개변수라는 것을 생성(O || X)
+    => 로또 번호 6개를 생성해주는 함수를 선언해서 JS 숫자를 랜덤으로 생성해주는 내장객체(*함수)를 가져다가 사용만하면 됨 -> 매개변수 생성 X
+    => 군대 전역계산기는 전역하는 날짜 받아야 함 -> 매개변수 생성 O
+> 인자값 = 인수
+
+
+
+반복문 : 변수선언 / 변수 앞에 $
+> JS 변수선언 시, 대원칙 : 절대로 특수문자 앞에 올 수 없다(예외 $)
+@for $i from 1 through 9 {
+  .frame {
+    div:nth-child(#{$i}) {
+      width: 50px * $i;
+    }
+  }
+}
+forEach
+for
+for in
+for of
+
+
+이터러블 객체 : 반복할 수 있는 객체(*1개의 변수명 안에 복수의 값을 설정) => map-get() 사용!!!
+$color: (
+  font-primary: #2d3436,
+  font-secondary: #636e72,
+  font-focus: #d63031,
+  bg-primary: #dfe6e0,
+  bg-secondary: #b2bec3,
+);
+
+$headline-font: (
+  large: 45px,
+  medium: 32px,
+  small: 22px,
+);
+
+body {
+  background: map-get($color, bg-primary);
+  .frame {
+    h1 {
+      color: map-get($color, font-focus);
+    }
+    p {
+      font-size: map-get($headline-font, medium);
+    }
+  }
+}
+
+
+조건문
+if / else if / else
+switch
+while
+
+
+font-awesome
+google-material-icon -> 구글폰트 -> icons -> 공유버튼 -> copy link -> link rel -> copy code
+
+https://fonts.google.com/icons?subset=korean&noto.script=Kore&selected=Material+Symbols+Outlined:power_settings_new:FILL@0;wght@400;GRAD@0;opsz@24&icon.query=power&icon.size=24&icon.color=%235f6368
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+불필요한 거 삭제
+"https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+
+style.scss에 @import url("https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"); 넣고
+
+Inserting the icon 카피해서 html에 넣기
+<span class="material-symbols-outlined">power_settings_new</span>
+
+
+

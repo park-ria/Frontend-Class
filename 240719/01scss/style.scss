@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin border-style($width, $style, $color) {
+  border: $width $style $color;
+}
+
+@mixin button-padding($updown, $leftright) {
+  padding: $updown $leftright;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .buttons {
+    button {
+      display: inline-block;
+      font-size: 18px;
+      cursor: pointer;
+      // padding: 20px 150px;
+      @include button-padding(20px, 150px);
+      &.approval {
+        // border: 2px solid dodgerblue;
+        @include border-style(2px, solid, dodgerblue);
+      }
+      &.refuse {
+        // border: 2px solid crimson;
+        @include border-style(2px, solid, crimson);
+      }
+    }
+  }
+}
