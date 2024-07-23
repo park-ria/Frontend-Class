@@ -1,0 +1,112 @@
+카카오맵 API
+네이버맵(돈) // 카카오(하루 30만건) // 구글(이쁘지 않고, 외국꺼라 접근이 쉽지 x)
+
+
+* Application Programming Interface
+
+*데이터 통신
+- 일기예보
+- 버스정류장
+- 카카오맵
+
+*apis.map.kakao.com
+내 애플리케이션 > 애플리게이션 추가하기 > 앱 이름 입력하기 > 회사명 입력하기 > 카테고리 선택 후 > 체크
+
+- 앱 키
+만들어진 거 들어가서 왼쪽 "앱 키" 클릭
+네이티브앱은 앱 만들때 씀
+REST API 키는 라우팅 할때 특정 곳에서만 쓸때
+JavaScript키 
+javascript 키 복사 -> 중요하므로 공유 금지
+
+
+- 플랫폼
+왼쪽 플랫폼 메뉴 클릭
+웹 플랫폼 등록 클릭
+사이트 도메인에 vscode live server 켰을 때의 주소 복사 후 넣기(http://x.x.x.x:5500)
+주의! 뒤에 슬래시 지워야함
+=> 배포했을 때는 배포된 주소를 사이트 도메인에 추가해줘야 함
+저장
+
+
+다시 apis.map.kakao.com 들어가기 > web 선택 > 시작하기
+지도 담을 영역 만들기 복붙
+javascript api 복붙 -> 앱키 붙여넣기
+
+
+3. 마커
+web > 시작하기 > 왼쪽 sample > 오버레이 > 마커 생성하기
+
+4. 마커에 info 넣기
+왼쪽 sample > 오버레이 > 마커에 클릭 이벤트 등록하기
+
+5. 주변 매장 넣기
+왼쪽 sample > 오버레이 > 여러개 마커 표시하기
+매장의 좌표값을 알기 위해서는 구글맵(https://www.google.co.kr/maps/?hl=ko&entry=ttu)에서 검색
+>url parameter에 숨겨놓음
+https://www.google.co.kr/maps/place/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81+%EA%B0%95%EB%82%A8%EC%9A%B0%EC%84%B1%EC%A0%90/data=!4m10!1m2!2m1!1z7Jis66as67iM7JiB!3m6!1s0x357ca14fd852e745:0x190c5bec7446c8f9!8m2!3d37.4918902!4d127.0309525!15sCgzsmKzrpqzruIzsmIEiA4gBAVoPIg3smKzrpqzruIwg7JiBkgEWaGVhbHRoX2FuZF9iZWF1dHlfc2hvcOABAA!16s%2Fg%2F1tgytn4c?hl=ko&entry=ttu
+
+=> 37.4918902 경도 / 127.0309525 위도
+
+
+******** navigator.geolocation.getCurrentPosition(showPosition, errorPosition); 안될 때
+
+1. 라이브 서버
+- 설정
+- live server config
+- settings:Host -> 127.0.0.1 입력
+- settings: Use Local Ip -> 해제
+
+2. apis.map.kakao.com
+- 앱 키 발급
+- 만든 것 들어가서 왼쪽메뉴의 플랫폼 -> web -> 사이트도메인에 http://127.0.0.1:5500 수정함
+
+----------------------------------------------------------
+1. 카카오 Map API 사용하고자 함
+
+2. 웹 브라우저 내장 객체 : navigator 작동
+  - 사용자의 현 위치 파악 불가
+
+3. 라이브 서버 > 컨피그(*ip 주소 이상)
+vscode 설정에서
+- Settings: Host
+   To switch between localhost or 127.0.0.1 or anything else. Default is 127.0.0.1
+   127.0.0.1 입력해 줌
+
+- Live Server › Settings: Use Local Ip 여기를 해제 해줘야 함
+
+4. 카카오 애플리케이션 플랫폼 신청
+플랫폼 > web > 사이트 도메인 추가
+http://127.0.0.1:5500
+http://127.0.0.1:5501
+입력
+
+5. 오라클 제어판 삭제
+
+----------------------------------------------------------
+
+자바 스크립트 함수 1급 시민
+
+1급 시민
+- 변수에 함수를 대입할 수 있어야 한다.
+- 함수를 다른 함수에 인자로 넘길 수 있어야 한다.
+- 함수에서 함수를 생성하여 반환할 수 있어야 한다.
+
+
+----------------------------------------------------------
+
+* 라이브러리 // jQuery
+
+1. Page Scroll Effects (https://codyhouse.co/gem/page-scroll-effects)
+- 마우스 스크롤 변경 시, 페이지 애니메이션 효과
+
+2. scrollTo(크롬에 jquery scrollto 검색, https://github.com/flesler/jquery.scrollTo/blob/master/jquery.scrollTo.js)
+- 동일 페이지 내 특정 요소로 이동할 때, 부드럽게
+- js download rawfile
+
+3. Slick Slider(https://kenwheeler.github.io/slick/)
+- 슬라이더 기능을 가볍게 구현
+- get it now > download now > js랑 css 만 복붙
+
+4. Feather Light(https://noelboss.github.io/featherlight/)
+- 모달창
