@@ -1,7 +1,9 @@
 //import products from "./products.js";
 //products.js에서 데이터를 가지고 오는데 products란 이름으로 가져온다.
 
-const productInfo = "./products.json";
+//const productInfo = "./db.json";
+const productInfo =
+  "https://my-json-server.typicode.com/park-ria/oliveyoung-fake/db";
 // 비동기방식 데이터 가져오는데 fetch가 강력
 fetch(productInfo)
   .then((response) => response.json())
@@ -41,9 +43,17 @@ fetch(productInfo)
 
       attr.value = product.img;
       img.setAttributeNode(attr);
+
       div.append(h3, span);
       li.append(img, div);
       ul.appendChild(li);
+
+      li.addEventListener("click", () => {
+        const url = `product-detail.html?category=${
+          product.category
+        }&name=${encodeURIComponent(product.name)}`;
+        window.location.href = url;
+      });
     };
 
     // Removing Items : 중복해서 쌓이는 아이템을 제거하기 위한 목적
@@ -161,3 +171,43 @@ fetch(productInfo)
   .catch((error) => {
     console.log(error);
   });
+
+// Chanel Talk
+(function () {
+  var w = window;
+  if (w.ChannelIO) {
+    return w.console.error("ChannelIO script included twice.");
+  }
+  var ch = function () {
+    ch.c(arguments);
+  };
+  ch.q = [];
+  ch.c = function (args) {
+    ch.q.push(args);
+  };
+  w.ChannelIO = ch;
+  function l() {
+    if (w.ChannelIOInitialized) {
+      return;
+    }
+    w.ChannelIOInitialized = true;
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
+    var x = document.getElementsByTagName("script")[0];
+    if (x.parentNode) {
+      x.parentNode.insertBefore(s, x);
+    }
+  }
+  if (document.readyState === "complete") {
+    l();
+  } else {
+    w.addEventListener("DOMContentLoaded", l);
+    w.addEventListener("load", l);
+  }
+})();
+
+ChannelIO("boot", {
+  pluginKey: "dfbe01e1-c15f-4104-bb2b-e6894f8cd02a",
+});

@@ -81,6 +81,8 @@ arr.sort((a, b) => {
 
 * filter => 배열 안에 입력된 값을 하나씩 찾아와서 조건을 기준으로 참(true)인 값만 추출해서 새로운 배열로 생성해주는 함수!!
 
+* find => 배열 안에 그 값을 가지고 있는 애만 찾아서 새롭게 배열에 담음
+filter와 다른 점은 filter는 복수, find는 단일
 
 
 실행문 => c, java 실행 된 값을 어디에 보내줘하지 않으면 실행하고 끝나버림
@@ -98,3 +100,65 @@ arr.sort((a, b) => {
 
 실행문! => {}를 안 썼기때문에 return을 안 써도 됨
 arr.sort((a, b) => b - a);
+
+
+
+--------------------------------------------------------------
+챗봇 api
+1. 채널 설정 > 일반설정 > 버튼 설치 및 설정 > 채널톡 버튼 설치 > 기본 자바스크립트 > 스크립트 복사하기
+2. 채널 설정 > 채널 프로필
+3. 개인 설정 > 매니저 설정
+4. 채널설정 > 상담
+5. 채널설정 > AI 에이전트(ALF)
+
+
+---------------------------------------------------------------
+
+Fake Server
+(data 구조를 설정 // in & out이 안되기 때문)
+
+git-hub : db.json 파일 생성 후 신규 레포지토리 생성 // commit!!!
+
+https://my-json-server.typicode.com/유저네임/레포지토리이름
+https://my-json-server.typicode.com/park-ria/oliveyoung-fake
+https://my-json-server.typicode.com/park-ria/oliveyoung-fake/db
+
+repositories > new > repository name 입력 > create repository
+반드시 json명은 db.json으로 해야함!!!(db.json은 최상위 루트폴더에 있어야함!!!)
+
+Quick setup -> uploading an existing file > db.json을 드래그앤 드롭 > commit changes
+
+주의 : data.json 5mb ~ 8mb 안에 해야함!! 셀의 갯수가 20~25개 이내여야 함!!!!
+
+---------------------------------------------------------------
+
+BOM에서 window 객체 > 다른 기타 페이지로 이동할 수 있도록 해주는 속성!!!
+window.location.href
+
+---------------------------------------------------------------
+
+url 주소 어떻게 구성되어 있는가?
+https://www.naver.com:8080/product/skincare/toner?category=skintoner&productname="dokdotoner"
+
+http / https : 프로토콜(규약, 약속)
+www.naver.com : 도메인
+8080 : 포트번호 클라이언트와 서버가 서로 만나기 위한 만남의 장소
+product/skincare/toner : path 경로 
+?category=skintoner&productname="dokdotoner" : 파라미터 / 쿼리스트링
+
+=> http://127.0.0.1:5500/product-detail.html?category=it&name=mouse
+
+
+인코딩 : 사람이 이해할 수 있는 언어를 컴퓨터가 이해할 수 있도록 바꿔주는 작업
+https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%82%98%EC%9D%B4%ED%82%A4
+
+디코딩 : 컴퓨터의 언어를 사람이 이해할 수 있도록 바꿔주는 작업
+
+
+json => 이전 페이지에서 받아온 2개의 query 값
+category / name => json
+
+----------------------------------------------------------------
+
+변수는 cpu에서 변수를 담을 메모리 공간 생성함
+전역변수 => 브라우저 // JS => parsing(읽음) -> 지금 당장 필요하지 않아도 전역변수는 다 읽어야 함 -> 그래서 되도록 전역변수를 쓰지 말고 지역변수를 써라!!!!!!
