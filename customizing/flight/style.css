@@ -1,8 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* variable */
 /* common */
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   font-size: 15px;
   height: 2000px;
 }
@@ -13,4 +30,284 @@ body .container {
 body .container .inner {
   width: 1300px;
   margin: 0 auto;
+}
+
+input:-webkit-autofill {
+  box-shadow: inset 0 0 0 100px #fff;
+}
+
+input:autofill {
+  box-shadow: inset 0 0 0 100px #fff;
+}
+
+/* header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+header .banner {
+  background: linear-gradient(30deg, #ed192d, #004998);
+  height: 30px;
+  transition: all 0.5s;
+}
+header .banner .rnb {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+header .banner .rnb li {
+  margin-right: 20px;
+}
+header .banner .rnb li a {
+  color: #fff;
+  transition: all 0.3s;
+}
+header .banner .rnb li a:hover {
+  color: #a0a0a0;
+}
+header .banner .rnb li select {
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+header .banner .rnb li select:focus {
+  overflow: none;
+}
+header nav {
+  width: 1300px;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav .logo span {
+  display: inline-block;
+  width: 223px;
+  height: 32px;
+  background: url("./img/logo-white2.png") center/cover no-repeat;
+}
+header nav .gnb {
+  display: flex;
+  gap: 30px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+header nav .gnb a {
+  position: relative;
+  color: #fff;
+}
+header nav .gnb a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background: #5bc2e7;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+}
+header nav .gnb a:hover::after {
+  width: 100%;
+}
+header nav .search_box {
+  width: 200px;
+  height: 20px;
+  position: relative;
+}
+header nav .search_box input[name=search] {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 0 0 5px 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  color: #fff;
+}
+header nav .search_box input[name=search]::-moz-placeholder {
+  color: #eee;
+  opacity: 1;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+header nav .search_box input[name=search]::placeholder {
+  color: #eee;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+header nav .search_box input[name=search]:focus {
+  outline: none;
+}
+header nav .search_box input[name=search]:focus::-moz-placeholder {
+  opacity: 0;
+}
+header nav .search_box input[name=search]:focus::placeholder {
+  opacity: 0;
+}
+header nav .search_box i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+header nav .search_box i:hover {
+  color: #5bc2e7;
+}
+header .trigger {
+  display: none;
+}
+header.active {
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+header.active .gnb li a {
+  color: #000;
+}
+header.active .banner {
+  height: 0;
+  overflow: hidden;
+}
+header.active nav {
+  padding-bottom: 20px;
+}
+header.active nav .logo span {
+  background: url("./img/logo-navy2.png") center/cover no-repeat;
+}
+header.active nav .search_box input[name=search] {
+  border-bottom: 1px solid #a0a0a0;
+  color: #000;
+}
+header.active nav .search_box input[name=search]::-moz-placeholder {
+  color: #a0a0a0;
+}
+header.active nav .search_box input[name=search]::placeholder {
+  color: #a0a0a0;
+}
+header.active nav .search_box i {
+  color: #a0a0a0;
+}
+header.active nav .search_box i:hover {
+  color: #5bc2e7;
+}
+
+/* intro */
+.intro {
+  height: 100vh;
+  background: url("./img/koreanair2.jpg") center/cover no-repeat;
+}
+
+/* book */
+.book {
+  transition: all 0.8s;
+}
+.book.active {
+  transform: translateY(-49px);
+}
+.book .book_tabs {
+  width: 100%;
+}
+.book .book_tabs .book_tab_header {
+  width: 100%;
+  display: flex;
+}
+.book .book_tabs .book_tab_header .book_tab_btn {
+  width: 15%;
+  padding: 15px 0;
+  margin-right: 1px;
+  text-align: center;
+  background: rgba(0, 73, 152, 0.8);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  transition: all 0.5s;
+}
+.book .book_tabs .book_tab_header .book_tab_btn:first-of-type {
+  border-radius: 10px 0 0;
+}
+.book .book_tabs .book_tab_header .book_tab_btn:last-of-type {
+  border-radius: 0 10px 0 0;
+}
+.book .book_tabs .book_tab_header .book_tab_btn.active {
+  background: #fff;
+  color: #000;
+}
+.book .book_tabs .book_tab_header .book_tab_btn.active::before {
+  content: "\f072";
+  font-family: "fontawesome";
+  color: #004998;
+}
+.book .book_tabs .book_tab_content {
+  width: 100%;
+  height: 300px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.book .book_tabs .book_tab_content .book_tab_desc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  display: none;
+  transition: all 0.5s;
+}
+.book .book_tabs .book_tab_content .book_tab_desc.active {
+  display: block;
+}
+.book .book_tabs .book_tab_content #book1 form {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  margin: 0 auto;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type button {
+  padding: 15px 20px;
+  background: #fff;
+  border: 1px solid #5bc2e7;
+  border-radius: 10px;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=text],
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=date],
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc select {
+  border: none;
+  border-bottom: 1px solid #a0a0a0;
+  width: 200px;
+  padding: 5px;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=text]:focus,
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=date]:focus,
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc select:focus {
+  outline: none;
 }/*# sourceMappingURL=style.css.map */

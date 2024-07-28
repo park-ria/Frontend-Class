@@ -13,7 +13,7 @@
       src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
     ></script>
     <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
     <script
       type="text/javascript"
@@ -23,7 +23,7 @@
       type="text/javascript"
       src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
     ></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script> -->
     <!-- fontawesome -->
     <script
       src="https://kit.fontawesome.com/dfc51b96a5.js"
@@ -38,33 +38,139 @@
     <main class="container">
       <header>
         <div class="banner">
-          <div class="lnb">Exellence in Flight <em>Korean Air</em></div>
-          <nav>
-            <div class="logo">
-              <a href="#">
-                <img src="./img/logo.png" alt="logo" />
-              </a>
-            </div>
-            <ul class="gnb">
-              <li>
-                <a href="#book">Book</a>
-              </li>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#travel">Travel</a>
-              </li>
-              <li>
-                <a href="#seat">Seat Class</a>
-              </li>
-              <li>
-                <a href="#none"></a>
-              </li>
-            </ul>
-          </nav>
+          <!-- <div class="lnb">Exellence in Flight <em>Korean Air</em></div> -->
+          <ul class="rnb">
+            <li>
+              <a href="#event">이벤트</a>
+            </li>
+            <li>
+              <select name="language" id="language">
+                <option value="korea">대한민국-한국어</option>
+                <option value="english">United States-Eglish</option>
+                <option value="japanese">日本-日本語</option>
+                <option value="chinese">中国-中文(简体)</option>
+              </select>
+            </li>
+            <li>
+              <a href="#none">로그인</a>
+            </li>
+            <li>
+              <a href="#none">회원가입</a>
+            </li>
+          </ul>
+        </div>
+        <nav>
+          <div class="logo">
+            <a href="#">
+              <span></span>
+            </a>
+          </div>
+          <ul class="gnb">
+            <li>
+              <a href="#">home</a>
+            </li>
+            <li>
+              <a href="#book">book</a>
+            </li>
+            <li>
+              <a href="#travel">travel</a>
+            </li>
+            <li>
+              <a href="#event">event</a>
+            </li>
+            <li>
+              <a href="#seat">seat class</a>
+            </li>
+          </ul>
+          <div class="search_box">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="궁금한 것을 검색해 보세요"
+            />
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </nav>
+        <div class="trigger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </header>
+      <section class="intro">
+        <div class="inner"></div>
+      </section>
+      <section id="book" class="book">
+        <div class="inner">
+          <div class="book_tabs">
+            <div class="book_tab_header">
+              <button class="book_tab_btn active" data-tab-nm="book1">
+                항공권 예매
+              </button>
+              <button class="book_tab_btn" data-tab-nm="book2">
+                예약 조회
+              </button>
+              <button class="book_tab_btn" data-tab-nm="book3">체크인</button>
+              <button class="book_tab_btn" data-tab-nm="book4">
+                출도착 조회
+              </button>
+            </div>
+            <div class="book_tab_content">
+              <div id="book1" class="book_tab_desc active">
+                <form
+                  name="book_frm"
+                  action="http://localhost:3000"
+                  method="post"
+                >
+                  <div class="book_flight">
+                    <div class="booking_type">
+                      <button>왕복</button>
+                      <button>편도</button>
+                      <button>다구간</button>
+                    </div>
+                    <div class="booking_desc">
+                      <input
+                        type="text"
+                        name="book_departure"
+                        id="book_departure"
+                        placeholder="출발지"
+                      />
+                      <input
+                        type="text"
+                        name="book_arrival"
+                        id="book_arrival"
+                        placeholder="도착지"
+                      />
+                      <input
+                        type="date"
+                        name="book_travel_period"
+                        id="book_travel_period"
+                        placeholder="탑승일"
+                      />
+                      <input
+                        type="text"
+                        name="booking_count"
+                        id="booking_count"
+                        placeholder="탑승객 수"
+                      />
+                      <select name="seat_class" id="book_seat_class">
+                        <option value="economy">일반석</option>
+                        <option value="business">프레스티지석</option>
+                        <option value="first">일등석</option>
+                      </select>
+                      <input type="submit" value="항공편 검색" />
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="book2" class="book_tab_desc">2</div>
+              <div id="book3" class="book_tab_desc">3</div>
+              <div id="book4" class="book_tab_desc">4</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
