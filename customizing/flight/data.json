@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "city": "파리",
+      "alt": "paris",
+      "price": "1053000",
+      "img": "eiffeltower.jpg"
+    },
+    {
+      "city": "호놀룰루",
+      "alt": "honolulu",
+      "price": "1100300",
+      "img": "hawaii2.jpg"
+    },
+    {
+      "city": "베니스",
+      "alt": "venice",
+      "price": "1046000",
+      "img": "venice.jpg"
+    },
+    {
+      "city": "이스탄불",
+      "alt": "istanbul",
+      "price": "989400",
+      "img": "turkey1.jpg"
+    },
+    {
+      "city": "도쿄",
+      "alt": "tokyo",
+      "price": "278000",
+      "img": "japan.jpg"
+    },
+    {
+      "city": "멕시코시티",
+      "alt": "mexicocity",
+      "price": "1036000",
+      "img": "mexico2.jpg"
+    }
+  ]
+}
