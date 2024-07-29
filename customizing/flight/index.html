@@ -125,40 +125,59 @@
                 >
                   <div class="book_flight">
                     <div class="booking_type">
-                      <button>왕복</button>
-                      <button>편도</button>
-                      <button>다구간</button>
+                      <button class="booking_type_btn active">왕복</button>
+                      <button class="booking_type_btn">편도</button>
+                      <button class="booking_type_btn">다구간</button>
                     </div>
                     <div class="booking_desc">
-                      <input
-                        type="text"
-                        name="book_departure"
-                        id="book_departure"
-                        placeholder="출발지"
-                      />
-                      <input
-                        type="text"
-                        name="book_arrival"
-                        id="book_arrival"
-                        placeholder="도착지"
-                      />
-                      <input
-                        type="date"
-                        name="book_travel_period"
-                        id="book_travel_period"
-                        placeholder="탑승일"
-                      />
-                      <input
-                        type="text"
-                        name="booking_count"
-                        id="booking_count"
-                        placeholder="탑승객 수"
-                      />
-                      <select name="seat_class" id="book_seat_class">
-                        <option value="economy">일반석</option>
-                        <option value="business">프레스티지석</option>
-                        <option value="first">일등석</option>
-                      </select>
+                      <div class="booking_desc_wrapper">
+                        <label for="book_departure">출발지</label>
+                        <input
+                          type="text"
+                          name="book_departure"
+                          id="book_departure"
+                          placeholder="출발지"
+                        />
+                      </div>
+
+                      <div class="booking_desc_wrapper">
+                        <label for="book_arrival">도착지</label>
+                        <input
+                          type="text"
+                          name="book_arrival"
+                          id="book_arrival"
+                          placeholder="도착지"
+                        />
+                      </div>
+
+                      <div class="booking_desc_wrapper">
+                        <label for="book_travel_period">탑승일</label>
+                        <input
+                          type="date"
+                          name="book_travel_period"
+                          id="book_travel_period"
+                          placeholder="탑승일"
+                        />
+                      </div>
+
+                      <div class="booking_desc_wrapper">
+                        <label for="booking_count">탑승객 수</label>
+                        <input
+                          type="text"
+                          name="booking_count"
+                          id="booking_count"
+                          placeholder="탑승객 수"
+                        />
+                      </div>
+
+                      <div class="booking_desc_wrapper">
+                        <label for="seat_class">좌석</label>
+                        <select name="seat_class" id="book_seat_class">
+                          <option value="economy">일반석</option>
+                          <option value="business">프레스티지석</option>
+                          <option value="first">일등석</option>
+                        </select>
+                      </div>
                       <input type="submit" value="항공편 검색" />
                     </div>
                   </div>

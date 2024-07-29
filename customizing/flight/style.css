@@ -249,7 +249,7 @@ header.active nav .search_box i:hover {
 }
 .book .book_tabs .book_tab_content {
   width: 100%;
-  height: 300px;
+  height: 200px;
   background: #fff;
   border-radius: 0 0 10px 10px;
   box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.2);
@@ -285,29 +285,53 @@ header.active nav .search_box i:hover {
 .book .book_tabs .book_tab_content #book1 form .book_flight .booking_type {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 1px;
 }
-.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type button {
-  padding: 15px 20px;
-  background: #fff;
-  border: 1px solid #5bc2e7;
-  border-radius: 10px;
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type .booking_type_btn {
+  width: 80px;
+  padding: 10px 15px;
+  background: #a0a0a0;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type .booking_type_btn:first-child {
+  border-radius: 6px 0 0 6px;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type .booking_type_btn:last-child {
+  border-radius: 0 6px 6px 0;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type .booking_type_btn:hover {
+  background: #5bc2e7;
+  color: #fff;
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_type .booking_type_btn.active {
+  background: #5bc2e7;
+  color: #fff;
 }
 .book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=text],
-.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=date],
-.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc select {
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc .booking_desc_wrapper input[type=text],
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc .booking_desc_wrapper input[type=date],
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc .booking_desc_wrapper select {
   border: none;
   border-bottom: 1px solid #a0a0a0;
   width: 200px;
   padding: 5px;
 }
-.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=text]:focus,
-.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=date]:focus,
-.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc select:focus {
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc .booking_desc_wrapper input[type=text]:focus,
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc .booking_desc_wrapper input[type=date]:focus,
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc .booking_desc_wrapper select:focus {
   outline: none;
-}/*# sourceMappingURL=style.css.map */
+}
+.book .book_tabs .book_tab_content #book1 form .book_flight .booking_desc input[type=submit] {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  background: #5bc2e7;
+  color: #fff;
+}

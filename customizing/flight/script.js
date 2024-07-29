@@ -34,3 +34,17 @@ tabBtn.forEach((btn) => {
     });
   });
 });
+
+// booking_type_btn
+const bookingTypeBtn = document.querySelectorAll(".booking_type_btn");
+bookingTypeBtn.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    bookingTypeBtn.forEach((sibling) => {
+      if (sibling !== btn) {
+        sibling.classList.remove("active");
+      }
+    });
+    this.classList.add("active");
+  });
+});
