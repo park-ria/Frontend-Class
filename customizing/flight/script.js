@@ -62,18 +62,24 @@ fetch("./data.json")
       }).format(item.price);
 
       // 슬라이드 이미지 넣기
-      slides.innerHTML += `
-      <li class="slide_item">
-        <img class="slide_img" src="./img/${item.img}" alt="${item.alt}" />
-        <div class="slide_desc">
+      const li = document.createElement("li");
+      li.className = "slide_item";
+      const imgDiv = document.createElement("div");
+      imgDiv.className = "slide_img";
+      imgDiv.style.background = `url(./img/${item.img}) center/cover no-repeat`;
+      li.appendChild(imgDiv);
+      const slideDesc = document.createElement("div");
+      slideDesc.className = "slide_desc";
+      slideDesc.innerHTML = `
           <div>
             <span class="badge">Special</span>
             <p>${item.city}</p>
           </div>
           <p>왕복 <span class="slide_price">${price}</span>원 ~</p>
         </div>
-      </li>
-    `;
+      `;
+      li.appendChild(slideDesc);
+      slides.appendChild(li);
 
       // 슬라이드 페이지네이션
       if (index % 4 === 0) {
@@ -90,6 +96,7 @@ fetch("./data.json")
     const slideCount = slide.length;
     const slideWidth = 300;
     const slideMargin = 30;
+    const cloneCount = 4;
 
     let currentIdx = 0;
 
@@ -103,17 +110,17 @@ fetch("./data.json")
     };
 
     const setInitialPos = () => {
-      const initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+      const initialTranslateValue = -(slideWidth + slideMargin) * cloneCount;
       slides.style.transform = `translateX(${initialTranslateValue}px)`;
     };
 
     const makeClone = () => {
-      for (let i = 0; i < slideCount; i++) {
+      for (let i = 0; i < cloneCount; i++) {
         const cloneSlide = slide[i].cloneNode(true);
         cloneSlide.classList.add("clone");
         slides.appendChild(cloneSlide);
       }
-      for (let i = slideCount - 1; i >= 0; i--) {
+      for (let i = slideCount - 1; i >= slideCount - cloneCount; i--) {
         const cloneSlide = slide[i].cloneNode(true);
         cloneSlide.classList.add("clone");
         slides.prepend(cloneSlide);
@@ -128,28 +135,60 @@ fetch("./data.json")
 
     makeClone();
 
+    // 슬라이드 페이저 이동함수
+    const pagers = slidePagination.querySelectorAll("span");
+    const movePager = (num) => {
+      pagers.forEach((item) => {
+        item.classList.remove("active");
+      });
+      pagers[num].classList.add("active");
+    };
+
     const moveSlide = (num) => {
-      slides.style.left = `${-num * (slideWidth + slideMargin)}px`;
+      const moveSlideCount = 4;
+      movePager(
+        (slideCount / moveSlideCount + num) % (slideCount / moveSlideCount)
+      );
+      //movePager((slideCount + num) % 10);
+
+      slides.style.left = `${
+        -num * (slideWidth + slideMargin) * moveSlideCount
+      }px`;
+      //slides.style.left = `${-num * (slideWidth + slideMargin) * 4}px`;
       currentIdx = num;
-      if (currentIdx === slideCount || currentIdx === -slideCount) {
+      if (
+        currentIdx === slideCount / moveSlideCount ||
+        currentIdx === -cloneCount / moveSlideCount
+      ) {
         setTimeout(() => {
           slides.classList.remove("animated");
-          slides.style.left = "0px";
-          currentIdx = 0;
+          slides.style.left =
+            num > 0
+              ? "0px"
+              : `${
+                  -(slideCount + num * moveSlideCount) *
+                  (slideWidth + slideMargin)
+                }px`;
+          currentIdx = num > 0 ? 0 : 2;
         }, 500);
         setTimeout(() => {
           slides.classList.add("animated");
         }, 600);
       }
+      // if (currentIdx === slideCount || currentIdx === -cloneCount) {
+      //   setTimeout(() => {
+      //     slides.classList.remove("animated");
+      //     slides.style.left =
+      //       num > 0
+      //         ? "0px"
+      //         : `${-(slideCount + num) * (slideWidth + slideMargin)}px`;
+      //     currentIdx = num > 0 ? 0 : slideCount + num;
+      //   }, 500);
+      //   setTimeout(() => {
+      //     slides.classList.add("animated");
+      //   }, 600);
+      // }
     };
-
-    nextBtn.addEventListener("click", () => {
-      moveSlide(currentIdx + 1);
-    });
-
-    prevBtn.addEventListener("click", () => {
-      moveSlide(currentIdx - 1);
-    });
 
     let timer = undefined;
 
@@ -168,6 +207,28 @@ fetch("./data.json")
       timer = undefined;
     };
 
+    nextBtn.addEventListener("click", () => {
+      moveSlide(currentIdx + 1);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      moveSlide(currentIdx - 1);
+    });
+
+    pagers.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        moveSlide(index);
+      });
+
+      item.addEventListener("mouseenter", () => {
+        stopSlide();
+      });
+
+      item.addEventListener("mouseleave", () => {
+        autoSlide();
+      });
+    });
+
     slides.addEventListener("mouseenter", () => {
       stopSlide();
     });
@@ -176,13 +237,56 @@ fetch("./data.json")
       autoSlide();
     });
 
-    /*btns.addEventListener("mouseenter", () => {
-      stopSlide();
+    btns.forEach((btn) => {
+      btn.addEventListener("mouseenter", () => {
+        stopSlide();
+      });
+
+      btn.addEventListener("mouseleave", () => {
+        autoSlide();
+      });
     });
 
-    btns.addEventListener("mouseleave", () => {
-      autoSlide();
-    });*/
+    // 마우스 드래그 이벤트
+    let startPoint = 0;
+    let endPoint = 0;
+
+    // PC 드래그 이벤트
+    slides.addEventListener("mousedown", (e) => {
+      slides.style.cursor = "grabbing";
+      //console.log("mousedown", e.pageX);
+      startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
+    });
+
+    slides.addEventListener("mouseup", (e) => {
+      slides.style.cursor = "grab";
+      //console.log("mouseup", e.pageX);
+      endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
+      if (startPoint < endPoint) {
+        // 마우스가 오른쪽으로 드래그 된 경우
+        moveSlide(currentIdx + 1);
+      } else if (startPoint > endPoint) {
+        // 마우스가 왼쪽으로 드래그 된 경우
+        moveSlide(currentIdx - 1);
+      }
+    });
+
+    // 모바일 터치 이벤트 (스와이프)
+    slides.addEventListener("touchstart", (e) => {
+      //console.log("touchstart", e.touches[0].pageX);
+      startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
+    });
+    slides.addEventListener("touchend", (e) => {
+      //console.log("touchend", e.changedTouches[0].pageX);
+      endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장
+      if (startPoint < endPoint) {
+        // 오른쪽으로 스와이프 된 경우
+        moveSlide(currentIdx + 1);
+      } else if (startPoint > endPoint) {
+        // 왼쪽으로 스와이프 된 경우
+        moveSlide(currentIdx - 1);
+      }
+    });
   })
   .catch((err) => {
     console.log(err);
