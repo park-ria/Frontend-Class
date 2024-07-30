@@ -1,6 +1,6 @@
 let arr = [];
 const numCheck = (num) => {
-  if (num % 1 === 0 && num <= 100) {
+  if (num && num % 1 === 0 && num <= 100) {
     arr.push(num);
   }
 };

@@ -1,6 +1,36 @@
 {
   "data": [
     {
+      "city": "도쿄",
+      "alt": "tokyo",
+      "price": "278000",
+      "img": "japan.jpg"
+    },
+    {
+      "city": "방콕",
+      "alt": "bangkok",
+      "price": "342000",
+      "img": "bangkok.jpg"
+    },
+    {
+      "city": "세부",
+      "alt": "sebu",
+      "price": "318000",
+      "img": "sebu.jpg"
+    },
+    {
+      "city": "싱가폴",
+      "alt": "singapore",
+      "price": "411900",
+      "img": "singapore.jpg"
+    },
+    {
+      "city": "상하이",
+      "alt": "sanghai",
+      "price": "220000",
+      "img": "sanghai.jpg"
+    },
+    {
       "city": "파리",
       "alt": "paris",
       "price": "1053000",
@@ -25,10 +55,16 @@
       "img": "turkey1.jpg"
     },
     {
-      "city": "도쿄",
-      "alt": "tokyo",
-      "price": "278000",
-      "img": "japan.jpg"
+      "city": "산토리니",
+      "alt": "santorini",
+      "price": "1129000",
+      "img": "santorini.jpg"
+    },
+    {
+      "city": "뉴욕",
+      "alt": "newyork",
+      "price": "1259000",
+      "img": "newyork.jpg"
     },
     {
       "city": "멕시코시티",

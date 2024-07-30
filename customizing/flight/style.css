@@ -344,16 +344,44 @@ header.active nav .search_box i:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+.travel .slide .slide_content {
+  overflow: hidden;
+  position: relative;
+  width: 1290px;
+  height: 400px;
+}
+.travel .slide .slide_content .slide_button {
+  position: absolute;
+  color: #fff;
+}
+.travel .slide .slide_content .slide_button.prev {
+  top: 50%;
+  left: 30px;
+}
+.travel .slide .slide_content .slide_button.next {
+  top: 50%;
+  right: 30px;
 }
 .travel .slide .slide_content .slides {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+}
+.travel .slide .slide_content .slides.animated {
+  transition: all 0.5s ease-out;
 }
 .travel .slide .slide_content .slides li {
   position: relative;
   width: 300px;
   height: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.travel .slide .slide_content .slides li:not(:last-child) {
+  margin-right: 30px;
 }
 .travel .slide .slide_content .slides li::before {
   content: "";
@@ -369,7 +397,6 @@ header.active nav .search_box i:hover {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 10px;
 }
 .travel .slide .slide_content .slides li .slide_desc {
   position: absolute;
@@ -409,8 +436,7 @@ header.active nav .search_box i:hover {
   height: 10px;
   background: #a0a0a0;
   border-radius: 5px;
-  transition: all 0.3s;
 }
 .travel .slide .slide_pagination span.active {
   background: #004998;
-}/*# sourceMappingURL=style.css.map */
+}
