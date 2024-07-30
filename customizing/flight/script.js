@@ -176,13 +176,13 @@ fetch("./data.json")
       autoSlide();
     });
 
-    btns.addEventListener("mouseenter", () => {
+    /*btns.addEventListener("mouseenter", () => {
       stopSlide();
     });
 
     btns.addEventListener("mouseleave", () => {
       autoSlide();
-    });
+    });*/
   })
   .catch((err) => {
     console.log(err);
