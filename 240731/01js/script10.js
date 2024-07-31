@@ -3,33 +3,40 @@
 // 만약 아니라면, "00숫자는 소수가 아닙니다!"
 // 1과 자기 자신만으로 나눠질 수 있는 숫자
 // 1은 소수가 아닙니다.
+
 const number = Number(prompt("숫자를 입력해주세요"));
+let isPrime;
 if (number === 1) {
   document.write(`1은 소수가 아닙니다!`);
 } else if (number === 2) {
   document.write(`2는 소수입니다`);
+  isPrime = true;
 } else {
   for (let i = 2; i < number; i++) {
     if (number % i === 0) {
-      document.write(`${number}는 소수가 아닙니다!`);
+      isPrime = false;
       break;
     } else {
-      document.write(`${number}는 소수가 입니다!`);
-      break;
+      isPrime = true;
     }
+  }
+
+  if (isPrime) {
+    document.write(`${number}는 소수입니다!`);
+  } else {
+    document.write(`${number}는 소수가 아닙니다!`);
   }
 }
 
 /*const arr = [];
-
-for (let i = num; i >= 1; i--) {
-  if (num % i === 0) {
+for (let i = number; i >= 1; i--) {
+  if (number % i === 0) {
     arr.push(i);
   }
 }
 console.log(arr);
 if (arr.length > 2) {
-  document.write(`${num}은 소수가 아닙니다!`);
+  document.write(`${number}은 소수가 아닙니다!`);
 } else {
-  document.write = `${num}은 소수입니다!`;
+  document.write(`${number}은 소수입니다!`);
 }*/
