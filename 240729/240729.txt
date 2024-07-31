@@ -102,6 +102,8 @@ json : javascript object notation
 증감 연산자가 피연산자 뒤에 입력되면, 연산작업 나중에 실행!
 
 복합대입 연산자 => 할당연산자 : += -= *= /=
+y = y+x => y += x
+
 비교연산자
 -느슨한연산자 ==
 -엄격한연산자 ===
@@ -116,8 +118,39 @@ json : javascript object notation
 - if else문 : 반드시 조건식 true여야지만 실행 그렇지 않은 경우 else문
 - if / else if / else if / else
 - 삼항조건연산자
-- switch문
+- switch문 : case break / default
 
+
+5. 반복문
+- for문
+- forEach문
+- for in문 : 객체에 특화
+- for of문
+- while문
+while (stars > 0) {
+  document.querySelector("body").innerText += "*";
+  stars--;
+}
+
+- do while문 : do 먼저 하고 while문 : ~을 하다!
+do {
+  document.querySelector("body").innerText += "*";
+  stars--;
+} while (stars > 0);
+
+- break문 : 강제 종료의 의미
+- continue문 : 건너뛰기의 의미
+
+> iterable한 자료형만 사용할 수 있음!!!
+> 반복시킬 수 있는 자료형
+> css : 애니메이션 : animation-iteration-count -> 반복할 수 있는 기능
+> iterable한 속성 > iterator 객체 만의 전유물
+> 객체, 배열
+> Set() : 해당 자료형의 속성을 iterable하게 할 수 있음
+
+Callback 함수 => 기능적인 의미를 내포하고 있는 명칭
+
+Arrow Function(화살표 함수), Function(일반함수) => 하드웨어적인 의미를 내포하고 있는 명칭
 
 프로그래밍 언어 : 실행문 /표현식문 
 자바스크립트 = > 다중패러다임언어
@@ -127,3 +160,11 @@ json : javascript object notation
 프로그래밍 코드 작성 및 실행 : 객체지향 / 절차지향
 
 
+* CS 기본 개념
+1) Variable(변수)
+2) Scope(범위) *** : f12 source에서 debugging
+- 전역 : Global, 1번만 작성해놓으면 언제, 어디서든 가져다가 사용가능! => 진짜 전역변수는 var와 정의되지 않은 치트키 변수
+- 지역 : Local, 특정 범위 안에서 설정, 그 범위 안에서만 사용가능!
+- Block : 특정 제어문의 조건식 안에서 설정된 변수들은 Block 범위에서만 움직임
+   ex) for, if 등 제어문의 key
+- Script : 전역변수처럼 행동!!! 모듈에서 변수들이 겹칠 수 있으므로 단독이나 모듈화로 쓰이지 않을 때는 전역변수 처럼 쓰이지만 모듈화 된 스크립트 사이에선 스크립트 스코프 => let, const만
