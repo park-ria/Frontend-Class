@@ -333,7 +333,7 @@ header {
 .travel {
   width: 100%;
   margin-top: 60px;
-  .travel_header {
+  .travel_heading {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -481,10 +481,11 @@ header {
     align-items: center;
     gap: 20px;
     h3 {
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: map-get($color, main-light-color);
       em {
-        font-size: 3rem;
+        font-size: 3.5rem;
+        margin-left: 10px;
       }
     }
     button {
