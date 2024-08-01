@@ -1,0 +1,7 @@
+1.PM 프로젝트 생성 > 조원 초대!!!
+
+2.본인이 작업할 프로젝트명 클릭
+
+3.Covert to issue 클릭 : 내가 작업한 데이터를 커밋할 레포지토리 선택!!!
+
+4.Development > Create Branch 클릭

@@ -21,6 +21,7 @@ a {
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 15px;
+  letter-spacing: -0.7px;
 }
 body .container {
   width: 100%;
@@ -476,7 +477,7 @@ header.active nav .search_box i:hover {
 /* event */
 .event {
   width: 100%;
-  margin: 150px 0;
+  margin-top: 150px;
 }
 .event .event_content {
   width: 100%;
@@ -507,6 +508,82 @@ header.active nav .search_box i:hover {
 }
 .event .event_content button:hover {
   background: #5bc2e7;
+}
+
+/* seat_class */
+.seat_class {
+  width: 100%;
+  margin-top: 150px;
+}
+.seat_class .content_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.seat_class .content_wrap .seat_content {
+  text-align: center;
+}
+.seat_class .content_wrap .seat_content .seat_detail {
+  width: 448px;
+  height: 407px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px auto;
+  background: url("./img/img-bg01.png") center/cover no-repeat;
+  position: relative;
+}
+.seat_class .content_wrap .seat_content .seat_detail .seat_img {
+  width: 85%;
+  height: 200px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+.seat_class .content_wrap .seat_content .seat_detail .seat_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.seat_class .content_wrap .seat_content .seat_detail .seat_desc {
+  width: 85%;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+.seat_class .content_wrap .meal_content {
+  text-align: center;
+}
+.seat_class .content_wrap .meal_content .meal_detail {
+  width: 350px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  margin: 33px auto;
+  gap: 20px;
+  background: url("./img/img-bg01.png") center/cover no-repeat;
+  position: relative;
+}
+.seat_class .content_wrap .meal_content .meal_detail .meal_img {
+  width: 85%;
+  height: 180px;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+.seat_class .content_wrap .meal_content .meal_detail .meal_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.seat_class .content_wrap .meal_content .meal_detail .meal_desc {
+  width: 85%;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
 }
 
 @media screen and (max-width: 480px) {
