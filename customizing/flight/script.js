@@ -13,6 +13,24 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// Trigger
+const trigger = document.querySelector(".trigger");
+const gnb = document.querySelector(".gnb");
+const gnbLinks = gnb.querySelectorAll("a");
+
+trigger.addEventListener("click", function () {
+  const gnb = document.querySelector(".gnb");
+  this.classList.toggle("active");
+  gnb.classList.toggle("active");
+});
+
+gnbLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    trigger.classList.remove("active");
+    gnb.classList.remove("active");
+  });
+});
+
 // Book Tab
 const tabBtn = document.querySelectorAll(".book_tab_btn");
 tabBtn.forEach((btn) => {
