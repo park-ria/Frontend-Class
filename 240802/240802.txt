@@ -1,0 +1,23 @@
+JS > Node
+querySelector
+querySelectorAll
+getElementById
+getElementsByClassName
+getElementsByTagName
+
+DOM에서 어떤 노드를 찾아와서 해당 노드 안에 포함된 요소를 가져오고 싶을 때
+1) innerHTML : html 요소 + text 모든걸 찾아옴
+> DOM에 있는  html 요소 + text => html 적용 + text
+
+2) innerText : 특정 노드 안에 담근 text  요소만 찾아옴
+> HTML 안에 들어가있는 텍스트를 추출해서 텍스트만 출력 -> display:none인 것은 출력하지 x
+
+3) textContent
+> HTML 태그만 걷어내는 상태 -> display:none인 것도 출력 o
+
+가상 클래스 : 스위치 역할 
+  => ClassList : 속성, 특정 노드에 class 여부, 유무 체크
+  => contains : 메서드, 특정 클래스가 있으면 true / 없으면 false
+
+
+DOM => form
