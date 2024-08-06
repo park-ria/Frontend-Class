@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid #f00;
+}
+.container .calcForm {
+  width: 100%;
+}
+.container .calcForm form[name=frm] {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .calcForm form[name=frm] input[type=text],
+.container .calcForm form[name=frm] input[type=submit] {
+  height: 30px;
+}
+.container .answer {
+  border: 1px solid #000;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
