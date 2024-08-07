@@ -1,0 +1,62 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* common */
+html {
+  font-size: 16px;
+}
+
+// body{
+//   overflow-x: hidden;
+// }
+
+/* variable */
+$item-color: #639;
+$bg-color: #fff;
+
+button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border: none;
+  background: $item-color;
+  color: $bg-color;
+  transition: transform 0.3s;
+  &.active {
+    transform: translateX(-110px);
+  }
+}
+
+nav {
+  position: fixed; // 부모요소의 너비와 높이 신경 안쓰고 한차원 위로 올라온다
+  //fixed는 공간을 차지하지 않고(스크롤 생기지 않음) absolute는 공간을 차지함(스크롤 생김)
+  top: 0;
+  right: 0;
+  background: $item-color;
+  color: $bg-color;
+  padding: 2rem;
+  height: 100vh;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  li {
+    padding: 1rem 0;
+  }
+  &.active {
+    transform: translateX(0);
+  }
+}
