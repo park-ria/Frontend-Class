@@ -1,0 +1,121 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* varialbe */
+/* common */
+html {
+  font-size: 14px;
+}
+
+/* container */
+.container {
+  width: 100%;
+  height: 100vh;
+  background: url("./images/watermelon2.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .background {
+  background: #fff;
+}
+.container .background .outerbox {
+  background: url("./images/outerbox2.png") center/cover no-repeat;
+  filter: hue-rotate(300deg);
+  width: 808px;
+  height: 544px;
+  position: relative;
+}
+.container .background .outerbox .wrapper {
+  display: flex;
+  padding: 36px;
+  filter: hue-rotate(60deg);
+}
+
+/* wrapper_left */
+.wrapper_left {
+  width: 203px;
+  height: 472px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.wrapper_left .wrapper_left_header {
+  width: 100%;
+  height: 30px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.wrapper_left .wrapper_left_header .today {
+  padding-top: 5px;
+}
+.wrapper_left .wrapper_left_header .today .today-counter {
+  color: #dc143c;
+}
+.wrapper_left .wrapper_left_body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #808080;
+  border-radius: 15px;
+  padding: 18px;
+}
+.wrapper_left .wrapper_left_body .left_body_header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper_left .wrapper_left_body .left_body_header .left_body_photo {
+  width: 100%;
+  height: 130px;
+  background: url("./images/mainphoto.jpg") center/cover no-repeat;
+  border-radius: 3px;
+}
+.wrapper_left .wrapper_left_body .left_body_message {
+  width: 100%;
+  height: 100%;
+}
+.wrapper_left .wrapper_left_body .left_body_message .left_body_message_title {
+  border: 1px solid #808080;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.wrapper_left .wrapper_left_body .left_body_message .left_body_message_desc {
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px;
+  text-align: center;
+  line-height: 25px;
+}
+.wrapper_left .wrapper_left_body .left_body_footer .wrapper_feel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wrapper_left .wrapper_left_body .left_body_footer .wrapper_feel .feel_title {
+  font-weight: bold;
+}
+.wrapper_left .wrapper_left_body .left_body_footer .wrapper_feel form #emotion {
+  width: 100%;
+  padding: 5px;
+}
