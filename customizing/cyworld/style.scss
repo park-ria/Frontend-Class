@@ -1,5 +1,6 @@
 /* reset */
 @import "./reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Noto+Sans+KR:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sunflower:wght@300;500;700&display=swap");
 
 /* varialbe */
 $color: (
@@ -7,19 +8,20 @@ $color: (
   bg-light-color: #fff,
   bg-gray-color: #808080,
   accent-color: #dc143c,
-  theme-color: #4ebe78,
+  theme-color: #4bbe7b,
 );
 
 /* common */
 html {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "Sunflower", sans-serif;
 }
 
 /* container */
 .container {
   width: 100%;
   height: 100vh;
-  background: url("./images/watermelon2.jpg") center/cover no-repeat;
+  background: url("./contents/watermelon2.jpg") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +32,7 @@ html {
     background: map-get($color, bg-light-color);
     border-radius: 10px;
     .outerbox {
-      background: url("./images/outerbox2.png") center/cover no-repeat;
+      background: url("./contents/outerbox2.png") center/cover no-repeat;
       filter: hue-rotate(300deg);
       width: 813px;
       height: 548px;
@@ -55,7 +57,7 @@ html {
   .wrapper_left_header {
     width: 100%;
     height: 30px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     display: flex;
     justify-content: center;
     .today {
@@ -82,7 +84,7 @@ html {
       .left_body_photo {
         width: 100%;
         height: 130px;
-        background: url("./images/mainphoto.jpg") center/cover no-repeat;
+        background: url("./contents/mainphoto.jpg") center/cover no-repeat;
         border-radius: 3px;
       }
     }
@@ -92,8 +94,8 @@ html {
       .left_body_message_title {
         border: 1px solid map-get($color, bg-gray-color);
         border-radius: 4px;
-        padding: 4px;
-        font-size: 0.9rem;
+        padding: 7px;
+        font: 400 0.85rem/1 "Sunflower";
         text-align: center;
       }
       .left_body_message_desc {
@@ -101,6 +103,7 @@ html {
         height: 100%;
         padding: 30px 10px;
         text-align: center;
+        font-weight: 300;
         line-height: 25px;
       }
     }
@@ -138,11 +141,11 @@ html {
     color: map-get($color, theme-color);
     .right_header_title {
       padding-left: 5px;
-      font-size: 1.2rem;
-      font-weight: bold;
+      font-size: 1rem;
+      font-weight: 700;
     }
     .right_header {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
   .wrapper_right_body {
@@ -165,7 +168,7 @@ html {
   width: 70px;
   height: 140px;
   position: absolute;
-  top: 12%;
+  top: 10%;
   right: -69px;
   display: flex;
   flex-direction: column;
@@ -176,10 +179,14 @@ html {
     background: map-get($color, theme-color);
     color: map-get($color, bg-light-color);
     text-align: center;
-    line-height: 40px;
+    line-height: 43px;
     border-radius: 0 10px 10px 0;
     font-size: 1rem;
     border: 1px solid map-get($color, bg-dark-color);
     cursor: pointer;
+    &:first-child {
+      background: #fff;
+      color: #000;
+    }
   }
 }
