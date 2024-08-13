@@ -7,7 +7,7 @@ $color: (
   bg-light-color: #fff,
   bg-gray-color: #808080,
   accent-color: #dc143c,
-  theme-color: #55b2e4,
+  theme-color: #4ebe78,
 );
 
 /* common */
@@ -24,15 +24,20 @@ html {
   justify-content: center;
   align-items: center;
   .background {
+    height: 500px;
+    display: flex;
+    align-items: center;
     background: map-get($color, bg-light-color);
+    border-radius: 10px;
     .outerbox {
       background: url("./images/outerbox2.png") center/cover no-repeat;
       filter: hue-rotate(300deg);
-      width: 808px;
-      height: 544px;
+      width: 813px;
+      height: 548px;
       position: relative;
       .wrapper {
         display: flex;
+        justify-content: space-between;
         padding: 36px;
         filter: hue-rotate(60deg);
       }
@@ -54,7 +59,6 @@ html {
     display: flex;
     justify-content: center;
     .today {
-      padding-top: 5px;
       .today-counter {
         color: map-get($color, accent-color);
       }
@@ -63,11 +67,11 @@ html {
   .wrapper_left_body {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     width: 100%;
     height: 100%;
     border: 1px solid map-get($color, bg-gray-color);
-    border-radius: 15px;
+    border-radius: 0.5rem;
     padding: 18px;
     .left_body_header {
       width: 100%;
@@ -87,14 +91,15 @@ html {
       height: 100%;
       .left_body_message_title {
         border: 1px solid map-get($color, bg-gray-color);
-        border-radius: 3px;
+        border-radius: 4px;
+        padding: 4px;
         font-size: 0.9rem;
         text-align: center;
       }
       .left_body_message_desc {
         width: 100%;
         height: 100%;
-        padding: 30px 20px;
+        padding: 30px 10px;
         text-align: center;
         line-height: 25px;
       }
@@ -115,5 +120,66 @@ html {
         }
       }
     }
+  }
+}
+
+/* wrapper_right */
+.wrapper_right {
+  width: 535px;
+  height: 472px;
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  .wrapper_right_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: map-get($color, theme-color);
+    .right_header_title {
+      padding-left: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .right_header {
+      font-size: 0.9rem;
+    }
+  }
+  .wrapper_right_body {
+    width: 100%;
+    height: 100%;
+    border: 1px solid map-get($color, bg-gray-color);
+    border-radius: 0.5rem;
+    background: map-get($color, bg-light-color);
+    iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      border: none;
+    }
+  }
+}
+
+/* navigation */
+.navigation {
+  width: 70px;
+  height: 140px;
+  position: absolute;
+  top: 12%;
+  right: -69px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .navigation_item {
+    width: 100%;
+    height: 43px;
+    background: map-get($color, theme-color);
+    color: map-get($color, bg-light-color);
+    text-align: center;
+    line-height: 40px;
+    border-radius: 0 10px 10px 0;
+    font-size: 1rem;
+    border: 1px solid map-get($color, bg-dark-color);
+    cursor: pointer;
   }
 }
