@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        .loading {
+          width: 30px;
+          height: 30px;
+          position: relative;
+          /* border: 1px solid #f00; */
+          span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            animation: loading 1.5s linear infinite;
+            &:last-child {
+              animation-delay: 0.8s;
+            }
+          }
+        }
+      }
+
+      @keyframes loading {
+        0% {
+          top: 0;
+          left: 0;
+          background: crimson;
+        }
+        25% {
+          top: 0;
+          left: calc(100% - 10px);
+          background: yellow;
+        }
+        50% {
+          top: calc(100% - 10px);
+          left: calc(100% - 10px);
+          background: dodgerblue;
+        }
+        75% {
+          top: calc(100% - 10px);
+          left: 0;
+          background: yellowgreen;
+        }
+        100% {
+          top: 0;
+          left: 0;
+          background: crimson;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <span></span>
+      <span></span>
+    </div>
+  </body>
+</html>
