@@ -114,7 +114,7 @@ fetch("./data.json")
     const slideCount = slide.length;
     const slideWidth = 300;
     const slideMargin = 30;
-    const cloneCount = 4;
+    const moveSlideCount = 4;
 
     let currentIdx = 0;
 
@@ -128,17 +128,18 @@ fetch("./data.json")
     };
 
     const setInitialPos = () => {
-      const initialTranslateValue = -(slideWidth + slideMargin) * cloneCount;
+      const initialTranslateValue =
+        -(slideWidth + slideMargin) * moveSlideCount;
       slides.style.transform = `translateX(${initialTranslateValue}px)`;
     };
 
     const makeClone = () => {
-      for (let i = 0; i < cloneCount; i++) {
+      for (let i = 0; i < moveSlideCount; i++) {
         const cloneSlide = slide[i].cloneNode(true);
         cloneSlide.classList.add("clone");
         slides.appendChild(cloneSlide);
       }
-      for (let i = slideCount - 1; i >= slideCount - cloneCount; i--) {
+      for (let i = slideCount - 1; i >= slideCount - moveSlideCount; i--) {
         const cloneSlide = slide[i].cloneNode(true);
         cloneSlide.classList.add("clone");
         slides.prepend(cloneSlide);
@@ -163,49 +164,28 @@ fetch("./data.json")
     };
 
     const moveSlide = (num) => {
-      const moveSlideCount = 4;
-      movePager(
-        (slideCount / moveSlideCount + num) % (slideCount / moveSlideCount)
-      );
-      //movePager((slideCount + num) % 10);
+      const showIndex =
+        (slideCount / moveSlideCount + num) % (slideCount / moveSlideCount);
+      movePager(showIndex);
 
       slides.style.left = `${
         -num * (slideWidth + slideMargin) * moveSlideCount
       }px`;
-      //slides.style.left = `${-num * (slideWidth + slideMargin) * 4}px`;
+
       currentIdx = num;
-      if (
-        currentIdx === slideCount / moveSlideCount ||
-        currentIdx === -cloneCount / moveSlideCount
-      ) {
+      if (currentIdx === slideCount / moveSlideCount || currentIdx === -1) {
         setTimeout(() => {
           slides.classList.remove("animated");
           slides.style.left =
             num > 0
               ? "0px"
-              : `${
-                  -(slideCount + num * moveSlideCount) *
-                  (slideWidth + slideMargin)
-                }px`;
+              : `${-showIndex * (slideWidth + slideMargin) * moveSlideCount}px`;
           currentIdx = num > 0 ? 0 : 2;
         }, 500);
         setTimeout(() => {
           slides.classList.add("animated");
         }, 600);
       }
-      // if (currentIdx === slideCount || currentIdx === -cloneCount) {
-      //   setTimeout(() => {
-      //     slides.classList.remove("animated");
-      //     slides.style.left =
-      //       num > 0
-      //         ? "0px"
-      //         : `${-(slideCount + num) * (slideWidth + slideMargin)}px`;
-      //     currentIdx = num > 0 ? 0 : slideCount + num;
-      //   }, 500);
-      //   setTimeout(() => {
-      //     slides.classList.add("animated");
-      //   }, 600);
-      // }
     };
 
     let timer = undefined;
@@ -282,10 +262,10 @@ fetch("./data.json")
       endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
       if (startPoint < endPoint) {
         // 마우스가 오른쪽으로 드래그 된 경우
-        moveSlide(currentIdx + 1);
+        moveSlide(currentIdx - 1);
       } else if (startPoint > endPoint) {
         // 마우스가 왼쪽으로 드래그 된 경우
-        moveSlide(currentIdx - 1);
+        moveSlide(currentIdx + 1);
       }
     });
 
