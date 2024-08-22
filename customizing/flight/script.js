@@ -180,7 +180,7 @@ fetch("./data.json")
             num > 0
               ? "0px"
               : `${-showIndex * (slideWidth + slideMargin) * moveSlideCount}px`;
-          currentIdx = num > 0 ? 0 : 2;
+          currentIdx = num > 0 ? 0 : slideCount / moveSlideCount - 1;
         }, 500);
         setTimeout(() => {
           slides.classList.add("animated");
