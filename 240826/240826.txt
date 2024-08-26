@@ -1,0 +1,36 @@
+1.변수
+2.자료형
+3.연산자
+4.조건문
+5.반복문
+6.함수
+7.DOM
+8.EVENT
+9.DOM응용
+10.객체
+11.문자열
+12.배열
+13.정규표현식
+14.데이터통신
+15.API
+  (1) LocalStorage // Todolist
+      1) session storage: 브라우저가 켜져있거나 컴퓨터가 켜져있는 동안만 값을 유지 -> 휘발성
+      2) local storage: 반영구적으로 삭제하기 전까지만 값을 유지 -> 휘발성x, 보안성 취약
+      3) cookies: 보안성 강화
+  - Geolocation // Weather
+      -> https://openweathermap.org/api => current weather data 
+      -> API doc(https://openweathermap.org/current)
+      -> https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&lang={lang} => lang에는 kr 입력하면 한국어 일부지원
+      -> 사이트에서 오른쪽 상단 닉네임 > my api keys => env.js에 API_KEY 생성
+      -> git에 올릴 때 env.js 제외시켜야 함 => .gitignore 파일 생성후 env.js 입력
+      -> 환경설정하면 vs code 껐다켜야함
+      -> icon => https://openweathermap.org/weather-conditions
+      -> https://openweathermap.org/img/wn/10d@2x.png 복사
+  - Geolocation // Kakao Map + Public Data(캠핑장)
+  - Canvas > 그림판(호도법)
+
+번외
+  - svg
+  - 라이브러리
+  - window 이벤트
+
