@@ -14,8 +14,8 @@ const ctx = canvas.getContext("2d");
 // ctx.stroke();
 
 // ctx.beginPath();
-// ctx.moveTo(50, 100);
-// ctx.quadraticCurveTo(100, 50, 150, 100);
+// ctx.moveTo(50, 100); //시작점
+// ctx.quadraticCurveTo(100, 50, 150, 100); //quadracticCurveTo(조절점x좌표, 조절점y좌표, 끝점 x축, 끝점y축)
 // ctx.quadraticCurveTo(200, 150, 250, 100);
 // ctx.quadraticCurveTo(300, 50, 350, 100);
 // ctx.stroke();
@@ -24,8 +24,8 @@ const ctx = canvas.getContext("2d");
 // bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
 
 // ctx.beginPath();
-// ctx.moveTo(50, 100);
-// ctx.bezierCurveTo(90, 250, 310, 10, 350, 100);
+// ctx.moveTo(50, 100); //시작점
+// ctx.bezierCurveTo(90, 250, 310, 10, 350, 100); //ctx.bezierCurveTo(조절점1 x좌표, 조절점1 y좌표, 조절점2 x좌표, 조절점2 y좌표, 끝점 x축, 끝점y축);
 // ctx.strokeStyle = "green";
 // ctx.stroke();
 
