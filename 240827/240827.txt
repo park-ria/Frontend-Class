@@ -1,0 +1,62 @@
+1.변수
+2.자료형
+3.연산자
+4.조건문
+5.반복문
+6.함수
+7.DOM
+8.EVENT
+9.DOM응용
+10.객체
+11.Class
+12.문자열
+13.배열
+14.정규표현식
+15.데이터통신
+16.API
+  (1) LocalStorage // Todolist
+      1) session storage: 브라우저가 켜져있거나 컴퓨터가 켜져있는 동안만 값을 유지 -> 휘발성
+      2) local storage: 반영구적으로 삭제하기 전까지만 값을 유지 -> 휘발성x, 보안성 취약
+      3) cookies: 보안성 강화
+  (2) Geolocation 
+      1) Weather
+         -> https://openweathermap.org/api => current weather data 
+         -> API doc(https://openweathermap.org/current)
+         -> https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&lang={lang} => lang에는 kr 입력하면 한국어 일부지원
+         -> 사이트에서 오른쪽 상단 닉네임 > my api keys => env.js에 API_KEY 생성
+         -> git에 올릴 때 env.js 제외시켜야 함 => .gitignore 파일 생성후 env.js 입력
+         -> 환경설정하면 vs code 껐다켜야함
+         -> icon => https://openweathermap.org/weather-conditions
+         -> https://openweathermap.org/img/wn/10d@2x.png 복사
+      2) Geolocation // Kakao Map + Public Data(캠핑장)
+         -> 카카오 API + 공공데이터 포털
+         -> 카카오 API : https://apis.map.kakao.com/
+         -> web>sample>지도생성하기
+         -> 마커에 클릭 이벤트 등록하기
+         -> 여러개 마커 표시하기
+         -> 마커 클러스터러 사용하기
+  (3) Canvas > 그림판(호도법)
+// canvas API => 호도법 => UI영역(css)
+// 각도를 계산하는 방법
+// 1. 60분법 : 인간의 편의 => 원 360도 // 몇 도
+
+// 2. 호도법 : 자연의 법칙 => 스크립트
+// 부채꼴 => 밑변(*반지름) = 호의 둘레와 같다면, 무조건 해당 부채꼴 내각은 57.296도 = 1래디언
+// 3래디언 = 57.196 * 3 = 171.888
+// 3.14래디언 = 180도 = 파이
+// 원의 둘레 구하는 공식 = 2파이r
+// 파이 * 각도 / 180 = 1래디안
+
+// 사각형을 만들고자 할 때 사용할 수 있는 메서드 함수
+// fillRect(x, y, width, height) : 사각형 요소의 색상을 채워줄 수 있도록 하는 함수
+// strokeRect(x,y, width, height) : 사각형 아웃라인 선을 그려주도록하는 함수
+//clearRect(x,y,width,height) : 사각형 형태의 특정 요소만큼을 지우고자할 때 사용하는 함수
+
+// 사각형을 만들고자 할 때 사용할 수 있는 메서드 속성
+// fillStyle = "색상" : 해당 도형의 색상을 채울 때 사용할 수 있는 속성
+// strokeStyle = "색상" : 해당 도형의 외곽선의 색상을 지정하고자 할 때 사용할 수 있는 속성
+
+베지에
+> html, css => font
+> 2차 베지에 TTF => 좌표값2 => 조절점 1개
+> 3차 베지에 OTF => 좌표값2 => 조절점 2개
