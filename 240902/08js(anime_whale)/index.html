@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- anime.js -->
+    <script src="./anime.js"></script>
+    <!-- custom js -->
+    <script defer src="./script.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      section {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .circle {
+          position: absolute;
+          top: calc(50% - 263px);
+          left: calc(50% - 490px);
+          width: 10px;
+          height: 10px;
+          background: #fff;
+          border-radius: 50%;
+        }
+        .eye {
+          position: absolute;
+          left: calc(50% + 330px);
+          top: calc(50% - 50px);
+          width: 20px;
+          height: 20px;
+          background: #fff;
+          border-radius: 50%;
+          animation: ani 1s ease-in-out infinite alternate;
+        }
+        svg {
+          fill: none;
+          stroke: #fff;
+          stroke-width: 2;
+          width: 1200px;
+          min-width: 1200px;
+        }
+      }
+
+      @keyframes ani {
+        0% {
+          height: 20px;
+          transform: skew(0deg);
+        }
+        100% {
+          height: 10px;
+          transform: skew(20deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="circle"></div>
+      <div class="eye"></div>
+      <svg class="svg" viewBox="0 0 823 436">
+        <path
+          d="M780 97C620 -70 461 14 309 103C276 122.322 207 137 167 158C125.021 180.039 1 64 1 137C1 195.4 46 225 91 223C46 256.667 9.6 303.2 44 336C87 377 133.228 210.585 189 291C232 353 410.333 404.333 504 424C625.6 465.6 754.667 381 803 325C846 233 805 155.333 780 97Z"
+        />
+      </svg>
+    </section>
+  </body>
+</html>
