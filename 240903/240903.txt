@@ -1,0 +1,133 @@
+1.React.js는 자바스크립트 기반의 라이브러리
+
+2. 라이브러리 VS 프레임워크 비교
+
+- 라이브러리 : 기존 프로그래밍언어 문법 체계를 존중 => 해당 문법 위에서 본인들이 만들어 놓은 명령시스템을 얹혀서 구동될 수 있도록 만든 시스템
+ex) react
+
+- 프레임워크 : 본인들만의 문법 체계 & 기존 프로그래밍언어를 조합해서 사용할 수 있도록 만들어 놓은 시스템
+ex) 부트스트랩 
+
+
+3. Facebook // Meta
+
+4. JS : 웹 브라우저
+
+5. Node 기반
+
+6. 구글 웹 브라우저 => 크롬
+> V8 검색엔진 // 자바스크립트
+
+7. 자바스크립트를 웹브라우저가 아닌 곳에서도사용할 수 있는 실행환경을 만들어보자 => Node
+
+8. Node 위에서 작업되는 모든 작업물 > 프로젝트
+Node Package Manager => npm
+
+9. npm i ... -> 보통
+
+-------------------------------
+
+리액트 구동 명령어
+
+10. npx create-react-app . -> y
+
+11. npm run start : 리액트 서버 시작
+
+12. ctrl + c : 리액트 서버  종료
+
+13. React 설치 후 삭제해야하는 reset 요소
+- src > App.test.js
+- src >  logo.svg 
+- src > reportWebVitals.js 
+- src > setupTests.js
+
+- App.js -> logo 삭제
+- index.js -> reportWebVitals 삭제
+
+- node-modules는 용량(290MB)이 커서 git에 올리기 전에 삭제하기.
+- node-modules를 삭제했기때문에 npm run start 해봤자 안 됨 => 터미널에서 package.json이 있는 폴더에서 npm i하면 다시 설치됨
+
+--------------------------------
+
+React를 왜 사용해야하는가?
+
+1. 각각 개별적인 페이지 + 헤더 & 푸터
+> 컴포넌트 단위 쪼개서 작업 후 재결합
+> 컴포넌트 : 최근 UI/UX 디자인 영역 핫 키워드 
+> 프로젝트 : 파일 1개당 용량이 작음 => 디버깅 효율
+
+2. CSR 방식(Client Side Rendering)
+1) 기존 : 팀프로젝트 작업 => SSR방식 (Server Side Rendering) 
+- 매순간 서버에 요청
+- 서버에 요청할 때 모든걸 요청
+
+2) CSR : Client Side Rendering => 서버
+- 돔을 복제해서 virtual dom을 만들어서 dom과 virtual dom을 비교후 변경된 부분만 서버에게 요청함
+- 모든걸 요청하는 SSR과 달리 변경된 사항만 요청하는 CSR 방식은 속도가 매우 빠름
+- 웹 브라우저가 아닌 곳에서 사용 가능 => 웹 페이지 리뉴얼 & 앱 개발
+- React-Native : 앱 전용 프로그래밍 언어
+
+
+---------------------------------
+
+React 작동되어지는 원리
+1. 모든 요소들이 Component 기반으로 운영
+2. Component => JS
+
+2018년 이전에는 React.js의 모든 컴포넌트들이 Class
+현재는 React.js의 모든 컴포넌트들이 함수형 컴포넌트
+
+컴포넌트 함수는 앞에 대문자 써주기!!!
+모든 작업은 src안에서 적어줘야함!!! components 폴더가 src안에 있어야 import할 수 있음
+
+
+------------------------------------
+
+vscode > 확장 > react 입력 > ES7+ React/Redux/React-Native snippets 설치
+- rafc + tab 화살표함수
+- rfc + tab function 함수
+
+-------------------------------------
+
+React의 기본문법 => JSX
+- Javascript & Xml
+
+1. 출력부의 공간에는 반드시 숫자, 문자형태의 자료형
+- 함수형 컴포넌트의 return은 출력부 => UI 화면 출력 => 절대로 배열 및 객체의 형태로는 쓸 수 없음
+
+2. 산술 및 문자표현식
+- 숫자 및 문자 연산 가능
+
+3. 논리표현식(boolean)
+
+4. 닫힘표현식(싱글태그처럼 표현)
+
+5. 무조건 최상위 부모가 반드시 존재
+- Fragment Element <> </>
+
+6. html => class : <div class="App">
+    jsx => className : <div className="App">
+
+7. React 전용 스타일 컴포넌트 => styled-component // scss
+
+8. React 출력부는 "문" 사용불가 "식" 가능
+
+9. React & Css 스타일시트 역시 외부 스타일시트 & 인라인
+
+--------------------------------------
+
+React > Props => Propertys 약어.
+- Component 기반 => 각각의 컴포넌트간에 props를 전달하고 받을 수 있음
+- props는 반드시 부모에서 자식으로 일방통행
+- 유틸리티 => Redux // Saga // Thunk => 미들웨어 : 부모에게도 값을 보낼 수 있도록 
+- React Query
+- 속성 : 객체 형태
+- 구조분해할당 가능
+- defaultProps 속성 : 만약에 누락된 데이터가 있다면 대체 가능!
+   Body.defaultProps = {
+     favorList: [],
+   };
+- props를 통해서 컴포넌트도 보낼 수 있음
+
+
+
