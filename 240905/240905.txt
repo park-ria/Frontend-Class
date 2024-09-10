@@ -247,7 +247,7 @@ filter => 배열 아이템 => 필터링
     ex) export default React.memo(Header);
     //Header는 고차컴포넌트가 됨
 
-- useCallback() : 컴포넌트 최적화
+- useCallback() : 컴포넌트 최적화(함수에 씀)
 
 
 
@@ -275,4 +275,11 @@ React 잘하려면
 2) state update 관리 =. props
 
 -----------------------------------------------
+
+
+
+
+
+
+
 
