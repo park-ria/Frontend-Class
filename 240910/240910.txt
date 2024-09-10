@@ -1,0 +1,85 @@
+자바스크립트는 태생적으로 싱글 스레드 (순차적, 일방통행)=> 원래 비동기 안됨
+ => 비동기처럼 사용하기 위해 콜백함수를 썼음
+ => 콜백 함수 : 비동기처리
+       콜백 의미 : 함수 안의 함수 => 안의 함수 호출 타이밍을 바깥의 함수가 제어 함. 그래서 비동기
+
+
+
+https://ko.legacy.reactjs.org/docs/hooks-reference.html
+1. React.js는 왜 사용하는가?
+- Component 기반 프로젝트 웹,앱 제작 // Module
+- Virtual DOM : 효율적인 업데이트가 가능
+
+2. JSX = Javascript XML 문법
+(1) props = property 약어 => 객체(key + value)
+   => 컴포넌트 간 데이터자료를 주고 받을 때 사용, 함수의 인자&매개변수 처럼
+   => 함수형 컴포넌트
+   => 객체형태
+   - props drilling > context > useContext
+(2) state = 상태 // 변수
+   - state 왜 써야 하는지? 변수쓰면 안되나?
+       => 돔이 아닌 가상 돔이므로 변수 값이 적용이 안됨. 
+       => 실시간 비동기적으로 상태를 변화시켜주는 관리하는 JSX 문법인 state와 useState를 쓰는 것
+   - setState() => 비동기적으로 처리하므로 값이 증가하는 것과 출력을 같이하므로..
+       ex) setCount(count + 1);console.log(count); 하면  console.log(count)의 count는 0이다
+
+★ 돔과의 차이점을 비동기적으로 찾아내야 실시간으로 적용되므로 setState와 state인 비동기적 방식을 쓰는 것임!!!!!!!
+
+* setState 함수는 state를 갱신할 때 사용합니다. 
+새 state 값을 받아 컴포넌트 리렌더링을 큐에 등록합니다. 
+=> state는 스택이 아닌 큐에 등록되므로 이벤트처럼 즉각적으로 처리 가능
+스택은 스크립트의 함수 같은거.. 엘리베이터 같이 먼저 들어온게 가장 나중에 나감
+큐는 스크립트의 이벤트나 리액트의 state로 가장먼저 들어온게 가장 먼저 나가고 중간에 삭제된 것도 즉각적으로 삭제할 수 있음
+
+
+--------------------------------------------
+
+라우터 ex)중계기
+* 페이지 라우터 => 페이지 분기
+구글  react-router-dom 검색 후 (https://reactrouter.com/en/main/start/tutorial) 접속
+터미널에 npm install react-router-dom
+
+* 스타일 컴포넌트 => 스타일을 정의해주는 컴포넌트
+구글 styled components 검색 후(https://styled-components.com/) 접속
+터미널에 npm install styled-components
+
+둘 다 설치 완료되면 package.json에 들어감
+
+---------------------------------------------
+글 작성페이지 : http://localhost:3000/post-write
+글 확인페이지 :
+	http://localhost:3000/post/1
+	http://localhost:3000/post/2
+	http://localhost:3000/post/3
+	http://localhost:3000/post/4
+
+
+★ REST API
+-> 클라이언트 <-> 서버 통신 방법
+-> get / post 등등
+-> 제품(페이지)을 제작한다고 할 때, 해당 페이지 안에 포함될 페이지들의 규칙성을 생성하고 제어, 관리할 수 있도록 만들어 놓은 시스템
+
+
+-------------------------------------
+
+and 단락회로평가: 좌항값이 참이면 우항값
+좌항값 && 우항값
+
+or 단락회로평가: 좌항값이 있으면 우선, 없으면 우항값
+좌항값 || 우항값
+
+--------------------------------------------
+
+Hook
+1. useState
+2. useRef
+3. useEffect
+4. useReducer
+5. useMemo
+6. useContext
+7. useNavigate
+
+
+
+
+
