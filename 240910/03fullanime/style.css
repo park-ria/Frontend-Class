@@ -266,6 +266,7 @@ body.nav_active nav {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
+  z-index: 2;
 }
 .section#sec4 .img_wrap {
   width: 500px;
@@ -274,7 +275,7 @@ body.nav_active nav {
   flex-wrap: wrap;
 }
 .section#sec4 .img_wrap .tail {
-  background: #f08035;
+  background: #f7703a;
   width: 5%;
   height: 5%;
 }
@@ -285,6 +286,7 @@ body.nav_active nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #fp-nav ul li a span {

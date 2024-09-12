@@ -90,6 +90,127 @@ const sec3 = () => {
   });
 };
 
+const staggerWrap = document.querySelector("#sec4 .img_wrap");
+const grid = [20, 20];
+const col = grid[0];
+const row = grid[1];
+
+const allElem = col * row;
+
+for (let i = 0; i < allElem; i++) {
+  const div = document.createElement("div");
+  div.className = "tail";
+  staggerWrap.appendChild(div);
+}
+
+const sec4 = () => {
+  const stageAni = anime.timeline({
+    targets: ".tail",
+    easing: "easeInBack",
+    delay: anime.stagger(10), //0.01초 차이로 딜레이
+    duration: 2000,
+    endDelay: 1000,
+    loop: false,
+    autoplay: false,
+  });
+
+  stageAni
+    .add({
+      targets: "#sec4 h1 img",
+      opacity: 0,
+      duration: 500,
+    })
+    .add({
+      //여기서 targets를 잡지 않으면 default target인 .tail이 타겟이 됨
+      translateX: () => {
+        return anime.random(-500, 500);
+      },
+      translateY: () => {
+        return anime.random(-500, 500);
+      },
+      delay: anime.stagger(200, { grid: grid, from: "last" }), //0.2초의 딜레이로 {범위} 끝에서부터 파편이 됨
+      background: "#fff",
+      borderRadius: "50%",
+      scale: 0.2,
+    })
+    .add({
+      targets: ".img_wrap",
+      rotate: 360,
+      easing: "linear",
+      duration: 4000,
+      scale: 0.5,
+    })
+    .add({
+      targets: ".img_wrap",
+      duration: 1000,
+      scale: 1,
+    })
+    .add({
+      translateX: 0,
+      translateY: 0,
+      delay: anime.stagger(100, { grid: grid, from: "center" }), // 0.1초동안 범위는 grid이고 센터에서 부터 모아지도록
+      duration: 3000,
+      scale: 0.8,
+      //background: "#f6d365",
+      background: "#faf604",
+    })
+    .add({
+      scale: 0.5,
+      rotate: 60,
+      duration: 500,
+      borderRadius: "0%",
+      delay: anime.stagger(100, { grid: grid, from: "center" }),
+    })
+    .add({
+      sacle: 0.8,
+      rotate: -60,
+      duration: 500,
+      borderRadius: "50%",
+      background: "#fff",
+      delay: anime.stagger(100, {
+        grid: grid,
+        from: "center",
+      }),
+      //anime.stagger는 즉각적으로 반응하지말고 도미노처럼 반응함
+    })
+    .add({
+      scaleX: 0.1,
+      scaleY: 1,
+      rotate: 120,
+      duration: 500,
+      borderRadius: "0%",
+      background: "#faf604",
+      delay: anime.stagger(100, { grid: grid, from: "center" }),
+    })
+    .add({
+      rotate: 0,
+      duration: 500,
+      delay: anime.stagger(100, { grid: grid, from: "center" }),
+    })
+    .add({
+      scaleX: 1,
+      duration: 500,
+      delay: anime.stagger(100, { grid: grid, from: "center" }),
+    })
+    .add({
+      scale: 1,
+      background: "#f7703a",
+      duration: 800,
+      delay: anime.stagger(100, { grid: grid, from: "center" }),
+    })
+    .add({
+      targets: "#sec4 h1 img",
+      opacity: 1,
+      duration: 500,
+    });
+
+  staggerWrap.addEventListener("click", () => {
+    stageAni.play();
+  });
+};
+
+sec4();
+
 // fullpage.js
 new fullpage("#fullpage", {
   autoScrolling: true,
