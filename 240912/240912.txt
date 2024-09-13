@@ -66,8 +66,10 @@ useEffect
 useReducer
 useMemo
 useContext
+useCallback
 useNavigate
 useParams
+useSearchParams
 
 
 ----------------------------------------------------------
@@ -107,8 +109,24 @@ index.css 최상단에 @import url("https://fonts.googleapis.com/css2?family=Nan
 7) Link VS useNavigate
 - Link => a태그
 
+http://localhost:3000/diary
+http : 프로토콜
+localhost : 호스트, 도메인
+127.0.0.1 : IP 주소, DNS
+:3001 : 포트번호
+/diary : path = 동적경로 값 = URL 파라미터
+?sort=latest : 쿼리스트링
+
 * 스크립트 쓰는 이유 : 동적페이지 => 인터렉티브한 페이지 구현
    JS > 사용자 이벤트 
 
+
+-------------------------------------------------------
+
+감정 아이콘 정의
+어떤 감정 // 텍스트 // 이미지
+id:1
+name:"완전좋음"
+img:getEmotionImgById(1)
 
 
