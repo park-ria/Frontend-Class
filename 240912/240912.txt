@@ -129,4 +129,9 @@ id:1
 name:"완전좋음"
 img:getEmotionImgById(1)
 
+-------------------------------------------------------
+styled 자동완성 기능 추가
+   - 확장 vscode-styled-components 검색 후 Styled Components가 만든거 설치
 
+emmit 기능 추가
+환경설정 ctrl + , => 작업 영역 클릭 => include 검색 => Emmet: Include Languages에 항목추가 => 항목 : javascript 값: javascriptreact 넣기 => 추가
