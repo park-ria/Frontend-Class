@@ -76,7 +76,7 @@ const App = () => {
       type: "CREATE",
       data: {
         id: idRef.current,
-        date: new Date(date).gatTime(),
+        date: new Date(date).getTime(),
         content,
         emotionId,
       },

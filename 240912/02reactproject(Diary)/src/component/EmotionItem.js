@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const EmotionContent = styled.div`
   cursor: pointer;
-  border: 1px solid #ccc;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
