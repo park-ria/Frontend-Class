@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useDiary from "../hooks/useDiary";
 import Header from "../component/Header";
 import Button from "../component/Button";
 import Viewer from "../component/Viewer";
-import { getFormattedDate } from "../util";
+import { getFormattedDate, setPageTitle } from "../util";
 
 const Diary = () => {
+  useEffect(() => {
+    setPageTitle(`${id} Diary`);
+  }, []);
+
   const navigate = useNavigate();
   const { id } = useParams();
   const data = useDiary(id);

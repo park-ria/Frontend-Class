@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
@@ -87,12 +87,12 @@ const Editor = ({ initData, onSubmit }) => {
     navigate(-1);
   };
 
-  const handleChangeEmotion = (emotionId) => {
-    setState({
+  const handleChangeEmotion = useCallback((emotionId) => {
+    setState((state) => ({
       ...state,
       emotionId,
-    });
-  };
+    }));
+  }, []);
 
   return (
     <div>

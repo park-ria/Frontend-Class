@@ -129,6 +129,22 @@ id:1
 name:"완전좋음"
 img:getEmotionImgById(1)
 
+*Editor 컴포넌트 생성 => 공통컴포넌트
+-New 컴포넌트 페이지 (*신규)
+-Edit 컴포넌트 페이지 (*기존)
+> 동일한 양식을 사용해서 일기 작성, 업데이트
+
+UI 기획이 매우중요
+> 컴포넌트 기반 작업
+
+* 컴포넌트 : 독립적인 모듈로서 어떤 기능을 담당시키고자 할 때 만듬 ex)Header, Button
+
+* 커스텀 Hooks 왜 만드는가?
+> React.js > 내장 Hooks > 함수
+> 자주 반복해서 사용해야하는 기능 존재(*템플릿화)
+> 함수의 기능인데 React의 hooks 기능을 넣음
+
+
 -------------------------------------------------------
 styled 자동완성 기능 추가
    - 확장 vscode-styled-components 검색 후 Styled Components가 만든거 설치
@@ -137,3 +153,14 @@ emmit 기능 추가
 환경설정 ctrl + , => 작업 영역 클릭 => include 검색 => Emmet: Include Languages에 항목추가 => 항목 : javascript 값: javascriptreact 넣기 => 추가
 
 
+-----------------------------------------------
+
+* 컴포넌트 렌더링
+1) 부모 컴포넌트가 렌더링
+2) Props 상태 업데이트 // 추가
+3) state 업데이트
+
+useMemo // React.memo() // useCallback()
+
+1. 로컬스토리지 데이터 반영구 저장
+2. 배포하는 방법

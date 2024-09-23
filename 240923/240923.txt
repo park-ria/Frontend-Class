@@ -1,0 +1,89 @@
+1.Page Routing
+2.Styled Component
+3.React Hooks
+4.Custom Hooks
+5.Memoization
+
+backend 부분
+db(DataBase) : 각종 다양한 형식의 데이터가 보관
+관계형 DB : 유튜브 A아이디 + 2024년 업로드 영상 + 시청정보 + 댓글
+   - 학습량 & 난이도 높은편 // 서버운영 부담
+   - MySQL
+
+비관계형 DB : 상대적으로 다루기 쉬움 // 서버 운영 부담이 덜함 // DB가 다 독립적이기 때문에 복잡한 구조의 웹앱페이지 제작X
+   - 글로벌 기업 비관계형 DB 클라우드 서비스 시행
+   - firebase : AWS 보다는 쉽게 접근 가능
+       firebase 홈페이지 전체메뉴 > 인증, firestore
+
+고차원 구조(Scheme) 설계 및 세팅
+
+다양하고 많은 멀티미디어 컨텐츠 다룰 수 있어야 함
+img // video 용량 부담 && Server 부재
+사용자가 멀티미디어 컨텐츠를 업로드 // 삭제
+> 본인 업로드한 컨텐츠, 본인 삭제 권한
+
+Typescript는 자바슼므립 내부에서 사용할 수 있는 모든 자료형의 타입을 지정!
+
+TS + React.js
+JS + React.js : 터미널 npx create-react-app .
+
+TS : JS "Super Set" 언어
+> 보다 효율적인 방법 : Vite (https://ko.vitejs.dev/)
+터미널에 npm create vite@latest 입력- > y -> 프로젝트이름 입력하기 sns-flatform 
+-> React 선택 엔터 -> TypeScript + SWC(타입스크립트 전용 컴파일러) 선택 엔터
+-> VScode 닫고 만들어진 폴더(sns-flatform)로 들어가서 열기
+-> npm i(노드모듈 설치) -> npm run dev -> 콘솔창에 local의 url을 컨트롤 누른상태에서 열기
+
+-> App.css, index.css 삭제
+-> App.tsx 
+	function App() {
+	  return <></>;
+	}
+
+	export default App;
+-> assets 지우고
+-> main.tsx => StrictMode 지우고 index.css 지우기
+	import { createRoot } from "react-dom/client";
+	import App from "./App.tsx";
+
+	createRoot(document.getElementById("root")!).render(<App />);
+
+-> index.html -> favicon 지우기 title 바꾸기
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNS Flatform</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+루트 폴더 & git 연동
+-> github -> repository -> new -> repository name : sns-flatform -> create repository
+
+-> 터미널 ctrl + c 해서 런 종료
+-> git bash 창 열어서 -> git init
+-> 깃 연동 : git remote add origin https://github.com/park-ria/sns-flatform.git
+-> git remote -v => fetch와 push가 잘 나와야 함
+
+라이브러리 설치
+react-router-dom
+   npm install react-router-dom@6.14.2
+   npm install styled-components@6.0.7
+   npm install @types/styled-components -D
+
+-> npm run dev
+
+
+--------------------------------------------
+
+react는 jsx, js 동일
+typescript는 tsx 확장자
+
+---------------------------------------------
+
+
