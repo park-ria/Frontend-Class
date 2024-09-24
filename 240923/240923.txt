@@ -78,7 +78,8 @@ react-router-dom
 
 -> npm run dev
 
-
+단순히 앱을 개발하는 단계에서만 필요한 패키지 : devDependencies => 별도 관리 => -D를 입력하면 devDependencies로 감
+실제 앱을 배포한 이후에도 필요한 패키지 : dependencies
 --------------------------------------------
 
 react는 jsx, js 동일
@@ -86,4 +87,81 @@ typescript는 tsx 확장자
 
 ---------------------------------------------
 
+SNS Platform
+Vite 빌드도구
+   - react를 활용해서 app 번들링
+   - Bundle => 무언가를 하나로 묶는 작업
+   - JS역할 => 웹 & 앱 페이지의 기능 다양 => 구현 JS 훨씬 더 많이 사용
+   - html, css + JS => 1000줄 ~ 2000줄 이상..
+   - 1 개의 파일 > 데이터 양 삽입 > 버그 취약, 충돌, 유지보수 어려움
+   - JS Ecma 기관 => Module => import & Export
+   - 1개의 앱 => 모듈 30~50개 => 웹 브라우저 파일 파싱 executing 로딩시간
+   - JS 30개 => 물리적으로 1개의 JS 압축 => 로딩
+   - 번들러 => JS 번들링
+   - webpack => 번들러 1세대 등장 => 번들링 해야하는 모든 JS 다 읽음 100 => 1개의 JS 변화 // 100개 다 읽음
+   - 시간이 가면 갈 수록 영상 멀티미디어 소스 늘어남 > 앱이 갖춰야하는 기능 갈수록 다양하고 화려해짐 => 고사양 필요
+   - meta // facebook => react.js > 가상돔
+   - 차세대 번들러 esbuild 등장 => HMP(Hot Module Replacement) 방식을 채택 => webpack 70배나 속도가 빠른 번들러 => 안정성 문제 => 잦은 버그 // 반복되는 번들링 작업 => 오류사항
+   - HMR(Hot Module Replacement)방식을 채택 + 안정성 개선 => Vite(프랑스어 => 빠르다) => 번들링 + 컴파일링 + 배포관여 => 빌드도구
 
+
+*컴파일 => scss// Live sass Compiler(번역기)
+
+*웹 => html, css ,js
+
+*css => scss
+*js => ts
+
+프론트엔드 개발 : react + ts
+
+프로그래밍 언어 방식 
+  - 컴파일 언어 
+     > C, C++, Java
+     > 컴파일링을 해야지만 컴퓨터가 이해
+     > 컴파일링 언어들은 컴파일링을 하기위해서 우선, 최초에 해당 프로그래밍 언어 모든 문법을 스캐닝 -> 초기 로딩 시간이 김
+     > 오류, 버그 적음
+
+  - 인터프리터 언어 : Javascript
+     > 자바스크립트를 활용해서 1문장 작성 => 컴파일링의 시간 불필요
+     > 오류, 버그 찾기 어려움
+
+프로그래밍 언어 실행
+  - 선언형
+  - 명령형
+
+
+.ts => typescript 확장자
+.tsx = > typescript + xml
+
+----------------------------------------------------------
+
+크로스 브라우징 세팅 브라우저 간 통일
+npm i styled-reset 
+
+----------------------------------------------------------
+
+원래, 원칙적으로 회원가입, 관리기능 Backend > cookie
+
+data 통신
+1. client, sever
+2. get, post
+3. cookie : 향후 개인정보 , 서핑 정보, 히스토리
+> 형태 O, 값 X
+> 회원가입 // 아이디 & 패스워드
+
+----------------------------------------------------------
+
+Protected Router : 라우팅 되어진 페이지를 다 보여주는게 아닌 isLoading 값이 false가 되면 보여주도록 하는 것
+
+----------------------------------------------------------
+
+
+firebase 인증하기 -> 프로젝트 만들기 -> 프로젝트 개요 -> </> 아이콘 클릭 -> 앱 닉네임 : web -> npm install firebase 복사 후 터미널에 붙여넣고 package.json에 설치가 되었는지 확인 -> sdk를 추가해서 firebase 초기화 : firebase.ts 파일 만들고 sdk 복사해서 가져다 붙이기 -> 콘솔로 이동 -> 메뉴에서 Authentication 클릭 -> 시작하기
+-> 로그인 방법 추가 : 이메일/비밀번호 -> 사용설정 체크 -> 저장 -> 사용자 클릭(로그인 정보들을 봄) 
+-> firebase.ts 위에 import { getAuth } from "firebase/auth"; 추가
+-> firebase.ts 아래에 export const auth = getAuth(app); 추가
+-> App.tsx에 import {auth} from "./firebase"; 추가 -> await auth.authStateReady(); 추가
+
+----------------------------------------------------------
+
+Firebase SDK : Software Development Kit -> Third-party
