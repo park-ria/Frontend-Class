@@ -1,0 +1,20 @@
+npm create vite@latest -> project name, package name : themeSelect -> framework : react
+-> variant : javascript + swc -> npm i styled-components
+src > assets 삭제
+src >App.css & index.css 삭제
+
+App.jsx 는
+function App() {
+  return <></>;
+}
+
+export default App;
+만 남겨두기
+
+main.jsx는 StrictMode 지우기
+
+
+---------------------
+다크모드
+모듈 export > import
+버튼 // 이벤트 // useState

@@ -175,3 +175,75 @@ firebase > authentication > 로그인 방법 > 새공급업체 추가 > 추가 �
 > Application name에 sns-flatform01 입력 > firebase에서 아래의 콜백 URL을 복사하여 github의 Authorization callback URL에 넣기 > 콜백 URL중 도메인(https://~~~.com/)만 복사해서 Homepage URL에 넣기 > register application
 > Client ID 복사 > firebase에서 클라이언트 ID에 붙여넣기 > 깃허브 Generate a new client secret 로그인 해서 > firebase의 클라이언트 보안 비밀번호를 붙여넣고 저장 > VScode components에 GithubBtn.tsx 만들기
 > github.com/logos 크롬으로 접속하여 깃허브 공식 로고 다운로드
+
+
+
+===================================
+
+
+firebase 인증하기 순서 정리
+1. Firebase login
+2. Project 만들기 > sns-flatform01
+- google Analytics 사용설정 x
+3. Project 생성 > 좌측 메뉴 > Build > Authentication > 시작하기
+- 사용자의 이메일/비밀번호 세팅
+4. 로그인 방법 탭 > 새 공급업체 추가 > GitHub
+5. github 개발자 페이지
+> github.com/settings/developers 접속
+> OAuth Apps > New OAuth App 버튼 클릭
+> name : sns-flatform01
+> URL : firebase 로그인방법에서 github선택해서 나온 콜백 url의 path 전까지
+> Callback URL 활용 > Register Application
+> SID 코드를 발급 > Firebase 등록
+
+
+* Firebase >
+- User Info 생성
+- Authentication 인증
+- 외부 계정 인증
+- DB 물리적 공간 생성
+- 각각의 창고 = storage
+
+------------------------------------
+
+html, css는 fontaewsome : 다양한 아이콘, 유료, script 설치
+React :
+- fontawesome
+
+1) npm install 설치
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+
+2) index.html
+
+
+- heroicons.dev
+
+---------------------------------------------
+
+Firebase Storage : 한 달밖에 안됨, 5G 제공
+1) FireStore Database 공간 생성
+firebase > 빌드 > Storage > 시작하기 > 테스트모드에서 시작 >  asia-northeast3 선택
+firebase > 빌드 > firestore database > 데이터베이스 만들기 버튼 클릭
+
+※ 만약 데이터베이스 만들기 버튼이 여기서 안 떴을 때!!! Google.Console이동 > 약관 동의 > 
+default 클릭 > 네이티브 모드로 전환 > 모드 전환 > 확인 > 400에러 > firebase database 새로고침 > 조금 시간 지나고 새로고침
+
+2)
+DB 이름 = 컬렉션 
++ 컬렉션 시작 > ID = sns로 입력(컬렉션 이름)하고 다음 > 문서ID : 자동ID 클릭(식별하기 위한 목적의 ID)
+
+각각의독립적인 필드로 구성
+ex) A필드(사용자가 작성한 컨텐츠 내용)
+B필드(해당 컨텐츠를 작성한 사용자의 정보)
+C필드(해당 컨텐츠 포스팅 후 받은 좋아요 수)
+
+컬렉션이 table, 필드는 column명인거 같음
+
+
+
+
+
+
+
