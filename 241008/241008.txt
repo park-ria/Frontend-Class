@@ -1,0 +1,114 @@
+npm create vite@latest
+y
+simplegame
+React
+javascript + swc
+npm i styled-components
+npm i styled-reset
+
+App.jsx
+import React from "react";
+const App = () => {
+  return <div>App</div>;
+};
+export default App;
+
+main.jsx
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+createRoot(document.getElementById("root")).render(<App />);
+
+App.css, index.css 지우기
+
+npm run dev
+
+
+컴퓨터 vs 나 => 가위, 바위, 보 게임
+
+컴퓨터 선택(랜덤함수)
+나 선택 (가위,바위,보 선택 버튼)
+> 이벤트 콜백함수 => state
+
+
+
+===============================
+
+https://openweathermap.org/api 쓰기
+https://openweathermap.org/current 참고
+
+npm create vite@latest
+y
+weatherapp
+React
+javascript + swc
+npm i styled-components
+npm i styled-reset
+npm install react-bootstrap bootstrap
+npm run dev
+App.css, index.css 지우기
+App.jsx => 다 지우고 rafce
+App.jsx 에 import 'bootstrap/dist/css/bootstrap.min.css'; 넣기
+
+main.jsx
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+createRoot(document.getElementById("root")).render(<App />);
+
+
+API(Application Programming Interface) : 웹/앱(제품)을 프로그래밍하는데 상호 작용하는 방식
+- firebase
+- weather
+- the movie data base
+- coin
+- 공공데이터 포털 사이트
+
+
+REST API : 주소 안의 파라미터와 쿼리 값을 조정해서 값을 받아오는 것
+- form method : get, post, put, delete
+
+graphql API : meta에서 만든 REST API 보다 더 쉽게 처리
+
+W3C School : 컨소시엄 비영리기관
+MDN(*업데이트, 최신 트랜드 문서) : 모질라 기업 웹 표준 문서 사이트 / 삼성, 구글, 애플 대기업 자사 기업에서 연구하는 웹 관련 표준 문서
+
+
+===============================
+
+1. 바닐라 자바스크립트를 활용해서 환경변수를 설정 : env.js => 모듈의 형태로 import, export
+2. 무조건 root 폴더에 .env 파일 생성
+3. react와 vite 비교
+   - npx create-react-app . => REACT_APP_API_KEY => const API_KEY = process.env.REACT_APP_API_KEY;
+   - npx create vite@latest => VITE_API_KEY => const API_KEY = import.meta.env.VITE_API_KEY;
+4. 환경변수 설정 > 반드시 서버 껐다가 켜줘야 함
+
+
+==============================
+
+로딩 스피너 > react spinners (https://www.npmjs.com/package/react-spinners)
+> npm i react-spinners
+
+https://unsplash.com/developers > 로그인 > Your apps 클릭 > New Application 
+> Application name: portal > create application > Access Key 복사
+
+
+============================
+
+1개의 API 서버에서 복수의 API 데이터를 가져와야하는 경우
+
+> useEffect
+
+> state의 초기값이 null
+
+> 전체적으로 데이터를 찾아오지 못하는 경우
+> 단락회로 평가 ex)weather && weather?.main.temp
+
+
+> API 2개 날씨 & 언스플래시
+(* 환경변수 활용 > 키 나눠서 관리)
+(* vite의 경우 기존 react 방식과 달리 키 값이 VITE로 시작해야하며, process가 아닌 import.meta 써야함)
+
+>npm > roading spinner
+
+
+
+
