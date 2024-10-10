@@ -1,0 +1,71 @@
+npm create vite@latest
+shoppingmall
+react
+javascript+swc
+npm i
+npm run dev
+App.css , index.css 지우기
+App.jsx 다 지우고 rafce
+main.jsx > strict, index.css 지우기
+npm i styled-components
+npm i styled-reset
+npm i react-router-dom
+
+폰트어썸 (https://docs.fontawesome.com/v5/web/use-with/react)
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+
+react-bootstrap (https://react-bootstrap.netlify.app/docs/getting-started/introduction)
+npm install react-bootstrap bootstrap
+
+import 'bootstrap/dist/css/bootstrap.min.css'; 꼭 추가하기
+
+제이슨 서버 (https://www.npmjs.com/package/json-server)
+npm install json-server -g
+
+새로운 터미널 command prompt 띄우기
+json-server --watch db.json
+http://localhost:3000/products
+
+
+
+
+-------------------------
+
+쇼핑몰 레이아웃 생성
+- 로그인 페이지 구현(Protected Router Page)
+- json server 사용
+
+-------------------------
+
+이슈 발생 json server npm이 업데이트되면서  검색 기능이 안됨
+다운그레이드 해줘야 함
+
+삭제
+npm uninstall json-server -g
+npm uninstall json-server
+
+설치
+npm i json-server@0.17.0 -g
+npm i json-server@0.17.0
+
+새로운 터미널 command prompt 띄우기
+json-server --watch db.json
+http://localhost:3000/products
+
+git hub에서 musinsamall repository 만들기
+
+git init
+git remote add origin https://github.com/park-ria/musinsamall.git
+git remote -v
+git add .
+git commit -m "first commit"
+git push origin master
+
+
+https://my-json-server.typicode.com/<your-username>/<your-repo>
+https://my-json-server.typicode.com/park-ria/musinsamall
+
+
+
