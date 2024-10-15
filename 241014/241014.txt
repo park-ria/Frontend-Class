@@ -100,4 +100,13 @@ UI 화면을 구성하는 곳에서 EVENT
 
 productAction.js => 액션 객체를 반환하는 함수
 
+combineReducers
+https://lunit.gitbook.io/redux-in-korean/recipes/structuringreducers/usingcombinereducers
+
+구글 크롬 확장프로그램 -> 크롬 웹스토어 -> Redux DevTools -> 확장프로그램 추가
+
+구글 검색 redux devtools extension(https://www.npmjs.com/package/redux-devtools-extension)
+ =>npm install --save redux-devtools-extension 설치
+ => 설치가 안되면 뒤에 --force붙이기 > npm install --save redux-devtools-extension --force
+
 

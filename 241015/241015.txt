@@ -1,0 +1,45 @@
+Redux 세번째 프로젝트
+- tmdb 사이트(https://www.themoviedb.org/) : 넷플릭스 사이트
+- Redux-thunk
+
+npm create vite@latest
+netflixAppv1
+react
+javascript+swc
+code ./netflixApp1
+npm i
+
+npm i styled-components
+npm i styled-reset
+npm install react-bootstrap bootstrap
+npm i react-router-dom
+npm i redux
+npm i react-redux
+npm i redux-thunk --force
+npm i --save redux-devtools-extension --force
+
+npm run dev
+index.css, App.css 삭제
+App.jsx 다 지우고 rafce
+main.jsx 에서 strictMode 지우고 index.css지우기
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+어떤 기준으로 컴포넌트를 나누는가?
+1. 기능적인 요소 => CRUD
+2. 최적화 => 컴포넌트(Rerendering)
+
+현 시점: Node.js => fetch()
+
+F/E : Node.js에서 자유롭게 외부 API 데이터를 찾아와서 사용할 수 있는 API 호출 라이브러리?
+API의 데이터 값이 복수일 때, 디버깅을 보다 효율적으로 해줄 수 있는 라이브러리?
+
+React.js로 작업하는 F/E 진영 API 호출 도구 Axios
+https://www.npmjs.com/package/axios
+npm axios --force
+
+
+
+
+

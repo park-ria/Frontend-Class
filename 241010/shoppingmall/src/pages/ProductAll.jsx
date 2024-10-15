@@ -10,7 +10,7 @@ const ProductAll = () => {
   // const [productList, setProductList] = useState([]);
   const [query, setQuery] = useSearchParams();
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
+  const productList = useSelector((state) => state.product.productList);
 
   const getProducts = async () => {
     const searchQuery = query.get("q") || "";
