@@ -39,6 +39,21 @@ React.js로 작업하는 F/E 진영 API 호출 도구 Axios
 https://www.npmjs.com/package/axios
 npm axios --force
 
+npm install --save react-spinners --force
+import ClipLoader from "react-spinners/ClipLoader";
+
+
+react multi carousel(https://www.npmjs.com/package/react-multi-carousel)
+npm install react-multi-carousel --save --force
+
+
+--------------------------------
+
+1. 영화 썸네일 클릭 -> MovieDetail 컴포넌트 활용 > 영화 세부 정보출력
+2. 우측 상단 Navigation 컴포넌트 > 검색바 > 결과
+  1) 별도의 검색결과 페이지로 이동
+  2) 현재 보여지고 있는 Home 검색 결과 영화 출력
+3. 로그인 페이지 ID, PW 입력 > MoiveDetail 볼 수 있도록
 
 
 
