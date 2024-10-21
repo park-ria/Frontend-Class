@@ -50,5 +50,72 @@ npm i nodemon -D
 
 nodemon server.js -> 저장할 때마다 에러가 있는지 없는지 판단
 
+실행명령어 npm run dev
+
+-----------------------------------------
+
+Server 와 client 소통방식
+   1. REST API 방식 : tmdb, openWeather
+      - OverFetching & UnderFetching 단점 발생
+
+    2. GraphQL 방식
+       - 직접 선언형 방식으로 내가 원하는 data를 찾아올 수 있도록 설계하는 방법
+       - ApolloServer : 기존의 Server가 Rest API 방식으로 데이터를 제공해주고 
+          있는 상태에서  GraphQL 방식으로 데이터를 받아서 재사용하고자 할 때 유용한 서버
+       - graphql
+       - nodemon
+
+ID : 내장타입(*미리 정의가 되어있는 타입)
+> scalar 타입
+
+Mutation 타입 -> post 방식
+
+*GraphQL 50% : client 값을 전달하기 위한 사전 세팅 => 타입을 지정
+
+*GraphQL 타입을 지정, 만약 값이 존재 => null(*error는 아님)
+
+non-nullable 타입
+
+* 실행 => 값 반환 함수
+
+resolver 함수
+
+----------------------------------------------
+
+GraphQL
+1) typeDefs
+- Query 
+- tweet(id:ID!)
+
+2) resolvers
+서로 다른 Type 연결하는 방법
+
+
+----------------------------------
+
+REST APL => GQL
+
+-----------------------
+
+altairgraphql(https://altairgraphql.dev/) -> get started(https://web.altairgraphql.dev/)
+
+
+Rest API : B/E
+GraphQL : F/E
+
+----------------------------------
+
+- 공공데이터 포털 데이터
+- 정부기관 : FM
+- http VS https
+
+----------------------------------
+
+영화 디비 제공 사이트 -> yts.mx 사이트(https://yts.mx/)
+https://yts.mx/api/v2/list_movies.json
+
+
+
+
 
 
