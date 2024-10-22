@@ -1,0 +1,133 @@
+npm create vite@latest
+movieql-client
+react
+javascript + swc
+npm install @apollo/client graphql
+npm install react-router-dom
+npm i styled-components
+npm i styled-reset
+npm run dev
+app.css , index.css 삭제
+app.jsx -> rafce
+main.jsx -> css, strict mode 삭제
+
+UI 화면을 출력하기 위한 서버 주소
+http://localhost:5173/
+
+Apollo Server를 통해서 Data를 전달받을 서버 주소
+http://localhost:4000/
+
+apollo client devtools =>
+https://chromewebstore.google.com/detail/apollo-client-devtools/jdkknkkbebbapilgoeccciglkfbmbnfm?pli=1
+
+
+
+
+@client : local only fileddata
+
+--------------------------------------
+
+https://2023.stateofjs.com
+https://programmers.co.kr/pages/2023-dev-survey#dev-part-4-01
+
+1. TypeScripts는 Javascript의 Super-set 언어
+
+2. 앤더스 하일스버그 개발자
+   -c언어 개발 창시자
+
+3. Javascript 언어 < Java 언어 < C언어(*객체지향)
+
+4. 기존 JS언어 문법을 그대로 흡수 & 수용 + @
+   - Type을 사전에 지정하는 기능 더한 것
+
+5. C언어 & Java : B/E
+   - 변수 선언 => 값 (사전 변수 타입)
+
+6. Node.js의 탄생
+   - Google Chrome 브라우저 탑재 V8검색엔진
+   - V8 => Node.js // JS 브라우저가 아닌 환경에서도 JS를 사용할 수 있음
+   - JS => Server
+   - Strict Mode => TS
+
+7. 모든 프로그래밍언어는 타입 시스템을 가지고 있음
+   - C, Java : 정적 타입 시스템(*코드를 실행하기 전에 모든 변수의 타입 고정적으로 선 결정 => 값 할당)
+
+   - TS : 점진적 타입 시스템(*변수 안에 값을 넣으면, 자동으로 값을 추론 // 변수의 타입을 바로 고정)
+
+   - JS : 동적 타입 시스템(*코드를 실행하고 나서 해당 변수 안에 담긴 값을 유추해서 변수 타입을 결정)
+
+8. 웹 브라우저가 인식할 수 있는 언어는 3가지
+   - HTML, CSS ,JS
+   - SCSS는 컴파일러를 통해 CSS로 변경
+   - TypeScript도 컴파일러 필요
+
+9. TS의 컴파일링 작동 프로세스
+   1) JS(인간 친화적인 언어) => 브라우저(AST:추상구문트리) => 바이트 코드(실행)
+   2) TS(인간 친화적인 언어) => 1차 AST 구조(기계 친화적인 언어) => 타입검사 성공
+         => JS컴파일링 => 2차 AST 구조(기계 친화적인 언어) => 바이트 코드(실행)
+
+수동적으로 세팅
+빌드도구 세팅
+ 
+
+=====================================================
+
+타입 스크립트는 노드기반으로 움직임
+node -v => package.json 생성 됨
+npm -v
+1. npm init -y : 노드 기본 세팅
+
+2. npm i @types/node
+    - node 타입 정의
+    - node_modules
+
+3. 컴파일러 설치(타입스크립트로 자바스크립트로 바꿔주는 컴파일러)
+    npm i tsx -g(*신 버전) : 컴파일러 & 실행도구
+    npm i tsx(*신 버전)
+    커맨드 터미널로 바꿔서 tsc -v 또는 tsx -v로 확인
+    tsx src/index.ts
+
+4. tsc --init : 타입스크립트 컴파일러 옵션 설정
+package.json 마지막에 "type":"module" 넣기
+
+5. compilerOptions
+
+ --------------------------------------------------
+
+Module : 복수의 자바스크립트 파일을 각 기능에 따라서 개별적으로 생성해놓고, 상황에 따라서 가져다가 사용하기 위해서 만든 시스템
+
+Node.js => 자체적으로 모듈 시스템 버전 생성.선언 사용 => CommonJs
+
+JS 창시 기업 : ESM Module // import & export
+
+-----------------------------------------------------
+
+TS 컴파일링 환경설정 세팅!!!
+   > tsc --init
+   tsconfig.json 파일 생성 됨 -> 모두 지우기
+
+{
+  "compilerOptions": {
+    "target": "ESNext", // target은 컴파일링 될 파일들의 js버전을 정의, ESNext는 가장 최신문법으로 컴파일링 하겠다는 뜻
+    "module": "ESNext", // module은 컴파일링 될 모듈 시스템을 정의
+    "strict": false, // 컴파일링 하고자 하는 파일의 탑입을 엄격하게 검사 여부
+    "strictNullChecks": false, // 타입 지정 시, null타입 사용에 대한 여부
+    "moduleDetection": "force", // 타입스크립트 각 파일을 독집적인 모듈로 인신
+    "skipLibCheck": true // 외부 라이브러리를 설치할 때, 타입 지정 검사 생략하고자 할 때
+  }
+넣기
+
+tsc src/index
+
+Node.js 버전
+> ts-node 대응 중지(18버전 이하만 가능)
+> tsx => 컴파일링 => 출력 x
+
+
+타입스크립트는 기본적으로 각각의 파일들을 전역요소로 인식
+
+타입스크립트 계층 구조
+- unknown(가장 최상위타입-> 슈퍼타입) : 상대적으로 상위 랭크되어있는 타입
+- 상대적으로 하위 랭크되어 있는 타입 : 서브 타입
+> 슈퍼타입으로 갈 수록 수용할 수 있는 타입의 개수 많아짐
+> 서브타입으로 갈수록 수용할 수 있는 형태
