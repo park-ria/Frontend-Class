@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext", // 모듈시스템을 정의, ESNext 최신 모듈을 사용하겠다
+    "strict": false,
+    "strictNullChecks": false,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  },
+  "ts-node": {
+    "esm": true
+  }
+}

@@ -1,0 +1,69 @@
+1. npm init -y : 노드 초기화 작업
+2. npm i @types/node : 노드의 타입을 정의하는 작업
+3. npm i typescript -g(최초 한번만)//npm i typescript : TS를 JS로 컴파일링 시켜줄 수 있는 컴파일러 세팅하는 작업
+4. tsc -v : 컴파일러 설치 여부를 확인(버전 확인)
+4-1. 파워셀에서 tsc 명령어가 실행이 안된다면 powershell(관리자권한모드)
+4-2. Get-ExecutionPolicy을 입력했을 때 Restricted로 나온다면 Set-ExecutionPolicy RemoteSigned > Y
+5. src 폴더 만들고 그 안에 index.ts만들고 const num: number = 1; console.log(num); 입력 후 저장
+6. tsc src/index.ts : index.js로 컴파일링
+7. node src/index.js : 노그 기반에서 터미널 내 실행시키고자 하는 JS 파일을 테스트
+=> 컴파일링 따로 실행 따로.. 한번에 해주고 싶다면 8번 진행
+8. npm i ts-node -g // npm i ts-node : JS 파일을 TS 파일로 컴파일링 하는 것과 동시에 node에서 실행시켜주도록 해주는 역할
+
+CJS 모듈 방식
+9. package.json 맨 아래에 "type": "commonjs" 추가
+10. tsc --init : 타입스크립트 컴퍼일러 옵션을 정의하기 위한 명령어 => tsconfig.json
+11. tsconfig.json 파일 내 모든 명령어 다 지우고
+{
+  "compilerOptions": {
+    "module": "ESNext"
+  }, // 모듈시스템을 정의, ESNext 최신 모듈을 사용하겠다
+  "ts-node": {
+    "esm": true
+  }
+}
+12. ts-node src/index.ts 하면 됨 그러나.. 예전 버전.. 최신버전으로 하고 싶다면 13번 부터 실행
+
+ESM 모듈 방식
+13. npm i tsx -g // npm i tsx : 새롭게 업그데이드 된 컴파일링 + 노드 실행 방법
+14. tsx -v : 버전 확인
+15. ts-node src/index.ts
+16. tsconfig.json 세팅
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",// 모듈시스템을 정의, ESNext 최신 모듈을 사용하겠다
+    "strict": false,
+    "strictNullChecks": false,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }, 
+  "ts-node": {
+    "esm": true
+  }
+}
+
+==============================
+
+number
+string
+array
+boolean
+any
+void
+
+type 별칭
+구조적 타입시스템
+interface
+implements
+extends
+abstract
+접근제어자(public)
+static
+Enum => Enumerable : 열거형 타입
+리터럴 타입
+
+함수타입 : 매개변수 && 결과값
+콜백함수 타입 => 고차 함수
+
+타입구조도
