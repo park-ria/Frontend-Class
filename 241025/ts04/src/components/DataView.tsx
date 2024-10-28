@@ -13,16 +13,11 @@ const Container = styled.div`
   border-radius: 8px;
 `;
 
-interface Props {
-  toDoList: Array<string>;
-  onDelete?: (todo: string) => void;
-}
-
-const DataView = ({ toDoList, onDelete }: Props) => {
+const DataView = () => {
   return (
     <Container>
       <Title label={"할 일 목록"} />
-      <ToDoList toDoList={toDoList} onDelete={onDelete} />
+      <ToDoList />
     </Container>
   );
 };

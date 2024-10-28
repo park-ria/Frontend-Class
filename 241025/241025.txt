@@ -100,3 +100,33 @@ const root = ReactDOM.createRoot(
 );
 root.render(<App />);
 
+
+-------------------------------------------------
+
+
+효율적인 상태관리를 도와주는 여러방법
+- useReducer
+- useContext
+- Redux
+- Redux-thunk
+- Recoil
+- React-Query
+etc...
+
+
+--------------------------------------------------
+
+TS04
+
+1. 상향식 방식으로 컴포넌트 설계 & 제작
+  - App.tsx(*onAdd, onDelete, toDoList)
+  - 의도적으로 Props Drilling
+
+2. 수정 useContext를 씀
+  - App.tsx
+  - ToDoListContext
+  - ToDoListContextProvider : 자식요소의 컴포넌트 필요
+interface Props {
+  children: JSX.Element | JSX.Element[];
+}
+  

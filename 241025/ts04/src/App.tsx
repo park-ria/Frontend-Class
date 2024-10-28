@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import DataView from "./components/DataView";
-import TextInput from "./components/TextInput";
-import Button from "./components/Button";
+import InputContainer from "./components/InputContainer";
+import { ToDoListContextProvider } from "./contexts/ToDoContext";
 
 const Container = styled.div`
   width: 100%;
@@ -14,30 +14,13 @@ const Container = styled.div`
   background: #eee;
 `;
 
-const mockData = [
-  "Typescript 복습하기",
-  "Next.js 예습하기",
-  "Node.js 공부하기",
-];
-
 const App = () => {
-  const [toDoList, setToDoList] = useState(mockData);
-  const [toDo, setTodo] = useState("");
-  const onDelete = (todo: string) => {
-    setToDoList(toDoList.filter((item) => item !== todo));
-  };
-  const onAdd = () => {
-    if (toDo === "") return;
-
-    setToDoList([toDo, ...toDoList]);
-    setTodo("");
-  };
-
   return (
     <Container>
-      <DataView toDoList={toDoList} onDelete={onDelete} />
-      <TextInput value={toDo} onChange={setTodo} />
-      <Button label={"추가"} color="#304ffe" onClick={onAdd} />
+      <ToDoListContextProvider>
+        <DataView />
+        <InputContainer />
+      </ToDoListContextProvider>
     </Container>
   );
 };
