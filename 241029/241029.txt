@@ -33,3 +33,34 @@ Coins 컴포넌트에서 Link를 클릭했을 때, state 속성 안에 값이 �
 첫번째 탭 : 코인에 대한 공통 정보
 두번째 탭 : 해당 코인에 대한 차트 정보
 
+---------------------------------
+
+상태 관리
+axios
+redux
+react query
+
+---------------------------------
+
+react-query : 상태관리 & props
+
+npm install @tanstack/react-query-devtools
+
+QueryClient, QueryClientProvider
+fetcher Function
+react-query는 실행자 역할을 하는 fetcher Function가 반드시 있어야 하면 promise를 반환할 수 있어야 함!!
+
+chart.js
+https://apexcharts.com/docs/installation/
+npm install apexcharts
+npm install --save react-apexcharts 
+설치 잘 안되면 뒤에 --force 넣기
+
+
+Link, Navigate, useNavigate 차이점 : https://seo0yoon.tistory.com/69
+
+Helmet : 웹 탭 명을 바꿈
+react-helmet : https://www.npmjs.com/package/react-helmet
+npm i react-helmet
+npm i @types/react-helmet
+
