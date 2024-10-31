@@ -1,0 +1,25 @@
+npx create-react-app . --template typescript
+npm i styled-components
+npm i @types/styled-component -D
+npm i react-router-dom
+npm i @types/reate-router-dom -D
+npm i Atanstack/react-query
+npm i recoil
+npm i react-hook-form
+
+register : 식별자 이름 정의, 해당 식별자에 포함되는 value 값을 찾아와서 객체의 속성값으로 완성 시켜주는 역할
+
+watch : 실제 사용자가 form 요소를 통해서 입력하고 있는 값을 실시간 모니터링 하는 역할
+
+handleSubmit : form 요소에서 submit 이벤트가 발생되었을 때, value로 입력된 값을 찾아서 특정 변수안에 담아 놓을 수 있도록 해주는 역할(*데이터의 형태는 객체)
+
+formState : 현재 사용자가 form 요소에 입력한 값들에 대한 상태관리, 특히 form 요소 자체적으로 저으이한 유효성 검사에 대한 결과값을 errors라는 키값을 통해 확인 가능
+
+setError: 여러 form들 가운데, 커스터마이징 error를 정의해야하는 경우
+defaultValues: 식별자(*필드값) 안에 기본값을 정의하고자 할 때
+
+setValue : form 요소 안에 들어가는 값을 정의
+
+타입단언 : 미리 약속 => 최초 value 값 => 변경 value 값
+
+atom: state 관리를 목적

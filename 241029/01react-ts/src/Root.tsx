@@ -1,13 +1,12 @@
-import React from "react";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import { Outlet } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { isDarkAtom } from "./atoms";
+import { useRecoilValue } from "recoil";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-
   *{
     margin: 0;
     padding: 0;
@@ -24,16 +23,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    font-family: "Source Sans 3", serif;
     background: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
   }
 `;
 
 const Root = () => {
+  const isDark = useRecoilValue(isDarkAtom);
+
   return (
     <>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
         <Outlet />
         <ReactQueryDevtools

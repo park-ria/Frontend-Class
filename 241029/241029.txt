@@ -64,3 +64,27 @@ react-helmet : https://www.npmjs.com/package/react-helmet
 npm i react-helmet
 npm i @types/react-helmet
 
+-------------------------------
+
+
+state 관리
+- useContext
+- useReducer
+- Redux
+- Redux-thunk
+- React-Query
+- Axios
+- Outlet
+- Recoil vs props & state management
+(https://recoiljs.org/ko/docs/introduction/getting-started)
+npm install recoil
+
+------------------------------
+
+Coin 예제
+1. outlet > useOutletContext
+2. useMatch
+3. React-Query
+4. Recoil > Atom > state 
+5. type을 효율적으로 정의
+

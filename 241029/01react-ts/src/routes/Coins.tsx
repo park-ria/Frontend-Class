@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoins } from "../api";
 import { Helmet } from "react-helmet";
+import { isDarkAtom } from "../atoms";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 const Container = styled.main`
   width: 100%;
@@ -16,6 +18,9 @@ const Container = styled.main`
 
 const Header = styled.header`
   font-size: 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `;
 
 const Title = styled.h1`
@@ -58,6 +63,15 @@ const Img = styled.img`
   margin: 0 10px;
 `;
 
+const Button = styled.button`
+  background: ${(props) => props.theme.accentColor};
+  color: ${(props) => props.theme.bgColor};
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+`;
+
 export interface CoinInterface {
   id: string;
   name: string;
@@ -89,6 +103,8 @@ const Coins = () => {
     queryFn: fetchCoins,
   });
 
+  const setterFn = useSetRecoilState(isDarkAtom);
+
   return (
     <Container>
       <Helmet>
@@ -96,6 +112,7 @@ const Coins = () => {
       </Helmet>
       <Header>
         <Title>Coin List</Title>
+        <Button onClick={() => setterFn((prev) => !prev)}>Mode</Button>
       </Header>
       {isLoading ? (
         <Loader>"Loading..."</Loader>
