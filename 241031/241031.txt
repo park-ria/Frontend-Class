@@ -23,3 +23,36 @@ setValue : form 요소 안에 들어가는 값을 정의
 타입단언 : 미리 약속 => 최초 value 값 => 변경 value 값
 
 atom: state 관리를 목적
+
+recoil : 전역 상태 관리 라이브러리
+  - atom(함수)
+  - useRecoilValue : atom 함수 안에서 관리하고 있는 상태 관리 value를 찾아와주는 역할
+  - useSetRecoilState : atom 함수 안에서 관리하고 있는 상태 value를 편집해주는 역할
+  - useRecoilState: useRecoilValue + useSetRecoilState 기능을 합쳐놓은 역할 => useState와 비슷
+
+현재까지는 관리해야할 state가 1개면 충분
+
+1. 사용자가 input태그에 입력한 값을 관리하는 정도로만 충분
+ToDo, Doing, Done 상태관리 필요
+id 값 필요
+
+1) 바꾸고 싶은 컨텐츠가 누구냐? id
+2) 바꾸고 싶은 카테고리가 어디냐? click 이벤트
+3) 기존에 있었던 카테고리는 어디냐?
+
+1. 애초에는 무의 값
+2. 사용자가 값을 입력
+- 배열 > 객체
+3. 초기값
+- 배열 > 객체 > 카테고리 : toDo
+4. 업데이트 상황
+- 이벤트 실행 : toDo => Doing
+- 애초에 값이 저장 state 값이 변경되어야 한다는 사실
+5. UI에게 새롭게 데이터가 업데이트가 되었다는 사실을 재알림
+- selector
+6. enum
+
+
+카테고리가 정의되는 최초의 타입 string
+"TODO" | "DOING" | "DONE" 이렇게 서로소 유니온
+다시 마지막엔 string 이럴 땐 as any로 단언해줘도 됨
