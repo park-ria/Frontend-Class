@@ -1,9 +1,9 @@
 npx create-react-app . --template typescript
 npm i styled-components
-npm i @types/styled-component -D
+npm i @types/styled-components -D
 npm i react-router-dom
-npm i @types/reate-router-dom -D
-npm i Atanstack/react-query
+npm i @types/react-router-dom -D
+npm i @tanstack/react-query
 npm i recoil
 npm i react-hook-form
 
