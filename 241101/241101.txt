@@ -54,11 +54,52 @@ Drappable & Draggable : 모두 기본적으로 함수의 형태를 띄고 있어
 > DragEnd : D&D이 종료가 되면 실행 기능 정의
 
 
-destination: 이동하고자 하는 최종 위치에 대한 정보값을 가지고 있음(droppable Id: todo || doing || dibe), index)
+destination: 이동하고자 하는 최종 위치에 대한 정보값을 가지고 있음(droppable Id: todo || doing || done), index)
 
 source: 이동하고자 하는 요소들의 원래 있었던 그 위치 정보값을 가지고 있음(droppable ID: todo || doing ||done)
 
 
 누군가 어디론가 이동중에 있다는 사실
 
-snapshot : 찰나의 
+----------------------------
+커스터마이징하기
+
+ui 변경
+삭제기능
+데이터 저장기능
+
+
+-----------------------------
+
+Recoil : 전역환경에서  state의 변수를 관리, 제어 기능
+- atom
+- useRecoilState
+- useRecoilValue
+- useSetRecoilState
+
+React-beatutiful-dnd : 드래그 앤 드롭
+- 무조건 DragDropContext 프레임 안에 잇어야 함
+- Droppable
+- Draggable
+
+- Droppable & Draggable : 반드시 ID 값 이어야함
+- Draggable은 key 필요
+- 함수의 형태로 값을 전달해야하는 구조
+- magic, snapshot이라는 매개변수를 받으려면 반드시 함수형태였어야 함
+
+- onDragEnd
+
+React-hook-form > useForm
+- form  요소를 활용
+
+최초에 생성된 state의 자료구조가 객체 > 배열 형태
+ : 객체 내 대괄호 표기법을 활용해서 데이터 제어
+ : splice를 활용한 배열 내 데이터 편집
+ : 원시타입 & 참조타입 변수 => 참조타입 변수 복제 => 전개연산자 구문([...oldTodos])
+
+타입 정의
+- 스타일 컴포넌트 : props의 자료타입 => 타입 정의 중요
+
+snapshot : 드래그 앤 드롭을 하는 순간 발생되는 액션의 형태에 따라서 Boolean값으로 반환
+- UI 관리
+
