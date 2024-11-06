@@ -13,3 +13,11 @@ npm run start
 
 불필요 삭제
 
+영화데이터  TMDB : https://developer.themoviedb.org/reference/movie-now-playing-list
+
+페이지네이션
+- 1페이지 당 컨텐츠를 몇 개씩 보여줄 것인가 세팅
+
+1~18개 영화
+3단락 쪼개서 UI 화면 출력
+최초에 18개의 영화데이터를 가져옴
