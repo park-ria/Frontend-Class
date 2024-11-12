@@ -21,3 +21,11 @@ npm run start
 1~18개 영화
 3단락 쪼개서 UI 화면 출력
 최초에 18개의 영화데이터를 가져옴
+
+
+https://www.npmjs.com/package/react-youtube
+npm install react-youtube
+
+https://www.npmjs.com/package/react-js-pagination
+npm install react-js-pagination
+npm install @types/react-js-pagination

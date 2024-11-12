@@ -12,6 +12,7 @@ const Container = styled.div`
   height: 2000px;
   margin-top: 60px;
   background: ${(props) => props.theme.black.lighter};
+  overflow-x: hidden;
 `;
 
 const Loader = styled.div`
@@ -204,10 +205,10 @@ const Home = () => {
         <>
           <Banner
             onClick={increaseIndex}
-            bgPhoto={makeImagePath(data?.results[13].backdrop_path || "")}
+            bgPhoto={makeImagePath(data?.results[0].backdrop_path || "")}
           >
-            <Title>{data?.results[13].original_title}</Title>
-            <Overview>{data?.results[13].overview}</Overview>
+            <Title>{data?.results[0].original_title}</Title>
+            <Overview>{data?.results[0].overview}</Overview>
           </Banner>
           <Slider>
             <AnimatePresence initial={false} onExitComplete={toggleLeaving}>
