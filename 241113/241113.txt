@@ -1,0 +1,130 @@
+React.js
+- JS를 활용해서 UI를 효율적으로 제어 라이브러리
+- 라이브러리에서 제공해주는 요소들을 가지고 개발자가 대부분의 기능을 커스텀할 수 있도록 해주는 지원도구
+- 페이지 라우팅 // react-router-dom // Routes & Route
+- Outlet
+- CSR : Client Side Rendering <-> SSR : Server Side Rendering
+* SSR : 사용자 <-> 웹브라우저 <-> 서버 // 너무나 많은 서버 의존
+> 서버 구현, 구동 비효율 자원
+> 과중한 업부, 서버 문제
+
+* 2018년부터 문제제기
+- React.js 웹페이지 VS SSR 웹 페이지 > SEO
+
+
+Next.js
+- 프레임워크 // 개발자가 어떤것을 제어할 수 있는 대상 x
+- 이미 완성 || 구축되어있는 문법 체계를 그냥 가져다가 사용
+- 답답함을 느끼기도 합니다 && 크리에이티브한 문법 x
+
+- 기존 SSR 방식 업그레이드 된 SSR 방식
+- Pre-Rendering = 사전 렌더링 방식 채택
+
+1) SEO 검색률이 매우 향상
+2) FCP (First Contentful Paint)
+3) Hydration(어떤 상태가 실질적인 상태로 변화되어지는 화학적 작용)
+> 컴포넌트 마운트 => 사용자 액션 => TTI(Time To Interactive)시간 매우 개선
+
+* Next.js
+1. Framework : 거의 답이 정해져있다
+2. SEO에 최적화
+3. FCP > Pre-Rendering 기능
+4. Hydration // TTI 개선, 시간 단축
+
+
+F/E => Next.js & supabase
+
+Server를 활용해서 API 데이터 => Next.js
+
+
+* supabase(supabase.com) : firebase처럼 cloud 서버 공간
+Project Settings > Settings > Database > Mode:Session
+
+.env파일을 만들고
+DATABASE_URL="postgresql://postgres.advioxtoxcdpeapdbiby:[YOUR-PASSWORD]@aws-0-ap-northeast-2.pooler.supabase.com:5432/postgres"
+
+
+schema : 서버를 구축 > DB 어떤 방식 저장, 출력 
+
+* 프리즈마 : 배포 도구
+https://www.prisma.io/
+
+> npx prisma db push
+
+요즘 프론트엔드 핫한 툴 : Next.js + TS + Supabase + Vecel & Prisma
+
+> npm run seed
+
+> npm run build
+
+> npm run start
+
+localhost:12345
+
+> npx prisma studio
+
+---------
+
+상위 폴더로 가서
+> npx create-next-app@14 ui-main
+> typescript ? yes
+> eslint? yes
+> tailwind css ? no
+> src/ directory? yes
+> app router? no
+> import alias? no
+> cd ui-main
+> code .
+> npm run dev
+
+next.config.mjs에서 reactStrictMode를 false로 바꾸기
+
+index.tsx 내용 모두 지우고 rafce -> index의 I 대문자로 바꿔주기
+
+Home.modules.css 삭제
+
+globals.css 내용 다 지우기
+
+1. Next.js 소개
+2. PageRouter
+2-1) Page Routing
+import { useRouter } from "next/router";
+
+2-2) Query String
+
+import React from "react";
+import { useRouter } from "next/router";
+
+const Search = () => {
+  // 쿼리스트링 찾아오는 방법
+  const router = useRouter();
+  const {
+    query: { q },
+  } = router;
+
+  return <h1>Search : {q}</h1>;
+};
+
+export default Search;
+
+2-3) URL Parameter
+복수의 동적 파라미터 값을 반영하는 path의 경우, Catch All Segment 기능 사용
+ex) [...id].tsx
+
+ Catch All Segment
+> 파일명 : [...파일명]
+
+ Optional Catch All Segment
+> 파일명 : [[...파일명]]
+
+2-5) 404 Page Routing
+
+2) 네입게이션 
+
+Next.js : 프레임워크
+> React.js => jsx
+
+
+
+
+
