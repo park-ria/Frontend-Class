@@ -125,6 +125,55 @@ Next.js : 프레임워크
 > React.js => jsx
 
 
+ui-main은 npm run dev로 run
+
+npm run dev는 개발자모드로 run하는 것이고
+npm run start를 하기위해서는 npm run build를 해줘야 함
 
 
+onebite-books-server-main은 npm run start로 run
 
+--------------------------------
+
+1. Page Routing
+
+2. Navigation
+- useRouter
+- router.push("/test"); // 이동, 뒤로가기 가능
+- router.replace("/test"); // replace는 이동을 하긴하지만 뒤로가기 방지해줌
+- router.back(); // 뒤로가기
+
+3. Pre-fetching
+- index 페이지로 사용자가 최초 접속
+- 현재 사용자가 보고 있는 페이지에서 이동 가능한 페이지들을 사전에 불러와서 대기해주는 역할
+- 수정사항 발생 => 실제처럼 테스트를 하려면, 반드시 배포직전 단계 실행
+
+- useRouter를 활용해서 페이지 라우팅을 하는 경우!!  pre-fetching
+
+4. API Routes 
+- API > 파일명
+
+5. Styling
+- module
+
+----------------------------------
+
+1. 메인페이지 안에 검색바를 삽입하고 싶었음
+- searchable-layout.tsx
+
+2. 메인페이지의 레이아웃을 관리해주는 파일
+- <GlobalLayout> 해당 컴포넌트의 자식 컴포넌트 설정
+
+3. searchable-layout.tsx는 개발자가 원하는 페이지 컴포넌트에서만 출력!
+그런데 모든 페이지 컴포넌트에서 출력 하고 싶지 않음
+
+4. searchable-layout.tsx 해당 요소가 출력되길 원하는 페이지 컴포넌트
+ index & search 페이지 컴포넌트에서만 서치바가 있으면 좋겠음
+
+5. 메인 페이지 컴포넌트의 index.tsx
+-getLayout
+
+6. Data-fetching
+- 외부 API를 활용해서 데이터를 받아올 때, 동일한 데이터를 복수의 페이지에서 사용하고자 할 때 보다 효율적으로 관리해줄 수 있는 기능
+- supabase라는 cloud sever를 활용해서 data를 직접 불러올 예정
+- 메인페이지, 검색페이지, 개별 책정보 페이지
