@@ -10,7 +10,7 @@ import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
 export const getStaticProps = async () => {
-  // SSC 방식은 export const getStaticProps 함수를 만들어 주기만 하면 됨
+  // SSG 방식은 export const getStaticProps 함수를 만들어 주기만 하면 됨
   // build 단계에서
   // 서버에서 관리하는 데이터 패칭 영역임
 

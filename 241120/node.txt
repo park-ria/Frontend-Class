@@ -1,0 +1,139 @@
+node.js : 자바스크립트를 기반으로 탄생한 플랫폼(실행환경)
+
+구글 크롬 웹 브라우저 > V8 검색엔진 > JS 빠르고 & 효율적 스캐닝 & 실행
+
+npm = Node Package Manager
+
+터미널
+> node 노드로 접속
+> .exit 노드 나갈 때
+> cls 터미널 클리어
+
+Node = Server로 인식
+
+https://www.npmjs.com/
+express 입력
+
+github에 repository 생성
+git init
+git remote add origin https://github.com/park-ria/node-reloaded.git
+git remote -v
+npm init
+package name: (nodeproject)나오면 엔터
+version: (1.0.0)나오면 엔터
+descprition: watch videos.
+entry point: (index.js)나오면 엔터
+test command: 엔터
+git repository: https://github.com/park-ria/node-reloaded.git
+keywords: 엔터
+author: Ria
+license: (ISC)MIT
+Is this OK? (yes) y
+
+index.js파일을 생성하고
+console.log("Hello World!");
+하고 터미널에서 node index.js하면 실행 됨
+
+package.json에서
+"scripts"에서 test 지우고 "win": "node index.js" 입력
+  "scripts": {
+    "win": "node index.js"
+  },
+
+터미널에서 npm run win입력하면 뜸
+
+npm install express
+하면 node 서버를 만드는데 필요한 express 설치
+
+바벨 설치
+> npm install --save-dev @babel/preset-react
+> npm install --save-dev @babel/core @babel/cli @babel/preset-env
+> npm install @babel/core @babel/node --save-dev
+
+babel.config.json이라는 파일 생성
+{
+  "presets": ["@babel/preset-env"]
+}
+
+package.json에
+  "scripts": {
+    "dev": "babel-node index.js"
+  }
+로 수정
+
+index.js
+const express = require("express");
+
+const app = express();
+
+console.log("Hi!");
+
+> npm run dev
+> npm i nodemon --save-dev
+
+미들웨어 전용 라이브러리
+> npm i morgan
+
+pakage.json에
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js"
+  },
+로 수정
+
+------------------------------
+
+license 종류
+BSD : Berkeley Software Distibution
+- 어떤 npm 혹은 라이브러리들을 사용할 때 사용, 수정, 배포는 자유롭게 하되, 재배포 시에는 원저작자의 동의 및 오픈
+
+GPL : General Public License
+- BSD 라이센스 타입과 거의 동일하나, 재배포를 할 시에도 반드시 원저작자의 이름
+
+MIT : Massachusetts Institute of Technology
+- 엄격! 수정, 배포, 편집 허용 그러나 원저작자의 경제 활동 및 표현 제약 -> 즉각 정지 가능
+
+------------------------------
+
+* 노드 명령어!!!
+ls : git-bash 터미널 > 현재 node 프로젝트 폴더 내 생성된 파일 목록 출력
+cls : 터미널 내 결과값을 clear
+
+
+------------------------------
+
+https://babeljs.io/docs
+babel : ES6 이전 자바스크립트 문법과 이후 문법을 호환시켜 줌
+
+https://expressjs.com/en/guide/routing.html
+res.end() : client의 요청이 발생된 이후 서버가 어떤 조치를 한 다음 종결을 짓고자 할 때
+res.send() : client가 도착한 해당 페이지에 어떤 값을 전달하고자 할 때
+
+콜백함수 > req, res, next
+- next() : 미들웨어 함수가 실행 후 파이널 웨어 함수에게 실행권을 넘길 때 사용함수
+
+-------------------------------
+
+1. Node.js 설치
+
+2. npm
+
+3. npm init => package.json
+ 
+4. babel => JS 신문법 & 구문법 => 통일해서 최신문법 컴파일링
+
+5. nodeMone => 터미널 실시간으로 코드 잘 작동하는지 모니터링
+
+6. express 서버가 잘 구현되도록 하는 라이브러리
+
+7. listen() => 몇 번 포트, 어떤 기능 실행
+get() => 어떤 경로, 어떤 기능 실행
+: 미들웨어 함수, 파이널 웨어 함수
+use() => 미들웨어 함수를 따로  뺄 수 있음
+
+8. 파이널웨어 함수:
+end() : 클라이언트가 요청한 페이지에서 종결
+send() : 클라이언트가 요청한 페이지에 어떤 값을 전달
+
+
+
+
