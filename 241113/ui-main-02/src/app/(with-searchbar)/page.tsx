@@ -1,26 +1,50 @@
-//"use client";
-// 기본적으로 서버컴퍼넌트임 "use client"를 해줘서 클라이언트 컴포넌트가 돼서 useState나 useEffect를 쓰는데 오류가 없음
-
-// import { useState, useEffect } from "react";
 import styles from "./page.module.css";
-import ClientComponent from "../../components/client-component";
-import ServerComponent from "../../components/server-component";
+import BookItem from "@/components/book-item";
+import { BookData } from "@/mock/types";
 
-export default function Home() {
-  // console.log("컴포넌트 실행!");
-  // const [state, setState] = useState("");
-  // useEffect(() => {
-  //   console.log("test");
-  // }, []);
-
-  // 클라이언트컴포넌트 안에 서버컴포넌트를 넣으면 웹 콘솔에 서버컴포넌트의 콘솔이 찍힘.. 원래 서버컴포넌트는 웹에서 안찍히고 터미널에만 찍힘
-  // 클라이언트 컴포넌트 밑에 서버 컴포넌트가 들어가면 서버 컴포넌트가 클라이언트 컴포넌트 화가 됨
+const RecoBooks = async () => {
+  const response = await fetch("http://localhost:12345/book/random");
+  if (!response.ok) {
+    return <div>오류가 발생했습니다...</div>;
+  }
+  const recoBooks: BookData[] = await response.json();
   return (
-    <div className={styles.page}>
-      인덱스 페이지
-      <ClientComponent>
-        <ServerComponent />
-      </ClientComponent>
+    <div>
+      {recoBooks.map((book) => (
+        <BookItem key={book.id} {...book} />
+      ))}
     </div>
   );
-}
+};
+
+const AllBooks = async () => {
+  const response = await fetch("http://localhost:12345/book");
+  if (!response.ok) {
+    return <div>오류가 발생했습니다...</div>;
+  }
+  const allBooks: BookData[] = await response.json();
+  return (
+    <div>
+      {allBooks.map((book) => (
+        <BookItem key={book.id} {...book} />
+      ))}
+    </div>
+  );
+};
+
+const Home = async () => {
+  return (
+    <div className={styles.container}>
+      <section>
+        <h3>지금 추천하는 도서</h3>
+        <RecoBooks />
+      </section>
+      <section>
+        <h3>등록된 모든 도서</h3>
+        <AllBooks />
+      </section>
+    </div>
+  );
+};
+
+export default Home;

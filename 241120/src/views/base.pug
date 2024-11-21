@@ -1,0 +1,17 @@
+doctype html
+html(lang="ko")
+  head
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    title #{pageTitle} | Youtube 
+    //- 변수 값 이외에 다른 값을 같이 쓸때는 #{}필요
+  body
+    header
+      nav
+        ul
+          li
+            a(href="/login") Login
+      h1=pageTitle 
+      //- 직접적으로 값을 넣을때는 = 사용가능, 
+    main
+      block content
+    include partials/footer.pug
