@@ -153,4 +153,40 @@ Pug : html 템플릿 양식을 보다 효율적으로 작성 도와주는 역할
 MVP 활용 프로젝트 제작
 Minimum Viable Product : 어떤 웹 사이트 및 서비스를 구현하는데 있어서 중요한 기능이라고 판단되는 요소들을 빠른 시간 내 간단하게 구현한 후 테스트 형식으로 실행하는 방법
 
+----------------------------
+
+/Dynamic Parameter => Absolute URL
+Dynamic Prameter => Relative URL
+
+a(href=`/edit`)
+a 태그에 /를 넣어서 하면 절대경로로 바뀜
+http://localhost:4000/edit
+
+a(href=`${video.id}/edit`)
+a 태그에 맨 앞에 /를 넣지 않으면 상대경로로 바뀜
+http://localhost:4000/videos/3/edit
+
+-----------------------------
+
+변수 값만 넣을때는 #{} 문자열과 같이 쓰고싶어서 템플릿 리터럴을 쓸 때는 ${}을 써야 함
+
+------------------------------
+MVP
+Minimum Viable Product : 
+> UI/UX + F/E + B/E => 최종적인 제품 개발
+
+
+------------------------------
+
+몽구스(Mongoose)는 몽고DB와 Express.js 웹 애플리케이션 프레임워크 간 연결을 생성하는 자바스크립트 객체 지향 프로그래밍 라이브러리이다.
+
+행, 열 기반 구조x
+json 구조
+
+몽고db 설치
+https://www.mongodb.com/try/download/community
+
+초콜렛티 : 윈도우에서만 사용하는 터미널 방식
+https://chocolatey.org/
+
 
