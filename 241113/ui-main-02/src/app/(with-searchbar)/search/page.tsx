@@ -2,6 +2,8 @@ import React from "react";
 import { BookData } from "@/mock/types";
 import BookItem from "@/components/book-item";
 
+//export const dynamic = "force-dynamic";
+
 const Page = async ({
   searchParams,
 }: {
@@ -9,8 +11,10 @@ const Page = async ({
 }) => {
   const { q } = await searchParams;
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`,
+    { cache: "force-cache" }
   );
+  // 한 번이라도 검색한게 있으면 캐시에 남아있게해서 매번 서버로 가서 가져오지 않고 부분적으로 static한 페이지가 될 수 있게끔
 
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
@@ -21,7 +25,7 @@ const Page = async ({
   return (
     <div>
       {books.map((book) => (
-        <BookItem {...book} />
+        <BookItem key={book.id} {...book} />
       ))}
     </div>
   );

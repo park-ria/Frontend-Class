@@ -3,35 +3,42 @@ const fakeUser = {
   loggedIn: false,
 };
 
-const videos = [
-  {
-    id: 1,
-    title: "First Video",
-    createdAt: "2 minutes ago",
-    views: 59,
-    comment: 2,
-    rating: 5,
-  },
-  {
-    id: 2,
-    title: "Second Video",
-    createdAt: "2 minutes ago",
-    views: 59,
-    comment: 2,
-    rating: 5,
-  },
-  {
-    id: 3,
-    title: "Third Video",
-    createdAt: "2 minutes ago",
-    views: 59,
-    comment: 2,
-    rating: 5,
-  },
-];
+// const videos = [
+//   {
+//     id: 1,
+//     title: "First Video",
+//     createdAt: "2 minutes ago",
+//     views: 59,
+//     comment: 2,
+//     rating: 5,
+//   },
+//   {
+//     id: 2,
+//     title: "Second Video",
+//     createdAt: "2 minutes ago",
+//     views: 59,
+//     comment: 2,
+//     rating: 5,
+//   },
+//   {
+//     id: 3,
+//     title: "Third Video",
+//     createdAt: "2 minutes ago",
+//     views: 59,
+//     comment: 2,
+//     rating: 5,
+//   },
+// ];
 
-export const trending = (req, res) => {
-  res.render("home", { pageTitle: "Home", videos });
+import Video from "../models/video";
+
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    return res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    return res.render("server-error", { error });
+  }
 };
 
 export const search = (req, res) => res.send("Search Videos");
@@ -59,17 +66,20 @@ export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
 };
 
-export const postUpload = (req, res) => {
-  const { title } = req.body;
-  const newVideo = {
-    id: videos.length + 1,
+export const postUpload = async (req, res) => {
+  const { title, description, hashtags } = req.body;
+  const video = new Video({
     title,
-    createdAt: "Just Now",
-    views: 0,
-    comment: 0,
-    rating: 0,
-  };
-  videos.push(newVideo);
+    description,
+    createdAt: Date.now(),
+    hashtags: hashtags.split(",").map((word) => `#${word}`),
+    meta: {
+      views: 0,
+      rating: 0,
+    },
+  });
+  const dbVideo = await video.save();
+  console.log(dbVideo);
   return res.redirect("/");
 };
 

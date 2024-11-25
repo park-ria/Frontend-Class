@@ -4,12 +4,18 @@ html(lang="ko")
     <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
     title #{pageTitle} | Youtube 
     //- 변수 값 이외에 다른 값을 같이 쓸때는 #{}필요
+    style.
+      nav ul {
+          display: flex;
+          gap: 10px; /* 링크 간 간격 */
+        }
   body
     header
       nav 
         ul
           li
             a(href="/login") Login
+          li
             a(href="/videos/upload") Upload Video
       h1=pageTitle 
       //- 직접적으로 값을 넣을때는 = 사용가능, 
