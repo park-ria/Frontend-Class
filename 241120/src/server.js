@@ -1,5 +1,4 @@
 import "./db";
-import videoModel from "./models/video";
 import express from "express";
 import morgan from "morgan";
 // 미들웨어 전용 라이브러리

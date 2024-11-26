@@ -1,15 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BookData } from "@/mock/types";
 import BookItem from "@/components/book-item";
+import delay from "@/util/delay";
 
 //export const dynamic = "force-dynamic";
 
-const Page = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ q: string }>;
-}) => {
-  const { q } = await searchParams;
+const SearchResult = async ({ q }: { q: string }) => {
+  await delay(1500);
+
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`,
     { cache: "force-cache" }
@@ -28,6 +26,21 @@ const Page = async ({
         <BookItem key={book.id} {...book} />
       ))}
     </div>
+  );
+};
+
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ q: string }>;
+}) => {
+  return (
+    <Suspense
+      key={(await searchParams).q || ""}
+      fallback={<div>Loading...</div>}
+    >
+      <SearchResult q={(await searchParams).q || ""} />
+    </Suspense>
   );
 };
 

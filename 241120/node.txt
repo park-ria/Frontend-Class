@@ -258,3 +258,12 @@ package.json에서
     "dev": "nodemon --exec babel-node src/init.js"
   },
 수정
+
+
+- db 확인
+> mongosh
+   > show dbs(데이터베이스 모두보기)
+   > use nodejs (nodejs라는 데이터베이스로 전환)
+   > show collections(테이블 볼때)
+   > db.videos.find()(비디오라는 테이블 모든 데이터 보기)
+   > db.videos.remove({})(비디오라는 테이블 내용 삭제)
