@@ -1,15 +1,29 @@
-import Video, { formHashtags } from "../models/video";
+import Video from "../models/video";
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ createdAt: "desc" });
     return res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     return res.render("server-error", { error });
   }
 };
 
-export const search = (req, res) => res.send("Search Videos");
+export const search = async (req, res) => {
+  const { keyword } = req.query;
+  let videos = [];
+  if (keyword) {
+    videos = await Video.find({
+      title: {
+        $regex: new RegExp(keyword, "i"),
+        // 몽구스 문법 : 해당 내용이 포함되어있으면 결과를 찾아줌
+        //$regex: new RegExp(`^${keyword}`, "i") 해당 키워드로 시작되는 걸로 찾아와라
+        //$regex: new RegExp(`${keyword}$`, "i") 해당 키워드로 끝나는 걸로 찾아와라
+      },
+    });
+  }
+  return res.render("search", { pageTitle: "Search", videos });
+};
 
 export const watch = async (req, res) => {
   const { id } = req.params;
@@ -18,10 +32,8 @@ export const watch = async (req, res) => {
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
-
   return res.render("watch", { pageTitle: video.title, video });
 };
-
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
@@ -35,7 +47,6 @@ export const getEdit = async (req, res) => {
 export const postEdit = async (req, res) => {
   const { id } = req.params;
   const { title, description, hashtags } = req.body;
-  //const video = await Video.findById(id);
   const video = await Video.exists({ _id: id });
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
@@ -43,7 +54,7 @@ export const postEdit = async (req, res) => {
   await Video.findByIdAndUpdate(id, {
     title,
     description,
-    hashtags: formHashtags(hashtags),
+    hashtags: Video.formatHashtags(hashtags),
   });
   return res.redirect(`/videos/${id}`);
 };
@@ -58,12 +69,10 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      createdAt: Date.now(),
-      hashtags: formHashtags(hashtags),
+      hashtags: Video.formatHashtags(hashtags),
     });
     return res.redirect("/");
   } catch (error) {
-    console.error(error);
     return res.render("upload", {
       pageTitle: "Upload Video",
       errorMessage: error._message,
@@ -71,6 +80,8 @@ export const postUpload = async (req, res) => {
   }
 };
 
-export const deleteVideo = (req, res) => {
-  return res.send("Delete Videos");
+export const deleteVideo = async (req, res) => {
+  const { id } = req.params;
+  await Video.findByIdAndDelete(id);
+  return res.redirect("/");
 };

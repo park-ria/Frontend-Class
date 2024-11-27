@@ -267,3 +267,11 @@ package.json에서
    > show collections(테이블 볼때)
    > db.videos.find()(비디오라는 테이블 모든 데이터 보기)
    > db.videos.remove({})(비디오라는 테이블 내용 삭제)
+
+
+----------------------------
+
+findByIdAndDelete(): mongoDB안에 있는 데이터를 ID값을 기준으로 찾아서 자동으로 삭제해주는 미들웨어함수
+
+
+

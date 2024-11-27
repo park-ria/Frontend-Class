@@ -1,6 +1,8 @@
 import "./db";
 import "./models/video";
+import "./models/user";
 import app from "./server";
+// import의 역할은 찾아온 후 실행
 
 const PORT = 4000;
 

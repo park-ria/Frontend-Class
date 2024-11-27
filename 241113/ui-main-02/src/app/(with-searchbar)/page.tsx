@@ -3,7 +3,6 @@ import BookItem from "@/components/book-item";
 import { BookData } from "@/mock/types";
 import delay from "@/util/delay";
 import { Suspense } from "react";
-import BookItemSkeleton from "@/components/skeleton/book-item-skeleton";
 import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
 
 //export const dynamic = "force-dynamic";
@@ -16,7 +15,7 @@ import BookListSkeleton from "@/components/skeleton/book-list-skeleton";
 const RecoBooks = async () => {
   await delay(3000);
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
     {
       next: {
         revalidate: 3, //3초가 지나면 캐시 저장
@@ -26,6 +25,7 @@ const RecoBooks = async () => {
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
   }
+
   const recoBooks: BookData[] = await response.json();
   return (
     <div>
@@ -40,7 +40,8 @@ const AllBooks = async () => {
   await delay(1500);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
-    { cache: "force-cache" }
+    { cache: "force-cache" } // 캐시값을 가지고있어서 한입북스 서버를 끄더라도 값이 보임
+    //{ cache: "no-store" } // 캐시를 저장하지 않겠다
   );
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
