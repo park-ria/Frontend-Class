@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -23,6 +24,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+});
+
+userSchema.pre("save", async function () {
+  this.password = await bcrypt.hash(this.password, 5);
+  // salsRound는 몇번 해싱할꺼냐 => 5
 });
 
 const User = mongoose.model("User", userSchema);

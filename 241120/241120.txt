@@ -273,5 +273,13 @@ package.json에서
 
 findByIdAndDelete(): mongoDB안에 있는 데이터를 ID값을 기준으로 찾아서 자동으로 삭제해주는 미들웨어함수
 
+----------------------------
 
+* 암호화 : hash(해시화)
+- 일방향 함수 실행 : 입력 => 출력 (절대로 출력은 입력 값을 되돌릴 수 없다)
+
+genSalt() => deteministic Function => 결정적 함수
+
+
+> npm i bcrypt
 

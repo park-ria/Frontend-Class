@@ -1,6 +1,9 @@
 import React from "react";
 import style from "./page.module.css";
 import { notFound } from "next/navigation";
+import { ReviewData } from "@/mock/types";
+import ReviewItem from "@/components/review-item";
+import ReviewEditor from "@/components/review-editor";
 
 //export const dynamicParams = false;
 // 존재하는 파라미터라도 generateStaticParams 지정되지 않은 페이지는 404페이지로 이동 -> 굉장히 엄격
@@ -39,38 +42,42 @@ const Booktail = async ({ bookId }: { bookId: string }) => {
   );
 };
 
-const ReviewEditor = () => {
-  //"use server"를 넣으면 서버 액션 -> 서버의 값을 제어함
-  const createReviewAction = async (formData: FormData) => {
-    "use server";
-
-    const content = formData.get("content");
-    const author = formData.get("author");
-    console.log(content, author);
-  };
-
-  return (
-    <section>
-      <form action={createReviewAction}>
-        <input type="text" name="content" placeholder="리뷰내용" />
-        <input type="text" name="author" placeholder="작성자" />
-        <input type="submit" value="작성하기" />
-      </form>
-    </section>
-  );
-};
-
 // generateStaticParams 함수명 자체가 static(정적인) Parameter를 생성하는 함수
 export const generateStaticParams = () => {
   return [{ id: "1" }, { id: "2" }, { id: "3" }];
 };
 // 단점 : 미리 지정해놓은 페이지는 캐시에 넣어놓으면 좋으나, 존재하지 않는 페이지도 캐시값에 넣음 -> 이럴땐 404페이지 -> notFound();
 
+const ReviewList = async ({ bookId }: { bookId: string }) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/review/book/${bookId}`,
+    {
+      next: {
+        tags: [`review-${bookId}`],
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Review fetch failed: ${response.statusText}`);
+  }
+
+  const reviews: ReviewData[] = await response.json();
+  return (
+    <section>
+      {reviews.map((review) => (
+        <ReviewItem key={`review-item-${review.id}`} {...review} />
+      ))}
+    </section>
+  );
+};
+
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <div className={style.container}>
       <Booktail bookId={(await params).id} />
-      <ReviewEditor />
+      <ReviewEditor bookId={(await params).id} />
+      <ReviewList bookId={(await params).id} />
     </div>
   );
 };
