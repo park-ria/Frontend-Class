@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 //"use server"를 넣으면 서버 액션 -> 서버의 값을 제어함
 "use server";
 

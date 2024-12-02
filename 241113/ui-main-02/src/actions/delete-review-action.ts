@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// any를 허용해 줌
 "use server";
 
 import { revalidatePath } from "next/cache";

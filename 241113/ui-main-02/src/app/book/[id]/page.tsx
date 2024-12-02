@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./page.module.css";
 import { notFound } from "next/navigation";
-import { ReviewData } from "@/mock/types";
+import { BookData, ReviewData } from "@/mock/types";
 import ReviewItem from "@/components/review-item";
 import ReviewEditor from "@/components/review-editor";
 
@@ -10,7 +10,8 @@ import ReviewEditor from "@/components/review-editor";
 
 const Booktail = async ({ bookId }: { bookId: string }) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${bookId}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${bookId}`,
+    { cache: "force-cache" }
   ); // 어떤 페이지를 찾을지 모르니까 미리 id를 정해놓고 페이지를 정적으로 만들어 놓는다,
 
   if (!response.ok) {
@@ -40,6 +41,34 @@ const Booktail = async ({ bookId }: { bookId: string }) => {
       <div className={style.description}>{description}</div>
     </section>
   );
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = await params;
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`,
+    { cache: "force-cache" }
+  );
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  const book: BookData = await response.json();
+
+  return {
+    title: `${book.title} - 한입북스`,
+    description: book.description,
+    openGraph: {
+      title: `${book.title} - 한입북스`,
+      description: book.description,
+      images: [book.coverImgUrl],
+    },
+  };
 };
 
 // generateStaticParams 함수명 자체가 static(정적인) Parameter를 생성하는 함수

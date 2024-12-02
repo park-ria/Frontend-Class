@@ -11,9 +11,9 @@ const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
   return (
     <div>
       <h3>오류가 발생했습니다.</h3>
-      // reset()은 클라이언트에서 재실행
+      {/* reset()은 클라이언트에서 재실행 */}
       {/* <button onClick={() => reset()}>에러해결</button> */}
-      //window.location.reload()는 서버까지 렌더링 재실행
+      {/* window.location.reload()는 서버까지 렌더링 재실행 */}
       {/* <button onClick={() => window.location.reload()}>에러해결</button> */}
       <button
         onClick={() => {
