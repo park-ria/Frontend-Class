@@ -283,3 +283,26 @@ genSalt() => deteministic Function => 결정적 함수
 
 > npm i bcrypt
 
+
+이미 사용되었던 정보를 기준으로 회원가입 하고자 할 때, 브라우저 설정에 따라서 UI 화면에 에러메세지는 출력되지만, 우측 상단, 해당 패스워드를 저장하시겠습니까?
+
+--------------------------------
+세션 설치
+https://www.npmjs.com/package/express-session
+> npm install express-session
+
+connect-mongo 설치
+https://www.npmjs.com/package/connect-mongo
+> npm i connect-mongo
+
+
+resave : true => 세션안에 있는 데이터가 변경되지 않아도 클라이언트의 매 요청마다 세션을 저장하는 옵션, 세션 안에있는 값이 바뀌지 않았더라도 세션을 업데이트해라 
+=> true일 경우 세션 안의 데이터가 변경하지 않아도 무조건 저장해라
+=> 보통은 resave:false 써서 값이 변경한 것들만 저장함
+
+saveUninitialized: true =>  초기화 되지 않은 세션(변경된 데이터가 없는 최초의 세션)의 상태에서도 세션을 값을 저장하는 옵션, 어떤 클라이언트 간에 세션을 저장해라,
+=> true일 경우 처음으로 이 페이지에 접속했을 때 회원가입, 로그인 하지 않아도 세션부터 만들어라
+
+
+
+

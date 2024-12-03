@@ -2,7 +2,9 @@ doctype html
 html(lang="ko")
   head
     <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
-    title #{pageTitle} | Youtube 
+     //- 퍼그는 session을 읽을 수 없다. server.js의 res.locals의 값만 읽을 수 있음
+     //- 여기서 siteName은 res.locals에서 가져 온 값
+    title #{pageTitle} | #{siteName}
     //- 변수 값 이외에 다른 값을 같이 쓸때는 #{}필요
     style.
       nav ul {
@@ -11,14 +13,22 @@ html(lang="ko")
         }
   body
     header
+      //- 퍼그는 session을 읽을 수 없다. server.js의 res.locals의 값만 읽을 수 있음
+      h1 I Love #{nickname}
       nav 
         ul
           li
             a(href="/") Home
-          li
-            a(href="/login") Login
-          li
-            a(href="/join") Join
+          if loggedIn
+            li
+              a(href="/logout") LogOut
+            li
+              a(href="/my-profile") #{loggedInUser.name}의 Profile 
+          else
+            li
+              a(href="/login") Login
+            li
+              a(href="/join") Join
           li
             a(href="/videos/upload") Upload Video
           li
