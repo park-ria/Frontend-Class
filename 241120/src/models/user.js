@@ -5,16 +5,20 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // 유일한 값
+    unique: true,
+  },
+  avatarUrl: String,
+  socialOnly: {
+    type: Boolean,
+    default: false,
   },
   username: {
     type: String,
     required: true,
-    unique: true, // 유일한 값
+    unique: true,
   },
   password: {
     type: String,
-    required: true,
   },
   name: {
     type: String,
@@ -22,7 +26,6 @@ const userSchema = new mongoose.Schema({
   },
   location: {
     type: String,
-    required: true,
   },
 });
 

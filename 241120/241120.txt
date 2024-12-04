@@ -304,5 +304,39 @@ saveUninitialized: true =>  초기화 되지 않은 세션(변경된 데이터�
 => true일 경우 처음으로 이 페이지에 접속했을 때 회원가입, 로그인 하지 않아도 세션부터 만들어라
 
 
+---------------------------------
+
+dotenv가 있어야지만 환경변수를 읽어올 수 있다
+https://www.npmjs.com/package/dotenv
+> npm i dotenv
+
+init.js에 import "dotenv/config"; 넣기
+그러면 process.env인식 가능
+
+-----------------------------------
+
+깃허브 연결 로그인
+https://docs.github.com/ko/apps/creating-github-apps/authenticating-with-a-github-app
+https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
+
+git-hub 연동 페이지로 이동
+(동의를 얻기 위함)
+
+우리 페이지 서버 <- git-hub으로 부터 사용자에 대한 최소한의 신원 정보를 확인 // 우리의 서버에게 사용자의 해당 정보를 보내줘야 한다
+(*git-hub authenticate API)
+
+1) 자신의 깃허브 settings > Developer Settings > OAuth Apps > New OAuth App 
+Application name: nodejs-app
+Homepage URL : http://localhost:4000/
+Application description : nodejs app test
+Authorization callback URL : http://localhost:4000/users/github/finish
+Register application 클릭
+
+Application logo 사진 업로드하기 update application
+login.pug에 a(href="https://github.com/login/oauth/authorize?client_id=[본인 client id 넣기]&allow_signup=false&scope=read:user user:email")  Continue with Github &rarr;
+
+//- allow_signup=false는 OAuth 흐름 중에 인증되지 않은 사용자에게 GitHub에 가입할 수 있는 옵션을 제공할지 여부입니다.
+기본값은 true. false정책이 가입을 금지할 때 사용합니다.
+ //- scope는 띄어쓰기 방식으로 매개변수 입력 가능
 
 
