@@ -134,7 +134,54 @@ export const finishGithubLogin = async (req, res) => {
     return res.redirect("/login");
   }
 };
-export const edit = (req, res) => res.send("edit");
+
+export const getEdit = (req, res) => {
+  return res.render("edit-profile", { pageTitle: "Edit Profile" });
+};
+
+export const postEdit = async (req, res) => {
+  // const { user } = req.session; // 스키마에 있는 원래 값
+  // const { name, email, username, location } = req.body; // 화면에서 받아온 값
+  const {
+    session: {
+      user: { _id, email: sessionEmail, username: sessionUsername },
+    },
+    body: { name, email, username, location },
+  } = req;
+
+  const uernameExists =
+    username !== sessionUsername ? await User.exists({ username }) : undefined;
+
+  const emailExists =
+    email !== sessionEmail ? await User.exists({ email }) : undefined;
+
+  if (uernameExists || emailExists) {
+    return res
+      .status(400)
+      .render("edit-profile0", {
+        pageTitle: "Edit Profile",
+        usernameErrorMessage: uernameExists
+          ? "This username is already taken"
+          : 0,
+        emailErrorMessage: emailExists ? "This email is already taken" : 0,
+      });
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+
+  req.session.user = updatedUser;
+
+  return res.redirect("/users/edit");
+};
 export const getLogin = (req, res) =>
   res.render("login", {
     pageTitle: "Login",

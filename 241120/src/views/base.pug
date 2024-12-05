@@ -13,8 +13,8 @@ html(lang="ko")
         }
   body
     header
+      h1=pageTitle 
       //- 퍼그는 session을 읽을 수 없다. server.js의 res.locals의 값만 읽을 수 있음
-      h1 I Love #{nickname}
       nav 
         ul
           li
@@ -23,18 +23,18 @@ html(lang="ko")
             li
               a(href="/users/logout") LogOut
             li
+              a(href="/videos/upload") Upload Video
+            li
               a(href="/my-profile") #{loggedInUser.name}의 Profile 
+            li
+              a(href="/users/edit") Edit Profile 
           else
             li
               a(href="/login") Login
             li
               a(href="/join") Join
           li
-            a(href="/videos/upload") Upload Video
-          li
             a(href="/search") Search
-      h1=pageTitle 
-      //- 직접적으로 값을 넣을때는 = 사용가능, 
     main
       block content
     include partials/footer.pug
