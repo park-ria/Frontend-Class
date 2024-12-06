@@ -339,4 +339,22 @@ login.pug에 a(href="https://github.com/login/oauth/authorize?client_id=[본인 
 기본값은 true. false정책이 가입을 금지할 때 사용합니다.
  //- scope는 띄어쓰기 방식으로 매개변수 입력 가능
 
+-------------------------------
 
+file로 업로드 한 사진을 node.js에 쓸 수 있게하는 미들웨어 함수 multer를 다운받는다( https://www.npmjs.com/package/multer)
+> npm i multer
+
+
+이미지, 동영상 업로드
+> 백엔드 영역 : 데이터를 업로드
+> user information과 multimedia source를 한 곳에 담아 놓지 않고, 이원화해서 관리
+> 1군데에서 모두 통합해서 관리하는 경우, 불필요한 loading 시간을 생성해서 불효율성 때문에
+> AWS에 multimedia source만 올려 놓아서 관리할 것
+
+> 사용자가 회원가입 // 외부 SNS 로그인 => nodejs > users > model(_id로 식별)
+> 사용자가 신규컨텐츠 업로드 => nodejs > videos > model(_id로 식별)
+
+> 관계형
+
+저용량의 동영상 샘플 받기
+https://www.sample-videos.com/index.php#sample-mp4-video

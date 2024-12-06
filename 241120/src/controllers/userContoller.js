@@ -66,6 +66,7 @@ export const startGithubLogin = (req, res) => {
 
   return res.redirect(finalUrl);
 };
+
 export const finishGithubLogin = async (req, res) => {
   const baseUrl = "https://github.com/login/oauth/access_token";
   const config = {
@@ -144,9 +145,10 @@ export const postEdit = async (req, res) => {
   // const { name, email, username, location } = req.body; // 화면에서 받아온 값
   const {
     session: {
-      user: { _id, email: sessionEmail, username: sessionUsername },
+      user: { _id, avatarUrl, email: sessionEmail, username: sessionUsername },
     },
     body: { name, email, username, location },
+    file,
   } = req;
 
   const uernameExists =
@@ -156,20 +158,19 @@ export const postEdit = async (req, res) => {
     email !== sessionEmail ? await User.exists({ email }) : undefined;
 
   if (uernameExists || emailExists) {
-    return res
-      .status(400)
-      .render("edit-profile0", {
-        pageTitle: "Edit Profile",
-        usernameErrorMessage: uernameExists
-          ? "This username is already taken"
-          : 0,
-        emailErrorMessage: emailExists ? "This email is already taken" : 0,
-      });
+    return res.status(400).render("edit-profile0", {
+      pageTitle: "Edit Profile",
+      usernameErrorMessage: uernameExists
+        ? "This username is already taken"
+        : 0,
+      emailErrorMessage: emailExists ? "This email is already taken" : 0,
+    });
   }
 
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
+      avatarUrl: file ? file.path.replace(/\\/g, "/") : avatarUrl,
       name,
       email,
       username,
@@ -177,15 +178,18 @@ export const postEdit = async (req, res) => {
     },
     { new: true }
   );
+  // window의 경우에는 uploads\\ 역슬래시 1개 들어감, mac은 / 하나만 들어감
 
   req.session.user = updatedUser;
 
   return res.redirect("/users/edit");
 };
+
 export const getLogin = (req, res) =>
   res.render("login", {
     pageTitle: "Login",
   });
+
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
   const pageTitle = "Login";
@@ -207,8 +211,40 @@ export const postLogin = async (req, res) => {
   req.session.user = user;
   return res.redirect("/");
 };
+
 export const logout = (req, res) => {
   req.session.destroy();
   return res.redirect("/");
 };
+
+export const getChangePassword = (req, res) => {
+  if (req.session.user.socialOnly === true) {
+    return res.redirect("/");
+  }
+  return res.render("users/change-password", { pageTitle: "Change Password" });
+};
+
+export const postChangePassword = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { oldPassword, newPassword, newPasswordConfirmation },
+  } = req;
+  const user = await User.findById(_id);
+
+  const ok = await bcrypt.compare(oldPassword, user.password);
+  if (!ok) {
+    return res.status(400).render("users/change-password", {
+      pageTitle: "Change Password",
+      errorMessage: "The Current Password is incorrect",
+    });
+  }
+
+  user.password = newPassword;
+  await user.save();
+  req.session.user.password = user.password;
+  return res.redirect("/users/logout");
+};
+
 export const see = (req, res) => res.send("see");
