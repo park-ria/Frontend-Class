@@ -31,8 +31,10 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre("save", async function () {
-  this.password = await bcrypt.hash(this.password, 5);
-  // salsRound는 몇번 해싱할꺼냐 => 5
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 5);
+    // salsRound는 몇번 해싱할꺼냐 => 5
+  }
 });
 
 const User = mongoose.model("User", userSchema);

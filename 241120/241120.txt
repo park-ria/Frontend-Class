@@ -373,3 +373,42 @@ https://www.sample-videos.com/index.php#sample-mp4-video
 3) Deployment
 - AWS
 
+------------------------------------
+
+.env 정리
+DB_URL=mongodb://127.0.0.1:27017/nodejs
+COOKIE_SECRET=시크릿키를 sha256으로 변환한 값
+GH_CLIENT=github settings의 outh에서 찾을 수 있음
+GH_SECRET=github settings의 outh에서 찾을 수 있음
+
+
+------------------------------------
+webpack설치
+> npm i webpack webpack-cli -D
+
+webpack.config.js 파일 생성하기
+
+웹팩은 여러가지 요소들을 웹에 필요한 형태로 변환시켜주는 역할
+
+바벨을 쓰고 있기때문에 바벨 로드를 써야지만 변환시킬 수 있음
+> npm i babel-loader -D
+
+웨팩 실행시키려면
+> nom run assets
+
+-------------------------------------
+
+scss -> css -> style
+
+npm install sass-loader sass webpack --save-dev
+npm install --save-dev css-loader
+npm install --save-dev style-loader
+
+webpack.config.js 파일에 입력하기..
+---------------------------------------
+
+npm install --save-dev mini-css-extract-plugin
+
+
+
+

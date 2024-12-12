@@ -1,0 +1,24 @@
+1. Homebrew 업데이트
+brew update
+
+1-1. brew update 오류 시
+Homebrew 삭제: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+Homebrew 재설치: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+2. MongoDB 탭 추가
+brew tap mongodb/brew
+
+3. MongoDB 설치
+brew install mongodb-community@8.0
+
+4. MongoDB 서비스 시작
+brew services start mongodb/brew/mongodb-community
+
+5. MongoDB 실행 확인
+brew services list
+
+6. MongoDB 쉘 접속
+mongosh
+
+7. MongoDB 중지
+brew services stop mongodb/brew/mongodb-community

@@ -40,6 +40,7 @@ app.use(
 app.use(localMiddleware);
 // uploads 폴더는 src 바깥에 있으므로 express.static을 써서 가져올 수 있음
 app.use("/uploads", express.static("uploads"));
+app.use("/assets", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);

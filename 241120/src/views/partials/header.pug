@@ -1,0 +1,25 @@
+header
+  a(href="/").header__logo
+    i.fa-brands.fa-youtube
+  //- 퍼그는 session을 읽을 수 없다. server.js의 res.locals의 값만 읽을 수 있음
+  nav
+    ul 
+      li
+        a(href="/search")
+          i.fa-solid.fa-magnifying-glass
+      if loggedIn
+        li 
+          a(href="/users/logout") Log Out 
+        li
+          a(href="/videos/upload") Upload Video
+        li
+          a(href=`/users/${loggedInUser._id}`) My Profile
+        li
+          a(href="/my-profile") #{loggedInUser.name}의 Profile
+        li
+          a(href="/users/edit") Edit Profile
+      else
+        li
+          a(href="/join") Join
+        li
+          a(href="/login").header__btn Login

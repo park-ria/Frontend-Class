@@ -1,7 +1,9 @@
 doctype html
 html(lang="ko")
   head
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    //- <link rel="stylesheet" href="https://unpkg.com/mvp.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/style.css"> 
      //- 퍼그는 session을 읽을 수 없다. server.js의 res.locals의 값만 읽을 수 있음
      //- 여기서 siteName은 res.locals에서 가져 온 값
     title #{pageTitle} | #{siteName}
@@ -12,31 +14,8 @@ html(lang="ko")
           gap: 4px;
         }
   body
-    header
-      h1=pageTitle 
-      //- 퍼그는 session을 읽을 수 없다. server.js의 res.locals의 값만 읽을 수 있음
-      nav
-        ul 
-          li
-            a(href="/") Home
-          if loggedIn
-            li 
-              a(href="/users/logout") Log Out 
-            li
-              a(href="/videos/upload") Upload Video
-            li
-              a(href=`/users/${loggedInUser._id}`) My Profile
-            li
-              a(href="/my-profile") #{loggedInUser.name}의 Profile
-            li
-              a(href="/users/edit") Edit Profile
-          else
-            li
-              a(href="/login") Login
-            li
-              a(href="/join") Join
-          li
-            a(href="/search") Search
+    include partials/header.pug
     main
       block content
     include partials/footer.pug
+    script(src="/assets/js/main.js")
