@@ -23,7 +23,7 @@ export const search = async (req, res) => {
         //$regex: new RegExp(`^${keyword}`, "i") 해당 키워드로 시작되는 걸로 찾아와라
         //$regex: new RegExp(`${keyword}$`, "i") 해당 키워드로 끝나는 걸로 찾아와라
       },
-    });
+    }).populate("owner");
   }
   return res.render("search", { pageTitle: "Search", videos });
 };

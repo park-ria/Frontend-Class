@@ -409,6 +409,12 @@ webpack.config.js 파일에 입력하기..
 
 npm install --save-dev mini-css-extract-plugin
 
+---------------------------------------
+
+User라는 모델 안에서 video 정보만 찾아옴
+
+Double populate라고 함
+
 
 
 

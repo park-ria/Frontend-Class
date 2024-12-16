@@ -5,12 +5,15 @@ const path = require("path");
 //console.log(path.resolve(__dirname, "assets", "js")); // 내가 원하는 맞춤형 경로를 만들어 줌 ///Users/pra/Project/Ria/Frontend-Class/241120/assets/js
 
 module.exports = {
-  entry: "./src/client/js/main.js",
+  entry: {
+    main: "./src/client/js/main.js",
+    videoPlayer: "./src/client/js/videoPlayer.js",
+  },
   mode: "development",
   watch: true, // npm run assets을 할때마다 반복적으로 렌더링 할 필요가 없게함 // 계속 watch하고 있기 때문에 css를 변경할 때마다 npm run assets를 할 필요가 없이 실시간으로 변경됨
   plugins: [new MiniCssExtractPlugin({ filename: "css/style.css" })],
   output: {
-    filename: "js/main.js",
+    filename: "js/[name].js",
     path: path.resolve(__dirname, "assets"),
     clean: true, //업데이트가 될 때마다 노드몬이 재시작 되는 옵션 // nodemon.js라는 파일을 만들어 업데이트 될 때마다 노드몬이 assets에 있는것들을 매번 끌어올 필요없더록 함
   },
