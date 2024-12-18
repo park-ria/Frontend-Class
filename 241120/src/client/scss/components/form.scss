@@ -23,7 +23,7 @@ input:not(input[type="range"]) {
 input[type="submit"],
 .social__btn {
   padding: 12px 20px;
-  background: rgba($color: $red, $alpha: 0.9);
+  background: rgba($color: $red, $alpha: 0.9) !important;
   text-align: center;
   display: block;
   border-radius: 5px;

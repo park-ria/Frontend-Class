@@ -131,7 +131,7 @@ input:not(input[type=range])::placeholder {
 input[type=submit],
 .social__btn {
   padding: 12px 20px;
-  background: rgba(255, 19, 0, 0.9);
+  background: rgba(255, 19, 0, 0.9) !important;
   text-align: center;
   display: block;
   border-radius: 5px;
@@ -147,6 +147,44 @@ input[type=submit],
   background: #24883b;
 }
 
+#videoContainer {
+  position: relative;
+}
+#videoContainer video {
+  width: 100%;
+}
+#videoContainer .videoControls {
+  width: 100%;
+  background: #0f1117;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1fr 9fr 1fr auto;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 10px 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+#videoContainer .videoControls.showing {
+  opacity: 1;
+}
+#videoContainer .videoControls .videoControls__play {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#videoContainer .videoControls .videoControls__volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#videoContainer .videoControls .videoControls__volume i {
+  font-size: 20px;
+}
+
 .videos__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -157,6 +195,8 @@ input[type=submit],
   display: flex;
   margin-bottom: 60px;
   position: relative;
+  border: none;
+  background: none;
 }
 .search__form input {
   margin-bottom: 5px;
@@ -176,7 +216,7 @@ input[type=submit],
   padding: 10px;
   cursor: pointer;
   position: absolute;
-  right: 10px;
+  right: 35px;
   top: 50%;
   transform: translateY(-60%);
   border: none;

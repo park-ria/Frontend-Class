@@ -415,6 +415,13 @@ User라는 모델 안에서 video 정보만 찾아옴
 
 Double populate라고 함
 
+---------------------------------------
+
+HTMLmediaElement > 속성 혹은 메서드 함수들이 존재
+대상.requestFullscreen() : 풀 스크린으로 만들어 줌
+document.exitFullscreen() : 풀 스크린을 벗어 남
+
+document.fullscreenElement : 풀 스크린 적용을 받고있는 돔을 찾아옴 없으면 null 반환
 
 
 

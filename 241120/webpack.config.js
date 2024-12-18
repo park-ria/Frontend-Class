@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     main: "./src/client/js/main.js",
     videoPlayer: "./src/client/js/videoPlayer.js",
+    recorder: "./src/client/js/recorder.js",
   },
   mode: "development",
   watch: true, // npm run assets을 할때마다 반복적으로 렌더링 할 필요가 없게함 // 계속 watch하고 있기 때문에 css를 변경할 때마다 npm run assets를 할 필요가 없이 실시간으로 변경됨
