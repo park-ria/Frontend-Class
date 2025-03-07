@@ -49,7 +49,7 @@ const DarkBtn = styled.button`
 
 const Wrapper = styled.div`
   width: 1290px;
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   gap: 50px;
@@ -70,31 +70,20 @@ const Line = styled.div`
   background: #ddd;
 `;
 
+const SubTitle = styled.span`
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.textColor};
+`;
+
 const CoinList = styled.ul`
-  height: calc(100vh - 200px);
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
   grid-gap: 50px;
   justify-content: space-around;
-  padding: 50px 50px 50px 20px;
-  border: 1px solid ${({ theme }) => theme.textColor};
-  border-radius: 15px;
-  position: relative;
-`;
-
-const SubTitle = styled.span`
-  display: inline-block;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  background: ${({ theme }) => theme.bgColor};
-  font-size: 20px;
-  font-weight: 500;
-  color: ${({ theme }) => theme.textColor};
-  position: absolute;
-  top: -20px;
-  left: 30px;
-  border: 1px solid ${({ theme }) => theme.textColor};
-  border-radius: 10px;
 `;
 
 const CoinBox = styled.li`
@@ -122,9 +111,9 @@ const Rank = styled.div`
 `;
 
 const Coin = styled.div`
-  width: 120px;
-  height: 120px;
-  background: #f9f9f9;
+  width: 140px;
+  height: 140px;
+  background: #f6f6f6;
   color: #222;
   border-radius: 10px;
   box-shadow: 3px 3px 5px #8e8e8e;
@@ -141,20 +130,19 @@ const Coin = styled.div`
     color: inherit;
     text-align: center;
     transition: color 0.3s;
+    margin: 0 20px;
 
     img {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
     }
   }
 `;
 
 const CoinList100 = styled.div`
-  height: calc(100vh - 200px);
-  padding: 50px 0px 30px 20px;
-  border: 1px solid ${({ theme }) => theme.textColor};
-  border-radius: 15px;
-  position: relative;
+  margin-left: 10px;
+  height: calc(100vh - 220px);
+  overflow-y: scroll;
 `;
 
 const CoinLabels = styled.div`
@@ -168,52 +156,29 @@ const CoinLabels = styled.div`
   }
 `;
 
-const CoinTable = styled.div`
-  height: 96%;
-  overflow-y: scroll;
-  position: relative;
-  scrollbar-gutter: stable both-edges;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.textColor};
-  }
-`;
-
 const CoinContents100 = styled.ul`
   li {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
 
-    & > a {
+    & > span {
       display: flex;
       align-items: center;
+      gap: 10px;
+      min-width: 80px;
+      color: ${({ theme }) => theme.textColor};
 
-      & > span {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        min-width: 80px;
-        color: ${({ theme }) => theme.textColor};
+      &:first-child {
+        padding: 0 15px;
+      }
 
-        &:first-child {
-          padding: 0 10px;
-        }
-
-        &:hover {
-          color: ${({ theme }) => theme.accentColor};
-          font-size: 18px;
-        }
-
-        & > img {
-          width: 25px;
-          height: 25px;
-        }
+      & > img {
+        width: 25px;
+        height: 25px;
       }
     }
   }
@@ -245,7 +210,7 @@ const Coins = () => {
   });
 
   const [isDark, setIsDark] = useRecoilState(isDarkAtom);
-
+  console.log(data);
   return (
     <Container>
       <Helmet>
@@ -262,8 +227,8 @@ const Coins = () => {
       ) : (
         <Wrapper>
           <Section>
+            <SubTitle>Top 12</SubTitle>
             <CoinList>
-              <SubTitle>Top 12</SubTitle>
               {data?.slice(0, 12).map((coin, index) => (
                 <CoinBox key={coin.id}>
                   <Rank className={coin.rank <= 3 ? "topRank" : ""}>
@@ -283,29 +248,25 @@ const Coins = () => {
           </Section>
           <Line></Line>
           <Section>
+            <SubTitle>Top 100</SubTitle>
             <CoinList100>
-              <SubTitle>Top 100</SubTitle>
               <CoinLabels>
                 <label>Rank</label>
                 <label>Name</label>
               </CoinLabels>
-              <CoinTable>
-                <CoinContents100>
-                  {data?.map((coin) => (
-                    <li key={coin.id}>
-                      <Link to={`/${coin.id}`} state={`${coin.name}`}>
-                        <span>{coin.rank}</span>
-                        <span>
-                          <img
-                            src={`https://static.coinpaprika.com/coin/${coin.id}/logo.png`}
-                          />
-                          {coin.name}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </CoinContents100>
-              </CoinTable>
+              <CoinContents100>
+                {data?.map((coin) => (
+                  <li key={coin.id}>
+                    <span>{coin.rank}</span>
+                    <span>
+                      <img
+                        src={`https://static.coinpaprika.com/coin/${coin.id}/logo.png`}
+                      />
+                      {coin.name}
+                    </span>
+                  </li>
+                ))}
+              </CoinContents100>
             </CoinList100>
           </Section>
         </Wrapper>
