@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     background: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
+    font-family: "Noto Sans", sans-serif;
   }
 `;
 

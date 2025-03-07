@@ -7,7 +7,9 @@
 export const fetchCoins = () => {
   return fetch(
     "https://raw.githubusercontent.com/Divjason/coindata/refs/heads/main/coins.json"
-  ).then((response) => response.json());
+  )
+    .then((response) => response.json())
+    .then((res) => res.slice(0, 100));
 };
 
 // export const fetchCoinInfo = (coinId: string | undefined) => {
