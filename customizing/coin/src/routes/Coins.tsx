@@ -119,6 +119,10 @@ const Rank = styled.div`
     font-size: 100px;
     line-height: 90px;
   }
+
+  &.one {
+    position: relative;
+  }
 `;
 
 const Coin = styled.div`
@@ -147,6 +151,17 @@ const Coin = styled.div`
       height: 60px;
     }
   }
+`;
+
+const Crown = styled.span`
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: url("crown.png") center/cover no-repeat;
+  position: absolute;
+  top: -25px;
+  left: 5px;
+  transform: rotate(350deg);
 `;
 
 const CoinList100 = styled.div`
@@ -266,7 +281,16 @@ const Coins = () => {
               <SubTitle>Top 12</SubTitle>
               {data?.slice(0, 12).map((coin, index) => (
                 <CoinBox key={coin.id}>
-                  <Rank className={coin.rank <= 3 ? "topRank" : ""}>
+                  <Rank
+                    className={
+                      coin.rank <= 3
+                        ? index === 0
+                          ? "topRank one"
+                          : "topRank"
+                        : ""
+                    }
+                  >
+                    {index === 0 ? <Crown /> : ""}
                     {coin.rank}
                   </Rank>
                   <Coin>
