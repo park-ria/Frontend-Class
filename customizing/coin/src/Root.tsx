@@ -5,6 +5,7 @@ import { createGlobalStyle } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { isDarkAtom } from "./atoms";
 import { useRecoilValue } from "recoil";
+import Header from "./Header";
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -27,6 +28,10 @@ const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme.textColor};
     font-family: "Noto Sans", sans-serif;
   }
+
+  :root{
+    --border-color: #ddd;
+  }
 `;
 
 const Root = () => {
@@ -36,6 +41,7 @@ const Root = () => {
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
+        <Header />
         <Outlet />
         <ReactQueryDevtools
           initialIsOpen={false}

@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoins } from "../api";
 import { Helmet } from "react-helmet";
-import { isDarkAtom } from "../atoms";
-import { useRecoilState } from "recoil";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.main`
   width: 100%;
@@ -14,37 +10,6 @@ const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const Header = styled.header`
-  width: 1290px;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  font-family: "Raleway", sans-serif;
-`;
-
-const Title = styled.h1`
-  color: ${(props) => props.theme.accentColor};
-  font-size: 40px;
-`;
-
-const DarkBtn = styled.button`
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${({ theme }) => theme.accentColor};
-  color: #fff;
-  border: transparent;
-  border-radius: 10px;
-  cursor: pointer;
-  & > svg {
-    font-size: 20px;
-  }
 `;
 
 const Wrapper = styled.div`
@@ -57,7 +22,8 @@ const Wrapper = styled.div`
 
 const Section = styled.div`
   &:first-child {
-    width: 60%;
+    width: 70%;
+    padding-left: 25px;
   }
   &:last-child {
     width: 25%;
@@ -67,7 +33,7 @@ const Section = styled.div`
 const Line = styled.div`
   width: 1px;
   height: 100%;
-  background: #ddd;
+  background: var(--border-color);
 `;
 
 const CoinList = styled.ul`
@@ -77,7 +43,7 @@ const CoinList = styled.ul`
   grid-gap: 50px;
   justify-content: space-around;
   padding: 50px 50px 50px 20px;
-  border: 1px solid ${({ theme }) => theme.textColor};
+  border: 1px solid var(--border-color);
   border-radius: 15px;
   position: relative;
 `;
@@ -93,7 +59,7 @@ const SubTitle = styled.span`
   position: absolute;
   top: -20px;
   left: 30px;
-  border: 1px solid ${({ theme }) => theme.textColor};
+  border: 1px solid var(--border-color);
   border-radius: 10px;
 `;
 
@@ -111,11 +77,10 @@ const CoinBox = styled.li`
 `;
 
 const Rank = styled.div`
-  color: #b5b5b5;
+  color: ${({ theme }) => theme.textColor};
   font-size: 30px;
 
   &.topRank {
-    color: ${({ theme }) => theme.textColor};
     font-size: 100px;
     line-height: 90px;
   }
@@ -167,7 +132,7 @@ const Crown = styled.span`
 const CoinList100 = styled.div`
   height: calc(100vh - 200px);
   padding: 50px 0px 30px 20px;
-  border: 1px solid ${({ theme }) => theme.textColor};
+  border: 1px solid var(--border-color);
   border-radius: 15px;
   position: relative;
 `;
@@ -194,7 +159,7 @@ const CoinTable = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.textColor};
+    background-color: #b5b5b5;
   }
 `;
 
@@ -259,19 +224,11 @@ const Coins = () => {
     queryFn: fetchCoins,
   });
 
-  const [isDark, setIsDark] = useRecoilState(isDarkAtom);
-
   return (
     <Container>
       <Helmet>
         <title>COIN RANKING</title>
       </Helmet>
-      <Header>
-        <Title>COIN RANKING</Title>
-        <DarkBtn onClick={() => setIsDark((prev) => !prev)}>
-          <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
-        </DarkBtn>
-      </Header>
       {isLoading ? (
         <Loader>"Loading..."</Loader>
       ) : (

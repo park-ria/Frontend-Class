@@ -1,4 +1,3 @@
-//import React, { useState, useEffect } from "react";
 import { useParams, useLocation, Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -142,14 +141,14 @@ const Coin = () => {
       queryKey: ["info", coinId],
       queryFn: () => fetchCoinInfo(coinId), // 인자값을 보내야 하기때문에 콜백써야 함
     });
-  //console.log(coinInterface);
+  console.log(coinInterface);
 
   const { isLoading: priceLoading, data: priceData } = useQuery<PriceData>({
     queryKey: ["price", coinId],
     queryFn: () => fetchCoinPrice(coinId), // 인자값을 보내야 하기때문에 콜백써야 함
     //refetchInterval: 60000, // 60초에 한번 씩 업데이트 됨
   });
-  //console.log(priceData);
+  console.log(priceData);
 
   const loading = infoLoading || priceLoading;
 
@@ -161,11 +160,9 @@ const Coin = () => {
         </title>
       </Helmet>
       <Header>
-        <Link to={"/"}>
-          <Title>
-            {state ? state : loading ? "Loading..." : coinInterface?.name}
-          </Title>
-        </Link>
+        <Title>
+          {state ? state : loading ? "Loading..." : coinInterface?.name}
+        </Title>
       </Header>
       {loading ? (
         <Loader>Loading...</Loader>
