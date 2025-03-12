@@ -28,6 +28,7 @@ const Wrapper = styled.header`
 const Back = styled.span`
   display: inline-block;
   font-size: 30px;
+  color: var(--border-color);
 `;
 
 const Title = styled.h1`

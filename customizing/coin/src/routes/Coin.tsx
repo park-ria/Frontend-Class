@@ -1,11 +1,12 @@
-import { useParams, useLocation, Outlet } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { useMatch } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinInfo, fetchCoinPrice } from "../api";
 import { CoinInterface } from "./Coins";
 import { Helmet } from "react-helmet";
+import Chart from "./Chart";
+import CandleChart from "./CandleChart";
+import { fetchCoinHistory } from "../api";
 
 const Container = styled.main`
   width: 100%;
@@ -16,12 +17,20 @@ const Container = styled.main`
   margin-top: 50px;
 `;
 
-const Header = styled.header`
-  font-size: 32px;
+const Wrapper = styled.div`
+  width: 1290px;
+  display: flex;
+  justify-content: space-between;
 `;
 
-const Title = styled.h1`
-  color: ${(props) => props.theme.accentColor};
+const Section = styled.div`
+  //border: 1px solid #f00;
+  &:first-child {
+    width: 60%;
+  }
+  &:last-child {
+    width: 40%;
+  }
 `;
 
 const Loader = styled.span`
@@ -29,58 +38,38 @@ const Loader = styled.span`
   font-size: 22px;
 `;
 
-const OverView = styled.div`
-  width: 600px;
-  color: ${(props) => props.theme.bgColor};
+const TitleSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
 `;
 
-const OverviewItem = styled.div`
+const Rank = styled.span`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  background: ${(props) => props.theme.textColor};
-  border-radius: 8px;
-  span:first-child {
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    color: ${(props) => props.theme.accentColor};
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 12px;
+  color: #222;
+  background: #f9f9f9;
+  h3 {
+    font-size: 30px;
   }
 `;
 
-const Description = styled.div`
-  width: 600px;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  background: ${(props) => props.theme.accentColor};
-`;
-
-const Tabs = styled.div`
-  width: 600px;
+const Title = styled.span`
   display: flex;
-  gap: 10px;
-`;
-
-const Tab = styled.span<IsActive>`
-  flex: 1;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  background: ${(props) =>
-    props.$isActive ? props.theme.textColor : props.theme.accentColor};
-  color: ${(props) =>
-    props.$isActive ? props.theme.accentColor : props.theme.textColor};
-  padding: 8px 0;
-  border-radius: 8px;
-  transition: background 0.3s, color 0.3s;
-  cursor: pointer;
-  &:hover {
-    background: ${(props) => props.theme.textColor};
-    color: ${(props) => props.theme.accentColor};
+  align-items: center;
+  gap: 5px;
+  font-size: 30px;
+  font-weight: 600;
+  img {
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -126,86 +115,75 @@ interface PriceData {
   };
 }
 
-interface IsActive {
-  $isActive: boolean;
+export interface CoinHistory {
+  time_open: number;
+  time_close: number;
+  open: string;
+  high: string;
+  low: string;
+  close: string;
+  volume: string;
+  market_cap: number;
 }
 
 const Coin = () => {
   const { state } = useLocation() as LocationState;
   const { coinId } = useParams<RouterParams | any>();
-  const chartMatch = useMatch("/:coinId/chart");
 
-  //isLoading: infoLoading는 isLoading으로 값을 찾아와서 이름을 infoLoading 바꿔 줌
-  const { isLoading: infoLoading, data: coinInterface } =
-    useQuery<CoinInterface>({
-      queryKey: ["info", coinId],
-      queryFn: () => fetchCoinInfo(coinId), // 인자값을 보내야 하기때문에 콜백써야 함
-    });
-  console.log(coinInterface);
+  const { isLoading: infoLoading, data: coinInfo } = useQuery<CoinInterface>({
+    queryKey: ["info", coinId],
+    queryFn: () => fetchCoinInfo(coinId), // 인자값을 보내야 하기때문에 콜백써야 함
+  });
+  //console.log(coinInfo);
 
   const { isLoading: priceLoading, data: priceData } = useQuery<PriceData>({
     queryKey: ["price", coinId],
     queryFn: () => fetchCoinPrice(coinId), // 인자값을 보내야 하기때문에 콜백써야 함
     //refetchInterval: 60000, // 60초에 한번 씩 업데이트 됨
   });
-  console.log(priceData);
+  //console.log(priceData);
 
-  const loading = infoLoading || priceLoading;
+  const { isLoading: chartLoading, data: chartData } = useQuery<CoinHistory[]>({
+    queryKey: ["history", coinId],
+    queryFn: () => fetchCoinHistory(coinId),
+    //refetchInterval: 60000, // 60초에 한번 씩 업데이트 됨
+  });
+
+  const loading = infoLoading || priceLoading || chartLoading;
 
   return (
     <Container>
       <Helmet>
         <title>
-          {state ? state : loading ? "Loading..." : coinInterface?.name}
+          {state ? state : loading ? "Coin Ranking" : coinInfo?.name}
         </title>
       </Helmet>
-      <Header>
-        <Title>
-          {state ? state : loading ? "Loading..." : coinInterface?.name}
-        </Title>
-      </Header>
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (
-        <>
-          <OverView>
-            <OverviewItem>
-              <span>Rank : </span>
-              <span>{coinInterface?.rank}</span>
-            </OverviewItem>
-            <OverviewItem>
-              <span>Symbol: </span>
-              <span>{coinInterface?.symbol}</span>
-            </OverviewItem>
-            <OverviewItem>
-              <span>Open Source : </span>
-              <span>{coinInterface?.is_active ? "Yes" : "No"}</span>
-            </OverviewItem>
-          </OverView>
-          <Description>
-            Information of coin type : {coinInterface?.type}
-            {coinInterface?.description}
-          </Description>
-          <OverView>
-            <OverviewItem>
-              <span>Total Supply : </span>
-              <span>{priceData?.total_supply}</span>
-            </OverviewItem>
-          </OverView>
-          <OverView>
-            <OverviewItem>
-              <span>Max Supply : </span>
-              <span>{priceData?.max_supply}</span>
-            </OverviewItem>
-          </OverView>
-          <Tabs>
-            <Tab $isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
-            </Tab>
-          </Tabs>
-        </>
+        <div>
+          <TitleSection>
+            <Rank>
+              Rank
+              <h3>{coinInfo?.rank}</h3>
+            </Rank>
+            <Title>
+              <img
+                src={`https://static.coinpaprika.com/coin/${coinInfo?.id}/logo.png`}
+              />
+              {coinInfo?.name}
+            </Title>
+          </TitleSection>
+          <Wrapper>
+            <Section>
+              <CandleChart chartData={chartData ?? []} />
+            </Section>
+            <Section>
+              <Chart chartData={chartData ?? []} />
+            </Section>
+          </Wrapper>
+        </div>
       )}
-      <Outlet />
     </Container>
   );
 };

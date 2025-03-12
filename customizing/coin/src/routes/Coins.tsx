@@ -230,7 +230,7 @@ const Coins = () => {
         <title>COIN RANKING</title>
       </Helmet>
       {isLoading ? (
-        <Loader>"Loading..."</Loader>
+        <Loader>Loading...</Loader>
       ) : (
         <Wrapper>
           <Section>

@@ -16,16 +16,16 @@ const router = createBrowserRouter([
       {
         path: "/:coinId",
         element: <Coin />,
-        children: [
-          {
-            path: "",
-            element: <Navigate to={"chart"} replace />,
-          },
-          {
-            path: "chart",
-            element: <Chart />,
-          },
-        ],
+        // children: [
+        //   {
+        //     path: "",
+        //     element: <Navigate to={"chart"} />,
+        //   },
+        //   {
+        //     path: "chart",
+        //     element: <Chart />,
+        //   },
+        // ],
       },
     ],
   },
