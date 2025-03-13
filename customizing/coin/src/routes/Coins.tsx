@@ -22,18 +22,18 @@ const Wrapper = styled.div`
 
 const Section = styled.div`
   &:first-child {
-    width: 70%;
+    flex: 1;
     padding-left: 25px;
   }
   &:last-child {
-    width: 25%;
+    width: 28%;
   }
 `;
 
 const Line = styled.div`
   width: 1px;
   height: 100%;
-  background: var(--border-color);
+  background: ${({ theme }) => theme.borderColor};
 `;
 
 const CoinList = styled.ul`
@@ -43,9 +43,10 @@ const CoinList = styled.ul`
   grid-gap: 50px;
   justify-content: space-around;
   padding: 50px 50px 50px 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 15px;
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  border-radius: 10px;
   position: relative;
+  //background: ${({ theme }) => theme.cardBgColor};
 `;
 
 const SubTitle = styled.span`
@@ -59,7 +60,7 @@ const SubTitle = styled.span`
   position: absolute;
   top: -20px;
   left: 30px;
-  border: 1px solid var(--border-color);
+  border: 1px solid ${({ theme }) => theme.borderColor};
   border-radius: 10px;
 `;
 
@@ -93,7 +94,7 @@ const Rank = styled.div`
 const Coin = styled.div`
   width: 120px;
   height: 120px;
-  background: #f9f9f9;
+  background: #fff;
   color: #222;
   border-radius: 10px;
   box-shadow: 3px 3px 5px #8e8e8e;
@@ -132,9 +133,10 @@ const Crown = styled.span`
 const CoinList100 = styled.div`
   height: calc(100vh - 200px);
   padding: 50px 0px 30px 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 15px;
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  border-radius: 10px;
   position: relative;
+  background: ${({ theme }) => theme.cardBgColor};
 `;
 
 const CoinLabels = styled.div`
@@ -159,7 +161,7 @@ const CoinTable = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #b5b5b5;
+    background-color: ${({ theme }) => theme.borderColor};
   }
 `;
 
