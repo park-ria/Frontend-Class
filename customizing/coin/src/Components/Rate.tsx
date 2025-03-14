@@ -45,10 +45,10 @@ const Rate = ({ time, value }: RateProps) => {
       <Desc $isBlue={isBlue}>
         <FontAwesomeIcon
           icon={isBlue ? faCaretDown : faCaretUp}
-          style={{ marginRight: "10px" }}
+          style={{ marginRight: "16px" }}
         />
         {isBlue ? "" : "+"}
-        {value}%
+        {value} %
       </Desc>
     </Wrapper>
   );

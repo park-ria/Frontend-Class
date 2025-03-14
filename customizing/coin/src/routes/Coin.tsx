@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   width: 1290px;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 50px;
 `;
 
 const Section = styled.div`
@@ -85,11 +85,53 @@ const Title = styled.span`
   }
 `;
 
+const Info = styled.ul``;
+
+const InfoLine = styled.li`
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 10px;
+  &:last-child {
+    margin: 0;
+  }
+  & > div {
+    flex: 1;
+    margin-top: 10px;
+    border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+
+    & > span {
+      display: inline-block;
+      min-width: 100px;
+      padding: 0 0 10px 10px;
+      &.highest {
+        min-width: 250px;
+      }
+      &:first-child {
+        margin-right: 10px;
+        //border-right: 1px solid var(--border-color);
+        font-weight: 350;
+        color: ${({ theme }) => theme.lightGrayColor};
+      }
+      &:last-child {
+        font-weight: 600;
+      }
+      & > p {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+`;
+
 const Rates = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
+  grid-row-gap: 26px;
+  grid-column-gap: 30px;
+  margin-top: 10px;
 `;
 
 interface RouterParams {
@@ -165,7 +207,7 @@ const Coin = () => {
     refetchOnWindowFocus: false,
     //refetchInterval: 60000, // 60초에 한번 씩 업데이트 됨
   });
-  // console.log(priceData);
+  //console.log(priceData);
 
   const { isLoading: chartLoading, data: chartData } = useQuery<CoinHistory[]>({
     queryKey: ["history", coinId],
@@ -175,9 +217,17 @@ const Coin = () => {
     refetchOnWindowFocus: false,
     //refetchInterval: 60000, // 60초에 한번 씩 업데이트 됨
   });
+  // console.log(chartData);
 
   const loading = infoLoading || priceLoading || chartLoading;
   const rateArr = ["30m", "1h", "6h", "12h", "24h", "7d", "30d", "1y"];
+  const todayPrice = priceData
+    ? parseFloat(priceData?.quotes.USD.price.toFixed(2))
+    : 0;
+  const yesterdayPrice = chartData?.length
+    ? parseFloat(chartData[chartData?.length - 2].close)
+    : 0;
+  const difference = todayPrice - yesterdayPrice;
 
   return (
     <Container>
@@ -201,46 +251,103 @@ const Coin = () => {
               />
               {coinInfo?.name}
             </Title>
+            <span>$ {todayPrice}</span>
+            <span>
+              {difference > 0 ? "+" : "-"}
+              {difference.toFixed(2)}({priceData?.quotes.USD.percent_change_24h}{" "}
+              %)
+            </span>
+            <span>24hour ago</span>
           </TitleSection>
           <Wrapper>
             <Section>
               <Chart chartData={chartData ?? []} />
               <Content>
                 <SubTitle>Basic Information</SubTitle>
-                <ul>
-                  <li>Name : {coinInfo?.name}</li>
-                  <li>Rank : {coinInfo?.rank}</li>
-                  <li>Type : {coinInfo?.type}</li>
-                  <li>Price : ${priceData?.quotes.USD.price.toFixed(2)}</li>
-                  <li>Total supply : {priceData?.total_supply}</li>
-                  <li>Max supply : {priceData?.max_supply}</li>
-                  <li>
-                    Volatility : {priceData?.beta_value.toFixed(2)}(If it is
-                    less than 1, it means it is less volatile than the market)
-                  </li>
-                </ul>
+                <Info>
+                  <InfoLine>
+                    <div>
+                      <span>Name</span>
+                      <span>{coinInfo?.name}</span>
+                    </div>
+                    <div>
+                      <span>Rank</span>
+                      <span>{coinInfo?.rank}</span>
+                    </div>
+                  </InfoLine>
+
+                  <InfoLine>
+                    <div>
+                      <span>Type</span>
+                      <span>{coinInfo?.type}</span>
+                    </div>
+                    <div>
+                      <span>Price</span>
+                      <span>$ {todayPrice}</span>
+                    </div>
+                  </InfoLine>
+
+                  <InfoLine>
+                    <div>
+                      <span>Total supply</span>
+                      <span>{priceData?.total_supply}</span>
+                    </div>
+                    <div>
+                      <span>Max supply</span>
+                      <span>{priceData?.max_supply}</span>
+                    </div>
+                  </InfoLine>
+                  <InfoLine>
+                    <div>
+                      <span>Volatility</span>
+                      <span>
+                        {priceData?.beta_value.toFixed(2)}
+                        <p>
+                          (If it is less than 1, it means it is less volatile
+                          than the market)
+                        </p>
+                      </span>
+                    </div>
+                  </InfoLine>
+                </Info>
               </Content>
+
               <Content>
                 <SubTitle>Highest price ever</SubTitle>
-                <ul>
-                  <li>
-                    Highest price ever : $
-                    {priceData?.quotes.USD.ath_price.toFixed(2)}
-                  </li>
-                  <li>
-                    Date with highest price :
-                    {priceData &&
-                      new Date(
-                        priceData.quotes.USD.ath_date
-                      ).toLocaleDateString()}
-                  </li>
-                  <li>
-                    Compare with the highest price :
-                    {priceData?.quotes.USD.percent_from_price_ath}%
-                  </li>
-                </ul>
+                <Info>
+                  <InfoLine>
+                    <div>
+                      <span className="highest">Highest price ever</span>
+                      <span>
+                        $ {priceData?.quotes.USD.ath_price.toFixed(2)}
+                      </span>
+                    </div>
+                  </InfoLine>
+                  <InfoLine>
+                    <div>
+                      <span className="highest">Date with highest price</span>
+                      <span>
+                        {priceData &&
+                          new Date(
+                            priceData.quotes.USD.ath_date
+                          ).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </InfoLine>
+                  <InfoLine>
+                    <div>
+                      <span className="highest">
+                        Compare with the highest price
+                      </span>
+                      <span>
+                        {priceData?.quotes.USD.percent_from_price_ath} %
+                      </span>
+                    </div>
+                  </InfoLine>
+                </Info>
               </Content>
             </Section>
+
             <Section>
               <CandleChart chartData={chartData ?? []} />
               <Content>
@@ -258,6 +365,7 @@ const Coin = () => {
                             >
                           )[`percent_change_${word}`]
                         }
+                        key={word}
                       />
                     ))}
                 </Rates>

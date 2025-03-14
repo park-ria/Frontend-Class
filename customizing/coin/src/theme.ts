@@ -7,6 +7,7 @@ export const darkTheme: DefaultTheme = {
   cardBgColor: "#2f3640",
   lineChartColor: "#06d6a0",
   borderColor: "#b8b8b8",
+  lightGrayColor: "#ccc",
 };
 
 export const lightTheme: DefaultTheme = {
@@ -16,4 +17,5 @@ export const lightTheme: DefaultTheme = {
   cardBgColor: "#fff",
   lineChartColor: "#3a86ff",
   borderColor: "#b8b8b8",
+  lightGrayColor: "#868686",
 };

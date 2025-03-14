@@ -6,6 +6,7 @@ import { CoinHistory } from "../routes/Coin";
 
 const Container = styled.div`
   width: 100%;
+  transform: translateX(-10px);
 `;
 
 const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {

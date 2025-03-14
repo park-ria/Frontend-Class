@@ -30,12 +30,6 @@ const Section = styled.div`
   }
 `;
 
-const Line = styled.div`
-  width: 1px;
-  height: 100%;
-  background: ${({ theme }) => theme.borderColor};
-`;
-
 const CoinList = styled.ul`
   height: calc(100vh - 200px);
   display: grid;
@@ -264,7 +258,6 @@ const Coins = () => {
               ))}
             </CoinList>
           </Section>
-          <Line></Line>
           <Section>
             <CoinList100>
               <SubTitle>Top 100</SubTitle>
