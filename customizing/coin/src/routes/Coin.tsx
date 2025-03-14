@@ -4,9 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCoinInfo, fetchCoinPrice } from "../api";
 import { CoinInterface } from "./Coins";
 import { Helmet } from "react-helmet";
-import Chart from "./Chart";
-import CandleChart from "./CandleChart";
+import Chart from "../Components/Chart";
+import CandleChart from "../Components/CandleChart";
 import { fetchCoinHistory } from "../api";
+import Rate from "../Components/Rate";
 
 const Container = styled.main`
   width: 100%;
@@ -42,7 +43,7 @@ const SubTitle = styled.span`
   width: 100%;
   height: 30px;
   margin-bottom: 10px;
-  padding: 5px 10px;
+  padding: 3px 10px 5px;
   background: ${({ theme }) => theme.accentColor};
   color: #fff;
   font-weight: 700;
@@ -82,6 +83,13 @@ const Title = styled.span`
     width: 50px;
     height: 50px;
   }
+`;
+
+const Rates = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
 `;
 
 interface RouterParams {
@@ -169,6 +177,7 @@ const Coin = () => {
   });
 
   const loading = infoLoading || priceLoading || chartLoading;
+  const rateArr = ["30m", "1h", "6h", "12h", "24h", "7d", "30d", "1y"];
 
   return (
     <Container>
@@ -219,14 +228,14 @@ const Coin = () => {
                     {priceData?.quotes.USD.ath_price.toFixed(2)}
                   </li>
                   <li>
-                    Date with highest price :{" "}
+                    Date with highest price :
                     {priceData &&
                       new Date(
                         priceData.quotes.USD.ath_date
                       ).toLocaleDateString()}
                   </li>
                   <li>
-                    Compare with the highest price :{" "}
+                    Compare with the highest price :
                     {priceData?.quotes.USD.percent_from_price_ath}%
                   </li>
                 </ul>
@@ -236,32 +245,22 @@ const Coin = () => {
               <CandleChart chartData={chartData ?? []} />
               <Content>
                 <SubTitle>Rate of change</SubTitle>
-                <ul>
-                  <li>
-                    for 30 minutes : {priceData?.quotes.USD.percent_change_30m}%
-                  </li>
-                  <li>
-                    for 1 hour : {priceData?.quotes.USD.percent_change_1h}%
-                  </li>
-                  <li>
-                    for 6 hours : {priceData?.quotes.USD.percent_change_6h}%
-                  </li>
-                  <li>
-                    for 12 hours : {priceData?.quotes.USD.percent_change_12h}%
-                  </li>
-                  <li>
-                    for 1 day : {priceData?.quotes.USD.percent_change_24h}%
-                  </li>
-                  <li>
-                    for 1 week : {priceData?.quotes.USD.percent_change_7d}%
-                  </li>
-                  <li>
-                    for 1 month : {priceData?.quotes.USD.percent_change_30d}
-                  </li>
-                  <li>
-                    for 1 year : {priceData?.quotes.USD.percent_change_1y}%
-                  </li>
-                </ul>
+                <Rates>
+                  {priceData &&
+                    rateArr.map((word) => (
+                      <Rate
+                        time={word}
+                        value={
+                          (
+                            priceData.quotes.USD as unknown as Record<
+                              string,
+                              number
+                            >
+                          )[`percent_change_${word}`]
+                        }
+                      />
+                    ))}
+                </Rates>
               </Content>
             </Section>
           </Wrapper>

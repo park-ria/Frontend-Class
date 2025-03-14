@@ -1,42 +1,36 @@
-import styled from "styled-components";
-
+import styled, { useTheme } from "styled-components";
 import ApexChart from "react-apexcharts";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "../atoms";
-import { CoinHistory } from "./Coin";
+import { CoinHistory } from "../routes/Coin";
 
 const Container = styled.div`
   width: 100%;
 `;
 
-const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
+const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
   const isDark = useRecoilValue(isDarkAtom);
+  const theme = useTheme();
 
   return (
     <Container>
       {chartData.length > 0 ? (
         <ApexChart
-          type="candlestick"
+          //width={600}
+          type="area"
           series={[
             {
               name: "Price",
-              data:
-                chartData?.map((price) => {
-                  return {
-                    x: new Date(price.time_close * 1000).toLocaleDateString(),
-                    y: [
-                      parseFloat(price.open),
-                      parseFloat(price.high),
-                      parseFloat(price.low),
-                      parseFloat(price.close),
-                    ],
-                  };
-                }) || [],
+              data: chartData?.map((price) => parseFloat(price.close)) || [],
             },
           ]}
           options={{
             theme: {
               mode: isDark ? "dark" : "light",
+            },
+            stroke: {
+              width: 4,
+              curve: "smooth",
             },
             chart: {
               toolbar: {
@@ -44,10 +38,19 @@ const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
               },
               background: "transparent",
             },
+            dataLabels: {
+              enabled: false,
+            },
+            grid: {
+              show: true,
+            },
             xaxis: {
               labels: {
                 show: true,
               },
+              categories: chartData.map((price) =>
+                new Date(price.time_close * 1000).toLocaleDateString()
+              ),
             },
             yaxis: {
               labels: {
@@ -56,6 +59,17 @@ const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
                   fontSize: "14px",
                 },
                 formatter: (value) => `${value}`,
+              },
+            },
+            colors: [theme.accentColor],
+            fill: {
+              type: "gradient",
+              gradient: {
+                shadeIntensity: 1,
+                inverseColors: false,
+                opacityFrom: 0.45,
+                opacityTo: 0.05,
+                stops: [20, 100, 100, 100],
               },
             },
             tooltip: {
@@ -72,4 +86,4 @@ const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
   );
 };
 
-export default CandleChart;
+export default Chart;

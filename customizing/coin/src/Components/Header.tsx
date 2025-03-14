@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { isDarkAtom } from "./atoms";
+import { isDarkAtom } from "../atoms";
 import { useRecoilState } from "recoil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

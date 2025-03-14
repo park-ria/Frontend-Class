@@ -5,7 +5,7 @@ import { createGlobalStyle } from "styled-components";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { isDarkAtom } from "./atoms";
 import { useRecoilValue } from "recoil";
-import Header from "./Header";
+import Header from "./Components/Header";
 
 const GlobalStyle = createGlobalStyle`
   *{
