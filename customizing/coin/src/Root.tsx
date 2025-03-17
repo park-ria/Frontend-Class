@@ -43,10 +43,10 @@ const Root = () => {
         <GlobalStyle />
         <Header />
         <Outlet />
-        <ReactQueryDevtools
+        {/* <ReactQueryDevtools
           initialIsOpen={false}
           buttonPosition="bottom-left"
-        />
+        /> */}
       </ThemeProvider>
     </>
   );

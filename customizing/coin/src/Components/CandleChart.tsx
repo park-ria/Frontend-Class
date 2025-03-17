@@ -15,7 +15,7 @@ const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
 
   return (
     <Container>
-      {chartData.length > 0 ? (
+      {chartData.length > 0 && (
         <ApexChart
           type="candlestick"
           series={[
@@ -66,8 +66,6 @@ const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
             },
           }}
         />
-      ) : (
-        "No Data"
       )}
     </Container>
   );

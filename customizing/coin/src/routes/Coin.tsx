@@ -105,7 +105,7 @@ const InfoLine = styled.li`
       min-width: 100px;
       padding: 0 0 10px 10px;
       &.highest {
-        min-width: 250px;
+        min-width: 320px;
       }
       &:first-child {
         margin-right: 10px;
@@ -217,17 +217,32 @@ const Coin = () => {
     refetchOnWindowFocus: false,
     //refetchInterval: 60000, // 60초에 한번 씩 업데이트 됨
   });
-  // console.log(chartData);
+
+  const isEmptyData = (data: any) => !data || Object.keys(data).length === 0;
 
   const loading = infoLoading || priceLoading || chartLoading;
+  const isNoData =
+    isEmptyData(coinInfo) ||
+    isEmptyData(priceData) ||
+    isEmptyData(chartData) ||
+    chartData?.length === 0;
+
   const rateArr = ["30m", "1h", "6h", "12h", "24h", "7d", "30d", "1y"];
-  const todayPrice = priceData
-    ? parseFloat(priceData?.quotes.USD.price.toFixed(2))
-    : 0;
-  const yesterdayPrice = chartData?.length
-    ? parseFloat(chartData[chartData?.length - 2].close)
-    : 0;
-  const difference = todayPrice - yesterdayPrice;
+  let todayPrice = 0;
+  let yesterdayPrice = 0;
+  let difference = 0;
+
+  if (!loading && !isNoData) {
+    todayPrice = priceData?.quotes?.USD?.price
+      ? parseFloat(priceData?.quotes.USD.price.toFixed(2))
+      : 0;
+
+    yesterdayPrice =
+      chartData && chartData.length > 1
+        ? parseFloat(chartData[chartData?.length - 2].close)
+        : 0;
+    difference = todayPrice - yesterdayPrice;
+  }
 
   return (
     <Container>
@@ -238,6 +253,8 @@ const Coin = () => {
       </Helmet>
       {loading ? (
         <Loader>Loading...</Loader>
+      ) : isNoData ? (
+        <Loader>No Data</Loader>
       ) : (
         <div>
           <TitleSection>
@@ -254,7 +271,7 @@ const Coin = () => {
             <span>$ {todayPrice}</span>
             <span>
               {difference > 0 ? "+" : "-"}
-              {difference.toFixed(2)}({priceData?.quotes.USD.percent_change_24h}{" "}
+              {difference.toFixed(2)}({priceData?.quotes.USD.percent_change_24h}
               %)
             </span>
             <span>24hour ago</span>

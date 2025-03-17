@@ -15,9 +15,8 @@ const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
 
   return (
     <Container>
-      {chartData.length > 0 ? (
+      {chartData.length > 0 && (
         <ApexChart
-          //width={600}
           type="area"
           series={[
             {
@@ -80,8 +79,6 @@ const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
             },
           }}
         />
-      ) : (
-        "No Data"
       )}
     </Container>
   );

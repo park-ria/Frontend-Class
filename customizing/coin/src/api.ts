@@ -1,10 +1,10 @@
-// export const fetchCoins = () => {
-//   return fetch("https://api.coinpaprika.com/v1/coins").then((response) =>
-//     response.json()
-//   );
-// };
-
 export const fetchCoins = () => {
+  return fetch("https://api.coinpaprika.com/v1/coins")
+    .then((response) => response.json())
+    .then((res) => res.slice(0, 100));
+};
+
+export const fetchCoins2 = () => {
   return fetch(
     "https://raw.githubusercontent.com/Divjason/coindata/refs/heads/main/coins.json"
   )
