@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet";
 
 const Container = styled.main`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,33 +13,62 @@ const Container = styled.main`
 
 const Wrapper = styled.div`
   width: 1290px;
-  margin-top: 50px;
+  margin: 50px auto;
   display: flex;
   justify-content: space-between;
   gap: 50px;
+
+  @media screen and (max-width: 1350px) {
+    width: 100%;
+    padding: 0 20px;
+    gap: 20px;
+  }
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+    gap: 50px;
+  }
 `;
 
 const Section = styled.div`
   &:first-child {
     flex: 1;
-    padding-left: 25px;
   }
   &:last-child {
     width: 28%;
+  }
+
+  @media screen and (max-width: 1350px) {
+    &:first-child {
+      flex: 2;
+      padding-left: 0;
+    }
+    &:last-child {
+      flex: 1;
+      width: auto;
+    }
   }
 `;
 
 const CoinList = styled.ul`
   height: calc(100vh - 200px);
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
-  justify-content: space-around;
-  padding: 50px 50px 50px 20px;
+  justify-items: center;
+  padding: 50px 20px;
   border: 1px solid ${({ theme }) => theme.borderColor};
   border-radius: 10px;
   position: relative;
-  //background: ${({ theme }) => theme.cardBgColor};
+
+  @media screen and (max-width: 1050px) {
+    grid-gap: 30px;
+  }
+  @media screen and (max-width: 600px) {
+    height: auto;
+  }
+  @media screen and (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const SubTitle = styled.span`
@@ -69,9 +97,14 @@ const CoinBox = styled.li`
   &:hover {
     transform: translateY(-10px);
   }
+  @media screen and (max-width: 1350px) {
+    width: auto;
+  }
 `;
 
 const Rank = styled.div`
+  width: 50px;
+  text-align: right;
   color: ${({ theme }) => theme.textColor};
   font-size: 30px;
 
@@ -82,6 +115,21 @@ const Rank = styled.div`
 
   &.one {
     position: relative;
+  }
+
+  @media screen and (max-width: 1350px) {
+    &.topRank {
+      font-size: 80px;
+      line-height: 70px;
+    }
+  }
+  @media screen and (max-width: 1050px) {
+    width: 30px;
+    font-size: 26px;
+    &.topRank {
+      font-size: 50px;
+      line-height: 50px;
+    }
   }
 `;
 
@@ -111,6 +159,28 @@ const Coin = styled.div`
       height: 60px;
     }
   }
+
+  @media screen and (max-width: 1350px) {
+    width: 100px;
+    height: 100px;
+    font-size: 14px;
+    a {
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    width: 80px;
+    height: 80px;
+    a {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
 `;
 
 const Crown = styled.span`
@@ -122,6 +192,13 @@ const Crown = styled.span`
   top: -25px;
   left: 5px;
   transform: rotate(350deg);
+
+  @media screen and (max-width: 1350px) {
+    top: -30px;
+  }
+  @media screen and (max-width: 1050px) {
+    left: -10px;
+  }
 `;
 
 const CoinList100 = styled.div`
@@ -131,6 +208,13 @@ const CoinList100 = styled.div`
   border-radius: 10px;
   position: relative;
   background: ${({ theme }) => theme.cardBgColor};
+
+  @media screen and (max-width: 850px) {
+    padding-left: 40px;
+  }
+  @media screen and (max-width: 850px) {
+    padding-left: 24px;
+  }
 `;
 
 const CoinLabels = styled.div`
@@ -141,6 +225,12 @@ const CoinLabels = styled.div`
     min-width: 80px;
     font-size: 18px;
     color: ${({ theme }) => theme.textColor};
+  }
+
+  @media screen and (max-width: 1050px) and (min-width: 851px) {
+    & > label {
+      min-width: 60px;
+    }
   }
 `;
 
@@ -193,9 +283,20 @@ const CoinContents100 = styled.ul`
       }
     }
   }
+
+  @media screen and (max-width: 1050px) and (min-width: 851px) {
+    li {
+      & > a {
+        & > span {
+          min-width: 50px;
+        }
+      }
+    }
+  }
 `;
 
 const Loader = styled.span`
+  margin-top: 50px;
   color: ${(props) => props.theme.accentColor};
   font-size: 22px;
 `;

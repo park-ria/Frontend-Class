@@ -12,12 +12,30 @@ const Wrapper = styled.li`
   background: #fdfcfc;
   box-shadow: 1px 1px 2px #aaa;
   color: #222;
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 
-const Desc = styled.span<{ $isBlue: boolean }>`
+const Desc = styled.span<{ $signColor: string }>`
   font-size: 30px;
   font-weight: 600;
-  color: ${({ $isBlue }) => ($isBlue ? "#332ae9" : "#e81313")};
+  color: ${({ $signColor }) =>
+    $signColor === "blue"
+      ? "#332ae9"
+      : $signColor === "red"
+      ? "#e81313"
+      : "#222"};
+  & > svg {
+    margin-right: 16px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 18px;
+    & > svg {
+      margin-right: 10px;
+    }
+  }
 `;
 
 type RateProps = {
@@ -26,9 +44,9 @@ type RateProps = {
 };
 
 const Rate = ({ time, value }: RateProps) => {
-  const [isBlue, setIsBlue] = useState(false);
+  const [signColor, setsignColor] = useState("black");
   useEffect(() => {
-    setIsBlue(value.toString().slice(0, 1) === "-");
+    setsignColor(value < 0 ? "blue" : value > 0 ? "red" : "black");
   }, []);
 
   return (
@@ -42,12 +60,13 @@ const Rate = ({ time, value }: RateProps) => {
         ? "ay"
         : "ear"}
       {Number(time.slice(0, 1)) > 1 ? "s" : ""}
-      <Desc $isBlue={isBlue}>
-        <FontAwesomeIcon
-          icon={isBlue ? faCaretDown : faCaretUp}
-          style={{ marginRight: "16px" }}
-        />
-        {isBlue ? "" : "+"}
+      <Desc $signColor={signColor}>
+        {signColor !== "black" && (
+          <FontAwesomeIcon
+            icon={signColor === "blue" ? faCaretDown : faCaretUp}
+          />
+        )}
+        {signColor ? "" : "+"}
         {value} %
       </Desc>
     </Wrapper>

@@ -11,26 +11,41 @@ import Rate from "../Components/Rate";
 
 const Container = styled.main`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
 `;
 
-const Wrapper = styled.div`
+const Section = styled.section`
   width: 1290px;
+  @media screen and (max-width: 1350px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+`;
+
+const Area = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 50px;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 1050px) {
+    flex-direction: column;
+  }
 `;
 
-const Section = styled.div`
+const Wrapper = styled.div`
   flex: 1;
 `;
 
 const Content = styled.div`
   margin-bottom: 30px;
+
+  @media screen and (max-width: 1350px) {
+    margin-bottom: 0;
+  }
 `;
 
 const Loader = styled.span`
@@ -50,7 +65,7 @@ const SubTitle = styled.span`
   border-radius: 6px;
 `;
 
-const TitleSection = styled.div`
+const TitleArea = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
@@ -109,7 +124,6 @@ const InfoLine = styled.li`
       }
       &:first-child {
         margin-right: 10px;
-        //border-right: 1px solid var(--border-color);
         font-weight: 350;
         color: ${({ theme }) => theme.lightGrayColor};
       }
@@ -256,8 +270,8 @@ const Coin = () => {
       ) : isNoData ? (
         <Loader>No Data</Loader>
       ) : (
-        <div>
-          <TitleSection>
+        <Section>
+          <TitleArea>
             <Rank>
               Rank
               <h3>{coinInfo?.rank}</h3>
@@ -268,16 +282,9 @@ const Coin = () => {
               />
               {coinInfo?.name}
             </Title>
-            <span>$ {todayPrice}</span>
-            <span>
-              {difference > 0 ? "+" : "-"}
-              {difference.toFixed(2)}({priceData?.quotes.USD.percent_change_24h}
-              %)
-            </span>
-            <span>24hour ago</span>
-          </TitleSection>
-          <Wrapper>
-            <Section>
+          </TitleArea>
+          <Area>
+            <Wrapper>
               <Chart chartData={chartData ?? []} />
               <Content>
                 <SubTitle>Basic Information</SubTitle>
@@ -363,9 +370,9 @@ const Coin = () => {
                   </InfoLine>
                 </Info>
               </Content>
-            </Section>
+            </Wrapper>
 
-            <Section>
+            <Wrapper>
               <CandleChart chartData={chartData ?? []} />
               <Content>
                 <SubTitle>Rate of change</SubTitle>
@@ -387,9 +394,9 @@ const Coin = () => {
                     ))}
                 </Rates>
               </Content>
-            </Section>
-          </Wrapper>
-        </div>
+            </Wrapper>
+          </Area>
+        </Section>
       )}
     </Container>
   );

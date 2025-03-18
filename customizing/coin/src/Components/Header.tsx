@@ -23,6 +23,11 @@ const Wrapper = styled.header`
     align-items: center;
     gap: 10px;
   }
+
+  @media screen and (max-width: 1350px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 
 const Back = styled.span`
@@ -34,6 +39,9 @@ const Back = styled.span`
 const Title = styled.h1`
   color: ${(props) => props.theme.accentColor};
   font-size: 40px;
+  @media screen and (max-width: 600px) {
+    font-size: 30px;
+  }
 `;
 
 const DarkBtn = styled.button`
@@ -50,6 +58,10 @@ const DarkBtn = styled.button`
   & > svg {
     font-size: 20px;
   }
+  @media screen and (max-width: 600px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const Header = () => {
@@ -58,7 +70,7 @@ const Header = () => {
   return (
     <Wrapper>
       <Link to={"/"}>
-        <Back style={{ opacity: coinId ? 1 : 0 }}>
+        <Back style={{ display: coinId ? "block" : "none" }}>
           <FontAwesomeIcon icon={faChevronLeft} />
         </Back>
         <Title>COIN RANKING</Title>

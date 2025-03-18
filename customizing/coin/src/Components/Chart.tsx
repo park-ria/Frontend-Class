@@ -7,6 +7,9 @@ import { CoinHistory } from "../routes/Coin";
 const Container = styled.div`
   width: 100%;
   transform: translateX(-10px);
+  @media screen and (max-width: 1050px) {
+    transform: translateX(0);
+  }
 `;
 
 const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
@@ -35,6 +38,9 @@ const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
             chart: {
               toolbar: {
                 show: false,
+              },
+              zoom: {
+                enabled: false,
               },
               background: "transparent",
             },
