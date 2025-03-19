@@ -171,6 +171,8 @@ const UserId = ({
   };
 
   const moveProfile = () => {
+    if (!uid) return;
+
     navigate({
       pathname: "/profile",
       search: `?${createSearchParams({
@@ -212,7 +214,7 @@ const UserId = ({
           </Date>
         ) : null}
         {follwed ? (
-          <IsFollowed className="user-followed" onClick={() => console.log(1)}>
+          <IsFollowed className="user-followed">
             <span>&middot;</span>
             <Follow
               txt={follwed}

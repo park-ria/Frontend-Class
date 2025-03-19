@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaGear } from "react-icons/fa6";
 import Setup from "../../pages/Setup";
@@ -9,7 +9,6 @@ const Wrapper = styled.div``;
 
 const MyProfileBox = styled.div`
   width: 100%;
-  /* border-top: 1px solid ${({ theme }) => theme.borderColor}; */
 `;
 
 const NameBox = styled.div`
@@ -88,10 +87,6 @@ const MyIntro = styled.div`
   padding: 30px 70px;
   font-size: var(--font-16);
 
-  /* @media screen and (max-width: 900px) {
-    padding: 10px 50px 10px;
-  } */
-
   @media screen and (max-width: 900px) {
     padding: 25px 20px 25px 50px;
     font-size: var(--font-14);
@@ -106,12 +101,17 @@ const MyIntro = styled.div`
 
 const MyProfile = ({ userId }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [feedProfile, setFeedProfile] = useState(false);
   const { myProfile } = useContext(StateContext);
   const { allProfile } = useContext(StateContext);
 
-  const feedProfile = userId
-    ? allProfile.find((it) => it.userId === userId)
-    : myProfile;
+  useEffect(() => {
+    if (allProfile && myProfile) {
+      setFeedProfile(
+        userId ? allProfile.find((it) => it.userId === userId) : myProfile
+      );
+    }
+  }, [allProfile, myProfile]);
 
   const onClick = () => {
     setIsOpen((current) => !current);
@@ -119,22 +119,24 @@ const MyProfile = ({ userId }) => {
 
   return (
     <Wrapper>
-      <MyProfileBox>
-        <NameBox>
-          <MyName>
-            <p>{feedProfile?.userId}</p>
-            <span>{feedProfile?.userName}</span>
-          </MyName>
-          <EditBtn onClick={onClick}>
-            {isOpen ? (
-              <Setup onClick={onClick} myProfile={feedProfile} />
-            ) : null}
-            <FaGear />
-          </EditBtn>
-        </NameBox>
-        <MyIntro>{feedProfile?.introduction}</MyIntro>
-        <MbButtons myProfile={feedProfile} />
-      </MyProfileBox>
+      {feedProfile && (
+        <MyProfileBox>
+          <NameBox>
+            <MyName>
+              <p>{feedProfile?.userId}</p>
+              <span>{feedProfile?.userName}</span>
+            </MyName>
+            <EditBtn onClick={onClick}>
+              {isOpen ? (
+                <Setup onClick={onClick} myProfile={feedProfile} />
+              ) : null}
+              <FaGear />
+            </EditBtn>
+          </NameBox>
+          <MyIntro>{feedProfile?.introduction}</MyIntro>
+          <MbButtons myProfile={feedProfile} />
+        </MyProfileBox>
+      )}
     </Wrapper>
   );
 };

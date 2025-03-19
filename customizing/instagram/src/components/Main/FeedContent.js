@@ -100,13 +100,14 @@ const FeedContent = () => {
   const stickyTriggerHeight = 285;
 
   const recommendActive = () => {
-    setIsLoading(true);
+    setIsLoading(false);
     setRecommend(true);
     setFollow(false);
     setTabChange("recommend");
   };
+
   const followActive = () => {
-    setIsLoading(true);
+    setIsLoading(false);
     setRecommend(false);
     setFollow(true);
     setTabChange("follow");
@@ -137,6 +138,11 @@ const FeedContent = () => {
               profile.uid !== myProfile.uid
           );
         } else {
+          if (myProfile.following.length === 0) {
+            setPostsWithProfiles([]);
+            setIsLoading(false);
+            return;
+          }
           followingArr = allProfile.filter((profile) =>
             myProfile.following.includes(profile.uid)
           );

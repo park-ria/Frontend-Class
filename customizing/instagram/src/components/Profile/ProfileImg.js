@@ -59,7 +59,10 @@ const ProfileImg = ({ url, type, size }) => {
       <ActivationArea className="storyFirstCircle" size={size} type={type}>
         <BoundaryLine className="storySecondCircle" size={size} type={type}>
           <ImgBox className="storyThirdCircle" size={size}>
-            <Img src={url} alt="profile photo" />
+            <Img
+              src={url === "" ? "/images/user_img.jpg" : url}
+              alt="profile photo"
+            />
           </ImgBox>
         </BoundaryLine>
       </ActivationArea>

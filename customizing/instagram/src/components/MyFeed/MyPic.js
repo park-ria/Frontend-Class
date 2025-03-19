@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import ProfileImg from "../Profile/ProfileImg";
 import PostAndFollow from "../User/PostAndFollow";
@@ -164,42 +164,49 @@ const MyFeedDesc = styled.div`
 const MyPic = ({ userId, posts }) => {
   const { allProfile } = useContext(StateContext);
   const { myProfile } = useContext(StateContext);
+  const [feedProfile, setFeedProfile] = useState(null);
 
-  const feedProfile = userId
-    ? allProfile.find((it) => it.userId === userId)
-    : myProfile;
+  useEffect(() => {
+    if (allProfile && myProfile) {
+      setFeedProfile(
+        userId ? allProfile.find((it) => it.userId === userId) : myProfile
+      );
+    }
+  }, [allProfile, myProfile]);
 
   return (
     <Wrapper>
-      <MyPicBox>
-        <ProfileBg
-          src={
-            feedProfile?.bgPhoto
-              ? feedProfile.bgPhoto
-              : "/images/mb_Profile_bg.jpg"
-          }
-        />
-        <ProfileImgBox>
-          <ProfileImg
-            type={"active"}
-            size={170}
-            url={
-              feedProfile?.profilePhoto
-                ? feedProfile.profilePhoto
-                : "/images/user_img.jpg"
+      {feedProfile && (
+        <MyPicBox>
+          <ProfileBg
+            src={
+              feedProfile?.bgPhoto
+                ? feedProfile.bgPhoto
+                : "/images/mb_Profile_bg.jpg"
             }
-            hover={true}
           />
-        </ProfileImgBox>
-        <MyFeedDesc>
-          <PostAndFollow
-            posting={posts?.length}
-            follower={feedProfile?.follower.length}
-            following={feedProfile?.following.length}
-            myProfile={feedProfile}
-          />
-        </MyFeedDesc>
-      </MyPicBox>
+          <ProfileImgBox>
+            <ProfileImg
+              type={"active"}
+              size={170}
+              url={
+                feedProfile?.profilePhoto
+                  ? feedProfile.profilePhoto
+                  : "/images/user_img.jpg"
+              }
+              hover={true}
+            />
+          </ProfileImgBox>
+          <MyFeedDesc>
+            <PostAndFollow
+              posting={posts?.length}
+              follower={feedProfile?.follower.length}
+              following={feedProfile?.following.length}
+              myProfile={feedProfile}
+            />
+          </MyFeedDesc>
+        </MyPicBox>
+      )}
     </Wrapper>
   );
 };

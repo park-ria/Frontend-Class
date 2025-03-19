@@ -159,26 +159,27 @@ const Slide = ({ imgPath }) => {
         }
         className="carousel"
       >
-        {imageArray.map((it, idx) => (
-          <SlideItem key={idx}>
-            {videoArr.includes(extractExtension(it)) ? (
-              <video
-                src={it}
-                autoPlay
-                muted
-                loop
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
-                  background: "#000",
-                }}
-              />
-            ) : (
-              <img src={it} alt={`Slide ${idx}`} />
-            )}
-          </SlideItem>
-        ))}
+        {imageArray &&
+          imageArray.map((it, idx) => (
+            <SlideItem key={idx}>
+              {videoArr.includes(extractExtension(it)) ? (
+                <video
+                  src={it}
+                  autoPlay
+                  muted
+                  loop
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    background: "#000",
+                  }}
+                />
+              ) : (
+                <img src={it} alt={`Slide ${idx}`} />
+              )}
+            </SlideItem>
+          ))}
       </Carousel>
 
       {imageArray.length > 1 && (

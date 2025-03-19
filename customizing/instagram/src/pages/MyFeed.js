@@ -94,6 +94,7 @@ const MyFeed = ({ userId }) => {
             profile: feedProfile,
           };
         });
+
         setPosts(fetchedPosts); // posts 상태 업데이트
       });
     };
@@ -102,7 +103,7 @@ const MyFeed = ({ userId }) => {
     return () => {
       unsubscribe && unsubscribe();
     };
-  }, []);
+  }, [myProfile, allProfile]);
 
   return (
     <Wrapper>
