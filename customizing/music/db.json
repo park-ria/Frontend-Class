@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "title": "Home",
+      "singer": "Zach Sorgen",
+      "album_img": "home.jpg",
+      "singer_img": "Zach_Sorgen.jpg",
+      "music": "Zach Sorgen - Home.mp3"
+    },
+    {
+      "title": "Way U La La",
+      "singer": "Raquel Castro",
+      "album_img": "way_u_la_la.jpg",
+      "singer_img": "Raquel_Castro.jpg",
+      "music": "Raquel Castro - Way U La La.mp3"
+    },
+    {
+      "title": "Soul Swingin",
+      "singer": "Richard Farrell",
+      "album_img": "soul_swingin.jpg",
+      "singer_img": "Richard_Farrell.jpg",
+      "music": "Richard Farrell - Soul Swingin.mp3"
+    },
+    {
+      "title": "Wait out the Storm",
+      "singer": "The Satellite Station",
+      "album_img": "wait_out_the_storm.jpg",
+      "singer_img": "The_Satellite_Station.jpg",
+      "music": "The Satellite Station - Wait out the Storm.mp3"
+    },
+    {
+      "title": "Chasin You",
+      "singer": "Supermans Feinde",
+      "album_img": "chasin_you.jpg",
+      "singer_img": "Supermans_Feinde.jpg",
+      "music": "Supermans Feinde - Chasin You.mp3"
+    },
+    {
+      "title": "Sweat",
+      "singer": "Sheer Haimov",
+      "album_img": "sweat.jpg",
+      "singer_img": "Sheer_Haimov.jpg",
+      "music": "Sheer Haimov - Sweat.mp3"
+    },
+    {
+      "title": "Plastic Generation",
+      "singer": "Lemon",
+      "album_img": "plastic_generation.jpg",
+      "singer_img": "Lemon.jpg",
+      "music": "Lemon - Plastic Generation.mp3"
+    },
+    {
+      "title": "Satin Dress",
+      "singer": "Ann Paris",
+      "album_img": "satin_dress.jpg",
+      "singer_img": "Ann_Paris.jpg",
+      "music": "Ann Paris - Satin Dress.mp3"
+    }
+  ]
+}
