@@ -1,60 +1,76 @@
 {
   "data": [
     {
-      "title": "Home",
-      "singer": "Zach Sorgen",
-      "album_img": "home.jpg",
-      "singer_img": "Zach_Sorgen.jpg",
-      "music": "Zach Sorgen - Home.mp3"
-    },
-    {
       "title": "Way U La La",
       "singer": "Raquel Castro",
       "album_img": "way_u_la_la.jpg",
       "singer_img": "Raquel_Castro.jpg",
-      "music": "Raquel Castro - Way U La La.mp3"
+      "music": "Raquel Castro - Way U La La.mp3",
+      "color1": "#1A99BC",
+      "color2": "#9fdfa8"
+    },
+    {
+      "title": "Home",
+      "singer": "Zach Sorgen",
+      "album_img": "home.jpg",
+      "singer_img": "Zach_Sorgen.jpg",
+      "music": "Zach Sorgen - Home.mp3",
+      "color1": "#a15f5f",
+      "color2": "#ae8019"
     },
     {
       "title": "Soul Swingin",
       "singer": "Richard Farrell",
       "album_img": "soul_swingin.jpg",
       "singer_img": "Richard_Farrell.jpg",
-      "music": "Richard Farrell - Soul Swingin.mp3"
+      "music": "Richard Farrell - Soul Swingin.mp3",
+      "color1": "#9b4fb5",
+      "color2": "#fdf1b7"
     },
     {
       "title": "Wait out the Storm",
       "singer": "The Satellite Station",
       "album_img": "wait_out_the_storm.jpg",
       "singer_img": "The_Satellite_Station.jpg",
-      "music": "The Satellite Station - Wait out the Storm.mp3"
+      "music": "The Satellite Station - Wait out the Storm.mp3",
+      "color1": "#81e3d8",
+      "color2": "#3ed2f9"
     },
     {
       "title": "Chasin You",
       "singer": "Supermans Feinde",
       "album_img": "chasin_you.jpg",
       "singer_img": "Supermans_Feinde.jpg",
-      "music": "Supermans Feinde - Chasin You.mp3"
+      "music": "Supermans Feinde - Chasin You.mp3",
+      "color1": "#730000",
+      "color2": "#fd2c06"
     },
     {
       "title": "Sweat",
       "singer": "Sheer Haimov",
       "album_img": "sweat.jpg",
       "singer_img": "Sheer_Haimov.jpg",
-      "music": "Sheer Haimov - Sweat.mp3"
+      "music": "Sheer Haimov - Sweat.mp3",
+      "color1": "#4b92a8",
+      "color2": "#e4f1ff"
     },
     {
       "title": "Plastic Generation",
       "singer": "Lemon",
       "album_img": "plastic_generation.jpg",
       "singer_img": "Lemon.jpg",
-      "music": "Lemon - Plastic Generation.mp3"
+      "music": "Lemon - Plastic Generation.mp3",
+      "color1": "#2c46c4",
+      "color2": "#f5a8e0"
     },
     {
       "title": "Satin Dress",
       "singer": "Ann Paris",
       "album_img": "satin_dress.jpg",
       "singer_img": "Ann_Paris.jpg",
-      "music": "Ann Paris - Satin Dress.mp3"
+      "music": "Ann Paris - Satin Dress.mp3",
+      "color1": "#fdc08c",
+      "color2": "#fc6083"
     }
   ]
 }
