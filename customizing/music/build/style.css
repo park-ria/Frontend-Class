@@ -1,0 +1,470 @@
+@charset "UTF-8";
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* common */
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(25deg, #1a99bc, #9fdfa8);
+  overflow: hidden;
+}
+main h1 {
+  position: absolute;
+  top: 7vh;
+  left: 4vh;
+  font-size: 0;
+  text-align: center;
+}
+main h1 strong {
+  font-size: 36px;
+  color: #fff;
+  line-height: 140%;
+  letter-spacing: 1px;
+}
+main h1 span {
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+main .menu {
+  position: absolute;
+  top: 8vh;
+  right: 4vw;
+}
+main .menu i {
+  color: #fff;
+  font-size: 24px;
+}
+main > p {
+  width: 100%;
+  position: absolute;
+  bottom: 7vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+main section {
+  width: 30vw;
+  height: 30vw;
+  position: absolute;
+  left: 50%;
+  top: 140%;
+  margin-top: -15vw;
+  margin-left: -15vw;
+}
+main section article {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main section article .inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  border-radius: 10px;
+  opacity: 0.6;
+  transform: scale(0.8);
+  transition: opacity 1s, transform 1s;
+}
+main section article .inner .pic {
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+main section article .inner .pic::before, main section article .inner .pic::after {
+  content: "";
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: inherit;
+  background-position: inherit;
+  background-size: inherit;
+  background-repeat: inherit;
+  transform-origin: center center;
+}
+main section article .inner .pic::before {
+  transform: translate(2%, 2%);
+  filter: blur(20px) brightness(1.6);
+}
+main section article .inner .pic.on::before {
+  animation: ani2 5s linear infinite;
+}
+main section article .inner .pic.on::after {
+  animation: ani 5s linear infinite;
+}
+main section article .inner .txt {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #fff;
+}
+main section article .inner .txt h2 {
+  font-size: 40px;
+}
+main section article .inner .txt p {
+  font-size: 14px;
+  margin: 0 0 5vh;
+}
+main section article .inner .txt ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main section article .inner .txt ul li {
+  min-width: 70px;
+  transition: opacity 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+main section article .inner .txt ul li:hover {
+  opacity: 1;
+  transform: scale(1.5);
+}
+main section article .inner .txt ul li:nth-child(2) {
+  transform: scale(1.5);
+}
+main section article .inner .txt ul li:nth-child(2):hover {
+  transform: scale(2);
+}
+main section article .inner .txt ul li:nth-child(3):hover {
+  transform: scale(1);
+}
+main section article .inner .txt ul li .volumeWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+main section article .inner .txt ul li .volumeWrapper .volumeControl {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 40px;
+  height: 3px;
+  background: rgba(124, 124, 124, 0.6);
+  border-radius: 3px;
+  outline: none;
+  transition: background 0.2s;
+  /* 슬라이더 버튼 (Thumb) */
+}
+main section article .inner .txt ul li .volumeWrapper .volumeControl::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4px;
+  height: 10px;
+  background: #fff;
+  cursor: pointer;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+}
+main section article .inner .txt ul li .volumeWrapper .volumeControl::-moz-range-thumb {
+  width: 4px;
+  height: 10px;
+  background: #fff;
+  cursor: pointer;
+  -moz-transition: transform 0.2s;
+  transition: transform 0.2s;
+}
+main section article .inner .txt .progressWrapper {
+  margin-top: 2vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+main section article .inner .txt .progressWrapper .progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 60%;
+  height: 6px;
+  background: rgba(124, 124, 124, 0.6);
+  border-radius: 3px;
+  outline: none;
+  transition: background 0.2s;
+  /* 슬라이더 버튼 (Thumb) */
+}
+main section article .inner .txt .progressWrapper .progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4px;
+  height: 14px;
+  background: #fff;
+  cursor: pointer;
+  -webkit-transition: transform 0.2s;
+  transition: transform 0.2s;
+}
+main section article .inner .txt .progressWrapper .progress::-moz-range-thumb {
+  width: 4px;
+  height: 14px;
+  background: #fff;
+  cursor: pointer;
+  -moz-transition: transform 0.2s;
+  transition: transform 0.2s;
+}
+main section article .inner .txt .progressWrapper span {
+  width: 34px;
+  font-size: 14px;
+}
+main section article.on .inner {
+  opacity: 1;
+  transform: scale(1.1);
+}
+main .btnPrev {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-24vw, -50%);
+  display: flex;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+main .btnPrev span {
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  opacity: 1;
+  transform: translateX(30%);
+  transition: transform 0.3s;
+}
+main .btnPrev::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: left center;
+  transform: rotate(-180deg);
+  transition: transform 0.3s;
+}
+main .btnPrev::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  transform-origin: left center;
+  transform: rotate(180deg);
+  transition: opacity 0.3s, transform 0.3s;
+}
+main .btnPrev:hover span {
+  opacity: 0;
+  transform: translateX(100%);
+}
+main .btnPrev:hover::before {
+  transform: rotate(-30deg);
+}
+main .btnPrev:hover::after {
+  transform: rotate(30deg);
+}
+main .btnNext {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  transform: translate(24vw, -50%);
+  display: flex;
+  align-items: center;
+  text-align: right;
+  cursor: pointer;
+}
+main .btnNext span {
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  opacity: 1;
+  transform: translateX(-30%);
+  transition: transform 0.3s;
+}
+main .btnNext::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: right center;
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+main .btnNext::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  transform-origin: right center;
+  transform: rotate(-180deg);
+  transition: opacity 0.3s, transform 0.3s;
+}
+main .btnNext:hover span {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+main .btnNext:hover::before {
+  transform: rotate(30deg);
+}
+main .btnNext:hover::after {
+  transform: rotate(-30deg);
+}
+
+@keyframes ani {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ani2 {
+  0% {
+    transform: translateY(5%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(5%) rotate(360deg);
+  }
+}
+@media screen and (max-width: 1250px) {
+  main section {
+    width: 40vw;
+    height: 40vw;
+    margin-left: -20vw;
+    top: 135%;
+  }
+  main .btnPrev {
+    transform: translate(-30vw, -50%);
+  }
+  main .btnNext {
+    transform: translate(30vw, -50%);
+  }
+}
+@media screen and (max-width: 1000px) {
+  main section {
+    width: 50vw;
+    height: 50vw;
+    margin-left: -25vw;
+    top: 130%;
+  }
+  main .btnPrev {
+    transform: translate(-38vw, -50%);
+  }
+  main .btnNext {
+    transform: translate(38vw, -50%);
+  }
+}
+@media screen and (max-width: 800px) {
+  main section {
+    width: 60vw;
+    height: 60vw;
+    margin-left: -30vw;
+  }
+  main .btnPrev {
+    top: 80%;
+    transform: translate(-30vw, -50%);
+  }
+  main .btnNext {
+    top: 80%;
+    transform: translate(30vw, -50%);
+  }
+}
+@media screen and (max-width: 600px) {
+  main section {
+    width: 80vw;
+    height: 80vw;
+    margin-left: -40vw;
+  }
+  main section article .inner .txt h2 {
+    font-size: 30px;
+  }
+  main h1 {
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 450px) {
+  main section {
+    top: 134%;
+  }
+  main section article .inner .txt p {
+    margin: 0 0 2vh;
+  }
+  main section article .inner .txt ul {
+    width: 90%;
+    justify-content: space-between;
+  }
+  main section article .inner .txt ul li {
+    min-width: 60px;
+  }
+  main section article .inner .txt ul li:nth-child(2) {
+    transform: scale(1);
+  }
+  main section article .inner .txt ul li:nth-child(2):hover {
+    transform: scale(1.5);
+  }
+  main section article .inner .txt ul li:nth-child(2) i {
+    font-size: 20px;
+  }
+  main section article .inner .txt h2 {
+    font-size: 24px;
+  }
+  main section article .inner .txt .progressWrapper {
+    width: 80%;
+  }
+}

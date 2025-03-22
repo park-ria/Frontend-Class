@@ -15,8 +15,8 @@
       "album_img": "home.jpg",
       "singer_img": "Zach_Sorgen.jpg",
       "music": "Zach Sorgen - Home.mp3",
-      "color1": "#a15f5f",
-      "color2": "#ae8019"
+      "color1": "#c79081",
+      "color2": "#dfa579"
     },
     {
       "title": "Soul Swingin",
@@ -24,8 +24,8 @@
       "album_img": "soul_swingin.jpg",
       "singer_img": "Richard_Farrell.jpg",
       "music": "Richard Farrell - Soul Swingin.mp3",
-      "color1": "#9b4fb5",
-      "color2": "#fdf1b7"
+      "color1": "#d299c2",
+      "color2": "#e4fed7"
     },
     {
       "title": "Wait out the Storm",
@@ -33,8 +33,8 @@
       "album_img": "wait_out_the_storm.jpg",
       "singer_img": "The_Satellite_Station.jpg",
       "music": "The Satellite Station - Wait out the Storm.mp3",
-      "color1": "#81e3d8",
-      "color2": "#3ed2f9"
+      "color1": "#a3bded",
+      "color2": "#6991c7"
     },
     {
       "title": "Chasin You",
@@ -42,8 +42,8 @@
       "album_img": "chasin_you.jpg",
       "singer_img": "Supermans_Feinde.jpg",
       "music": "Supermans Feinde - Chasin You.mp3",
-      "color1": "#730000",
-      "color2": "#fd2c06"
+      "color1": "#fa709a",
+      "color2": "#fee140"
     },
     {
       "title": "Sweat",
@@ -51,8 +51,8 @@
       "album_img": "sweat.jpg",
       "singer_img": "Sheer_Haimov.jpg",
       "music": "Sheer Haimov - Sweat.mp3",
-      "color1": "#4b92a8",
-      "color2": "#e4f1ff"
+      "color1": "#7DE2FC",
+      "color2": "#B9B6E5"
     },
     {
       "title": "Plastic Generation",

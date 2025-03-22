@@ -17,7 +17,7 @@ const setting = () => {
     const pic = Object.assign(document.createElement("div"), {
       className: "pic",
     });
-    pic.style.backgroundImage = `linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("./img/${info.album_img}")`;
+    pic.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("./img/${info.album_img}")`;
 
     const h2 = document.createElement("h2");
     h2.innerText = info.title;

@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "title": "Way U La La",
+      "singer": "Raquel Castro",
+      "album_img": "way_u_la_la.jpg",
+      "singer_img": "Raquel_Castro.jpg",
+      "music": "Raquel Castro - Way U La La.mp3",
+      "color1": "#1A99BC",
+      "color2": "#9fdfa8"
+    },
+    {
+      "title": "Home",
+      "singer": "Zach Sorgen",
+      "album_img": "home.jpg",
+      "singer_img": "Zach_Sorgen.jpg",
+      "music": "Zach Sorgen - Home.mp3",
+      "color1": "#c79081",
+      "color2": "#dfa579"
+    },
+    {
+      "title": "Soul Swingin",
+      "singer": "Richard Farrell",
+      "album_img": "soul_swingin.jpg",
+      "singer_img": "Richard_Farrell.jpg",
+      "music": "Richard Farrell - Soul Swingin.mp3",
+      "color1": "#d299c2",
+      "color2": "#e4fed7"
+    },
+    {
+      "title": "Wait out the Storm",
+      "singer": "The Satellite Station",
+      "album_img": "wait_out_the_storm.jpg",
+      "singer_img": "The_Satellite_Station.jpg",
+      "music": "The Satellite Station - Wait out the Storm.mp3",
+      "color1": "#a3bded",
+      "color2": "#6991c7"
+    },
+    {
+      "title": "Chasin You",
+      "singer": "Supermans Feinde",
+      "album_img": "chasin_you.jpg",
+      "singer_img": "Supermans_Feinde.jpg",
+      "music": "Supermans Feinde - Chasin You.mp3",
+      "color1": "#fa709a",
+      "color2": "#fee140"
+    },
+    {
+      "title": "Sweat",
+      "singer": "Sheer Haimov",
+      "album_img": "sweat.jpg",
+      "singer_img": "Sheer_Haimov.jpg",
+      "music": "Sheer Haimov - Sweat.mp3",
+      "color1": "#7DE2FC",
+      "color2": "#B9B6E5"
+    },
+    {
+      "title": "Plastic Generation",
+      "singer": "Lemon",
+      "album_img": "plastic_generation.jpg",
+      "singer_img": "Lemon.jpg",
+      "music": "Lemon - Plastic Generation.mp3",
+      "color1": "#2c46c4",
+      "color2": "#f5a8e0"
+    },
+    {
+      "title": "Satin Dress",
+      "singer": "Ann Paris",
+      "album_img": "satin_dress.jpg",
+      "singer_img": "Ann_Paris.jpg",
+      "music": "Ann Paris - Satin Dress.mp3",
+      "color1": "#fdc08c",
+      "color2": "#fc6083"
+    }
+  ]
+}
