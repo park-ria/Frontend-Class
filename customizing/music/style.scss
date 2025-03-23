@@ -65,13 +65,13 @@ main {
     opacity: 0.8;
   }
   section {
-    width: 30vw;
-    height: 30vw;
+    width: 32vw;
+    height: 32vw;
     position: absolute;
     left: 50%;
     top: 140%;
-    margin-top: -15vw;
-    margin-left: -15vw;
+    margin-top: -16vw;
+    margin-left: -16vw;
     article {
       width: 100%;
       height: 100%;
@@ -82,16 +82,15 @@ main {
         width: 100%;
         height: 100%;
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        align-content: space-between;
+        align-items: center;
         border-radius: 10px;
         opacity: 0.6;
-        transform: scale(0.8);
+        transform: scale(0.7);
         transition: opacity 1s, transform 1s;
         .pic {
-          width: inherit;
-          height: inherit;
+          width: calc(100% - 30px);
+          height: calc(100% - 30px);
           border-radius: 50%;
           margin: 0 auto;
           background-repeat: no-repeat;
@@ -104,8 +103,8 @@ main {
           &::before,
           &::after {
             content: "";
-            width: inherit;
-            height: inherit;
+            width: 100%;
+            height: 100%;
             border-radius: inherit;
             position: absolute;
             top: 0;
@@ -121,7 +120,7 @@ main {
             filter: blur(20px) brightness(1.6);
           }
           &.on::before {
-            animation: ani2 5s linear infinite;
+            animation: ani 5s linear infinite;
           }
           &.on::after {
             animation: ani 5s linear infinite;
@@ -251,7 +250,7 @@ main {
       }
       &.on .inner {
         opacity: 1;
-        transform: scale(1.1);
+        transform: scale(1);
       }
     }
   }
@@ -261,7 +260,7 @@ main {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-24vw, -50%);
+    transform: translate(-22vw, -50%);
     display: flex;
     align-items: center;
     text-align: left;
@@ -315,7 +314,7 @@ main {
     position: absolute;
     top: 40%;
     right: 50%;
-    transform: translate(24vw, -50%);
+    transform: translate(22vw, -50%);
     display: flex;
     align-items: center;
     text-align: right;
@@ -374,16 +373,7 @@ main {
   }
 }
 
-@keyframes ani2 {
-  0% {
-    transform: translateY(5%) rotate(0deg);
-  }
-  100% {
-    transform: translateY(5%) rotate(360deg);
-  }
-}
-
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1400px) {
   main {
     section {
       width: 40vw;
@@ -392,35 +382,63 @@ main {
       top: 135%;
     }
     .btnPrev {
-      transform: translate(-30vw, -50%);
+      transform: translate(-26vw, -50%);
     }
     .btnNext {
-      transform: translate(30vw, -50%);
+      transform: translate(26vw, -50%);
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  main {
+    section {
+      width: 50vw;
+      height: 50vw;
+      margin-left: -25vw;
+      top: 136%;
+    }
+    .btnPrev {
+      top: 45%;
+      transform: translate(-34vw, -50%);
+    }
+    .btnNext {
+      top: 45%;
+      transform: translate(34vw, -50%);
     }
   }
 }
 @media screen and (max-width: 1000px) {
   main {
     section {
-      width: 50vw;
-      height: 50vw;
-      margin-left: -25vw;
+      width: 60vw;
+      height: 60vw;
+      margin-left: -30vw;
       top: 130%;
     }
     .btnPrev {
-      transform: translate(-38vw, -50%);
+      transform: translate(-40vw, -50%);
     }
     .btnNext {
-      transform: translate(38vw, -50%);
+      transform: translate(40vw, -50%);
     }
   }
 }
 @media screen and (max-width: 800px) {
   main {
     section {
-      width: 60vw;
-      height: 60vw;
-      margin-left: -30vw;
+      width: 70vw;
+      height: 70vw;
+      margin-left: -35vw;
+      article {
+        .inner {
+          .pic {
+            &::before {
+              transform: translate(1.5%, 1.5%);
+              filter: blur(10px) brightness(1.6);
+            }
+          }
+        }
+      }
     }
     .btnPrev {
       top: 80%;
@@ -461,6 +479,12 @@ main {
       top: 134%;
       article {
         .inner {
+          .pic {
+            &::before {
+              transform: translate(1%, 1%);
+              filter: blur(8px) brightness(1.6);
+            }
+          }
           .txt {
             p {
               margin: 0 0 2vh;
