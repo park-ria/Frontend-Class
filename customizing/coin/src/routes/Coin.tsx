@@ -42,8 +42,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   margin-bottom: 30px;
-
-  @media screen and (max-width: 1350px) {
+  &:last-child {
     margin-bottom: 0;
   }
 `;
@@ -135,6 +134,9 @@ const InfoLine = styled.li`
         margin-left: 10px;
         font-size: 14px;
         font-weight: 400;
+        @media screen and (max-width: 500px) {
+          display: none;
+        }
       }
     }
   }
