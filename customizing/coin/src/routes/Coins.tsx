@@ -6,12 +6,117 @@ import { Helmet } from "react-helmet";
 
 const Container = styled.main`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
-const Wrapper = styled.div`
+const Banner = styled.div`
+  width: 100%;
+  height: 420px;
+  margin: 30px 0 50px;
+  position: relative;
+  background: #000;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      ${({ theme }) => theme.accentColor},
+      rgba(0, 0, 0, 0)
+    );
+  }
+`;
+
+const BannerDesc = styled.div`
+  width: 1290px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media screen and (max-width: 1350px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+`;
+
+const BannerText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: #ccc;
+  @media screen and (max-width: 550px) {
+    gap: 50px;
+  }
+`;
+
+const TopText = styled.div`
+  font-size: 50px;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+  @media screen and (max-width: 550px) {
+    font-size: 30px;
+  }
+`;
+
+const UnderRow = styled.div`
+  display: flex;
+  align-items: flex-end;
+  & > span:last-child {
+    line-height: 80px;
+  }
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+    & > span:last-child {
+      line-height: 50px;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    & > span:last-child {
+      line-height: 40px;
+    }
+  }
+`;
+
+const Strong = styled.span`
+  padding-right: 20px;
+  font-size: 80px;
+  font-weight: 700;
+  color: #fff;
+  @media screen and (max-width: 550px) {
+    font-size: 50px;
+  }
+`;
+
+const BottomText = styled.div`
+  font-size: 16px;
+  @media screen and (max-width: 550px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 12px;
+  }
+`;
+
+const BannerImg = styled.span`
+  display: inline-block;
+  width: 402px;
+  height: 245px;
+  background: url("trophy.png") center/contain no-repeat;
+  @media screen and (max-width: 1350px) {
+    width: auto;
+    flex: 1;
+  }
+  @media screen and (max-width: 1050px) {
+    display: none;
+  }
+`;
+
+const Content = styled.div`
   width: 1290px;
   margin: 50px auto;
   display: flex;
@@ -34,60 +139,49 @@ const Section = styled.div`
     flex: 1;
   }
   &:last-child {
-    width: 28%;
+    width: 30%;
   }
 
   @media screen and (max-width: 1350px) {
     &:first-child {
-      flex: 2;
       padding-left: 0;
     }
+  }
+  @media screen and (max-width: 850px) {
     &:last-child {
-      flex: 1;
-      width: auto;
+      width: 100%;
     }
   }
 `;
 
 const CoinList = styled.ul`
-  height: calc(100vh - 200px);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 50px;
-  justify-items: center;
-  padding: 50px 20px;
-  border: 1px solid ${({ theme }) => theme.borderColor};
-  border-radius: 10px;
+  grid-template-columns: repeat(3, 160px);
+  grid-gap: 30px;
+  justify-content: space-evenly;
   position: relative;
 
-  @media screen and (max-width: 1050px) {
-    grid-gap: 30px;
-  }
   @media screen and (max-width: 600px) {
     height: auto;
+    grid-template-columns: repeat(2, 160px);
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 400px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
 
 const SubTitle = styled.span`
   display: inline-block;
-  padding: 10px 20px;
   margin-bottom: 20px;
-  background: ${({ theme }) => theme.bgColor};
+  padding-top: 10px;
   font-size: 20px;
   font-weight: 500;
   color: ${({ theme }) => theme.textColor};
-  position: absolute;
-  top: -20px;
-  left: 30px;
-  border: 1px solid ${({ theme }) => theme.borderColor};
-  border-radius: 10px;
 `;
 
 const CoinBox = styled.li`
-  width: 200px;
+  width: 160px;
+  height: fit-content;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -95,7 +189,7 @@ const CoinBox = styled.li`
   transition: transform 0.4s;
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
   }
   @media screen and (max-width: 1350px) {
     width: auto;
@@ -103,40 +197,26 @@ const CoinBox = styled.li`
 `;
 
 const Rank = styled.div`
-  width: 50px;
+  width: 30px;
   text-align: right;
   color: ${({ theme }) => theme.textColor};
   font-size: 30px;
 
   &.topRank {
-    font-size: 100px;
-    line-height: 90px;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 50px;
   }
 
   &.one {
     position: relative;
   }
-
-  @media screen and (max-width: 1350px) {
-    &.topRank {
-      font-size: 80px;
-      line-height: 70px;
-    }
-  }
-  @media screen and (max-width: 1050px) {
-    width: 30px;
-    font-size: 26px;
-    &.topRank {
-      font-size: 50px;
-      line-height: 50px;
-    }
-  }
 `;
 
 const Coin = styled.div`
-  width: 120px;
-  height: 120px;
-  background: #fff;
+  width: 100px;
+  height: 100px;
+  background: ${({ theme }) => theme.cardBgColor};
   color: #222;
   border-radius: 10px;
   box-shadow: 3px 3px 5px #8e8e8e;
@@ -155,30 +235,8 @@ const Coin = styled.div`
     transition: color 0.3s;
 
     img {
-      width: 60px;
-      height: 60px;
-    }
-  }
-
-  @media screen and (max-width: 1350px) {
-    width: 100px;
-    height: 100px;
-    font-size: 14px;
-    a {
-      img {
-        width: 40px;
-        height: 40px;
-      }
-    }
-  }
-  @media screen and (max-width: 600px) {
-    width: 80px;
-    height: 80px;
-    a {
-      img {
-        width: 30px;
-        height: 30px;
-      }
+      width: 50px;
+      height: 50px;
     }
   }
 `;
@@ -189,25 +247,18 @@ const Crown = styled.span`
   height: 35px;
   background: url("crown.png") center/cover no-repeat;
   position: absolute;
-  top: -25px;
-  left: 5px;
+  top: -30px;
+  left: -5px;
   transform: rotate(350deg);
-
-  @media screen and (max-width: 1350px) {
-    top: -30px;
-  }
-  @media screen and (max-width: 1050px) {
-    left: -10px;
-  }
 `;
 
 const CoinList100 = styled.div`
-  height: calc(100vh - 200px);
-  padding: 50px 0px 30px 20px;
-  border: 1px solid ${({ theme }) => theme.borderColor};
+  height: 420px;
+  padding: 0px 0px 30px 20px;
   border-radius: 10px;
   position: relative;
   background: ${({ theme }) => theme.cardBgColor};
+  color: #222;
 
   @media screen and (max-width: 850px) {
     padding-left: 40px;
@@ -224,7 +275,6 @@ const CoinLabels = styled.div`
     display: inline-block;
     min-width: 80px;
     font-size: 18px;
-    color: ${({ theme }) => theme.textColor};
   }
 
   @media screen and (max-width: 1050px) and (min-width: 851px) {
@@ -235,7 +285,7 @@ const CoinLabels = styled.div`
 `;
 
 const CoinTable = styled.div`
-  height: 96%;
+  height: 310px;
   overflow-y: scroll;
   position: relative;
   scrollbar-gutter: stable both-edges;
@@ -265,7 +315,7 @@ const CoinContents100 = styled.ul`
         align-items: center;
         gap: 10px;
         min-width: 80px;
-        color: ${({ theme }) => theme.textColor};
+        transition: color 0.3s;
 
         &:first-child {
           padding: 0 10px;
@@ -273,7 +323,6 @@ const CoinContents100 = styled.ul`
 
         &:hover {
           color: ${({ theme }) => theme.accentColor};
-          font-size: 18px;
         }
 
         & > img {
@@ -295,7 +344,16 @@ const CoinContents100 = styled.ul`
   }
 `;
 
+const CoinName = styled.span`
+  //width: 140px;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
 const Loader = styled.span`
+  margin: 0 auto;
   margin-top: 50px;
   color: ${(props) => props.theme.accentColor};
   font-size: 22px;
@@ -329,63 +387,88 @@ const Coins = () => {
       {isLoading ? (
         <Loader>Loading...</Loader>
       ) : (
-        <Wrapper>
-          <Section>
-            <CoinList>
-              <SubTitle>Top 12</SubTitle>
-              {data?.slice(0, 12).map((coin, index) => (
-                <CoinBox key={coin.id}>
-                  <Rank
-                    className={
-                      coin.rank <= 3
-                        ? index === 0
-                          ? "topRank one"
-                          : "topRank"
-                        : ""
-                    }
-                  >
-                    {index === 0 ? <Crown /> : ""}
-                    {coin.rank}
-                  </Rank>
-                  <Coin>
-                    <Link to={`/${coin.id}`} state={`${coin.name}`}>
-                      <img
-                        src={`https://static.coinpaprika.com/coin/${coin.id}/logo.png`}
-                      />
-                      {coin.name}
-                    </Link>
-                  </Coin>
-                </CoinBox>
-              ))}
-            </CoinList>
-          </Section>
-          <Section>
-            <CoinList100>
-              <SubTitle>Top 100</SubTitle>
-              <CoinLabels>
-                <label>Rank</label>
-                <label>Name</label>
-              </CoinLabels>
-              <CoinTable>
-                <CoinContents100>
-                  {data?.map((coin) => (
-                    <li key={coin.id}>
-                      <Link to={`/${coin.id}`} state={`${coin.name}`}>
-                        <span>{coin.rank}</span>
-                        <span>
+        <>
+          <Banner>
+            <BannerDesc>
+              <BannerText>
+                <TopText>
+                  <span>What is the</span>
+                  <UnderRow>
+                    <Strong>Hottest Coin</Strong>
+                    <span>right now?</span>
+                  </UnderRow>
+                </TopText>
+                <BottomText>
+                  All the hottest coins these days, all gathered here!
+                  <br />
+                  Check out the TOP100 coin rankings!
+                  <br />
+                  You can see the coin's volatility in real time right now
+                </BottomText>
+              </BannerText>
+              <BannerImg />
+            </BannerDesc>
+          </Banner>
+          <Content>
+            <Section>
+              <div>
+                <SubTitle>Top 9</SubTitle>
+                <CoinList>
+                  {data?.slice(0, 9).map((coin, index) => (
+                    <CoinBox key={coin.id}>
+                      <Rank
+                        className={
+                          coin.rank <= 3
+                            ? index === 0
+                              ? "topRank one"
+                              : "topRank"
+                            : ""
+                        }
+                      >
+                        {index === 0 ? <Crown /> : ""}
+                        {coin.rank}
+                      </Rank>
+                      <Coin>
+                        <Link to={`/${coin.id}`} state={`${coin.name}`}>
                           <img
                             src={`https://static.coinpaprika.com/coin/${coin.id}/logo.png`}
                           />
                           {coin.name}
-                        </span>
-                      </Link>
-                    </li>
+                        </Link>
+                      </Coin>
+                    </CoinBox>
                   ))}
-                </CoinContents100>
-              </CoinTable>
-            </CoinList100>
-          </Section>
-        </Wrapper>
+                </CoinList>
+              </div>
+            </Section>
+            <Section>
+              <CoinList100>
+                <SubTitle>Top 100</SubTitle>
+                <CoinLabels>
+                  <label>Rank</label>
+                  <label>Name</label>
+                </CoinLabels>
+                <CoinTable>
+                  <CoinContents100>
+                    {data?.map((coin) => (
+                      <li key={coin.id}>
+                        <Link to={`/${coin.id}`} state={`${coin.name}`}>
+                          <span>{coin.rank}</span>
+                          <span>
+                            <img
+                              src={`https://static.coinpaprika.com/coin/${coin.id}/logo.png`}
+                            />
+                            <CoinName>{coin.name}</CoinName>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </CoinContents100>
+                </CoinTable>
+              </CoinList100>
+            </Section>
+          </Content>
+        </>
       )}
     </Container>
   );
