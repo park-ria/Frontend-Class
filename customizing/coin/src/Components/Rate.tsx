@@ -9,7 +9,7 @@ const Wrapper = styled.li`
   align-items: center;
   padding: 10px 0;
   border-radius: 10px;
-  background: #fdfcfc;
+  background: ${({ theme }) => theme.cardBgColor};
   box-shadow: 1px 1px 2px #aaa;
   color: #222;
   @media screen and (max-width: 600px) {

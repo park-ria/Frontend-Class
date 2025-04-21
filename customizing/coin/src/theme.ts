@@ -11,10 +11,10 @@ export const darkTheme: DefaultTheme = {
 };
 
 export const lightTheme: DefaultTheme = {
-  textColor: "#555",
+  textColor: "#222",
   bgColor: "#fff",
   accentColor: "#ff006e",
-  cardBgColor: "#f9f9f9",
+  cardBgColor: "#f8f8f8",
   lineChartColor: "#3a86ff",
   borderColor: "#b8b8b8",
   lightGrayColor: "#868686",

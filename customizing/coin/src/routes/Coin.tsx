@@ -48,8 +48,12 @@ const Content = styled.div`
 `;
 
 const Loader = styled.span`
+  display: inline-block;
+  width: 100%;
+  margin-top: 200px;
   color: ${(props) => props.theme.accentColor};
   font-size: 22px;
+  text-align: center;
 `;
 
 const SubTitle = styled.span`
@@ -81,7 +85,7 @@ const Rank = styled.span`
   border-radius: 10px;
   font-size: 12px;
   color: #222;
-  background: #f9f9f9;
+  background: ${({ theme }) => theme.cardBgColor};
   h3 {
     font-size: 30px;
   }
@@ -245,19 +249,11 @@ const Coin = () => {
 
   const rateArr = ["30m", "1h", "6h", "12h", "24h", "7d", "30d", "1y"];
   let todayPrice = 0;
-  let yesterdayPrice = 0;
-  let difference = 0;
 
   if (!loading && !isNoData) {
     todayPrice = priceData?.quotes?.USD?.price
       ? parseFloat(priceData?.quotes.USD.price.toFixed(2))
       : 0;
-
-    yesterdayPrice =
-      chartData && chartData.length > 1
-        ? parseFloat(chartData[chartData?.length - 2].close)
-        : 0;
-    difference = todayPrice - yesterdayPrice;
   }
 
   return (

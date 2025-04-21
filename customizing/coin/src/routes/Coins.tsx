@@ -158,9 +158,11 @@ const CoinList = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 160px);
   grid-gap: 30px;
-  justify-content: space-evenly;
   position: relative;
 
+  @media screen and (max-width: 850px) {
+    justify-content: space-evenly;
+  }
   @media screen and (max-width: 600px) {
     height: auto;
     grid-template-columns: repeat(2, 160px);
@@ -345,7 +347,6 @@ const CoinContents100 = styled.ul`
 `;
 
 const CoinName = styled.span`
-  //width: 140px;
   flex: 1;
   overflow: hidden;
   white-space: nowrap;
@@ -353,10 +354,12 @@ const CoinName = styled.span`
 `;
 
 const Loader = styled.span`
-  margin: 0 auto;
-  margin-top: 50px;
+  display: inline-block;
+  width: 100%;
+  margin-top: 200px;
   color: ${(props) => props.theme.accentColor};
   font-size: 22px;
+  text-align: center;
 `;
 
 export interface CoinInterface {
@@ -443,7 +446,7 @@ const Coins = () => {
             </Section>
             <Section>
               <CoinList100>
-                <SubTitle>Top 100</SubTitle>
+                <SubTitle style={{ color: "#222" }}>Top 100</SubTitle>
                 <CoinLabels>
                   <label>Rank</label>
                   <label>Name</label>
