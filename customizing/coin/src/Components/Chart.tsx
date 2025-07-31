@@ -16,6 +16,10 @@ const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
   const isDark = useRecoilValue(isDarkAtom);
   const theme = useTheme();
 
+  const leftPad = (target: string) => {
+    return target.padStart(2, "0");
+  };
+
   return (
     <Container>
       {chartData.length > 0 && (
@@ -24,7 +28,7 @@ const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
           series={[
             {
               name: "Price",
-              data: chartData?.map((price) => parseFloat(price.close)) || [],
+              data: chartData?.map((item) => parseFloat(item.close)) || [],
             },
           ]}
           options={{
@@ -54,9 +58,14 @@ const Chart = ({ chartData }: { chartData: CoinHistory[] }) => {
               labels: {
                 show: true,
               },
-              categories: chartData.map((price) =>
-                new Date(price.time_close * 1000).toLocaleDateString()
-              ),
+              categories: chartData.map((item) => {
+                const chartDate = new Date(item.time_close * 1000);
+                return (
+                  leftPad(String(chartDate.getMonth() + 1)) +
+                  "." +
+                  leftPad(String(chartDate.getDate()))
+                );
+              }),
             },
             yaxis: {
               labels: {

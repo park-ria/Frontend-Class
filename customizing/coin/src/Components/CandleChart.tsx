@@ -16,6 +16,10 @@ const Container = styled.div`
 const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
   const isDark = useRecoilValue(isDarkAtom);
 
+  const leftPad = (target: string) => {
+    return target.padStart(2, "0");
+  };
+
   return (
     <Container>
       {chartData.length > 0 && (
@@ -25,14 +29,18 @@ const CandleChart = ({ chartData }: { chartData: CoinHistory[] }) => {
             {
               name: "Price",
               data:
-                chartData?.map((price) => {
+                chartData?.map((item) => {
+                  const chartDate = new Date(item.time_close * 1000);
                   return {
-                    x: new Date(price.time_close * 1000).toLocaleDateString(),
+                    x:
+                      leftPad(String(chartDate.getMonth() + 1)) +
+                      "." +
+                      leftPad(String(chartDate.getDate())),
                     y: [
-                      parseFloat(price.open),
-                      parseFloat(price.high),
-                      parseFloat(price.low),
-                      parseFloat(price.close),
+                      parseFloat(item.open),
+                      parseFloat(item.high),
+                      parseFloat(item.low),
+                      parseFloat(item.close),
                     ],
                   };
                 }) || [],
